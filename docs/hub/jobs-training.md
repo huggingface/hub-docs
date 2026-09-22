@@ -1,36 +1,37 @@
 # Train Models on Jobs
 
-<!-- Draft. Open TODOs, in rough order:
-     - libraries still to cover, each needs a run before it goes on the page:
-       sentence-transformers, diffusers, timm / vision, speech (?), PEFT-only (?)
--->
-
 A Job gives a training run a GPU for exactly as long as it needs one. You launch from your machine, the run pushes its weights to the Hub, and the machine goes away when it finishes. There is no environment to set up on the GPU side: the script or image you launch brings its own.
 
-This page shows the launch command for the most common training libraries. Where a library has its own Jobs guide, the section links to it for what to train and how; the job here is to get the run started.
-
-<!-- TODO: list which libraries have their own Jobs guide to link, and which still need one -->
+This page covers what every training Job needs, what to check before a run that costs real money, and the launch command for the most common training libraries. Where a library has its own Jobs guide, its section links to it for what to train and how; the job here is to get the run started.
 
 ## How a training Job is put together
 
-Every command below has the same four parts.
+Every command below has the same five parts.
 
-- **What runs.** Either a uv script, launched with `hf jobs uv run`, which installs the dependencies declared in the script's header into a fresh environment, or a library's Docker image, launched with `hf jobs run`, which runs the library that is installed in the image. Libraries that ship a self-contained script use the first form; libraries that ship a tuned image use the second. See [Using Docker images](./jobs-images) for the trade-off.
-
-- **A token.** Jobs get no Hugging Face token by default. `-s HF_TOKEN` forwards yours as a secret, so the run can push its model and read gated or private inputs. Without it, a run that trains for an hour fails at the push.
-- **Hardware and time.** `--flavor` picks the GPU and `--timeout` raises the default of 30 minutes. A run that hits the timeout is stopped and its container is discarded, so set it above your expected run time. Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine; whether a run uses them depends on how the library launches, noted per library below. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
-- **Where the output goes.** The container's disk is gone when the Job ends. Every library below can push the finished model to a Hub repo; pass the repo name through the library's own option, shown in each example.
+- **What runs.** Either a uv script, launched with `hf jobs uv run`, which installs the dependencies declared in the script's header into a fresh environment, or a library's Docker image, launched with `hf jobs run`, which runs the library that is installed in the image. Start with a uv script when the library installs with `pip`; use the image when the library ships one with compiled dependencies, or when its docs say to. See [Using Docker images](./jobs-images) for the trade-off.
+- **A token.** Jobs get no Hugging Face token by default. `-s HF_TOKEN` forwards yours as a secret, so the run can push its model and read gated or private inputs.
+- **Hardware and time.** `--flavor` picks the GPU and `--timeout` raises the default of 30 minutes. A run that hits the timeout is stopped and its container is discarded, so set it above your expected run time. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
+- **The script's arguments.** Put `--` before the script, so that everything after it goes to the script, even an argument that shares a name with an `hf` flag such as `--timeout` or `--token`.
+- **Where the output goes.** The container's disk is gone when the Job ends. Every library below can push the finished model to a Hub repo; pass the repo name through the library's own option, shown in each example. A run can also write to a mounted [bucket](./storage-buckets) as it goes, which is how checkpoints survive; see the end of this page.
 
 A script can also carry its own launch config in a `[tool.hf-jobs]` table of its header; the TRL section shows one.
 
-For runs long enough that a timeout or a crash would cost real money, write checkpoints to a mounted bucket as you go. See [Keep checkpoints across runs](#keep-checkpoints-across-runs) at the end of this page.
+## Before a long run
+
+A training run fails late, so a mistake costs GPU time. These checks take a few minutes.
+
+- **Smoke-test first.** Run the same command with a step cap (`--max_steps 20` for Transformers and TRL, `--max-steps 20` for the Unsloth scripts, `max_steps: 20` in an Axolotl YAML) on a small flavor. It proves the dependencies install, the data loads, the model fits and the push works. Then launch the full run.
+- **Know the price.** Multiply the flavor's hourly rate on [Pricing and Billing](./jobs-pricing) by the expected run time, and set `--timeout` a little above that time. A run that hits the timeout is stopped and its container is discarded.
+- **On a multi-GPU flavor, start one process per GPU.** Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine. Make sure the way you launch uses them: `accelerate launch` for Transformers and TRL (the TRL section shows the form); Axolotl does it by itself. A plain `python train.py` is not guaranteed to.
+- **Pin if you will rerun.** A script URL at a commit rather than `main`, and an image tag rather than `latest`, mean a rerun next month starts the same software.
+- **Checkpoint long runs.** Write checkpoints to a mounted bucket as you go, so a timeout or a crash does not lose the run. See [Keep checkpoints across runs](#keep-checkpoints-across-runs) below.
 
 ## Transformers
 
 The [example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) in the Transformers repository declare their dependencies in a script header, so they run on Jobs straight from their GitHub URL. Arguments after the URL go to the script:
 
 ```bash
-hf jobs uv run --flavor a10g-small --timeout 2h -s HF_TOKEN \
+hf jobs uv run --flavor a10g-small --timeout 2h -s HF_TOKEN -- \
   https://raw.githubusercontent.com/huggingface/transformers/main/examples/pytorch/image-classification/run_image_classification.py \
   --model_name_or_path google/vit-base-patch16-224-in21k \
   --dataset_name ethz/food101 \
@@ -40,16 +41,14 @@ hf jobs uv run --flavor a10g-small --timeout 2h -s HF_TOKEN \
   --push_to_hub
 ```
 
-`--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more. A uv script runs as one process, so this uses one GPU; see the TRL section for the multi-GPU form.
-
-<!-- TODO: run a Transformers example under accelerate launch on an x2 flavor; the TRL receipt covers the pattern, not this script -->
+`--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
 
 ## TRL
 
 [TRL](https://huggingface.co/docs/trl) ships its training scripts with script headers, so SFT, DPO, GRPO and the other trainers run the same way. This fine-tunes a small model on a chat dataset:
 
 ```bash
-hf jobs uv run --flavor a100-large --timeout 2h -s HF_TOKEN \
+hf jobs uv run --flavor a100-large --timeout 2h -s HF_TOKEN -- \
   https://raw.githubusercontent.com/huggingface/trl/refs/heads/main/trl/scripts/sft.py \
   --model_name_or_path Qwen/Qwen2-0.5B-Instruct \
   --dataset_name trl-lib/Capybara \
@@ -59,7 +58,7 @@ hf jobs uv run --flavor a100-large --timeout 2h -s HF_TOKEN \
 
 The full guide, including writing your own TRL script and running the `huggingface/trl` image, is [Training with Jobs](https://huggingface.co/docs/trl/jobs_training) in the TRL docs.
 
-A uv script runs as one process, so the command above uses one GPU. For several GPUs, run the TRL image instead and let `accelerate` start one process per GPU:
+For several GPUs, run the TRL image and let `accelerate` start one process per GPU:
 
 ```bash
 hf jobs run --flavor a10g-largex2 --timeout 2h -s HF_TOKEN huggingface/trl -- \
@@ -69,8 +68,6 @@ hf jobs run --flavor a10g-largex2 --timeout 2h -s HF_TOKEN huggingface/trl -- \
   --output_dir Qwen2-0.5B-SFT \
   --push_to_hub
 ```
-
-The single-process form on a multi-GPU flavor pays for GPUs it does not use.
 
 When you write your own TRL script, the launch config can travel with it. A `[tool.hf-jobs]` table in the script header sets the flavor, timeout and secrets:
 
@@ -94,7 +91,7 @@ from trl import SFTConfig, SFTTrainer
 [Unsloth](https://unsloth.ai) provides ready-to-run scripts in the [`unsloth/jobs`](https://huggingface.co/datasets/unsloth/jobs) dataset, one per model family. They install Unsloth from the script header and take the dataset and output repo as arguments:
 
 ```bash
-hf jobs uv run --flavor a10g-small --timeout 4h -s HF_TOKEN \
+hf jobs uv run --flavor a10g-small --timeout 4h -s HF_TOKEN -- \
   https://huggingface.co/datasets/unsloth/jobs/resolve/main/sft-lfm2.5.py \
   --dataset mlabonne/FineTome-100k \
   --num-epochs 1 \
@@ -122,7 +119,7 @@ hub_strategy: end
 hub_private_repo: true
 ```
 
-Any example from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) works with those three lines added. Pin an image tag from [Docker Hub](https://hub.docker.com/r/axolotlai/axolotl/tags) rather than `main-latest`, so a rerun next month starts the same software.
+Any example from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) works with those three lines added. Tags are listed on [Docker Hub](https://hub.docker.com/r/axolotlai/axolotl/tags).
 
 For more GPUs, change the flavor and nothing else: on `a10g-largex4`, `axolotl train` starts one process per GPU by itself. DeepSpeed and FSDP are then a matter of YAML keys, covered in [Axolotl's multi-GPU guide](https://docs.axolotl.ai/docs/multi-gpu.html).
 
@@ -132,7 +129,7 @@ A Job's disk is discarded when the Job ends, whether it finished, failed or time
 
 ```bash
 hf jobs uv run --flavor a10g-large --timeout 8h -s HF_TOKEN \
-  -v hf://buckets/your-username/checkpoints:/ckpt \
+  -v hf://buckets/your-username/checkpoints:/ckpt -- \
   train.py --output_dir /ckpt/run-01
 ```
 
