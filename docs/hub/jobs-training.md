@@ -44,7 +44,9 @@ hf jobs uv run --flavor a10g-small --timeout 2h -s HF_TOKEN \
   --push_to_hub
 ```
 
-`--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
+`--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more. A uv script runs as one process, so this uses one GPU; see the TRL section for the multi-GPU form.
+
+<!-- TODO: run a Transformers example under accelerate launch on an x2 flavor; the TRL receipt covers the pattern, not this script -->
 
 ## TRL
 
@@ -60,6 +62,19 @@ hf jobs uv run --flavor a100-large --timeout 2h -s HF_TOKEN \
 ```
 
 The full guide, including writing your own TRL script and running the `huggingface/trl` image, is [Training with Jobs](https://huggingface.co/docs/trl/jobs_training) in the TRL docs.
+
+A uv script runs as one process, so the command above uses one GPU. For several GPUs, run the TRL image instead and let `accelerate` start one process per GPU:
+
+```bash
+hf jobs run --flavor a10g-largex2 --timeout 2h -s HF_TOKEN huggingface/trl -- \
+  accelerate launch --num_processes 2 -m trl.scripts.sft \
+  --model_name_or_path Qwen/Qwen2-0.5B-Instruct \
+  --dataset_name trl-lib/Capybara \
+  --output_dir Qwen2-0.5B-SFT \
+  --push_to_hub
+```
+
+The single-process form on a multi-GPU flavor pays for GPUs it does not use.
 
 <!-- TODO: decide whether to mention trl-jobs (https://github.com/huggingface/trl-jobs).
      TODO: show the header form for the TRL image, once run:
