@@ -4,7 +4,6 @@
      - libraries still to cover, each needs a run before it goes on the page:
        sentence-transformers, diffusers, timm / vision, speech (?), PEFT-only (?)
      - decide whether every library gets a [tool.hf-jobs] header variant or only the image-form ones
-     - switch the images link to ./jobs-images once hub-docs#2782 merges
      - run the Unsloth command end to end before it is quoted as-is
 -->
 
@@ -18,8 +17,7 @@ This page shows the launch command for the most common training libraries. Where
 
 Every command below has the same four parts.
 
-- **What runs.** Either a uv script, launched with `hf jobs uv run`, which installs the dependencies declared in the script's header into a fresh environment, or a library's Docker image, launched with `hf jobs run`, which runs the library that is installed in the image. Libraries that ship a self-contained script use the first form; libraries that ship a tuned image use the second. See [Using Docker images](./jobs-popular-images) for the trade-off.
-<!-- TODO: link becomes ./jobs-images after hub-docs#2782 -->
+- **What runs.** Either a uv script, launched with `hf jobs uv run`, which installs the dependencies declared in the script's header into a fresh environment, or a library's Docker image, launched with `hf jobs run`, which runs the library that is installed in the image. Libraries that ship a self-contained script use the first form; libraries that ship a tuned image use the second. See [Using Docker images](./jobs-images) for the trade-off.
 
 - **A token.** Jobs get no Hugging Face token by default. `-s HF_TOKEN` forwards yours as a secret, so the run can push its model and read gated or private inputs. Without it, a run that trains for an hour fails at the push.
 - **Hardware and time.** `--flavor` picks the GPU and `--timeout` raises the default of 30 minutes. A run that hits the timeout is stopped and its container is discarded, so set it above your expected run time. Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine; whether a run uses them depends on how the library launches, noted per library below. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
