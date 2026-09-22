@@ -3,8 +3,6 @@
 <!-- Draft. Open TODOs, in rough order:
      - libraries still to cover, each needs a run before it goes on the page:
        sentence-transformers, diffusers, timm / vision, speech (?), PEFT-only (?)
-     - decide whether every library gets a [tool.hf-jobs] header variant or only the image-form ones
-     - run the Unsloth command end to end before it is quoted as-is
 -->
 
 A Job gives a training run a GPU for exactly as long as it needs one. You launch from your machine, the run pushes its weights to the Hub, and the machine goes away when it finishes. There is no environment to set up on the GPU side: the script or image you launch brings its own.
@@ -23,7 +21,7 @@ Every command below has the same four parts.
 - **Hardware and time.** `--flavor` picks the GPU and `--timeout` raises the default of 30 minutes. A run that hits the timeout is stopped and its container is discarded, so set it above your expected run time. Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine; whether a run uses them depends on how the library launches, noted per library below. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
 - **Where the output goes.** The container's disk is gone when the Job ends. Every library below can push the finished model to a Hub repo; pass the repo name through the library's own option, shown in each example.
 
-A script can also carry its own launch config. A `[tool.hf-jobs]` table in the script header sets the flavor, timeout, secrets and image, so `hf jobs uv run train.py` needs no flags at all and an explicit flag still wins. See [Define the launch config in the script](./jobs-configuration#define-the-launch-config-in-the-script).
+A script can also carry its own launch config in a `[tool.hf-jobs]` table of its header; the TRL section shows one.
 
 For runs long enough that a timeout or a crash would cost real money, write checkpoints to a mounted bucket as you go. See [Keep checkpoints across runs](#keep-checkpoints-across-runs) at the end of this page.
 
@@ -74,17 +72,24 @@ hf jobs run --flavor a10g-largex2 --timeout 2h -s HF_TOKEN huggingface/trl -- \
 
 The single-process form on a multi-GPU flavor pays for GPUs it does not use.
 
-<!-- TODO: decide whether to mention trl-jobs (https://github.com/huggingface/trl-jobs).
-     TODO: show the header form for the TRL image, once run:
-       # [tool.hf-jobs]
-       # image   = "huggingface/trl"
-       # flavor  = "a100-large"
-       # secrets = ["HF_TOKEN"]
-     then `hf jobs uv run train.py` with no flags. -->
+When you write your own TRL script, the launch config can travel with it. A `[tool.hf-jobs]` table in the script header sets the flavor, timeout and secrets:
+
+```python
+# /// script
+# dependencies = ["trl"]
+#
+# [tool.hf-jobs]
+# flavor  = "a10g-small"
+# timeout = "1h"
+# secrets = ["HF_TOKEN"]
+# ///
+from trl import SFTConfig, SFTTrainer
+...
+```
+
+`hf jobs uv run train.py` then needs no flags, and a flag you do pass still wins. See [Define the launch config in the script](./jobs-configuration#define-the-launch-config-in-the-script).
 
 ## Unsloth
-
-<!-- TODO: run this command end to end and confirm the flags against the current unsloth/jobs scripts -->
 
 [Unsloth](https://unsloth.ai) provides ready-to-run scripts in the [`unsloth/jobs`](https://huggingface.co/datasets/unsloth/jobs) dataset, one per model family. They install Unsloth from the script header and take the dataset and output repo as arguments:
 
