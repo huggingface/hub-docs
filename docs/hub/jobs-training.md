@@ -4,7 +4,7 @@ This page shows how to fine-tune and train models on Jobs, with a library's scri
 
 ## A first run
 
-This fine-tunes an image classifier on 2,000 Food-101 images and pushes it to your namespace on the Hub, in about three minutes:
+This command fine-tunes an image classifier on 2,000 Food-101 images and pushes it to your namespace on the Hub, in about three minutes:
 
 ```bash
 hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
@@ -32,8 +32,8 @@ The command above has five parts, and every command on this page has the same on
 
 **Your own training code.** Use the simplest form that fits:
 
-- **One file.** Declare its dependencies in a PEP 723 header and run `hf jobs uv run train.py`. The TRL section shows a header.
-- **A project folder**, with local imports, a `pyproject.toml` or config files. `hf jobs uv run` uploads only the script file, so mount the folder instead. The mount is read-only, so the command copies the project to a writable directory and runs it there, as you would locally:
+- **One file.** Declare its dependencies in a file header and run `hf jobs uv run train.py`. The TRL section shows such header.
+- **A project folder** with local imports, a `pyproject.toml` or config files. `hf jobs uv run` uploads only the script file, so mount the folder instead. The mount is read-only, so the command copies the project to a writable directory and runs it there, as you would locally:
 
   ```bash
   hf jobs run --flavor a10g-small --timeout 30m -s HF_TOKEN \
@@ -41,10 +41,10 @@ The command above has five parts, and every command on this page has the same on
     bash -c "cp -r /code /tmp/project && cd /tmp/project && uv run train.py --config configs/run.yaml"
   ```
 
-  `uv run` installs dependencies from `pyproject.toml` or the script's PEP 723 header, and local imports and relative paths work unchanged. See [Local directories](./jobs-configuration#local-directories).
+  `uv run` installs dependencies from `pyproject.toml` or the script's header, and local imports and relative paths work unchanged. See [Local directories](./jobs-configuration#local-directories).
 - **Code that needs system packages or a CUDA toolkit.** Build an image once and run it with `hf jobs run`. See [Build your own image with a Docker Space](./jobs-images#build-your-own-image-with-a-docker-space).
 
-A script can also carry its own launch config in a `[tool.hf-jobs]` table of its PEP 723 header, as the TRL section shows. See [Define the launch config in the script](./jobs-configuration#define-the-launch-config-in-the-script). The same commands are available from Python as `run_uv_job()` and `run_job()`, covered in [Configuration](./jobs-configuration).
+A script can also carry its own launch config in a `[tool.hf-jobs]` table of its, as the TRL section shows. See [Define the launch config in the script](./jobs-configuration#define-the-launch-config-in-the-script). The same commands are available from Python as `run_uv_job()` and `run_job()`, covered in [Configuration](./jobs-configuration).
 
 ## Checks before a long run
 
@@ -85,7 +85,7 @@ Transformers and TRL scripts take `--output_dir`. Axolotl takes `output_dir` in 
 
 ## Transformers
 
-The [example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) in the Transformers repository declare their dependencies in a PEP 723 header, so they run on Jobs straight from their GitHub URL. Arguments after the URL go to the script. [A first run](#a-first-run) uses the image-classification script.
+The [example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) in the Transformers repository declare their dependencies in a header, so they run on Jobs straight from their GitHub URL. Arguments after the URL go to the script. [A first run](#a-first-run) uses the image-classification script.
 
 For the full run, drop `--max_train_samples 2000 --max_eval_samples 500 --num_train_epochs 1` from that command: three epochs over the 75,000 Food-101 training images take about an hour on `a10g-small`, around $1 at that flavor's rate, and reach 90% accuracy. Raise `--timeout` to `2h` before you launch it. `--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
 
