@@ -93,7 +93,7 @@ You also have the option to link your Hugging Face organization to your cloud pr
 Two marketplaces are supported:
 
 * **AWS Marketplace** — subscribe from the [Hugging Face Platform listing](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2) to link your AWS account. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
-* **Google Cloud Marketplace** — subscribe to the Hugging Face Platform listing on Google Cloud Marketplace to link your Google Cloud account.
+* **Google Cloud Marketplace** — subscribe from the [Hugging Face Hub listing](https://console.cloud.google.com/marketplace/product/huggingface-public/hugging-face-hub) to link your Google Cloud account.
 
 In both cases, you start from the marketplace listing, then pick which of your Hugging Face organizations to link. Once linked, the organization's payment method appears in its billing settings, showing the linked cloud account and the current subscription status.
 
