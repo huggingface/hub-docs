@@ -103,6 +103,7 @@ The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M 
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs">Introduction</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-overview">Jobs Overview</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-quickstart">Quickstart</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-training">Train Models</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-pricing">Pricing</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-manage">Manage Jobs</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-configuration">Jobs Configuration</a>
