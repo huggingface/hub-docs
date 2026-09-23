@@ -2,44 +2,44 @@
 
 A Job gives a training run a GPU for exactly as long as it needs one. You launch from your machine, the run pushes its weights to the Hub, and the machine goes away when it finishes. There is no environment to set up on the GPU side: the script or image you launch brings its own.
 
-This page covers a high level overview of training on Jobs as well as examples for common libraries. Every example is capped to a short run that finishes in minutes on the cheapest GPU; each section says what to remove for the full run.
+This page is an overview of training on Jobs, with examples for common libraries. Every example is capped to a short run that finishes in minutes on a single A10G. Each section says what to remove for the full run. If you have not run a Job before, [Quickstart](./jobs-quickstart) covers installing the CLI, logging in and the credits a Job needs.
 
 ## How a training Job is put together
 
-Every command below has the same five parts; the first Transformers command is a worked instance of all five.
+Every command below has the same five parts. The first Transformers command shows all of them.
 
-- **What runs.** Either a Python script whose first lines declare its dependencies in a `# /// script` comment block (a uv script; the TRL section shows one), launched with `hf jobs uv run`, which installs those dependencies into a fresh environment, or a library's Docker image, launched with `hf jobs run`, which runs the library that is installed in the image. Start with a uv script when the library installs with `pip`; use the image when the library ships one with compiled dependencies, or when its docs say to. See [Using Docker images](./jobs-images) for the trade-off.
-- **A token.** Jobs get no Hugging Face token by default. `-s HF_TOKEN` forwards yours as a secret, so the run can push its model and read gated or private inputs. Other secrets travel the same way, for example `-s WANDB_API_KEY`.
-- **Hardware and time.** `--flavor` picks the GPU and `--timeout` raises the default of 30 minutes. A run that hits the timeout is stopped and its container is discarded, so set it above your expected run time. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
-- **A `--` between the `hf` flags and the script.** Flags before `--` are for `hf jobs`; after it come the script path and then the script's own arguments. Without it, a script argument that shares a name with an `hf` flag, such as `--timeout` or `--token`, is taken by `hf`. In the image form, what follows `--` is the command to run in the container.
-- **Where the output goes.** The container's disk is gone when the Job ends. Every library below can push the finished model to a Hub repo; each example shows the option, and for Transformers and TRL the repo takes the `--output_dir` name. A run can also write to a mounted [bucket](./storage-buckets) as it goes (`-v` mounts one into the container); see [After it ends](#after-it-ends).
+- **What runs.** Either a uv script, launched with `hf jobs uv run`: a Python script that declares its dependencies in a `# /// script` comment block near the top, which uv installs into a fresh environment. The TRL section shows one. Or a library's Docker image, launched with `hf jobs run`, which uses the library already installed in the image. Start with a uv script when the library installs with `pip`. Use the image when the library ships one with compiled dependencies, or when its docs say to. See [Using Docker images](./jobs-images) for the trade-off.
+- **A token.** Jobs get no Hugging Face token by default. `-s HF_TOKEN` forwards yours as a secret, so the run can push its model and read gated or private inputs. A fine-grained token needs write and create access to the model repo, or the run trains to the end and then fails on the upload. Other secrets travel the same way, for example `-s WANDB_API_KEY`.
+- **Hardware and time.** `--flavor` picks the GPU. `--timeout` sets the time limit, which defaults to 30 minutes. A run that hits the timeout is stopped and its container is discarded, so set `--timeout` above your expected run time. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
+- **A `--` between the `hf` flags and the script.** Flags before `--` are for `hf jobs`. After it come the script path and the script's own arguments. Without it, a script argument that shares a name with an `hf` flag, such as `--timeout` or `--token`, is taken by `hf`. In the image form, what follows `--` is the command to run in the container.
+- **Where the output goes.** The container's disk is gone when the Job ends. Every library below can push the finished model to a Hub repo, and each example shows the option. For Transformers and TRL the repo takes the `--output_dir` name. A run can also write to a mounted [bucket](./storage-buckets) as it goes, using `-v` to mount one into the container. See [After it ends](#after-it-ends).
 
-A script can also carry its own launch config in a `[tool.hf-jobs]` table of its header ([details](./jobs-configuration#define-the-launch-config-in-the-script)); the TRL section shows one. The same commands are available from Python as `run_uv_job()` and `run_job()`; see [Configuration](./jobs-configuration).
+A script can also carry its own launch config in a `[tool.hf-jobs]` table of its header, as the TRL section shows. See [Define the launch config in the script](./jobs-configuration#define-the-launch-config-in-the-script). The same commands are available from Python as `run_uv_job()` and `run_job()`, covered in [Configuration](./jobs-configuration).
 
 ## Checks before a long run
 
-A few checks before launch save a wasted run; each takes a minute or two.
+A few checks before launch save a wasted run.
 
 - **Smoke-test first.** Run the command with a step cap on a small flavor, as the examples below do. It proves the dependencies install, the data loads, the model fits and the push works. Then remove the cap and launch the full run.
-- **Check the data fits.** Each flavor has a fixed disk, listed in the Ephemeral Storage column on [Pricing and Billing](./jobs-pricing#pricing); weights, dataset and saved checkpoints share it. A dataset too big for the disk can be streamed or mounted instead of downloaded, see [Process Large Datasets](./jobs-large-datasets).
-- **Know the price.** The smoke test's final `train_*` metrics include `train_steps_per_second`; divide the full run's step count by it for the run time, multiply by the flavor's hourly rate on [Pricing and Billing](./jobs-pricing), and set `--timeout` a little above that time.
-- **On a multi-GPU flavor, start one process per GPU.** Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine. Make sure the way you launch uses them: `accelerate launch` for Transformers and TRL (the TRL section shows the form); Axolotl does it by itself. A plain `python train.py` uses one GPU; a `Trainer` falls back to `DataParallel`, which is slower than one process per GPU.
-- **Pin if you will rerun.** A script URL at a commit rather than `main`, and an image tag rather than `latest`, mean a rerun next month starts the same software. The examples below use `main` so they track the libraries; pin the commit before a rerun.
-- **Checkpoint long runs** to a mounted bucket, so a timeout or a crash does not lose the run; see [After it ends](#after-it-ends).
+- **Check the data fits.** Each flavor has a fixed disk, listed in the Ephemeral Storage column on [Pricing and Billing](./jobs-pricing#pricing). Weights, dataset and saved checkpoints share it. A dataset too big for the disk can be streamed or mounted instead of downloaded. See [Process Large Datasets](./jobs-large-datasets).
+- **Estimate the run time.** The smoke test's final `train_*` metrics include `train_steps_per_second`, and the trainer prints the total step count when it starts. Together they give the full run's training time. Set `--timeout` comfortably above it, since the Job also spends time installing dependencies and downloading the model. Rates per flavor are on [Pricing and Billing](./jobs-pricing).
+- **On a multi-GPU flavor, start one process per GPU.** Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine. Make sure the way you launch uses them. Transformers and TRL need `accelerate launch`, as the TRL section shows. Axolotl does it by itself. A plain `python train.py` uses one GPU, and a `Trainer` falls back to `DataParallel`, which is slower than one process per GPU.
+- **Pin if you will rerun.** Pin a script URL to a commit instead of `main`, and an image to a specific tag instead of `latest`. A rerun then gets the same software. The script URLs below track `main`, so pin the commit before you rerun one.
+- **Checkpoint long runs** to a mounted bucket, so a timeout or a crash does not lose the run. See [After it ends](#after-it-ends).
 
 ## While it runs
 
-`hf jobs uv run` streams the logs and holds your terminal until the run ends. For longer runs you can use `-d` (detach) to get the Job ID back straight away, then follow it with `hf jobs logs -f <job_id>` and confirm the GPU is busy with `hf jobs stats <job_id>`. Ctrl+C stops the streaming, not the Job; `hf jobs cancel <job_id>` stops the Job. In a script or an agent loop, `hf jobs wait <job_id>` blocks until the Job ends and exits non-zero if it failed. See [Manage Jobs](./jobs-manage).
+`hf jobs run` and `hf jobs uv run` both stream the logs and hold your terminal until the run ends. For longer runs, pass `-d` (detach) to get the Job ID back straight away, then follow the run with `hf jobs logs -f <job_id>` and confirm the GPU is busy with `hf jobs stats <job_id>`. Ctrl+C stops the streaming, not the Job. To stop the Job, use `hf jobs cancel <job_id>`. After a detached run, `hf jobs wait <job_id>` blocks until the Job ends and exits non-zero if it failed, which is what a script or an agent loop needs. A non-detached run already does this. See [Manage Jobs](./jobs-manage).
 
 Job logs print loss values as text. For curves, point the trainer at an experiment tracker such as [trackio](https://huggingface.co/docs/trackio) and, for a hosted tracker such as Weights & Biases, pass its key as a second secret.
 
 ## After it ends
 
-A Job's disk is discarded when the Job ends, whether it finished, failed or timed out. Anything you want to keep has to leave the container before then, by one of two routes.
+A Job's disk is discarded when the Job ends, whether it finished, failed or timed out. Anything you want to keep has to leave the container before then.
 
-**Push the model to a Hub repo.** Every library on this page has an option for it: `--push_to_hub` for Transformers and TRL, `--output-repo` for the Unsloth scripts, `hub_model_id` in an Axolotl YAML. At the end of the run it uploads the weights, the tokenizer and a generated model card that records the base model and the training arguments. The repo is created if it does not exist; create it first with `hf repos create <name> --private` if you want it private.
+**Push the model to a Hub repo.** Every library on this page has an option for it: `--push_to_hub` for Transformers and TRL, `--output-repo` for the Unsloth scripts, `hub_model_id` in an Axolotl YAML. At the end of the run the library uploads the weights, the tokenizer and a generated model card recording the base model and the training arguments. The repo is created if it does not exist. To make it private, create it first with `hf repos create <name> --private`.
 
-**Write to a bucket as you go.** For a run that takes hours, mount an existing [Storage Bucket](./storage-buckets) read-write (create one with `hf buckets create`) and point the library's output directory at it. Checkpoints land in the bucket as they are saved, so a timeout or a crash does not lose the run, and the next Job can resume from them. The same route works for anything that is not a model: evaluation outputs, logs, samples.
+**Write to a bucket as you go.** For a run that takes hours, mount an existing [Storage Bucket](./storage-buckets) read-write (create one with `hf buckets create`) and point the library's output directory at it. Checkpoints land in the bucket as they are saved, so a timeout or a crash does not lose the run, and the next Job can resume from them. The same route works for evaluation outputs, logs and anything else that is not a model.
 
 ```bash
 hf jobs uv run --flavor a10g-large --timeout 8h -s HF_TOKEN \
@@ -47,7 +47,7 @@ hf jobs uv run --flavor a10g-large --timeout 8h -s HF_TOKEN \
   train.py --output_dir /ckpt/run-01
 ```
 
-Transformers and TRL scripts take `--output_dir`; Axolotl takes `output_dir` in the YAML. To continue an interrupted run, mount the same bucket again and pass the library's resume option, such as `--resume_from_checkpoint` for a Transformers `Trainer`. See [Volumes](./jobs-configuration#volumes) for the mount options.
+Transformers and TRL scripts take `--output_dir`. Axolotl takes `output_dir` in the YAML. To continue an interrupted run, mount the same bucket again and pass the library's resume option, such as `--resume_from_checkpoint` for a Transformers `Trainer`. See [Volumes](./jobs-configuration#volumes) for the mount options.
 
 **Read a failed run.** A Job that fails keeps its logs: `hf jobs logs <job_id>` works after it ends, and `hf jobs inspect <job_id>` gives the final status and error message. `hf jobs logs -f` returns when the log stream ends whether the run succeeded or not, so check `inspect` before assuming it worked.
 
@@ -67,7 +67,7 @@ hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
   --push_to_hub
 ```
 
-This trains on 2,000 images and finishes in about three minutes. Drop `--max_train_samples 2000 --max_eval_samples 500 --num_train_epochs 1` for the full run: three epochs over the 75,000 Food-101 training images take about an hour on `a10g-small`, about $1, and reach 90% accuracy. `--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
+This trains on 2,000 images and finishes in about three minutes. Drop `--max_train_samples 2000 --max_eval_samples 500 --num_train_epochs 1` for the full run: three epochs over the 75,000 Food-101 training images take about an hour on `a10g-small` and reach 90% accuracy, so raise `--timeout` to `2h` before you launch it. `--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
 
 ## TRL
 
@@ -83,7 +83,7 @@ hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
   --push_to_hub
 ```
 
-This finishes in about six minutes. Remove `--max_steps` for the full run: three epochs of Capybara, the script's default, take about 2 h 20 min on `a10g-small`, so raise `--timeout` with it; TRL's own docs use `a100-large`, which is faster and costs about the same per run.
+This finishes in about six minutes. Remove `--max_steps` for the full run: three epochs of Capybara, the script's default, take about 2 h 20 min on `a10g-small`, so raise `--timeout` with it. TRL's own docs use `a100-large`, which is faster.
 
 The full guide, including writing your own TRL script and running the `huggingface/trl` image, is [Training with Jobs](https://huggingface.co/docs/trl/jobs_training) in the TRL docs.
 
@@ -99,7 +99,7 @@ hf jobs run --flavor a10g-largex2 --timeout 30m -s HF_TOKEN huggingface/trl -- \
   --push_to_hub
 ```
 
-Without `--max_steps`, the full run (three epochs of Capybara, the script's default) takes about 1 h 35 min on two A10Gs, about $5.
+Without `--max_steps`, the full run (three epochs of Capybara, the script's default) takes about 1 h 35 min on two A10Gs.
 
 When you write your own TRL script, the launch config can travel with it. A `[tool.hf-jobs]` table in the script header sets the flavor, timeout and secrets:
 
@@ -134,7 +134,7 @@ This finishes in about five minutes and pushes a LoRA adapter. For a full epoch,
 
 ## Axolotl
 
-[Axolotl](https://docs.axolotl.ai) is configured with a YAML file and run from its own Docker image, so this is the image form: `hf jobs run` with a pinned tag, and the config synced in from a local directory with `-v`. `/configs/lora.yml` is any config from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) with the keys below added. The image already contains the `axolotl` command.
+[Axolotl](https://docs.axolotl.ai) takes a YAML config and runs from its own Docker image, so this section uses `hf jobs run` with a pinned tag and syncs the config in from a local directory with `-v`. Save a config from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) as `./configs/lora.yml`, with the keys below added. The image already contains the `axolotl` command.
 
 ```bash
 hf jobs run --flavor a10g-small --timeout 30m -s HF_TOKEN \
@@ -143,7 +143,7 @@ hf jobs run --flavor a10g-small --timeout 30m -s HF_TOKEN \
   axolotl train /configs/lora.yml
 ```
 
-`-v ./configs:/configs` uploads the local `configs` directory to your private `jobs-artifacts` bucket (created for you on first use) and mounts it read-only in the container, so the YAML on your disk is the YAML the run uses. Output is set in the YAML; these keys push the model at the end of the run:
+`-v ./configs:/configs` uploads the local `configs` directory to your private `jobs-artifacts` bucket (created for you on first use) and mounts it read-only in the container, so the YAML on your disk is the YAML the run uses. Output is set in the YAML. These keys push the model at the end of the run, and `max_steps` caps this trial run:
 
 ```yaml
 hub_model_id: your-username/my-adapter
@@ -158,6 +158,7 @@ For more GPUs, change the flavor and nothing else: on `a10g-largex4`, `axolotl t
 
 ## Going further
 
+- [Serve Models](./jobs-serving) to put the model you trained behind a temporary endpoint, for an evaluation run or a demo. [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) runs one that stays up.
 - [Configuration](./jobs-configuration) for secrets, environment variables, volumes and the `[tool.hf-jobs]` header that lets a script carry its own flavor and timeout.
 - [Manage Jobs](./jobs-manage) for listing, inspecting, debugging and cancelling Jobs.
 - [Process Large Datasets](./jobs-large-datasets) for streaming and mounting data that does not fit the disk.
