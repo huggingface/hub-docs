@@ -10,7 +10,7 @@ We offer advanced security and compliance features for organizations through our
 
 Team and Enterprise plans are billed like a typical subscription. They renew automatically, but you can choose to cancel at any time in the organization's billing settings.
 
-You can pay for a Team subscription with a credit card or your AWS account, or upgrade to Enterprise via an annual contract.
+You can pay for a Team subscription with a credit card or your AWS or Google Cloud account, or upgrade to Enterprise via an annual contract.
 
 Upon renewal, the number of seats in your subscription will be updated to match the number of members of your organization.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
@@ -72,8 +72,9 @@ Invoices for compute services are edited at the beginning of each month.
 
 Hugging Face uses [Stripe](https://stripe.com) to securely process your payment information.
 
-The only payment method supported for Hugging Face compute services is credit cards.
-You can add a credit card to your account from your billing settings.
+Hugging Face compute services are paid by credit card. You can add a credit card to your account from your billing settings.
+
+Organizations can alternatively be billed through a [cloud marketplace](#cloud-providers-partnerships) subscription, so that Hugging Face usage appears on their AWS or Google Cloud bill.
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/payment-method-light.png"/>
@@ -87,8 +88,18 @@ and [Google Cloud](https://huggingface.co/blog/llama31-on-vertex-ai) to make it 
 These solutions and usage are billed directly by the cloud provider. Ultimately, we want people to have great options for using Hugging Face wherever they
 build ML-powered products.
 
-You also have the option to link your Hugging Face organization to your AWS account via [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2).
-Hugging Face compute service usage will then be included in your AWS bill. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
+You also have the option to link your Hugging Face organization to your cloud provider account through a cloud marketplace. Hugging Face compute service usage is then included in your cloud provider bill instead of being charged to a credit card.
+
+Two marketplaces are supported:
+
+* **AWS Marketplace** — subscribe from the [Hugging Face Platform listing](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2) to link your AWS account. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
+* **Google Cloud Marketplace** — subscribe to the Hugging Face Platform listing on Google Cloud Marketplace to link your Google Cloud account.
+
+In both cases, you start from the marketplace listing, then pick which of your Hugging Face organizations to link. Once linked, the organization's payment method appears in its billing settings, showing the linked cloud account and the current subscription status.
+
+A cloud marketplace subscription must be approved by the Hugging Face team before paid usage starts being billed through it. Until the subscription is active and approved, the organization's billing settings show it as pending, and usage keeps being billed to the organization's existing payment method. You will receive an email notification once the subscription is validated.
+
+Cloud marketplace billing is available for organizations only, and replaces the credit card as the organization's payment method. Adding credits is not available while an organization is billed through a cloud marketplace: usage is metered and reported to your cloud provider instead. Linking and unlinking a cloud marketplace account is recorded in your organization's [audit logs](./audit-logs).
 
 ## Support FAQ 
 
@@ -112,7 +123,7 @@ A. We recommend enabling automatic recharge to avoid service disruptions after c
 **Q. I'm having issues adding my card. What’s up?**
 
 A. Please ensure the card supports 3D-secure authentication and is properly configured for recurring online payments. We do not yet support credit cards issued in India as we’re working on adding system compliance with the latest RBI directives. Until we add support for Indian credit cards, you can:
-* Link an organization account to an AWS account in order to access pay-as-you-go features (Endpoints, Spaces, AutoTrain): [Hugging Face Platform on the AWS Marketplace: Pay with your AWS Account](https://huggingface.co/blog/aws-marketplace)
+* Link an organization account to an AWS or Google Cloud account through a [cloud marketplace](#cloud-providers-partnerships) in order to access pay-as-you-go features (Endpoints, Spaces, AutoTrain). For AWS, see [Hugging Face Platform on the AWS Marketplace: Pay with your AWS Account](https://huggingface.co/blog/aws-marketplace)
 * Use a credit card issued in another country
 
 **Q. How can I add my tax ID or update the billing details?**
