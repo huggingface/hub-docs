@@ -2,7 +2,7 @@
 
 A Job gives a training run a GPU for exactly as long as it needs one. You launch from your machine, the run pushes its weights to the Hub, and the machine goes away when it finishes. There is no environment to set up on the GPU side: the script or image you launch brings its own.
 
-This page is an overview of training on Jobs, with examples for common libraries. Every example is capped to a short run that finishes in minutes on a single A10G. Each section says what to remove for the full run. If you have not run a Job before, [Quickstart](./jobs-quickstart) covers installing the CLI, logging in and the credits a Job needs.
+This page is an overview of training on Jobs, with examples for common libraries. Every example is capped to a short run that finishes in minutes on a single A10G, for around $0.10 of compute. Each section says what to remove for the full run. If you have not run a Job before, [Quickstart](./jobs-quickstart) covers installing the CLI, logging in and the credits a Job needs.
 
 ## How a training Job is put together
 
@@ -67,7 +67,7 @@ hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
   --push_to_hub
 ```
 
-This trains on 2,000 images and finishes in about three minutes. Drop `--max_train_samples 2000 --max_eval_samples 500 --num_train_epochs 1` for the full run: three epochs over the 75,000 Food-101 training images take about an hour on `a10g-small` and reach 90% accuracy, so raise `--timeout` to `2h` before you launch it. `--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
+This trains on 2,000 images and finishes in about three minutes. Drop `--max_train_samples 2000 --max_eval_samples 500 --num_train_epochs 1` for the full run: three epochs over the 75,000 Food-101 training images take about an hour on `a10g-small`, around $1 at that flavor's rate, and reach 90% accuracy. Raise `--timeout` to `2h` before you launch it. `--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
 
 ## TRL
 
@@ -134,7 +134,7 @@ This finishes in about five minutes and pushes a LoRA adapter. For a full epoch,
 
 ## Axolotl
 
-[Axolotl](https://docs.axolotl.ai) takes a YAML config and runs from its own Docker image, so this section uses `hf jobs run` with a pinned tag and syncs the config in from a local directory with `-v`. Save a config from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) as `./configs/lora.yml`, with the keys below added. The run here uses `examples/phi/lora-3.5.yaml`, a LoRA fine-tune of Phi-3.5-mini, unchanged apart from those keys. The image already contains the `axolotl` command.
+[Axolotl](https://docs.axolotl.ai) takes a YAML config and runs from its own Docker image, so this section uses `hf jobs run` with a pinned tag and syncs the config in from a local directory with `-v`. Save a config from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) as `./configs/lora.yml` and add the keys below. This example uses `examples/phi/lora-3.5.yaml`, a LoRA fine-tune of Phi-3.5-mini, otherwise unchanged. The image already contains the `axolotl` command.
 
 ```bash
 hf jobs run --flavor a10g-small --timeout 30m -s HF_TOKEN \
