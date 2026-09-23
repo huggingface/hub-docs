@@ -24,7 +24,7 @@ The [Transformers](#transformers) section covers the full run and the other exam
 
 The command above has five parts, and every command on this page has the same ones.
 
-- **What runs.** Either a uv script, launched with `hf jobs uv run`: a Python script that declares its dependencies in a [PEP 723](https://peps.python.org/pep-0723/) header (a `# /// script` comment block near the top), which uv installs into a fresh environment. The TRL section shows one. Or a library's Docker image, launched with `hf jobs run`, which uses the library already installed in the image. Start with a uv script when the library installs with `pip`. Use the image when the library ships one with compiled dependencies, or when its docs say to. See [Using Docker images](./jobs-images) for the trade-off.
+- **What runs.** Either a uv script, launched with `hf jobs uv run`: a Python script that declares its dependencies in a comment block near the top (`# /// script`, the [PEP 723](https://peps.python.org/pep-0723/) format), which uv installs into a fresh environment. The TRL section shows one. Or a library's Docker image, launched with `hf jobs run`, which uses the library already installed in the image. Start with a uv script when the library installs with `pip`. Use the image when the library ships one with compiled dependencies, or when its docs say to. See [Using Docker images](./jobs-images) for the trade-off.
 - **A token.** Jobs get no Hugging Face token by default. `-s HF_TOKEN` forwards yours as a secret, so the run can push its model and read gated or private inputs. Other secrets travel the same way, for example `-s WANDB_API_KEY`.
 - **Hardware and time.** `--flavor` picks the GPU. `--timeout` sets the time limit, which defaults to 30 minutes. A run that hits the timeout is stopped, so set `--timeout` above your expected run time. See [Hardware flavor](./jobs-configuration#hardware-flavor) and [Timeout](./jobs-configuration#timeout).
 - **A `--` between the `hf` flags and the script.** Flags before `--` are for `hf jobs`. After it come the script path and the script's own arguments. Without it, a script argument that shares a name with an `hf` flag, such as `--timeout` or `--token`, is taken by `hf`. In the image form, what follows `--` is the command to run in the container.
@@ -32,7 +32,7 @@ The command above has five parts, and every command on this page has the same on
 
 **Your own training code.** Use the simplest form that fits:
 
-- **One file.** Declare its dependencies in a file header and run `hf jobs uv run train.py`. The TRL section shows such header.
+- **One file.** Declare its dependencies in a script header and run `hf jobs uv run train.py`. The TRL section shows one.
 - **A project folder** with local imports, a `pyproject.toml` or config files. `hf jobs uv run` uploads only the script file, so mount the folder instead. The mount is read-only, so the command copies the project to a writable directory and runs it there, as you would locally:
 
   ```bash
@@ -44,7 +44,7 @@ The command above has five parts, and every command on this page has the same on
   `uv run` installs dependencies from `pyproject.toml` or the script's header, and local imports and relative paths work unchanged. See [Local directories](./jobs-configuration#local-directories).
 - **Code that needs system packages or a CUDA toolkit.** Build an image once and run it with `hf jobs run`. See [Build your own image with a Docker Space](./jobs-images#build-your-own-image-with-a-docker-space).
 
-A script can also carry its own launch config in a `[tool.hf-jobs]` table of its, as the TRL section shows. See [Define the launch config in the script](./jobs-configuration#define-the-launch-config-in-the-script). The same commands are available from Python as `run_uv_job()` and `run_job()`, covered in [Configuration](./jobs-configuration).
+A script can also carry its own launch config in a `[tool.hf-jobs]` table in the script header, as the TRL section shows. See [Define the launch config in the script](./jobs-configuration#define-the-launch-config-in-the-script). The same commands are available from Python as `run_uv_job()` and `run_job()`, covered in [Configuration](./jobs-configuration).
 
 ## Checks before a long run
 
@@ -85,13 +85,13 @@ Transformers and TRL scripts take `--output_dir`. Axolotl takes `output_dir` in 
 
 ## Transformers
 
-The [example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) in the Transformers repository declare their dependencies in a header, so they run on Jobs straight from their GitHub URL. Arguments after the URL go to the script. [A first run](#a-first-run) uses the image-classification script.
+The [example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) in the Transformers repository declare their dependencies in a script header, so they run on Jobs straight from their GitHub URL. Arguments after the URL go to the script. [A first run](#a-first-run) uses the image-classification script.
 
 For the full run, drop `--max_train_samples 2000 --max_eval_samples 500 --num_train_epochs 1` from that command: three epochs over the 75,000 Food-101 training images take about an hour on `a10g-small`, around $1 at that flavor's rate, and reach 90% accuracy. Raise `--timeout` to `2h` before you launch it. `--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
 
 ## TRL
 
-[TRL](https://huggingface.co/docs/trl) ships its training scripts with PEP 723 headers, so SFT, DPO, GRPO and the other trainers run the same way. This fine-tunes a small model on a chat dataset:
+[TRL](https://huggingface.co/docs/trl) has a ready-to-run script for each trainer (SFT, DPO, GRPO and others), each declaring its own dependencies, so they run on Jobs straight from their URL, like the Transformers scripts. This command fine-tunes a small model on a chat dataset:
 
 ```bash
 hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
@@ -140,7 +140,7 @@ from trl import SFTConfig, SFTTrainer
 
 ## Unsloth
 
-[Unsloth](https://unsloth.ai) provides ready-to-run scripts in the [`unsloth/jobs`](https://huggingface.co/datasets/unsloth/jobs) dataset, one per model family. They install Unsloth from their PEP 723 header and take the dataset and output repo as arguments:
+[Unsloth](https://unsloth.ai) provides ready-to-run scripts in the [`unsloth/jobs`](https://huggingface.co/datasets/unsloth/jobs) dataset, one per model family. They install Unsloth from their script header and take the dataset and output repo as arguments:
 
 ```bash
 hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
