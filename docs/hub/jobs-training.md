@@ -134,7 +134,7 @@ This finishes in about five minutes and pushes a LoRA adapter. For a full epoch,
 
 ## Axolotl
 
-[Axolotl](https://docs.axolotl.ai) takes a YAML config and runs from its own Docker image, so this section uses `hf jobs run` with a pinned tag and syncs the config in from a local directory with `-v`. Save a config from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) as `./configs/lora.yml`, with the keys below added. The image already contains the `axolotl` command.
+[Axolotl](https://docs.axolotl.ai) takes a YAML config and runs from its own Docker image, so this section uses `hf jobs run` with a pinned tag and syncs the config in from a local directory with `-v`. Save a config from the [Axolotl examples](https://github.com/axolotl-ai-cloud/axolotl/tree/main/examples) as `./configs/lora.yml`, with the keys below added. The run here uses `examples/phi/lora-3.5.yaml`, a LoRA fine-tune of Phi-3.5-mini, unchanged apart from those keys. The image already contains the `axolotl` command.
 
 ```bash
 hf jobs run --flavor a10g-small --timeout 30m -s HF_TOKEN \
@@ -152,7 +152,7 @@ hub_private_repo: true
 max_steps: 20
 ```
 
-Remove `max_steps` for the full run. Tags are listed on [Docker Hub](https://hub.docker.com/r/axolotlai/axolotl/tags).
+This finishes in about seven minutes and pushes the adapter to `hub_model_id`. Remove `max_steps` for the full run. Tags are listed on [Docker Hub](https://hub.docker.com/r/axolotlai/axolotl/tags).
 
 For more GPUs, change the flavor and nothing else: on `a10g-largex4`, `axolotl train` starts one process per GPU by itself. DeepSpeed and FSDP are then a matter of YAML keys, covered in [Axolotl's multi-GPU guide](https://docs.axolotl.ai/docs/multi-gpu.html).
 
