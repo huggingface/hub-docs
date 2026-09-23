@@ -1,8 +1,6 @@
 # Train Models on Jobs
 
-A Job gives a training run a GPU for exactly as long as it needs one. You launch from your machine, the run pushes its weights to the Hub, and the machine goes away when it finishes. There is no environment to set up on the GPU side: the script or image you launch brings its own.
-
-This page shows how to fine-tune and train models on Jobs, with a library's script or your own. Every example is capped to a short run that finishes in minutes on a single A10G, for around $0.10 of compute. Each section says what to remove for the full run. The Job runs on Hugging Face's machines, so it keeps going if you close your terminal or your laptop. If you have not run a Job before, [Quickstart](./jobs-quickstart) covers installing the CLI, logging in and the credits a Job needs.
+This page shows how to fine-tune and train models on Jobs, with a library's script or your own. Every example is capped to a short run that finishes in minutes on a single A10G, for around $0.10 of compute. The Job runs on Hugging Face's machines, so it keeps going if you close your terminal or your laptop. If you have not run a Job before, [Quickstart](./jobs-quickstart) covers installing the CLI, logging in and the credits a Job needs.
 
 ## A first run
 
