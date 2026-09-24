@@ -1,0 +1,17 @@
+# Ignore temporary or unstable domains
+exclude = [
+  "localhost",
+  "127.0.0.1"
+]
+
+# Timeouts
+timeout = 10
+
+# Check all Markdown files
+include = [
+  "**/*.md"
+]
+
+# Only treat actual broken links as failures
+max-concurrency = 20
+verbosity = "error"
