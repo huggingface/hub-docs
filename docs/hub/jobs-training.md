@@ -159,7 +159,7 @@ This finishes in about five minutes and pushes a LoRA adapter. For a full epoch,
 ```bash
 hf jobs run --flavor a10g-small --timeout 30m -s HF_TOKEN \
   -v ./configs:/configs \
-  axolotlai/axolotl:0.19.0-py3.12-cu130-2.12.1 -- \
+  axolotlai/axolotl:0.19.0-py3.12-cu130-2.13.0 -- \
   axolotl train /configs/lora.yml
 ```
 
