@@ -52,6 +52,7 @@ The [expose ports](./jobs-configuration#expose-ports) feature of Jobs makes them
 - [Train on massive datasets without downloading](https://danielvanstrien.xyz/posts/2026/hf-streaming-unsloth/train-massive-datasets-without-downloading.html) - Stream datasets directly on Jobs with Unsloth, no local storage needed
 - [Fine-tune a vision-language model with TRL](https://danielvanstrien.xyz/posts/2025/iconclass-vlm-sft/trl-vlm-fine-tuning-iconclass.html) - Fine-tune Qwen2.5-VL for art history tasks using TRL and Jobs
 - [FreeFlow](https://github.com/wjbmattingly/freeflow) - Open-source annotation platform with built-in Jobs integration for training YOLOv11 object detection models
+- [hfdask](https://github.com/Hanno-Labs/hfdask) - Run Dask programs across CPU and GPU Jobs from one YAML cluster definition, with mTLS between nodes and automatic cleanup
 
 ---
 
