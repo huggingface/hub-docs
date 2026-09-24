@@ -4,7 +4,7 @@ This page shows how to fine-tune and train models on Jobs, with a library's scri
 
 ## A first run
 
-This command fine-tunes an image classifier on 2,000 Food-101 images and pushes it to your namespace on the Hub, in about three minutes:
+This command fine-tunes an image classifier on 2,000 [Food-101](https://huggingface.co/datasets/ethz/food101) images and pushes it to your namespace on the Hub, in about three minutes:
 
 ```bash
 hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
