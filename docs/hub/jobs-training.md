@@ -91,7 +91,7 @@ For the full run, drop `--max_train_samples 2000 --max_eval_samples 500 --num_tr
 
 ## TRL
 
-[TRL](https://huggingface.co/docs/trl) has a ready-to-run script for each trainer (SFT, DPO, GRPO and others), each declaring its own dependencies, so they run on Jobs straight from their URL, like the Transformers scripts. This command fine-tunes a small model on a chat dataset:
+[TRL](https://huggingface.co/docs/trl) has a ready-to-run script for each trainer (SFT, DPO, GRPO and others), each declaring its own dependencies, so they run on Jobs straight from their URL, like the Transformers scripts. This command fine-tunes a small model on a [chat dataset](https://huggingface.co/datasets/trl-lib/Capybara):
 
 ```bash
 hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
