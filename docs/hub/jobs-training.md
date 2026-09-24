@@ -168,11 +168,10 @@ hf jobs run --flavor a10g-small --timeout 30m -s HF_TOKEN \
 ```yaml
 hub_model_id: your-username/my-adapter
 hub_strategy: end
-hub_private_repo: true
 max_steps: 20
 ```
 
-This finishes in about seven minutes and pushes the adapter to `hub_model_id`. Remove `max_steps` for the full run. Tags are listed on [Docker Hub](https://hub.docker.com/r/axolotlai/axolotl/tags).
+This finishes in about seven minutes and pushes the adapter to `hub_model_id`, as a private repo. Remove `max_steps` for the full run. The image tag formats are described in [Axolotl's Docker guide](https://docs.axolotl.ai/docs/docker.html#sec-main-tags).
 
 For more GPUs, change the flavor and nothing else: on `a10g-largex4`, `axolotl train` starts one process per GPU by itself. DeepSpeed and FSDP are then a matter of YAML keys, covered in [Axolotl's multi-GPU guide](https://docs.axolotl.ai/docs/multi-gpu.html).
 
