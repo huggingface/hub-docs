@@ -48,7 +48,7 @@ hf buckets create my-parquet --private
 Create the Job that the webhook will run:
 
 ```bash
-hf jobs run --flavor cpu-upgrade --timeout 2h --secrets HF_TOKEN \
+hf jobs run --flavor cpu-upgrade --timeout 2h \
     -e OUTPUT_BUCKET=your-username/my-parquet \
     ghcr.io/astral-sh/uv:python3.12-bookworm \
     uv run https://huggingface.co/datasets/uv-scripts/data-processing/raw/main/optimize-parquet.py
@@ -56,18 +56,20 @@ hf jobs run --flavor cpu-upgrade --timeout 2h --secrets HF_TOKEN \
 
 This first run has no webhook event, so it stops straight away. Copy the Job ID that it prints.
 
-Two details matter for a Job that a webhook runs:
-
-- **The script runs from its URL, with `hf jobs run`.** `hf jobs uv run` is the usual way to run a UV script, but it uploads the script to a volume, and webhook runs don't keep the Job's volumes. `hf jobs run` with the uv image runs the script straight from its URL instead.
-- **`--secrets HF_TOKEN` gives the Job a token** to read and write both buckets. A [fine-grained token](./security-tokens) with only the permissions the Job needs is the safest choice.
+The script runs from its URL, with `hf jobs run`. `hf jobs uv run` is the usual way to run a UV script, but it uploads the script to a volume, and webhook runs don't keep the Job's volumes.
 
 ### Create the webhook
 
 Watch the first bucket and run your Job when it changes:
 
 ```bash
-hf webhooks create --job-id <job ID> --watch bucket:your-username/my-raw-files --domain repo
+hf webhooks create --job-id <job ID> --watch bucket:your-username/my-raw-files \
+    --domain repo --secrets HF_TOKEN
 ```
+
+`--domain repo` limits the webhook to file and settings changes, rather than discussions and pull requests.
+
+`--secrets HF_TOKEN` stores a token with the webhook, encrypted. Every Job the webhook starts receives it as a secret and uses it to read and write the buckets. The value comes from `HF_TOKEN` in your environment, or from the token you logged in with. To use a token made just for this pipeline, pass it explicitly with `--secrets HF_TOKEN=hf_…`, or keep it out of your shell history by piping it in: `printf 'HF_TOKEN=hf_…\n' | hf webhooks create … --secrets-file -`. A [fine-grained token](./security-tokens) with only the permissions the Job needs is the safest choice. The Job itself needs no `--secrets`, because a webhook run does not inherit the Job's own secrets.
 
 The command prints the webhook ID. To stop the pipeline later, delete the webhook with `hf webhooks delete <webhook ID>`.
 
