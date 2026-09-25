@@ -58,7 +58,7 @@ hf jobs run --flavor cpu-upgrade --timeout 2h \
 
 The script runs from its URL, with `hf jobs run`. `hf jobs uv run` is the usual way to run a UV script, but it uploads the script to a volume, which a webhook run would not have. `cpu-upgrade` is enough for this work, and the two-hour timeout leaves room for large files.
 
-The script can also be in a private repo. Add `--secrets HF_TOKEN` to the command, with a token that can read that repo, so that uv can download the script. If the run fails with a `SyntaxError`, the token cannot read the script. Webhook runs do not get this secret, so the token you give the webhook must also be able to read the repo.
+The script can also be in a private bucket or repo. Don't use the watched bucket: uploading the script would start a Job. Add `--secrets HF_TOKEN` to the command, with a token that can read the script. If the run fails with a `SyntaxError`, the token can't read it. The webhook's token needs the same access, because webhook runs don't get this secret.
 
 `hf jobs run` starts the Job at once. This first run has no webhook event, and `optimize-parquet.py` does nothing without one, so the Job stops straight away. Copy the Job ID that it prints.
 
