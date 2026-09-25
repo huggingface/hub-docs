@@ -24,7 +24,9 @@ A webhook can [trigger a Job](./jobs-webhooks) instead of calling a URL. You cre
 }
 ```
 
-So the Job processes only the new files, and it can decide how to handle each file before it downloads anything. For example, it can stream a file that is too large for its disk.
+So the Job processes only the new files, and it can decide how to handle each one before downloading anything.
+
+Each run reuses the Job's image, command, environment variables, hardware flavor and timeout. It does not get the Job's volumes or its secrets. That is why the steps below run the script from a URL and put the token on the webhook.
 
 The Job writes its results to a **second bucket**. If it wrote to the bucket it watches, its own output would trigger the webhook again.
 
@@ -54,9 +56,9 @@ hf jobs run --flavor cpu-upgrade --timeout 2h \
     uv run https://huggingface.co/datasets/uv-scripts/data-processing/raw/main/optimize-parquet.py
 ```
 
-This first run has no webhook event, so it stops straight away. Copy the Job ID that it prints.
+The script runs from its URL, with `hf jobs run`. `hf jobs uv run` is the usual way to run a UV script, but it uploads the script to a volume, which a webhook run would not have. `cpu-upgrade` is enough for this work, and the two-hour timeout leaves room for large files.
 
-The script runs from its URL, with `hf jobs run`. `hf jobs uv run` is the usual way to run a UV script, but it uploads the script to a volume, and webhook runs don't keep the Job's volumes.
+This first run has no webhook event, so it stops straight away. Copy the Job ID that it prints.
 
 ### Create the webhook
 
@@ -67,9 +69,12 @@ hf webhooks create --job-id <job ID> --watch bucket:your-username/my-raw-files \
     --domain repo --secrets HF_TOKEN
 ```
 
-`--domain repo` limits the webhook to file and settings changes, rather than discussions and pull requests.
+`--domain repo` restricts the webhook to file and settings changes. Buckets only send those, so this is explicit rather than necessary, but it keeps the command right if you later watch a model or dataset.
 
-`--secrets HF_TOKEN` stores a token with the webhook, encrypted. Every Job the webhook starts receives it as a secret and uses it to read and write the buckets. The value comes from `HF_TOKEN` in your environment, or from the token you logged in with. To use a token made just for this pipeline, pass it explicitly with `--secrets HF_TOKEN=hf_…`, or keep it out of your shell history by piping it in: `printf 'HF_TOKEN=hf_…\n' | hf webhooks create … --secrets-file -`. A [fine-grained token](./security-tokens) with only the permissions the Job needs is the safest choice. The Job itself needs no `--secrets`, because a webhook run does not inherit the Job's own secrets.
+`--secrets HF_TOKEN` stores a token with the webhook, encrypted. Every Job the webhook starts receives it as a secret and uses it to read and write the buckets. The value comes from `HF_TOKEN` in your environment, or from the token you logged in with. A [fine-grained token](./security-tokens) with only the permissions the Job needs is the safest choice.
+
+> [!TIP]
+> To use a token made just for this pipeline, pass the value explicitly with `--secrets HF_TOKEN=hf_…`, or keep it out of your shell history by piping it in: `printf 'HF_TOKEN=hf_…\n' | hf webhooks create … --secrets-file -`.
 
 The command prints the webhook ID. To stop the pipeline later, delete the webhook with `hf webhooks delete <webhook ID>`.
 
@@ -79,7 +84,7 @@ The command prints the webhook ID. To stop the pipeline later, delete the webhoo
 hf buckets cp data.csv hf://buckets/your-username/my-raw-files/data.csv
 ```
 
-About a minute later, a Job appears on your [Jobs page](https://huggingface.co/settings/jobs). When it finishes, the Parquet file is in the second bucket:
+About a minute later, a Job appears on your [Jobs page](https://huggingface.co/settings/jobs). If none does, open the Activity tab of the webhook in your [webhook settings](https://huggingface.co/settings/webhooks) to see the delivery, and read a Job's output with `hf jobs logs <job ID>`. When the Job finishes, the Parquet file is in the second bucket:
 
 ```bash
 hf buckets ls your-username/my-parquet -R
@@ -90,17 +95,17 @@ data.csv/README.md
 data.csv/data/train-00000-of-00001.parquet
 ```
 
-To convert many files, upload them with one `hf buckets sync`. Files uploaded together usually arrive as one event, so one Job converts all of them.
+To convert many files, upload them with one `hf buckets sync`. Files uploaded together usually arrive as one event, so one Job converts all of them, up to 10,000 files per event. See [Webhooks](./webhooks#buckets) for the full bucket payload and what happens above that limit.
 
 ### What the script does
 
 The part that is specific to webhooks is reading the event:
 
 ```python
-event = json.loads(os.environ["WEBHOOK_PAYLOAD"])
-input_bucket = os.environ["WEBHOOK_REPO_ID"]
+event = json.loads(os.environ.get("WEBHOOK_PAYLOAD", "{}"))  # empty when you run the Job yourself
+input_bucket = os.environ.get("WEBHOOK_REPO_ID")
 
-for changed_file in event["updatedFiles"]:
+for changed_file in event.get("updatedFiles", []):
     if changed_file["action"] != "add":
         continue  # skip deleted files
     path, size = changed_file["path"], changed_file["size"]
@@ -114,9 +119,9 @@ For each new file, the script loads it with `datasets` straight from the bucket 
 Keep the setup and change the script. For example:
 
 - **Remove personal data before training.** Collect raw text in a private bucket, redact personal information with a model such as [GLiNER2 PII filter](https://huggingface.co/fastino/gliner2-privacy-filter-PII-multi), and push only the redacted text to your training dataset.
-- **Evaluate new checkpoints.** A training Job saves checkpoints to a bucket, and each new checkpoint starts an evaluation Job. If a checkpoint is uploaded in several parts, react only to the file written last.
+- **Evaluate new checkpoints.** A training Job saves checkpoints to a bucket, and each new checkpoint starts an evaluation Job. If a checkpoint is uploaded in several parts, react only when a marker file you write last appears in `updatedFiles`; events can arrive out of order.
 - **Transcribe or embed new files.** Turn new recordings into transcripts, or new documents into embeddings for search.
 
 ## Webhook or schedule?
 
-A webhook starts a Job for every event, so new files are processed about a minute after they arrive. If they don't need to be processed that fast, a [scheduled Job](./jobs-schedule) is an alternative: it runs every hour or every day and processes everything that arrived since the last run. This groups the work into fewer Jobs, which helps with GPU tasks that are slow to start. The script must then find the new files itself, for example by comparing the input and output buckets.
+A webhook starts a Job for every event, so new files are processed about a minute after they arrive. If they don't need to be processed that fast, a [scheduled Job](./jobs-schedule) is an alternative: it runs every hour or every day and processes everything that arrived since the last run. This groups the work into fewer Jobs, which helps with GPU tasks that are slow to start, and it avoids the webhook limit of 1,000 triggers per 24 hours. The script must then find the new files itself, for example by comparing the input and output buckets.
