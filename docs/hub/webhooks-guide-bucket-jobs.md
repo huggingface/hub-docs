@@ -58,7 +58,9 @@ hf jobs run --flavor cpu-upgrade --timeout 2h \
 
 The script runs from its URL, with `hf jobs run`. `hf jobs uv run` is the usual way to run a UV script, but it uploads the script to a volume, which a webhook run would not have. `cpu-upgrade` is enough for this work, and the two-hour timeout leaves room for large files.
 
-This first run has no webhook event, so it stops straight away. Copy the Job ID that it prints.
+The script can also be in a private repo. Add `--secrets HF_TOKEN` to the command, with a token that can read that repo, so that uv can download the script. If the run fails with a `SyntaxError`, the token cannot read the script. Webhook runs do not get this secret, so the token you give the webhook must also be able to read the repo.
+
+`hf jobs run` starts the Job at once. This first run has no webhook event, and `optimize-parquet.py` does nothing without one, so the Job stops straight away. Copy the Job ID that it prints.
 
 ### Create the webhook
 
@@ -121,6 +123,8 @@ Keep the setup and change the script. For example:
 - **Remove personal data before training.** Collect raw text in a private bucket, redact personal information with a model such as [GLiNER2 PII filter](https://huggingface.co/fastino/gliner2-privacy-filter-PII-multi), and push only the redacted text to your training dataset.
 - **Evaluate new checkpoints.** A training Job saves checkpoints to a bucket, and each new checkpoint starts an evaluation Job. If a checkpoint is uploaded in several parts, react only when a marker file you write last appears in `updatedFiles`; events can arrive out of order.
 - **Transcribe or embed new files.** Turn new recordings into transcripts, or new documents into embeddings for search.
+
+When you write your script, decide what it does in the first run, when `WEBHOOK_PAYLOAD` is not set. It can exit, as `optimize-parquet.py` does, or do real work, such as processing the files that were already in the bucket. If the first run needs a token, for example to read the bucket or a private script, add `--secrets HF_TOKEN` to `hf jobs run`. Webhook runs do not get this secret. They get their token from the webhook.
 
 ## Webhook or schedule?
 
