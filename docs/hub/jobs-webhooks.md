@@ -37,7 +37,7 @@ The webhook triggers the Job with the following environment variables:
 - `WEBHOOK_ID`: a unique identifier for the delivery, stable across retries of that delivery
 
 > [!WARNING]
-> A webhook run does not keep the Job's volumes. To run a UV script from a webhook, use `hf jobs run <image> uv run <url>`: `hf jobs uv run` uploads the script to a volume, which a webhook run does not have.
+> A webhook run does not keep the Job's volumes. To run a UV script from a webhook, define your job with `hf jobs run <image> uv run <url>`, otherwise `hf jobs uv run` uploads the script to a volume, which a webhook run does not have.
 
 The webhook payload contains multiple fields, here are a few useful ones:
 
