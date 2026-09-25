@@ -1,6 +1,6 @@
 # Jobs Overview
 
-Hugging Face Jobs runs your code on remote CPUs and GPUs. Use it to fine-tune models, run inference over datasets, or process data.
+Hugging Face Jobs runs your code on remote CPUs and GPUs. Use it to [train models](./jobs-training), run inference over datasets, or [process data](./jobs-large-datasets).
 
 A Job runs a command in an environment on the hardware you choose. You can follow its status and logs from the terminal or on the Hub.
 

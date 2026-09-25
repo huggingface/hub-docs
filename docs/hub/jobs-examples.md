@@ -1,21 +1,8 @@
 # Examples & Tutorials
 
-## Guides to train with Jobs
+## Train models
 
-Guides for using popular libraries with Jobs:
-
-- [Training with TRL on Jobs](https://huggingface.co/docs/trl/jobs_training) - Run SFT, GRPO, DPO and more using TRL and TRL Jobs
-- [Fine-tune with Unsloth on Jobs](https://huggingface.co/blog/unsloth-jobs) - ~2x faster training and ~60% less VRAM using Unsloth
-- [Transformers example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) - UV-compatible training scripts for text classification, summarization, image classification, NER, speech recognition, and more — run directly on Jobs:
-
-```bash
-hf jobs uv run --flavor a10g-small --secrets HF_TOKEN \
-  https://raw.githubusercontent.com/huggingface/transformers/main/examples/pytorch/image-classification/run_image_classification.py \
-  --model_name_or_path google/vit-base-patch16-224-in21k \
-  --dataset_name ethz/food101 \
-  --output_dir vit-food101 \
-  --push_to_hub
-```
+The launch commands for Transformers, TRL, Unsloth and Axolotl are on [Train Models on Jobs](./jobs-training). Each one links to the library's own guide.
 
 ## Process data at scale
 
