@@ -76,7 +76,7 @@ When you create a new dataset, the [`parquet-converter` bot](https://huggingface
 
 ### Programmatic access
 
-You can also access the list of Parquet files programmatically using the [Hub API](./api#get-apidatasetsrepoidparquet); for example, endpoint [`https://huggingface.co/api/datasets/nyu-mll/glue/parquet`](https://huggingface.co/api/datasets/nyu-mll/glue/parquet) lists the parquet files of the `nyu-mll/glue` dataset. The `hf` CLI provides the same list with [`hf datasets parquet`](/docs/huggingface_hub/package_reference/cli#hf-datasets-parquet), and [`hf datasets sql`](/docs/huggingface_hub/package_reference/cli#hf-datasets-sql) lets you query the files with SQL.
+You can also access the list of Parquet files programmatically using the [Hub API](./api); for example, endpoint [`https://huggingface.co/api/datasets/nyu-mll/glue/parquet`](https://huggingface.co/api/datasets/nyu-mll/glue/parquet) lists the parquet files of the `nyu-mll/glue` dataset. The `hf` CLI provides the same list with [`hf datasets parquet`](/docs/huggingface_hub/package_reference/cli#hf-datasets-parquet), and [`hf datasets sql`](/docs/huggingface_hub/package_reference/cli#hf-datasets-sql) lets you query the files with SQL.
 
 We also have a specific documentation about the [Dataset Viewer API](https://huggingface.co/docs/dataset-viewer), which you can call directly. That API lets you access the contents, metadata and basic statistics of all Hugging Face Hub datasets, and powers the Dataset viewer frontend.
 
