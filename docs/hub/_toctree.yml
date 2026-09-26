@@ -227,6 +227,8 @@
     title: Datasets Overview
   - local: datasets-cards
     title: Dataset Cards
+  - local: datasets-cards-annotated
+    title: Annotated Dataset Card
   - local: datasets-gated
     title: Gated Datasets
   - local: datasets-adding
