@@ -98,7 +98,7 @@ We selected people from a variety of different backgrounds relevant to machine l
 
 
 > [!TIP]
-> [Checkout the Appendix](./model-card-appendix)
+> Checkout the [Appendix](./model-card-appendix)
 
 
 Acknowledgements
