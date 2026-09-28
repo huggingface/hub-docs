@@ -21,7 +21,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | ----------------------------------------------------- | ----------- | -------------------- | --------------------- | ---------------------- |
 | Storage – Public repos                                | Best effort | 12TB base + 1TB/seat | 200TB base + 1TB/seat | 500TB base + 1TB/seat  |
 | Storage – Private repos                               | 100GB       | 1TB/seat + PAYG      | 1TB/seat + PAYG       | 1TB/seat + PAYG        |
-| [Extra storage](./storage-limits#pay-as-you-go-price) | ❌          | ✅ PAYG              | ✅ PAYG               | ✅ PAYG                |
+| [Extra storage](./storage-limits#private-storage-pay-as-you-go) | ❌          | ✅ PAYG              | ✅ PAYG               | ✅ PAYG                |
 | API requests / period\*                               | 1,000       | 3,000                | 6,000                 | 10,000 up to 100,000†  |
 | Resolver requests / period\*                          | 5,000       | 20,000               | 50,000                | 100,000 up to 500,000† |
 | Pages requests / period\*                             | 200         | 400                  | 600                   | 1,000 up to 10,000†    |
