@@ -218,11 +218,11 @@ The **shard cache** holds the deduplication index (the "shards" describing chunk
 
 ### Chunk Cache
 
-The **chunk cache** stores downloaded byte ranges (chunks) on disk so overlapping data isn't re-fetched from storage. It is most useful when repeatedly downloading, or generating new revisions of, related models or datasets.
+`hf_xet` no longer uses a local chunk cache for downloads. Downloaded files are still stored in the `huggingface_hub` file-based cache.
 
 | Environment Variable | Default | Description |
 |---|---|---|
-| `HF_XET_CHUNK_CACHE_SIZE_BYTES` | `0` (disabled) | Size of the local chunk cache. The `hf_xet` Python package ships with the cache **disabled by default**; set a byte count (e.g. `10000000000` for 10 GB) to enable it, or `0` to disable it. This variable has no effect in Git Xet v0. |
+| `HF_XET_CHUNK_CACHE_SIZE_BYTES` | — | No longer used by `hf_xet`. Setting it does not enable a download chunk cache. |
 
 ### Logging
 
