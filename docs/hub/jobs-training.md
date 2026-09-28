@@ -175,6 +175,8 @@ This finishes in about seven minutes and pushes the adapter to `hub_model_id`, a
 
 For more GPUs, change the flavor and nothing else: on `a10g-largex4`, `axolotl train` starts one process per GPU by itself. DeepSpeed and FSDP are then a matter of YAML keys, covered in [Axolotl's multi-GPU guide](https://docs.axolotl.ai/docs/multi-gpu.html).
 
+For more detail, see the [Hugging Face Jobs guide](https://docs.axolotl.ai/docs/hf-jobs.html) in the Axolotl docs.
+
 ## Going further
 
 - [Serve Models](./jobs-serving) to put the model you trained behind a temporary endpoint, for an evaluation run or a demo. [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) runs one that stays up.
