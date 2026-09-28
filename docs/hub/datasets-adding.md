@@ -59,7 +59,7 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
 
 3. Write your dataset documentation in the Dataset Card to introduce your dataset to the community and help users understand what is inside: what are the use cases and limitations, where the data comes from, what are important ethical considerations, and any other relevant details.
 
-    You can click on the **Import dataset card template** link at the top of the editor to automatically create a dataset card template. For a detailed example of what a good Dataset card should look like, take a look at the [CNN DailyMail Dataset card](https://huggingface.co/datasets/cnn_dailymail).
+    You can click on the **Import dataset card template** link at the top of the editor to automatically create a dataset card template. For a detailed example of what a good Dataset card should look like, take a look at the [CNN DailyMail Dataset card](https://huggingface.co/datasets/abisee/cnn_dailymail).
 
 ## Using the `huggingface_hub` client library
 
@@ -120,4 +120,4 @@ The Hugging Face Hub supports large scale datasets, usually uploaded in Parquet 
 
 You can upload large scale datasets at high speed using the `huggingface_hub` library.
 
-See [how to upload a folder by chunks](/docs/huggingface_hub/guides/upload#upload-a-folder-by-chunks), the [tips and tricks for large uploads](/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository storage limits and recommendations](./storage-limits).
+See [how to upload a folder by chunks](/docs/huggingface_hub/guides/upload#upload-a-large-folder), the [tips and tricks for large uploads](/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository storage limits and recommendations](./storage-limits).

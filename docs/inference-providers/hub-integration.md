@@ -52,7 +52,7 @@ Converts text to SQL queries on dataset pages (e.g. [open-r1/codeforces-cots](ht
 ## User Settings
 
 In your user account settings, you are able to:
-- set your own API keys for the providers you’ve signed up with. If you don't, your requests will be billed on your HF account. More details in the [billing section](./pricing#routed-requests-vs-direct-calls).
+- set your own API keys for the providers you’ve signed up with. If you don't, your requests will be billed on your HF account. More details in the [billing section](./pricing#hugging-face-billing-vs-custom-provider-key-detailed-comparison).
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/set-custom-key-light.png"/>

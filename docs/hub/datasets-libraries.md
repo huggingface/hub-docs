@@ -89,7 +89,7 @@ Recent improvements have made streaming [up to 100x more efficient](https://hugg
 
 Some tools can stream training data back to the Hub during training:
 
-- **[Trackio](https://github.com/huggingface/trackio)**: Streams training metrics to a Hub dataset in real-time
+- **[Trackio](https://github.com/gradio-app/trackio)**: Streams training metrics to a Hub dataset in real-time
 
 ## Integrating data libraries and tools with the Hub
 

@@ -92,7 +92,7 @@ In that case, we will continue to the next step:
 		...
 ```
 
-This is the coolest part: using [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/chat-completions), we call an open-weight model (`moonshotai/Kimi-K2.6`) with a system prompt and the user's comment. The model generates a reply, which we extract from `choices[0].message.content`.
+This is the coolest part: using [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/tasks/chat-completion), we call an open-weight model (`moonshotai/Kimi-K2.6`) with a system prompt and the user's comment. The model generates a reply, which we extract from `choices[0].message.content`.
 
 You can pick any model from the [list of available models](https://huggingface.co/inference/models) — just swap the `model` field.
 

@@ -38,7 +38,7 @@ Inference Providers offers flexibility in how you're billed. Understanding these
 ## Pay-as-you-Go Details
 
 To benefit from Team or Enterprise included credits, you need to explicitly specify the organization to be billed when performing the inference requests.
-See the [Organization Billing section](#organization-billing) below for more details.
+See the [Organization Billing section](#billing-for-team-and-enterprise-organizations) below for more details.
 
 **All users** can continue using the API after exhausting their monthly credits by purchasing additional credits. This ensures uninterrupted access to models for production workloads.
 

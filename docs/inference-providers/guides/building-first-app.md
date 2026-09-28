@@ -631,7 +631,7 @@ To deploy:
 
 ## Next Steps
 
-Congratulations! You've created a production-ready AI application that: handles real-world tasks, provides a professional interface, scales automatically, and costs efficiently. If you want to explore more providers, you can check out the [Inference Providers](https://huggingface.co/inference-providers) page. Or here are some ideas for next steps:
+Congratulations! You've created a production-ready AI application that: handles real-world tasks, provides a professional interface, scales automatically, and costs efficiently. If you want to explore more providers, you can check out the [Inference Providers](https://huggingface.co/docs/inference-providers) page. Or here are some ideas for next steps:
 
 - **Improve your prompt**: Try different prompts to improve the quality for your use case
 - **Try different models**: Experiment with various speech and text models
