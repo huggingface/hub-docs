@@ -111,11 +111,11 @@ While some headings within model cards may differ between models, we grouped com
 
 
 > [!TIP]
-> [Checkout the User Studies](./model-cards-user-studies)
+> Checkout the [User Studies](./model-cards-user-studies)
 
 
 > [!TIP]
-> [See Appendix](./model-card-appendix)
+> See [Appendix](./model-card-appendix)
 
 [^1]: For each tool, descriptions are excerpted from the linked paper listed in the second column.
 
