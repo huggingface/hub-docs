@@ -108,7 +108,7 @@ print(f"JAX device type: {jax.devices()[0].device_kind}")
 # JAX device type: Tesla T4
 ```
 
-### Tensorflow
+### TensorFlow
 
 The default `tensorflow` installation should recognize the CUDA device. Just add `tensorflow` to your `requirements.txt` file and use the following code in your `app.py` to verify in your Space logs.
 

@@ -1,6 +1,6 @@
 # Using Asteroid at Hugging Face
 
-`asteroid` is a Pytorch toolkit for audio source separation. It enables fast experimentation on common datasets with support for a large range of datasets and recipes to reproduce papers.
+`asteroid` is a PyTorch toolkit for audio source separation. It enables fast experimentation on common datasets with support for a large range of datasets and recipes to reproduce papers.
 
 ## Exploring Asteroid in the Hub
 

@@ -32,7 +32,7 @@ An easy way is to use a Space for this. We use the user account we created, but 
 
 The Space's code is [here](https://huggingface.co/spaces/discussion-bot/webhook/tree/main).
 
-We used NodeJS and Typescript to implement it, but any language or framework would work equally well. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
+We used NodeJS and TypeScript to implement it, but any language or framework would work equally well. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
 
 **The main `server.ts` file is [here](https://huggingface.co/spaces/discussion-bot/webhook/blob/main/server.ts)**
 
