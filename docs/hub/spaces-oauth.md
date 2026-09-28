@@ -45,7 +45,7 @@ hf_oauth_authorized_org:
 
 You can check out the [configuration reference docs](./spaces-config-reference) for more information.
 
-This will add the following [environment variables](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) to your space:
+This will add the following [environment variables](https://huggingface.co/docs/hub/spaces-overview#built-in-environment-variables) to your space:
 
 - `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
 - `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
@@ -58,7 +58,7 @@ As for any other environment variable, you can use them in your code by using `o
 
 You can use any redirect URL you want, as long as it targets your Space.
 
-Note that `SPACE_HOST` is [available](https://huggingface.co/docs/hub/spaces-overview#helper-environment-variables) as an environment variable.
+Note that `SPACE_HOST` is [available](https://huggingface.co/docs/hub/spaces-overview#built-in-environment-variables) as an environment variable.
 
 For example, you can use `https://{SPACE_HOST}/login/callback` as a redirect URI.
 

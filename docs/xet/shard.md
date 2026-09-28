@@ -260,7 +260,7 @@ struct FileDataSequenceEntry {
 
 Verification Entries MUST be set for shard uploads.
 
-To generate verification hashes for shard upload read the section about [Verification Hashes](./hashing#Term-Verification-Hashes).
+To generate verification hashes for shard upload read the section about [Verification Hashes](./hashing#term-verification-hashes).
 
 ```rust
 struct FileVerificationEntry {

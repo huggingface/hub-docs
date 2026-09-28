@@ -59,7 +59,7 @@ df = (
 )
 ```
 
-See [PySpark on the Hub](./datasets-pyspark) for more.
+See [PySpark on the Hub](./datasets-spark) for more.
 
 ## 🤗 Datasets
 
