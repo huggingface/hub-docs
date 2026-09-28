@@ -7,26 +7,26 @@ interfaces/abstractions catered toward ML workflows. With ZenML you'll have all
 your favorite tools in one place, so you can tailor a workflow that caters to
 your specific needs.
 
-The ZenML Huggingface Space allows you to get up and running with a deployed version
+The ZenML Hugging Face Space allows you to get up and running with a deployed version
 of ZenML with just a few clicks. Within a few minutes, you'll have this default
 ZenML dashboard deployed and ready for you to connect to from your local
 machine.
 
 In the sections that follow, you'll learn to deploy your own instance of ZenML and use
 it to view and manage your machine learning pipelines right from the Hub. ZenML
-on Huggingface Spaces is a **self-contained application completely hosted on the
+on Hugging Face Spaces is a **self-contained application completely hosted on the
 Hub using Docker**. The diagram below illustrates the complete process.
 
-![ZenML on HuggingFace Spaces -- default deployment](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/zenml/hf_spaces_chart.png)
+![ZenML on Hugging Face Spaces -- default deployment](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/zenml/hf_spaces_chart.png)
 
 Visit [the ZenML documentation](https://docs.zenml.io/) to learn more about its
 features and how to get started with running your machine learning pipelines
-through your Huggingface Spaces deployment. You can check out [some small sample
+through your Hugging Face Spaces deployment. You can check out [some small sample
 examples](https://github.com/zenml-io/zenml/tree/main/examples) of ZenML pipelines to get started or take your pick of some more
 complex production-grade projects at [the ZenML Projects
 repository](https://github.com/zenml-io/zenml-projects). ZenML integrates with
 many of your favorite tools out of the box, [including
-Huggingface](https://zenml.io/integrations/huggingface) of course! If there's
+Hugging Face](https://zenml.io/integrations/huggingface) of course! If there's
 something else you want to use, we're built to be extensible and you can easily
 make it work with whatever your custom tool or workflow is.
 
@@ -55,7 +55,7 @@ MySQL database to connect to (see below).
 To personalize your Space's appearance, such as the title, emojis, and colors,
 navigate to "Files and Versions" and modify the metadata in your README.md file.
 Full information on Spaces configuration parameters can be found on the
-HuggingFace [documentation reference guide](https://huggingface.co/docs/hub/spaces-config-reference).
+Hugging Face [documentation reference guide](https://huggingface.co/docs/hub/spaces-config-reference).
 
 After creating your Space, you'll notice a 'Building' status along with logs
 displayed on the screen. When this switches to 'Running', your Space is ready for use. If the
@@ -63,7 +63,7 @@ ZenML login UI isn't visible, try refreshing the page.
 
 In the upper-right hand corner of your space you'll see a button with three dots
 which, when you click on it, will offer you a menu option to "Embed this Space".
-(See [the HuggingFace
+(See [the Hugging Face
 documentation](https://huggingface.co/docs/hub/spaces-embed) for more details on
 this feature.) Copy the "Direct URL" shown in the box that you can now see on
 the screen. This should look something like this:
@@ -88,12 +88,12 @@ zenml connect --url '<YOUR_HF_SPACES_DIRECT_URL>' --username='default' --passwor
 ```
 
 You can also use the Direct URL in your browser to use the ZenML dashboard as a
-fullscreen application (i.e. without the HuggingFace Spaces wrapper around it).
+fullscreen application (i.e. without the Hugging Face Spaces wrapper around it).
 
 > [!WARNING]
-> The ZenML dashboard will currently not work when viewed from within the Huggingface 
+> The ZenML dashboard will currently not work when viewed from within the Hugging Face 
 > webpage (i.e. wrapped in the main `https://huggingface.co/...` website). This is on 
-> account of a limitation in how cookies are handled between ZenML and Huggingface. 
+> account of a limitation in how cookies are handled between ZenML and Hugging Face. 
 > You **must** view the dashboard from the 'Direct URL' (see above).
 
 ## Extra Configuration Options
@@ -109,10 +109,10 @@ ZenML when deployed with Docker.
 > If you are using the space just for testing and experimentation, you don't need
 > to make any changes to the configuration. Everything will work out of the box.
 
-You can also use an external secrets backend together with your HuggingFace
+You can also use an external secrets backend together with your Hugging Face
 Spaces as described in [our
 documentation](https://docs.zenml.io/getting-started/deploying-zenml/docker#zenml-server-configuration-options). You should be
-sure to use HuggingFace's inbuilt 'Repository secrets' functionality to
+sure to use Hugging Face's inbuilt 'Repository secrets' functionality to
 configure any secrets you need to use in your`Dockerfile` configuration. [See the
 documentation](https://huggingface.co/docs/hub/spaces-sdks-docker#secret-management)
 for more details how to set this up.
@@ -130,7 +130,7 @@ for more details how to set this up.
 >   above, and use this new user account as your working account.
 >
 > This is because the default user created by the
-> HuggingFace Spaces deployment process has no password assigned to it and as the
+> Hugging Face Spaces deployment process has no password assigned to it and as the
 > Space is publicly accessible (since the Space is public) *potentially anyone
 > could access your secrets without this extra step*. To change your password
 > navigate to the Settings page by clicking the button in the upper right hand
@@ -157,7 +157,7 @@ is a full end-to-end example of many of the features of ZenML.
 
 ## 🤗 Feedback and support
 
-If you are having trouble with your ZenML server on HuggingFace Spaces, you can
+If you are having trouble with your ZenML server on Hugging Face Spaces, you can
 view the logs by clicking on the "Open Logs" button at the top of the space.
 This will give you more context of what's happening with your server.
 

@@ -333,7 +333,7 @@ It means **a request is only billed once your API returns a cost for it**, so th
 
 ### HTTP API Specs
 
-We ask that you expose an API that supports a HTTP POST request.
+We ask that you expose an API that supports an HTTP POST request.
 The body of the request is a JSON-encoded object containing a list of request IDs for which we
 request the cost.
 The authentication system should be the same as your Inference service; for example, a bearer token.

@@ -1,4 +1,4 @@
-# Managing Spaces with Github Actions
+# Managing Spaces with GitHub Actions
 
 You can keep your Space in sync with your GitHub repository using the official [`huggingface/hub-sync`](https://github.com/marketplace/actions/sync-github-to-hugging-face-hub) GitHub Action.
 

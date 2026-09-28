@@ -424,9 +424,9 @@ The end of the cas info sections is marked by a bookend entry.
 
 The bookend entry is 48 bytes long where the first 32 bytes are all `0xFF`, followed by 16 bytes of all `0x00`.
 
-Suppose you were attempting to deserialize a `CASChunkSequenceHeader` and it's hash was all 1 bits then this entry is a bookend entry and the next bytes start the next section.
+Suppose you were attempting to deserialize a `CASChunkSequenceHeader` and its hash was all 1 bits then this entry is a bookend entry and the next bytes start the next section.
 
-Since the cas info section immediately follows the file info section bookend, a client MAY skip deserializing the footer to know where the cas info section starts starts deserialize this section, it begins right after the file info section bookend and ends when the next bookend is reached.
+Since the cas info section immediately follows the file info section bookend, a client MAY skip deserializing the footer to know where the cas info section starts. The section begins right after the file info section bookend and ends when the next bookend is reached.
 
 ## 4. Footer (MDBShardFileFooter)
 

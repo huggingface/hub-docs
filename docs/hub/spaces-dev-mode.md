@@ -202,7 +202,7 @@ Feel free to duplicate them in your namespace!
 
 Example Python app (FastAPI HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-python
 
-Example Javascript app (Express.js HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-javascript
+Example JavaScript app (Express.js HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-javascript
 
 
 ## Feedback

@@ -91,7 +91,7 @@ Since 2018, new platforms and mediums for hosting and sharing model cards have a
 
 
 The high number of models uploaded to the Hugging Face Hub (101,041 models at the point of writing), enabled us to explore the content within model cards on the hub:
-We began by analysing language model, model cards, in order to identify patterns (e.g repeated sections and subsections, with the aim of answering initial questions such as:
+We began by analysing language model, model cards, in order to identify patterns (e.g. repeated sections and subsections, with the aim of answering initial questions such as:
 
 1) How many of these models have model cards?
    
