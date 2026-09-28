@@ -41,7 +41,7 @@ For more complex workflows (e.g. build steps, custom logic), you can install and
 
 ## File size considerations
 
-The action uploads file contents over HTTP, so large files don't need to be tracked with Git LFS or git-xet. If your GitHub repository already stores files with Git LFS, set `lfs: true` on the `actions/checkout` step so the action uploads the files rather than LFS pointers.
+The action uploads file contents with `hf upload`, so you don't need to set up Git LFS or git-xet for the Hub: large files are stored in Xet automatically. If your GitHub repository stores files with Git LFS (GitHub requires it for files over 100MB), set `lfs: true` on the `actions/checkout` step so the action uploads the files rather than LFS pointers.
 
 ## Alternative: manual git push
 
