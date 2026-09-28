@@ -1,0 +1,10 @@
+---
+config:
+  default: true
+  first-line-heading: false
+  line-length: false
+  no-duplicate-heading:
+    siblings_only: true
+  no-inline-html: false
+noInlineConfig: true
+noProgress: true
