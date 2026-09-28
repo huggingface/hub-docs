@@ -16,19 +16,12 @@ The recommended standalone installer also installs the CLI Skill globally, inclu
 Skills give your agent the context it needs to use tools effectively. The standalone installer adds the CLI Skill for you — install it by hand if you used pip or Homebrew, skipped it, or want it in a single project. Learn more about Skills at [agentskills.io](https://agentskills.io).
 
 ```bash
-# install globally (available in all projects, works with Codex, Cursor, OpenCode,
-# and any agent that loads skills from ~/.agents/skills)
+# install globally (available in all projects, works with Claude Code, Codex, Cursor,
+# OpenCode, and any agent that loads skills from ~/.agents/skills)
 hf skills add --global
 
-# for Claude Code use the --claude flag
-hf skills add --claude --global
-
-# or install for the current project only (works with Codex, Cursor, OpenCode,
-# and any agent that loads skills from .agents/skills)
+# or install for the current project only
 hf skills add
-
-# for Claude Code, use the --claude flag
-hf skills add --claude
 ```
 
 > [!TIP]
