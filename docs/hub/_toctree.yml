@@ -278,6 +278,8 @@
         title: Lance
       - local: datasets-pandas
         title: Pandas
+      - local: datasets-pixeltable
+        title: Pixeltable
       - local: datasets-polars
         title: Polars
         sections:
