@@ -72,6 +72,9 @@ Unlike Role Mapping, **Resource Group Mapping is additive**. If a user matches m
 
 If there is no match, the user will not be assigned to any resource group.
 
+> [!WARNING]
+> Resource groups targeted by a mapping can still be edited manually from the Hub UI or API, but those edits are overwritten at the user's next SSO login: a role change is reverted to the mapped role, and a user who was manually removed is re-added. To change a mapped user's access permanently, update your IdP data or the mapping configuration.
+
 ## Matching email domains
 
 > [!NOTE]
