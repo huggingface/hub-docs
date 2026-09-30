@@ -128,7 +128,7 @@ The CLI uploads your edited script automatically. Replace `hello_gpu.py` with it
 Build on this example with a larger workload:
 
 - [Annotate a dataset with OCR, classification or batch inference](./jobs-examples#uv-scripts).
-- [Train a model](./jobs-training) and save it to the Hub.
+- [Train or fine-tune a model](./jobs-training) and save it to the Hub.
 - [Read datasets or buckets and save processed results](./jobs-large-datasets).
 - [Run commands in Docker images](./jobs-configuration#docker-jobs).
 - [Use Jobs from a coding agent](./jobs-examples#coding-agent-skills).
