@@ -144,6 +144,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_ID`: `osanseviero/i-like-flan`
 * `SPACE_HOST`: `osanseviero-i-like-flan.hf.space`
 * `SPACE_CREATOR_USER_ID`: `6032802e1f993496bc14d9e3` - This is the ID of the user that originally created the Space. It's useful if the Space is under an organization. You can get the user information with an API call to `https://huggingface.co/api/users/{SPACE_CREATOR_USER_ID}/overview`.
+* `SPACE_SIGNING_SECRET`: a random secret unique to your Space, exposed as a secret. It stays the same across restarts, rebuilds, and replicas, so you can use it to sign things like cookies, OAuth state, or CSRF tokens. To use your own value instead, add a secret named `SPACE_SIGNING_SECRET` in your Space settings.
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 
