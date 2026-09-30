@@ -69,7 +69,7 @@ Job logs print loss values as text. For curves, point the trainer at an experime
 
 A Job's disk is discarded when the Job ends, whether it finished, failed or timed out. Anything you want to keep has to leave the container before then.
 
-**Push the model to a Hub repo.** Every library on this page has an option for it: `--push_to_hub` for Transformers and TRL, `--output-repo` for the Unsloth scripts, `hub_model_id` in an Axolotl YAML. At the end of the run the library uploads the weights, the tokenizer and a generated model card recording the base model and the training arguments. The repo is created if it does not exist. To make it private, create it first with `hf repos create <name> --private`. A fine-grained token needs write and create access to the model repo. Without it, the run trains to the end and then fails on the upload.
+**Push the model to a Hub repo.** Every library on this page has an option for it: `--push_to_hub` for Transformers, TRL and Diffusers, `--output-repo` for the Unsloth scripts, `hub_model_id` in an Axolotl YAML. At the end of the run the library uploads the weights, the tokenizer and a generated model card recording the base model and the training arguments. The repo is created if it does not exist. To make it private, create it first with `hf repos create <name> --private`. A fine-grained token needs write and create access to the model repo. Without it, the run trains to the end and then fails on the upload.
 
 **Write to a bucket as you go.** For a run that takes hours, mount an existing [Storage Bucket](./storage-buckets) read-write (create one with `hf buckets create`) and point the library's output directory at it. Checkpoints land in the bucket as they are saved, so a timeout or a crash does not lose the run, and the next Job can resume from them. The same route works for evaluation outputs, logs and anything else that is not a model.
 
@@ -79,7 +79,7 @@ hf jobs uv run --flavor a10g-large --timeout 8h -s HF_TOKEN \
   train.py --output_dir /ckpt/run-01
 ```
 
-Transformers and TRL scripts take `--output_dir`. Axolotl takes `output_dir` in the YAML. If you also pass `--push_to_hub`, set `--hub_model_id` too, or the repo is named after the last part of the output path (`run-01`). To continue an interrupted run, mount the same bucket again and pass the library's resume option, such as `--resume_from_checkpoint` for a Transformers `Trainer`. See [Volumes](./jobs-configuration#volumes) for the mount options.
+Transformers, TRL and Diffusers scripts take `--output_dir`. Axolotl takes `output_dir` in the YAML. If you also pass `--push_to_hub`, set `--hub_model_id` too, or the repo is named after the last part of the output path (`run-01`). To continue an interrupted run, mount the same bucket again and pass the library's resume option, such as `--resume_from_checkpoint` for a Transformers `Trainer`. See [Volumes](./jobs-configuration#volumes) for the mount options.
 
 **Read a failed run.** A Job that fails keeps its logs: `hf jobs logs <job_id>` works after it ends, and `hf jobs inspect <job_id>` gives the final status and error message. `hf jobs logs -f` returns when the log stream ends whether the run succeeded or not, so check `inspect` before assuming it worked.
 
@@ -176,6 +176,26 @@ This finishes in about seven minutes and pushes the adapter to `hub_model_id`, a
 For more GPUs, change the flavor and nothing else: on `a10g-largex4`, `axolotl train` starts one process per GPU by itself. DeepSpeed and FSDP are then a matter of YAML keys, covered in [Axolotl's multi-GPU guide](https://docs.axolotl.ai/docs/multi-gpu.html).
 
 For more detail, see the [Hugging Face Jobs guide](https://docs.axolotl.ai/docs/hf-jobs.html) in the Axolotl docs.
+
+## Diffusers
+
+Most of the [DreamBooth LoRA scripts](https://github.com/huggingface/diffusers/tree/main/examples/dreambooth) in the Diffusers repository declare their dependencies in a script header, so they run on Jobs straight from their GitHub URL, like the Transformers scripts. This command trains a LoRA for [FLUX.2 [klein] 4B](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B) on five photos of a dog:
+
+```bash
+hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
+  https://raw.githubusercontent.com/huggingface/diffusers/main/examples/dreambooth/train_dreambooth_lora_flux2_klein.py \
+  --pretrained_model_name_or_path black-forest-labs/FLUX.2-klein-4B \
+  --dataset_name diffusers/dog-example \
+  --instance_prompt "a photo of sks dog" \
+  --resolution 512 --mixed_precision bf16 --guidance_scale 1 \
+  --gradient_checkpointing --cache_latents \
+  --optimizer adamW --use_8bit_adam --learning_rate 1e-4 \
+  --max_train_steps 20 --seed 0 \
+  --output_dir /tmp/out \
+  --push_to_hub --hub_model_id your-username/klein-dog-lora
+```
+
+This finishes in about five minutes and pushes the LoRA. Raise `--max_train_steps` for a real run; the [FLUX.2 README](https://github.com/huggingface/diffusers/blob/main/examples/dreambooth/README_flux2.md) uses 500. The other READMEs in that folder cover the remaining models and their memory options. Check the top of a script for a `# /// script` block: scripts without one, such as the SDXL script, need their dependencies passed with `--with`.
 
 ## Going further
 
