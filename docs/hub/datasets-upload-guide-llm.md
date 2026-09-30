@@ -433,7 +433,7 @@ hf upload username/dataset ./data --repo-type=dataset
 
 ## Dataset Viewer Configuration
 
-**Note**: This section is primarily for datasets uploaded directly to the Hub (via UI or `upload_large_folder`). Datasets uploaded with `push_to_hub()` typically configure the viewer automatically.
+**Note**: This section is primarily for datasets uploaded directly to the Hub (via the UI, `upload_folder` or `hf upload`). Datasets uploaded with `push_to_hub()` typically configure the viewer automatically.
 
 ### When automatic detection works
 
