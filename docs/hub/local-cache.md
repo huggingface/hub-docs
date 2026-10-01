@@ -40,12 +40,13 @@ This can be overridden with environment variables:
 ```
 <CACHE_DIR>/
 ├── .locks/                                  # Lock files for concurrent download safety
+├── blobs/                                   # Shared blob store: Xet files deduplicated across repos
 ├── models--<org>--<repo>/                   # Cached model repositories
 ├── datasets--<org>--<repo>/                 # Cached dataset repositories
 └── spaces--<org>--<repo>/                   # Cached space repositories
 ```
 
-Each downloaded repository gets a single flat folder. Inside each repo folder, files are stored once in a content-addressed `blobs/` directory and accessed through `snapshots/` symlinks. Named references (branches, tags) are tracked in `refs/`.
+Each downloaded repository gets a single flat folder. Inside each repo folder, files are stored once in a content-addressed `blobs/` directory and accessed through `snapshots/` symlinks. Named references (branches, tags) are tracked in `refs/`. Files downloaded through Xet are stored once for the whole cache, in a [shared blob store](#shared-blob-store) at the cache root. The repo's `blobs/` entry is then a symlink to that file.
 
 ## Schema
 
@@ -117,7 +118,7 @@ The `blobs/` directory stores the actual file contents. Each file is named after
 - **Git-tracked files**: named by their **SHA-1** hash (40 hexadecimal characters)
 - **Git LFS files**: named by their **SHA-256** hash (64 hexadecimal characters)
 
-This is a flat directory -- no subdirectories. Identical files across different revisions are stored only once.
+This is a flat directory -- no subdirectories. Identical files across different revisions are stored only once. An entry is either a regular file or a relative symlink into the [shared blob store](#shared-blob-store); readers should follow it.
 
 ```
 blobs/
@@ -177,6 +178,38 @@ Structure mirrors `snapshots/`: one subdirectory per commit hash, containing **e
 ```
 
 Disk usage is negligible since these are only empty marker files.
+
+## Shared blob store
+
+Files downloaded through Xet are deduplicated across repositories. Such a file is stored once at the cache root, under `blobs/`, and each repository that needs it gets a relative symlink instead of a copy:
+
+```
+<CACHE_DIR>/
+├── blobs/
+│   ├── .huggingface-shared-blobs                 # marker file, contains the layout version ("1")
+│   └── 73/                                       # first two hex characters of the Xet hash
+│       ├── 73b079dc…845b59                       # the file, named by its Xet hash (64 hex characters)
+│       ├── 73b079dc…845b59.refs                  # manifest: one line per repo blob that references it (path relative to the cache root)
+│       └── 73b079dc…845b59.lock                  # lock file
+│
+└── models--HuggingFaceTB--SmolLM2-135M-Instruct/
+    └── blobs/
+        └── 5af571cb…68ab8c -> ../../blobs/73/73b079dc…845b59
+```
+
+Key properties:
+- The repo entry keeps its etag name and becomes a **relative symlink**: `../../blobs/{xet_hash[:2]}/{xet_hash}`
+- The `snapshots/` layout does not change, so [file resolution](#file-resolution-logic) is unaffected
+- The marker file identifies the store: a `blobs/` directory at the cache root without it is never touched
+- The store requires symlinks. If sharing fails, the file is stored in the repo folder as before. `HF_HUB_DISABLE_SHARED_BLOBS=1` disables the store
+
+Implementations that only read the cache need no changes: following symlinks works as before.
+
+Implementations that delete from the cache should treat a repo blob that is a symlink as a reference into the store:
+- Remove a shared file only when no entry in its `.refs` manifest still points to it
+- If the manifest is missing or unreadable, keep the file
+
+See the [`huggingface_hub` cache guide](https://huggingface.co/docs/huggingface_hub/guides/manage-cache#shared-blobs-across-repos) for deletion behavior and limitations with older clients.
 
 ## Lock files
 
@@ -245,6 +278,6 @@ To locate a cached file on disk:
 
 ## Windows behavior
 
-The cache relies on **symbolic links**. On Windows systems where symlinks are not available, the cache operates in a **degraded mode**: actual file copies are placed directly in `snapshots/` instead of symlinks. The `blobs/` directory is not used in this mode.
+The cache relies on **symbolic links**. On Windows systems where symlinks are not available, the cache operates in a **degraded mode**: actual file copies are placed directly in `snapshots/` instead of symlinks. The `blobs/` directory and the [shared blob store](#shared-blob-store) are not used in this mode.
 
 This means the same file content may be duplicated across revisions, increasing disk usage. To enable symlink support on Windows, activate [Developer Mode](https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) or run as administrator.
