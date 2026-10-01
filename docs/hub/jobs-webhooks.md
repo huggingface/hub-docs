@@ -27,7 +27,7 @@ webhook = create_webhook(
 )
 ```
 
-For a complete example, see [Process new files in a bucket with Jobs](./webhooks-guide-bucket-jobs).
+For a complete example, see [Process new files in a bucket with Jobs](./webhooks-guide-bucket-jobs.md).
 
 The webhook triggers the Job with the following environment variables:
 
