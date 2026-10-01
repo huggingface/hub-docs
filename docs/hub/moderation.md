@@ -12,6 +12,8 @@ To report a repository, you can click the three dots at the top right of a repos
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repository-report-dark.png"/>
 </div>
 
+If you wish to file a DMCA takedown notice or file a DMCA counter notice, more information can be found on these subjects in our [Guide to Submitting a DMCA Notice on Hugging Face](https://huggingface.co/docs/hub/dmca#guide-to-filing-a-dmca-counter-notice). If you wish to submit a private report due to Non-Consensual Intimate Image (NCII) abuse or Child Sexual Abuse Material (CSAM) found in the repository, you can do so [here](https://huggingface.co/private-report)
+
 ## Reporting a comment
 
 To report a comment, click the three dots at the top right of a comment and select "Report". A modal will appear where you can describe the reason for your report — this will be reviewed by the Hugging Face moderation team.
