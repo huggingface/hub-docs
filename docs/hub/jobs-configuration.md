@@ -461,6 +461,18 @@ Supported time units:
 > [!WARNING]
 > If you don't specify a timeout, a default timeout will be applied to your job. For long-running tasks like model training that may take hours, make sure to set an appropriate timeout to avoid unexpected job terminations.
 
+## Retries
+
+By default, a Job runs once. Use `--attempts <n>` (CLI) or `attempts=<n>` (Python API) to retry a Job that fails. The number includes the first run, so `--attempts 3` allows up to two retries:
+
+```bash
+>>> hf jobs uv run --attempts 3 --flavor a10g-large train.py
+```
+
+This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+
+A retry runs the command again from the start, under the same Job ID. To let a retry resume where the previous attempt stopped, write checkpoints to a mounted bucket and have your script resume from them. See [After it ends](./jobs-training#after-it-ends) in Train Models on Jobs.
+
 ## Namespace
 
 Run Jobs under your organization account using the `--namespace` argument. Make sure you are logged in with a token that has the permission to start and manage Jobs under your orgzanization account.
