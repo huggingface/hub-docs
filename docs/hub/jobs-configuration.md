@@ -452,7 +452,7 @@ By default, a Job runs once. Use `--attempts <n>` (CLI) or `attempts=<n>` (Pytho
 
 This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
 
-A retry runs the command again from the start, under the same Job ID. To let a retry resume where the last attempt stopped, write checkpoints to a mounted bucket. See [After it ends](./jobs-training#after-it-ends) in Train Models.
+A retry runs the command again from the start, under the same Job ID. To let a retry resume where the previous attempt stopped, write checkpoints to a mounted bucket and have your script resume from them. See [After it ends](./jobs-training#after-it-ends) in Train Models on Jobs.
 
 ## Namespace
 
