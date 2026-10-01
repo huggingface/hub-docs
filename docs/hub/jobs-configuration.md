@@ -450,7 +450,7 @@ By default, a Job runs once. Use `--attempts` (CLI) or `attempts=` (Python API) 
 >>> hf jobs uv run --attempts 3 --flavor a10g-large train.py
 ```
 
-A retry runs the command again from the start, under the same Job ID. To let it resume, save your progress to a [volume](#volumes) or to the Hub. This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+A retry runs the command again from the start, under the same Job ID. To let it resume, write checkpoints to a bucket: see [After it ends](./jobs-training#after-it-ends). This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
 
 ## Namespace
 

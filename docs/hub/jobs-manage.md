@@ -229,7 +229,7 @@ Use `hf jobs rerun` to start a new Job with the saved configuration of an existi
 >>> hf jobs rerun <job_id>
 ```
 
-The new Job has its own ID. The command takes no other settings: to change one, start a new Job with `hf jobs run` or `hf jobs uv run`. Like those commands, it streams the logs, and `--detach` returns straight away. In Python, use `rerun_job`.
+The new Job has its own ID. In Python, use `rerun_job`.
 
 ## Cancel Jobs
 
