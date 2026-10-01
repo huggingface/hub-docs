@@ -236,6 +236,10 @@ The **chunk cache** stores downloaded byte ranges (chunks) on disk so overlappin
 | `HF_XET_LOG_DIR_MIN_DELETION_AGE` | `1d` | Minimum age before a log file can be deleted during cleanup. |
 | `HF_XET_LOG_DIR_MAX_RETENTION_AGE` | `14d` | Maximum age for log files. Files older than this are always deleted during cleanup. |
 
+### Telemetry
+
+`hf_xet` sends a short report after each upload and download. See [Telemetry](./telemetry) for what it contains and how to turn it off with `HF_HUB_DISABLE_TELEMETRY=1`.
+
 ## Current Limitations
 
 While Xet brings fine-grained deduplication and enhanced performance to Git-based storage, some features and platform compatibilities are still in development. As a result, keep the following constraints in mind when working with a Xet-enabled repository:

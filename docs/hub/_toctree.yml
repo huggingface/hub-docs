@@ -58,6 +58,8 @@
       title: Using Xet Storage
     - local: xet/security
       title: Security
+    - local: xet/telemetry
+      title: Telemetry
     - local: xet/legacy-git-lfs
       title: Backwards Compatibility & Legacy
     - local: xet/deduplication
