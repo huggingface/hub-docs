@@ -31,7 +31,7 @@ The server takes a few minutes to become ready (image pull, model download, mode
 
 ## Connect a client
 
-A port exposed with `--expose` requires an HF token with `read` access to the job's namespace, passed as a Bearer token (to serve without a token, see [public ports](./jobs-configuration#expose-ports)). For an OpenAI-compatible server this slots directly into the client's API key — the base URL is the exposed port URL plus `/v1`:
+Exposed ports require an HF token with `read` access to the job's namespace, passed as a Bearer token. For an OpenAI-compatible server this slots directly into the client's API key — the base URL is the exposed port URL plus `/v1`:
 
 ```python
 import os
@@ -60,7 +60,7 @@ Or with `curl`:
 ...   -d '{"model": "LiquidAI/LFM2.5-8B-A1B", "messages": [{"role": "user", "content": "Hello!"}]}'
 ```
 
-Because the token travels in the `Authorization` header, these URLs work from scripts, notebooks, and agents — anywhere you'd use an OpenAI-compatible API. They can't be opened directly in a browser.
+Because the token travels in the `Authorization` header, these URLs work from scripts, notebooks, and agents — anywhere you'd use an OpenAI-compatible API. They can't be opened directly in a browser. To serve a port without an HF token, use `--expose-public` — see [Expose Ports](./jobs-configuration#expose-ports).
 
 ## Serve GGUF models with llama.cpp
 

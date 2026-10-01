@@ -280,7 +280,7 @@ curl -H "Authorization: Bearer $HF_TOKEN" https://<job_id>--<port>.hf.jobs/
 
 This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants. Repeat the flag to expose multiple ports (`--expose 8000 --expose 8001`), or pass several ports in the list (`expose=[8000, 8001]`).
 
-To make a port reachable without a token, use `--expose-public <port>` (CLI) or `expose_public=[<port>]` (Python API) instead. Anyone who has the URL can then reach the port, so use it only for a service that is safe to share. You can combine both options to expose some ports with a token and others publicly.
+To make a port reachable without an HF token, use `--expose-public <port>` (CLI) or `expose_public=[<port>]` (Python API) instead. Anyone who has the URL can then reach the port, so use it only for a service that is safe to share. You can combine both options: some ports then require an HF token and others are public.
 
 > [!NOTE]
 > Exposed ports are billed at a small flat hourly rate on top of the job's hardware price, only while the job is running. See the [pricing page](./jobs-pricing) for details.
@@ -312,10 +312,10 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 Use `hf jobs expose` to change which ports are exposed, without restarting the Job:
 
 ```bash
-# Expose port 8000, with a token required
+# Expose port 8000 (requires an HF token)
 >>> hf jobs expose <job_id> 8000
 
-# Expose port 8000 with a token required, and port 9000 publicly
+# Expose port 8000 (requires an HF token) and port 9000 publicly
 >>> hf jobs expose <job_id> 8000 --public 9000
 
 # Close all exposed ports
