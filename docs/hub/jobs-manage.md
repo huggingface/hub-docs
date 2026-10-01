@@ -221,6 +221,16 @@ In this case you need to specify a higher timeout, using `--timeout` in the CLI,
 hf jobs uv run --timeout 3h ...
 ```
 
+## Rerun a Job
+
+Use `hf jobs rerun` to start a new Job with the saved configuration of an existing Job, including its secrets and hardware:
+
+```bash
+>>> hf jobs rerun <job_id>
+```
+
+The new Job has its own ID. The command takes no other settings: to change one, start a new Job with `hf jobs run` or `hf jobs uv run`. Like those commands, it streams the logs, and `--detach` returns straight away. In Python, use `rerun_job`.
+
 ## Cancel Jobs
 
 Use the "Cancel" button on the Job page to cancel a Job:

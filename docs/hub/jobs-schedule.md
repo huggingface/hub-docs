@@ -26,7 +26,7 @@ Use `hf jobs uv run ` or `hf jobs run` with a schedule of `@annually`, `@yearly`
 
 Use the same parameters as `hf jobs uv run` and `hf jobs run` to pass environment variables, secrets, timeout, labels, etc.
 
-Manage scheduled jobs using `hf jobs scheduled ps`, `hf jobs scheduled inspect`, `hf jobs scheduled suspend`, `hf jobs scheduled resume`, `hf jobs scheduled trigger`, and `hf jobs scheduled delete`:
+Manage scheduled jobs using `hf jobs scheduled ps`, `hf jobs scheduled inspect`, `hf jobs scheduled suspend`, `hf jobs scheduled resume`, `hf jobs scheduled reschedule`, `hf jobs scheduled trigger`, and `hf jobs scheduled delete`:
 
 ```python
 # List your active scheduled jobs
@@ -43,6 +43,9 @@ Manage scheduled jobs using `hf jobs scheduled ps`, `hf jobs scheduled inspect`,
 
 # Resume a scheduled job
 >>> hf jobs scheduled resume <scheduled-job-id>
+
+# Change when a scheduled job runs (here, 9 AM every Monday)
+>>> hf jobs scheduled reschedule <scheduled-job-id> "0 9 * * 1"
 
 # Trigger a scheduled job to run right now (does not change the schedule)
 >>> hf jobs scheduled trigger <scheduled-job-id>
