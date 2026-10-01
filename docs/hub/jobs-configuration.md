@@ -444,13 +444,15 @@ Supported time units:
 
 ## Retries
 
-By default, a Job runs once. Use `--attempts` (CLI) or `attempts=` (Python API) to retry a Job that fails. The number includes the first run, so `--attempts 3` allows up to two retries:
+By default, a Job runs once. Use `--attempts <n>` (CLI) or `attempts=<n>` (Python API) to retry a Job that fails. The number includes the first run, so `--attempts 3` allows up to two retries:
 
 ```bash
 >>> hf jobs uv run --attempts 3 --flavor a10g-large train.py
 ```
 
-A retry runs the command again from the start, under the same Job ID. To let it resume, write checkpoints to a bucket: see [After it ends](./jobs-training#after-it-ends). This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+
+A retry runs the command again from the start, under the same Job ID. To let a retry resume where the last attempt stopped, write checkpoints to a mounted bucket. See [After it ends](./jobs-training#after-it-ends) in Train Models.
 
 ## Namespace
 

@@ -223,7 +223,7 @@ hf jobs uv run --timeout 3h ...
 
 ## Rerun a Job
 
-Use `hf jobs rerun` to start a new Job with the saved configuration of an existing Job, including its secrets and hardware:
+Use `hf jobs rerun` to start a new Job with the saved configuration of an existing Job, including its secrets and hardware flavor:
 
 ```bash
 >>> hf jobs rerun <job_id>
