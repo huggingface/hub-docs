@@ -31,7 +31,7 @@ The server takes a few minutes to become ready (image pull, model download, mode
 
 ## Connect a client
 
-Exposed ports require an HF token with `read` access to the job's namespace, passed as a Bearer token. For an OpenAI-compatible server this slots directly into the client's API key — the base URL is the exposed port URL plus `/v1`:
+A port exposed with `--expose` requires an HF token with `read` access to the job's namespace, passed as a Bearer token (to serve without a token, see [public ports](./jobs-configuration#expose-ports)). For an OpenAI-compatible server this slots directly into the client's API key — the base URL is the exposed port URL plus `/v1`:
 
 ```python
 import os
