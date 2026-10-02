@@ -200,8 +200,9 @@ Files downloaded through Xet are deduplicated across repositories. Such a file i
 Key properties:
 - The repo entry keeps its etag name and becomes a **relative symlink**: `../../blobs/{xet_hash[:2]}/{xet_hash}`
 - The `snapshots/` layout does not change, so [file resolution](#file-resolution-logic) is unaffected
-- The marker file identifies the store: a `blobs/` directory at the cache root without it is never touched
-- The store requires symlinks. If sharing fails, the file is stored in the repo folder as before. `HF_HUB_DISABLE_SHARED_BLOBS=1` disables the store
+- The marker file identifies the store: a non-empty `blobs/` directory at the cache root without it is never used or modified
+- The store requires symlinks and `hf_xet`. If sharing fails, the file is stored in the repo folder as before. `HF_HUB_DISABLE_SHARED_BLOBS=1` disables the store
+- Only new downloads go through the store. Files written by older versions or by other clients stay regular files in the repo folder, so a cache can contain both
 
 Implementations that only read the cache need no changes: following symlinks works as before.
 
