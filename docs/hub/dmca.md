@@ -16,7 +16,7 @@ This guide describes what Hugging Face needs in order to process a copyright tak
 
 - A Model Repository can include weights, a model card, and example outputs. These aren't the same kind of Content and may need to be identified differently.
 - A Dataset Repository's Content is the data itself, or a specific split or subset of it.
-- A Space can involve its code, its interface, or what it produces when run. Space **outputs are generally not stored anywhere.** If your concern is about something a Space produced rather than the Space's underlying code or Model, see the note on outputs in section [Your Notice Must Include](http://localhost:5173/dmca#your-notice-must-include) "Identification of the allegedly infringing Content".
+- A Space can involve its code, its interface, or what it produces when run. Space **outputs are generally not stored anywhere.** If your concern is about something a Space produced rather than the Space's underlying code or Model, see the note on outputs in section [Your Notice Must Include](https://huggingface.co/docs/hub/dmca#your-notice-must-include) "Identification of the allegedly infringing Content".
 - Repositories can be duplicated on the Hub. If you believe duplicates of a Repository are also infringing, please identify them explicitly. For a large number of duplicates, you can instead state that you've reviewed a representative sample and believe the rest infringe to the same extent.
 
 **Have you actually considered fair use?** Fair use can permit certain uses of copyrighted material without the owner's permission, for example when only a small amount is used, the use is transformative, or the use is for educational purposes. Your notice will ask you to affirmatively state that you've considered this.
