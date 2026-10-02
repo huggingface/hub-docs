@@ -46,7 +46,7 @@ This can be overridden with environment variables:
 └── spaces--<org>--<repo>/                   # Cached space repositories
 ```
 
-Each downloaded repository gets a single flat folder. Inside each repo folder, files are stored once in a content-addressed `blobs/` directory and accessed through `snapshots/` symlinks. Named references (branches, tags) are tracked in `refs/`. Files downloaded through Xet are stored once for the whole cache, in a [shared blob store](#shared-blob-store) at the cache root. The repo's `blobs/` entry is then a symlink to that file.
+Each downloaded repository gets a single flat folder. Inside each repo folder, files are stored once in a content-addressed `blobs/` directory and accessed through `snapshots/` symlinks. Named references (branches, tags) are tracked in `refs/`. Since `huggingface_hub` 1.32, files downloaded with `hf_xet` are stored once for the whole cache, in a [shared blob store](#shared-blob-store) at the cache root. The repo's `blobs/` entry is then a symlink to that file.
 
 ## Schema
 
