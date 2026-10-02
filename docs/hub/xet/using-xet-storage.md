@@ -124,6 +124,7 @@ When uploading or downloading with Python:
 
 - **Make sure `hf_xet` is installed**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
 - **Adaptive concurrency is on by default**: `hf_xet` automatically adjusts the number of parallel transfer streams based on real-time network conditions — no configuration required. The default settings will saturate most network paths without any tuning.
+- **Download memory follows your machine**: Starting with `hf_xet` 1.7.0, download buffers are sized from the memory available to `hf_xet`, including container memory limits. Small containers use less memory for downloads and large machines use more, with no settings needed. See [Download Buffers](#download-buffers).
 - **Advanced tuning**: For fine-grained control, `HF_XET_FIXED_DOWNLOAD_CONCURRENCY` and `HF_XET_FIXED_UPLOAD_CONCURRENCY` let you pin concurrency to a fixed value, bypassing the adaptive controller. See `hf_xet`'s [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) for the full list of options.
 
 When uploading or downloading in Git or Python: 
@@ -137,7 +138,7 @@ When uploading or downloading in Git or Python:
 Both `hf_xet` and Git Xet are powered by `xet-core`, which can be configured via environment variables. The tables below list the individual variables for fine-grained control. Most users will not need to change any of these — the defaults are tuned to saturate most network paths automatically.
 
 > [!NOTE]
-> `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth **and at least 64 GB of RAM** for buffering. On machines with less memory, it may degrade performance.
+> `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth. Starting with `hf_xet` 1.7.0, the buffer sizes it sets are based on the memory available to `hf_xet` (see [Download Buffers](#download-buffers)), so it no longer needs 64 GB of RAM, and any variable you set yourself takes precedence over this flag. With earlier versions, only use it on machines with at least 64 GB of RAM.
 
 ### General
 
@@ -145,7 +146,7 @@ High-level flags that most users reach for first.
 
 | Environment Variable | Default | Description |
 |---|---|---|
-| `HF_XET_HIGH_PERFORMANCE` (alias `HF_XET_HP`) | off | Convenience flag that maximizes network and CPU usage by raising concurrency, buffer sizes, and parallel file limits at once. See the note above — best on machines with high bandwidth and at least 64 GB of RAM. |
+| `HF_XET_HIGH_PERFORMANCE` (alias `HF_XET_HP`) | off | Convenience flag that maximizes network and CPU usage by raising concurrency, buffer sizes, and parallel file limits at once. See the note above. |
 | `HF_XET_CACHE` | `$HF_HOME/xet` | Directory where Xet caches data locally (downloaded chunks and deduplication shards). Takes precedence over `HF_HOME`. |
 
 ### Adaptive Concurrency
@@ -194,15 +195,20 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 
 ### Download Buffers
 
-These control memory usage during downloads. `HF_XET_HIGH_PERFORMANCE=1` raises these significantly.
+These control memory usage during downloads.
+
+Starting with `hf_xet` 1.7.0, the defaults for the three `DOWNLOAD_BUFFER` variables are based on how much memory `hf_xet` can use. This is the machine's RAM, or the container's memory limit if that is lower. Each default is a fraction of that memory, kept between the minimum and maximum shown in the table. HP mode uses twice the fraction, with the same minimum and maximum. For example, a container limited to 4 GB gets a buffer of about 256 MB with a 1 GB limit, and a machine with 32 GB gets about the same 2 GB buffer and 8 GB limit as earlier versions.
+
+Earlier versions, or any version that can't tell how much memory is available, use fixed defaults of `2gb`, `512mb`, and `8gb` (`16gb`, `2gb`, and `64gb` in HP mode). The values in use are written to the `hf_xet` log file when it starts (see [Logging](#logging)).
 
 | Environment Variable | Default | HP Mode | Description |
 |---|---|---|---|
 | `HF_XET_RECONSTRUCTION_MIN_RECONSTRUCTION_FETCH_SIZE` | `256mb` | `1gb` | Minimum fetch size for reconstruction requests. |
 | `HF_XET_RECONSTRUCTION_MAX_RECONSTRUCTION_FETCH_SIZE` | `8gb` | `16gb` | Maximum fetch size for reconstruction requests. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | `2gb` | `16gb` | Total download buffer size. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | `512mb` | `2gb` | Per-file download buffer size. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | `8gb` | `64gb` | Hard limit on total download buffer memory. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | 1/16 of memory, `64mb` to `16gb` | 1/8 of memory | Total download buffer size. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | 1/64 of memory, `16mb` to `2gb` | 1/32 of memory | Per-file download buffer size. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | 1/4 of memory, `264mb` to `64gb` | 1/2 of memory | Hard limit on total download buffer memory. If `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` is set higher than this, the limit is raised to match. |
+| `HF_XET_DISABLE_MEMORY_DERIVED_DOWNLOAD_BUFFERS` | unset | — | Set to `1` to use the fixed defaults instead of sizing buffers from available memory. |
 | `HF_XET_RECONSTRUCTION_TARGET_BLOCK_COMPLETION_TIME` | `15m` | — | Target time for completing a prefetch block. Used to determine how much data to prefetch ahead during downloads. |
 | `HF_XET_RECONSTRUCTION_MIN_PREFETCH_BUFFER` | `1gb` | — | Minimum amount of data to keep prefetched during downloads, regardless of estimated completion time. |
 
