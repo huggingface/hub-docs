@@ -206,8 +206,10 @@ Key properties:
 Implementations that only read the cache need no changes: following symlinks works as before.
 
 Implementations that delete from the cache should treat a repo blob that is a symlink as a reference into the store:
-- Remove a shared file only when no entry in its `.refs` manifest still points to it
-- If the manifest is missing or unreadable, keep the file
+- Delete the symlink in the repo's `blobs/`, not the shared file it points to
+- Lock `<xet_hash>.lock` before checking the manifest and deleting
+- Delete the shared file and its `.refs` only if no symlink listed in the manifest still points to it
+- If the manifest is missing or can't be read, keep the shared file
 
 See the [`huggingface_hub` cache guide](https://huggingface.co/docs/huggingface_hub/guides/manage-cache#shared-blobs-across-repos) for deletion behavior and limitations with older clients.
 
