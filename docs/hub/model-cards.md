@@ -259,9 +259,9 @@ The model card is also a great place to show information about the CO<sub>2</sub
 
 ### Linking a Paper
 
-If the model card mentions a paper's arXiv ID, the Hugging Face Hub links the paper to the model. The ID can appear in a link to its Paper page (`https://huggingface.co/papers/<PAPER ID>`), in an arXiv abstract or PDF link, as `arXiv:<PAPER ID>`, or in a BibTeX citation field such as `eprint={<PAPER ID>}`. A link to a PDF hosted somewhere else, for example in the model repository, is not enough.
+If the model card mentions a paper's arXiv ID, the Hugging Face Hub links the paper to the model. The ID must appear in a link to its Paper page (`https://huggingface.co/papers/<PAPER ID>`), in an arXiv abstract or PDF link, as `arXiv:<PAPER ID>`, or in a BibTeX field such as `eprint={<PAPER ID>}`. A bare ID, or a link to a PDF hosted somewhere else (for example in the model repository), is not enough.
 
-Linked papers that have a Paper page on the Hub are listed in the right sidebar of the model page:
+Up to five linked papers that have a Paper page on the Hub are listed in the right sidebar of the model page:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers.png"/>

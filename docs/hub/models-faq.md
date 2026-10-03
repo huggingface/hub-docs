@@ -36,7 +36,7 @@ By convention, each model repo should contain a single checkpoint. You should up
 
 ## Can I link my model to a paper on arXiv?
 
-Yes. Mention the paper's arXiv ID in the model card, for example with a link to `https://huggingface.co/papers/<PAPER ID>` or an `eprint={<PAPER ID>}` field in your BibTeX citation. The Hugging Face Hub then lists the paper in the right sidebar of the model page and adds an `arxiv:<PAPER ID>` tag to the model. Clicking on the tag will let you:
+Yes. Reference the paper's arXiv ID in the model card in one of the supported formats, for example a link to `https://huggingface.co/papers/<PAPER ID>` or an `eprint={<PAPER ID>}` field in your BibTeX citation. The Hugging Face Hub then lists the paper in the right sidebar of the model page and adds an `arxiv:<PAPER ID>` tag to the model. Clicking on the tag will let you:
 
 * Visit the Paper page.
 * Filter for other models on the Hub that cite the same paper.
