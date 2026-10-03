@@ -18,6 +18,27 @@ When uploading models to the Hub, follow these best practices:
 - **Prefer [`safetensors`](https://huggingface.co/docs/safetensors/en/index) over `pickle` for weight serialization.**:
    `safetensors` is safer and faster than Python’s `pickle` or `pth`. If you have a `.bin` pickle file, use the [weight conversion tool](https://huggingface.co/docs/safetensors/en/convert-weights) to convert it.
 
+- **Keep intermediate checkpoints of one training run in one repository, as revisions**:
+   The rule above is for different models. If you want to share checkpoints from along a single training run (for training-dynamics or interpretability research), do not create a repository per step. Put the final checkpoint on `main` and publish each intermediate checkpoint as a Git revision of the same repository, one branch or one tag per checkpoint. Name revisions so they sort and describe themselves, for example `step143000` ([Pythia](https://huggingface.co/EleutherAI/pythia-70m/tree/step143000)), `step1000-tokens5B` ([OLMo](https://huggingface.co/allenai/OLMo-7B)), or `checkpoint-99000` ([Stanford CRFM](https://huggingface.co/stanford-crfm/alias-gpt2-small-x21)). Users then load any checkpoint with `revision`:
+
+   ```python
+   from transformers import AutoModelForCausalLM
+
+   model = AutoModelForCausalLM.from_pretrained("EleutherAI/pythia-70m", revision="step143000")
+   ```
+
+   ```bash
+   hf download EleutherAI/pythia-70m --revision step143000
+   ```
+
+   Branches and tags both work with `revision`. Branches appear in the branch selector on the Hub and can be updated later; tags are immutable, which suits checkpoints that must never change. You can create either by [uploading to a specific revision](https://huggingface.co/docs/huggingface_hub/guides/upload#upload-to-a-specific-revision), or with [`create_branch`](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.HfApi.create_branch) and [`create_tag`](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.HfApi.create_tag). Avoid relying on bare commit hashes: they are hard to discover, and a named revision costs nothing. List the revisions and what they mean (step, tokens seen, learning-rate stage) in the model card, since the Hub only shows their names.
+
+   Two things to keep in mind:
+   - Weights at different steps are mostly different bytes, so [deduplication](./xet/deduplication) saves little here: N checkpoints cost roughly N times the storage of one. Check your [storage plan](./storage-limits) before publishing hundreds of them.
+   - Point users at `hf download --revision` or [`snapshot_download(revision=...)`](https://huggingface.co/docs/huggingface_hub/guides/download) rather than `git clone`. Switching between branches in a local clone downloads each checkpoint's weights in turn, which is very slow with many multi-gigabyte revisions.
+
+   For precision or format variants of the *same* weights (fp16, GGUF), see [Quantized Versions](#enhance-model-discoverability-and-usability) below: separate repositories linked with `base_model`, or [variant files](https://huggingface.co/docs/transformers/main_classes/model#transformers.PreTrainedModel.from_pretrained) such as `model.fp16.safetensors` in the same repository (loaded with `variant="fp16"`), rather than branches.
+
 ### Write a Comprehensive Model Card
 
 A well-crafted model card (the `README.md` in your repository) is essential for discoverability, reproducibility, and effective sharing. Make sure to cover:
