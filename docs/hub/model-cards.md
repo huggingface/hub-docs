@@ -259,17 +259,21 @@ The model card is also a great place to show information about the CO<sub>2</sub
 
 ### Linking a Paper
 
-If the model card includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hugging Face Hub will extract the arXiv ID and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+If the model card mentions a paper's arXiv ID, the Hugging Face Hub links the paper to the model. The ID can appear in a link to its Paper page (`https://huggingface.co/papers/<PAPER ID>`), in an arXiv abstract or PDF link, as `arXiv:<PAPER ID>`, or in a BibTeX citation field such as `eprint={<PAPER ID>}`. A link to a PDF hosted somewhere else, for example in the model repository, is not enough.
 
-* Visit the Paper page
-* Filter for other models on the Hub that cite the same paper.
+Linked papers that have a Paper page on the Hub are listed in the right sidebar of the model page:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv.png"/>
-<img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-dark.png"/>
+<img class="block dark:hidden" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers.png"/>
+<img class="hidden dark:block" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers-dark.png"/>
 </div>
 
-Read more about Paper pages [here](./paper-pages).
+The Hub also adds an `arxiv:<PAPER ID>` tag to the model. Clicking on it lets you:
+
+* Visit the Paper page.
+* Filter for other models on the Hub that cite the same paper.
+
+Read more about linking papers [here](./paper-pages#linking-a-paper-to-a-model-dataset-or-space).
 
 ## Model Card text
 

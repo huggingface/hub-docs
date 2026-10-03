@@ -9,15 +9,26 @@ Paper pages allow people to find artifacts related to a paper such as models, da
 
 ## Linking a Paper to a model, dataset or Space
 
-If the repository card (`README.md`) includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hugging Face Hub will extract the arXiv ID and include it in the repository's tags. Clicking on the arxiv tag will let you:
+If the repository card (`README.md`) mentions a paper's arXiv ID, the Hugging Face Hub links the paper to the repository. The ID is detected in any of these forms:
 
-* Visit the Paper page.
-* Filter for other models or datasets on the Hub that cite the same paper.
+* A link to its Paper page: `https://huggingface.co/papers/1706.03762`
+* A link to its arXiv abstract or PDF: `https://arxiv.org/abs/1706.03762` or `https://arxiv.org/pdf/1706.03762`
+* An `arXiv:` prefix in the text: `arXiv:1706.03762`
+* A field in a BibTeX citation: `eprint={1706.03762}`
+
+A link to a PDF hosted somewhere else (for example in the repository itself), or a citation without the arXiv ID, is not enough: the ID has to appear in the card.
+
+On model and dataset pages, linked papers that have a Paper page on the Hub are listed in the right sidebar:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
-<img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
+<img class="block dark:hidden" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers.png"/>
+<img class="hidden dark:block" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers-dark.png"/>
 </div>
+
+The Hub also adds an `arxiv:<PAPER ID>` tag to the repository. Clicking on it lets you:
+
+* Visit the Paper page.
+* Filter for other repositories of the same type on the Hub that cite the same paper.
 
 ## Claiming authorship to a Paper
 

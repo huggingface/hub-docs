@@ -36,14 +36,14 @@ By convention, each model repo should contain a single checkpoint. You should up
 
 ## Can I link my model to a paper on arXiv?
 
-If the model card includes a link to a paper on arXiv, the Hugging Face Hub will extract the arXiv ID  and include it in the model tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+Yes. Mention the paper's arXiv ID in the model card, for example with a link to `https://huggingface.co/papers/<PAPER ID>` or an `eprint={<PAPER ID>}` field in your BibTeX citation. The Hugging Face Hub then lists the paper in the right sidebar of the model page and adds an `arxiv:<PAPER ID>` tag to the model. Clicking on the tag will let you:
 
-* Visit the paper page
+* Visit the Paper page.
 * Filter for other models on the Hub that cite the same paper.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
-<img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
+<img class="block dark:hidden" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers.png"/>
+<img class="hidden dark:block" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers-dark.png"/>
 </div>
 
-Read more about paper pages [here](./paper-pages).
+See [all the supported formats](./paper-pages#linking-a-paper-to-a-model-dataset-or-space).
