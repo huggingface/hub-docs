@@ -36,6 +36,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
     </a>
 </div>
 
+[fal](https://fal.ai/) is the generative media inference platform: call 1,000+ models by API, or deploy your own models, pipelines and apps on fal's autoscaling GPUs with [fal Serverless](https://fal.ai/docs/documentation/serverless). Serverless deployments scale from zero to thousands of runners and back, are billed per second of runner lifetime ([pricing](https://fal.ai/docs/documentation/serverless/pricing)), and can be deployed from a Python `fal.App`, a custom Docker container, or an existing HTTP server.
+
 Founded in 2021 by [Burkay Gur](https://huggingface.co/burkaygur) and [Gorkem Yurtseven](https://huggingface.co/gorkemyurt), fal.ai was born out of a shared passion for AI and a desire to address the challenges in AI infrastructure observed during their tenures at Coinbase and Amazon.
 
 ## Supported tasks
