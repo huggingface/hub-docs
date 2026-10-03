@@ -16,8 +16,6 @@ If the repository card (`README.md`) mentions a paper's arXiv ID, the Hugging Fa
 * An `arXiv:` prefix in the text: `arXiv:1706.03762`
 * A BibTeX field, in braces: `eprint={1706.03762}`
 
-A bare ID, a link to a PDF hosted somewhere else (for example in the repository itself), or a citation without the arXiv ID is not enough.
-
 On model and dataset pages, up to five linked papers that have a Paper page on the Hub are listed in the right sidebar:
 
 <div class="flex justify-center">
@@ -29,6 +27,11 @@ Models and datasets also get an `arxiv:<PAPER ID>` tag. Clicking on it lets you:
 
 * Visit the Paper page.
 * Filter for other repositories of the same type on the Hub that cite the same paper.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" width="260" alt="arxiv:2609.19969 tag on a model page, expanded to show the paper title, View paper page and List models citing this paper" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-tag.png"/>
+<img class="hidden dark:block" width="260" alt="arxiv:2609.19969 tag on a model page, expanded to show the paper title, View paper page and List models citing this paper" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-tag-dark.png"/>
+</div>
 
 ## Claiming authorship to a Paper
 

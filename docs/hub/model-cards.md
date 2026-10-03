@@ -259,7 +259,7 @@ The model card is also a great place to show information about the CO<sub>2</sub
 
 ### Linking a Paper
 
-If the model card mentions a paper's arXiv ID, the Hugging Face Hub links the paper to the model. The ID must appear in a link to its Paper page (`https://huggingface.co/papers/<PAPER ID>`), in an arXiv abstract or PDF link, as `arXiv:<PAPER ID>`, or in a BibTeX field such as `eprint={<PAPER ID>}`. A bare ID, or a link to a PDF hosted somewhere else (for example in the model repository), is not enough.
+If the model card mentions a paper's arXiv ID, the Hugging Face Hub links the paper to the model. The ID must appear in a link to its Paper page (`https://huggingface.co/papers/<PAPER ID>`), in an arXiv abstract or PDF link, as `arXiv:<PAPER ID>`, or in a BibTeX field such as `eprint={<PAPER ID>}`.
 
 Up to five linked papers that have a Paper page on the Hub are listed in the right sidebar of the model page:
 
@@ -272,6 +272,11 @@ The Hub also adds an `arxiv:<PAPER ID>` tag to the model. Clicking on it lets yo
 
 * Visit the Paper page.
 * Filter for other models on the Hub that cite the same paper.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" width="260" alt="arxiv:2609.19969 tag on a model page, expanded to show the paper title, View paper page and List models citing this paper" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-tag.png"/>
+<img class="hidden dark:block" width="260" alt="arxiv:2609.19969 tag on a model page, expanded to show the paper title, View paper page and List models citing this paper" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-tag-dark.png"/>
+</div>
 
 Read more about linking papers [here](./paper-pages#linking-a-paper-to-a-model-dataset-or-space).
 
