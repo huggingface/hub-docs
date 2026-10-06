@@ -59,6 +59,22 @@ The same detailed view is available for organizations subscribed to a paid plan 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ip-billing-dark.png"/>
 </div>
 
+### Retrieve organization usage via the API
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
+Organizations can also retrieve their Inference Providers usage programmatically using the <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/&#123;name&#125;/billing/usage/inference">dedicated API endpoint</a>. It returns a daily time series of usage broken down by member, model, and provider, including the number of requests, the cost (in cents), and input, output, and cached input token counts (token counts are only reported for chat completions). Costs are rounded to the nearest cent for each row, so very small amounts may show as 0 and the sum of rows may differ slightly from your invoice. Requests appear in the results up to 2 hours after they are made.
+
+Use a token with permission to read the organization's billing to call it:
+
+```bash
+curl "https://huggingface.co/api/organizations/my-org-name/billing/usage/inference?startDate=2026-09-01T00:00:00Z&endDate=2026-09-30T00:00:00Z&limit=31" \
+  -H "Authorization: Bearer $HF_TOKEN"
+```
+
+The `startDate` and `endDate` query parameters set the time window: it defaults to the current month and must fall within the last 12 months. Results are paginated by day: use the `limit` query parameter to set how many days are returned per page (7 by default, up to 31), and follow the `rel="next"` URL in the `Link` response header to fetch the next page.
+
 ## Hugging Face Billing vs Custom Provider Key (Detailed Comparison)
 
 The documentation above assumes you are making routed requests to external providers. In practice, there are 2 different ways to run inference, each with unique billing implications:
