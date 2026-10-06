@@ -1,6 +1,6 @@
 # Telemetry
 
-Starting with version 1.7.0, `hf_xet` sends a short report to the Hub after each upload and download. We use these reports to see how often transfers fail and how fast they are across `hf_xet` versions, operating systems, and networks, so we can find and fix problems.
+Starting with version 1.7.0, the `hf_xet` Python package and `hf-xet` Rust crate sends a short report to the Hub after each upload and download. We use these reports to see how often transfers fail and how fast they are across `hf_xet` versions, operating systems, and networks, so we can find and fix problems.
 
 Git Xet 0.2.1 and earlier do not send telemetry.
 

@@ -238,7 +238,7 @@ The **chunk cache** stores downloaded byte ranges (chunks) on disk so overlappin
 
 ### Telemetry
 
-`hf_xet` sends a short report after each upload and download. See [Telemetry](./telemetry) for what it contains and how to turn it off with `HF_HUB_DISABLE_TELEMETRY=1`.
+`hf_xet` sends a short report after each upload and download. See [Telemetry](./telemetry) for what it contains. To turn it off set `HF_HUB_DISABLE_TELEMETRY=1`.
 
 ## Current Limitations
 
