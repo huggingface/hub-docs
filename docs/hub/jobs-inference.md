@@ -56,22 +56,31 @@ The command above has the same five parts as every command on this page.
 
 ## Fit the model on the GPU
 
-Weights in bf16 take about 2 GB per billion parameters, and the KV cache and activations need room on top of that. Rough guide, with a margin for the cache:
+Two numbers pick the flavor. The first is how many bytes each parameter takes: 2 in bf16, so about 2 GB per billion parameters — 16 GB for an 8B, 28 for a 14B, 64 for a 32B, 140 for a 70B. The second is how much of the card the engine may spend: vLLM caps itself at `--gpu-memory-utilization` (0.9 by default) and SGLang at `--mem-fraction-static`, and the weights come out of that budget before the cache gets a byte. A 24 GB card has about 21 GB to hand out, so 16 GB of weights leaves roughly 5 for the cache, the engine's buffers and the CUDA context.
 
-| Weights in bf16 | Typical model | Flavors that fit |
-| --------------- | ------------- | ---------------- |
-| under 2 GB      | 0.5-1B, or a 7-8B GGUF at Q4 | `t4-small`, `t4-medium`, `l4x1`, `a10g-small` |
-| 2-18 GB         | 7-8B | `a10g-small`, `a10g-large`, `l4x1`, `l40sx1` |
-| 20-45 GB        | 14B | `l40sx1`, `a10g-largex2` |
-| 60-90 GB        | 32B | `a100-large`, `rtx-pro-6000` |
-| 140 GB and up   | 70B | `h200`, or `a100x4` and `a10g-largex4` split across GPUs |
+In bf16, that arithmetic gives:
 
-The first row and the 7B case below are the runs on this page; the rest is the same arithmetic. Rates and memory per flavor are on [Pricing and Billing](./jobs-pricing).
+| Weights (bf16) | Model | Cheapest flavor it fits | Roomier |
+| -------------- | ----- | ----------------------- | ------- |
+| under 2 GB     | 0.5-1B | `t4-small` ($0.40/hr) | `l4x1` ($0.80) — or a CPU flavor for a handful of prompts |
+| 16 GB          | 7-8B | `l4x1` ($0.80) | `a10g-large` ($1.50), `l40sx1` ($1.80) |
+| 28 GB          | 14B | `l40sx1` ($1.80) | `a100-large` ($2.50) |
+| 64 GB          | 32B | `a100-large` ($2.50) | `rtx-pro-6000` ($2.75) |
+| 140 GB         | 70B | `rtx-pro-6000x2` ($5.50) | `a100x4` ($10), `h200x2` ($10) |
+
+Every run on this page is in the first row — the 0.5B models and the 1.5B GGUF — except the 7B that runs split across two A10Gs. Rates, host memory and disk are on [Pricing and Billing](./jobs-pricing); read that page with this one, since the GPU is not the only memory a model crosses. `a10g-small` has 15 GB of RAM and 110 GB of disk, which makes 16 GB of weights a squeeze even though its GPU has room, while `l4x1` gives the same 24 GB card 30 GB of RAM and 400 GB of disk for $0.20 less an hour.
+
+Two things about the GPU memory column:
+
+- **A card has to hold the weights plus a context.** A single `h200` has 141 GB, one GB more than 70B in bf16: it is the right card for a 70B that is quantized, not for one that is not. [What each format costs](#what-each-format-costs) is the same models at 1 byte and 4.5-4.9 bits per parameter.
+- **On `x2`, `x4` and `x8` flavors the memory is per card, not in common.** Tensor parallelism splits the weights across the cards, so `a10g-largex2` is 2 × 24 GB and 45 GB of weights means 22.5 GB on each card with nothing left over. The split has a price of its own: the A10G and L4 pairs have no NVLink, so every layer pays a PCIe round trip, and the model's attention head counts have to divide by the number of cards. One faster card beats two slow ones wherever capacity allows it — `l40sx1` has the same 48 GB as `a10g-largex2` for $1.80 instead of $3.00.
+
+The cache is arithmetic rather than a fudge factor, and it grows with context, per sequence: `2 × layers × kv_heads × head_dim × bytes per element` for each token. [Llama-3.1-8B](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) has 32 layers, 8 KV heads and a head dimension of 128, so a token costs 128 KB in bf16 — 1 GB for one 8K sequence, 16 GB at the model's full 128K. Grouped-query attention makes a model far cheaper to run than its parameter count suggests, and `--kv-cache-dtype fp8` halves the figure again (with `nvfp4` halving it once more on Blackwell). Both engines print what the leftover memory bought: vLLM's `GPU KV cache size: N tokens` line is the one to read.
 
 When a model does not fit on one GPU:
 
 - **Cap the context.** The KV cache grows with the context length, not with the prompt you actually send. `--max-model-len 4096` for vLLM and `--context-length 4096` for SGLang free that memory back to the weights. Both engines print the resulting cache in their startup logs, along with how many requests at that length it holds.
-- **Quantize.** vLLM and SGLang take `--quantization` with a quantized checkpoint, and a GGUF quant is the same weights in a smaller file, which is what the llama.cpp section runs.
+- **Quantize the weights.** A pre-quantized checkpoint usually needs no flag: vLLM and SGLang read the `quantization_config` in the repo's `config.json` and pick the kernel themselves. Pass `--quantization` when the repo carries no such config, or to quantize on the fly — `--quantization fp8` needs no calibration data. A GGUF is the same weights in one file, and llama.cpp is the engine it was built for: vLLM can read one too (`--model repo_id:Q4_K_M`), but that path is experimental, under-optimized and needs a separate `vllm-gguf-plugin`. Sizes, and which card runs which format, are in [What each format costs](#what-each-format-costs).
 - **Split across GPUs.** Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine. Both engines take the split as one flag: `--tensor-parallel-size 2` for vLLM, `--tp-size 2` for SGLang. Nothing else changes:
 
   ```bash
@@ -82,6 +91,38 @@ When a model does not fit on one GPU:
   ```
 
   [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) across two A10Gs takes just under two minutes of running, weights download included, about $0.17 at that flavor's rate. `hf jobs stats <job_id>` prints per-GPU memory and utilization while the Job runs.
+
+### What each format costs
+
+Quantization divides the weight figure, not the cache: a 4-bit model still keeps its keys and values in bf16 until you quantize the cache too. The formats below are priced in GB per billion parameters, so one column works for every size — multiply by the parameter count, then read the flavor off the table above. Real checkpoints keep the embeddings, the output head and the norms at higher precision, so expect a few percent above the arithmetic.
+
+| Format | Bits per weight | GB per billion params | 8B | 32B | 70B | Engine |
+| ------ | --------------- | --------------------- | -- | --- | --- | ------ |
+| bf16, fp16 | 16 | 2.0 | 16 GB | 64 GB | 140 GB | all |
+| FP8 (`fp8`) | 8 | 1.0 | 8 GB | 32 GB | 70 GB | vLLM, SGLang |
+| GGUF Q8_0 | 8.5 | 1.06 | 8.5 GB | 34 GB | 74 GB | llama.cpp |
+| GGUF Q6_K | 6.6 | 0.82 | 6.6 GB | 26 GB | 57 GB | llama.cpp |
+| GGUF Q5_K_M | 5.7 | 0.71 | 5.7 GB | 23 GB | 50 GB | llama.cpp |
+| GGUF Q4_K_M | 4.9 | 0.61 | 4.9 GB | 20 GB | 43 GB | llama.cpp |
+| AWQ, GPTQ (INT4, group 128) | 4.25-4.5 | 0.55 | 4.5 GB | 18 GB | 38 GB | vLLM, SGLang |
+| NVFP4 | 4.5 | 0.56 | 4.5 GB | 15 GB | 39 GB | vLLM (Blackwell) |
+
+A "4-bit" GGUF is really 4.9 bits once the block scales are counted, which is why INT4 and NVFP4 checkpoints come out about 10% smaller at the same nominal width. The [GGUF page](./gguf#quantization-types) lists what each file type stores. What the table buys, on the flavors above:
+
+- **70B**: 140 GB in bf16 wants two cards. Q4_K_M is 43 GB and fits one `l40sx1` at $1.80, about a third of the bf16 rate.
+- **32B**: FP8 is 32 GB, so `l40sx1` instead of `a100-large`.
+- **30B-A3B and other MoE models**: all the experts sit in memory even though only a few fire per token, so a 30B-A3B is 61 GB in bf16 and about 19 GB at Q4 — `l4x1` for $0.80. Quantization, not the small active parameter count, is what makes these cheap.
+- **8B**: bf16 on an `l4x1` ($0.80) against its own Q4_K_M on a `t4-small` ($0.40) is the same answer for half the rate, but the T4 is a far slower card. Check which of the two savings you are actually buying.
+
+A format only pays off on a card that executes it well:
+
+- **`t4-small`, `t4-medium` (Turing)** have no bf16 path — pass `--dtype float16`. vLLM's floor is compute capability 7.5 so it runs, but without FlashAttention-2 and with dequantization fallbacks where an INT4 kernel wants Ampere. On these two flavors llama.cpp on a GGUF is the engine that runs well, which is why the [llama.cpp section](#llamacpp-for-gguf-quants) uses a `t4-small`.
+- **`a10g-*`, `a100-*` (Ampere)**: INT4 weight-only through the Marlin kernels is the fast path. FP8 runs weight-only (W8A16), so it saves memory without buying FP8 arithmetic. No FP4.
+- **`l4x1`, `l40sx1` (Ada)**: FP8 W8A8 is supported, FP4 is not.
+- **`h200*` (Hopper)**: FP8 weights and an FP8 KV cache are native, FP4 is not.
+- **`rtx-pro-6000*` (Blackwell)**: FP4 weights and `--kv-cache-dtype nvfp4` are native, which is where a 70B lands near 39 GB and a long context stops costing much.
+
+A quantized KV cache is worth an A/B on your own task before you trust it at the top of a long context: the same weights, prompts and length, run against `--kv-cache-dtype auto`. vLLM's own stress tests of FP8 KV found needle-in-a-haystack accuracy that collapsed only at 128K, on Hopper.
 
 ## vLLM
 
@@ -227,7 +268,7 @@ Anything you want to keep has to leave the container: a Job's disk is discarded 
 
 ## Troubleshooting
 
-- **`CUDA out of memory` while the engine loads.** Lower `--max-model-len` (vLLM) or `--context-length` / `--mem-fraction-static` (SGLang), then `--gpu-memory-utilization`. If the weights alone do not fit, quantize or move up a flavor, or split across GPUs with tensor parallelism. For llama.cpp, lower `n_gpu_layers`.
+- **`CUDA out of memory` while the engine loads.** Lower `--max-model-len` (vLLM) or `--context-length` / `--mem-fraction-static` (SGLang), then `--gpu-memory-utilization`. If the weights alone do not fit, quantize (sizes in [What each format costs](#what-each-format-costs)) or move up a flavor, or split across GPUs with tensor parallelism. For llama.cpp, lower `n_gpu_layers`.
 - **`exec: python: not found`, exit code 127.** The vLLM image has `python3` only. Jobs also runs your command as given, without the image's entrypoint, so the command line has to be complete: `vllm serve ...`, `python3 ...`, not bare arguments.
 - **`ModuleNotFoundError` for a package the library does not need.** Framework images ship the engine and its own dependencies. Install the rest at the start of the command with `uv pip install --system <package>`, or run your script with uv and point it at the image, as described in [Using Docker images](./jobs-images#reuse-the-images-packages-and-add-dependencies-with-uv).
 - **llama.cpp stops with no traceback, exit code 132.** The prebuilt CUDA wheels are compiled for recent server CPUs; on some flavors llama.cpp dies with an illegal instruction on arrival (`a10g-small` and `l4x1` in our runs, `t4-small` and `a100-large` were fine). Use one of the flavors that works, or build the CPU-only wheel as described in the llama.cpp section.
