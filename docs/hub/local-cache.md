@@ -188,13 +188,13 @@ Files downloaded through Xet are deduplicated across repositories. Such a file i
 ├── blobs/
 │   ├── .huggingface-shared-blobs                 # marker file, contains the layout version ("1")
 │   └── 73/                                       # first two hex characters of the Xet hash
-│       ├── 73b079dc…845b59                       # the file, named by its Xet hash (64 hex characters)
-│       ├── 73b079dc…845b59.refs                  # manifest: one line per repo blob that references it (path relative to the cache root)
-│       └── 73b079dc…845b59.lock                  # lock file
+│       ├── 73b079dc7bd546aed26d20a82289bd752fc52a2fda13e7f2b551f3af73845b59                       # the file, named by its Xet hash (64 hex characters)
+│       ├── 73b079dc7bd546aed26d20a82289bd752fc52a2fda13e7f2b551f3af73845b59.refs                  # manifest: one line per repo blob that references it (path relative to the cache root)
+│       └── 73b079dc7bd546aed26d20a82289bd752fc52a2fda13e7f2b551f3af73845b59.lock                  # lock file
 │
 └── models--HuggingFaceTB--SmolLM2-135M-Instruct/
     └── blobs/
-        └── 5af571cb…68ab8c -> ../../blobs/73/73b079dc…845b59
+        └── 5af571cbf074e6d21a03528d2330792e532ca608f24ac70a143f6b369968ab8c -> ../../blobs/73/73b079dc7bd546aed26d20a82289bd752fc52a2fda13e7f2b551f3af73845b59
 ```
 
 Key properties:
