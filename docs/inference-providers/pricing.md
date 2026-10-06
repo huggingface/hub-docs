@@ -64,7 +64,7 @@ The same detailed view is available for organizations subscribed to a paid plan 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
 
-Organizations can also retrieve their Inference Providers usage programmatically using the <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/&#123;name&#125;/billing/usage/inference">dedicated API endpoint</a>. It returns a daily time series of usage broken down by member, model, and provider, including the number of requests, the cost (in cents), and input, output, and cached input token counts (token counts are only reported for chat completions). Requests appear in the results up to 2 hours after they are made.
+Organizations can also retrieve their Inference Providers usage programmatically using the <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/&#123;name&#125;/billing/usage/inference">dedicated API endpoint</a>. It returns a daily time series of usage broken down by member, model, and provider, including the number of requests, the cost (in cents), and input, output, and cached input token counts (token counts are only reported for chat completions). Costs are rounded to the nearest cent for each row, so very small amounts may show as 0 and the sum of rows may differ slightly from your invoice. Requests appear in the results up to 2 hours after they are made.
 
 Use a token with permission to read the organization's billing to call it:
 
