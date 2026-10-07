@@ -15,7 +15,7 @@ The Responses API provides a unified interface built for agentic apps. With it, 
 
 ## Prerequisites
 
-- A Hugging Face account with remaining Inference Providers credits (free tier available).
+- A Hugging Face account with remaining Inference Providers credits (purchased, or included with PRO, Team, or Enterprise).
 - A fine-grained [Hugging Face token](https://huggingface.co/settings/tokens) with “Make calls to Inference Providers” permission stored in `HF_TOKEN`.
 
 > [!TIP]
