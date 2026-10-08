@@ -1,72 +1,81 @@
 # Pixeltable
 
-[Pixeltable](https://github.com/pixeltable/pixeltable) is an open-source declarative multimodal AI data engine for tables, computed columns, incremental computation, and vector search. Pixeltable provides built-in support for reading datasets from the Hugging Face Hub, integrating Hugging Face Transformers and Sentence Transformers directly as computed columns, and indexing embeddings for fast similarity search.
+[Pixeltable](https://github.com/pixeltable/pixeltable) is an open-source Python library for multimodal data. Images, video, audio, and documents are typed table columns; model calls and other transformations are computed columns that run incrementally when rows are inserted; and embedding indexes keep similarity search in sync with the table. Hugging Face datasets can be loaded straight into a Pixeltable table, and Hugging Face models can run as computed columns.
 
 ## Getting Started
 
-To get started, install `pixeltable`:
+To get started, install `pixeltable` and `datasets`:
 
 ```bash
-pip install pixeltable
+pip install pixeltable datasets
 ```
 
-If you plan to run local Hugging Face transformer models or sentence transformers, install the optional dependencies:
+The model examples below run Hugging Face models locally and also need `transformers`, `sentence-transformers`, and `torch`:
 
 ```bash
-pip install "pixeltable[transformers]" sentence-transformers
+pip install transformers sentence-transformers torch
 ```
 
-## Load Data from Hugging Face Hub
+## Load a dataset from the Hub
 
-You can easily load datasets from the Hugging Face Hub using standard formats like Parquet and CSV into a Pixeltable table.
+`pxt.create_table()` accepts a 🤗 Datasets `Dataset`, `DatasetDict`, `IterableDataset`, or `IterableDatasetDict` as its `source`. The table schema is inferred from the dataset features: for example, `Image`, `Audio`, and `Video` features become `pxt.Image`, `pxt.Audio`, and `pxt.Video` columns, and `ClassLabel` values are stored as their label names.
 
 ```python
 import pixeltable as pxt
-import pandas as pd
+from datasets import load_dataset
 
-# Load a Parquet dataset from the Hub using pandas and the hf:// protocol
-df = pd.read_parquet("hf://datasets/datasets-examples/doc-formats-parquet-1/train.parquet")
-
-# Create a Pixeltable table
-t = pxt.create_table("hf_dataset", df)
+ds = load_dataset("cornell-movie-review-data/rotten_tomatoes", split="train[:100]")
+t = pxt.create_table("reviews", source=ds)
 ```
 
-## Computed Columns with Hugging Face Models
-
-One of Pixeltable's core capabilities is computed columns. Computed columns allow you to invoke Hugging Face models natively in table schema definitions:
+To import every split of a `DatasetDict` into one table, use `pxt.io.import_huggingface_dataset()` and name a column to hold the split:
 
 ```python
-from pixeltable.functions.huggingface import sentence_transformer, pipeline
+dd = load_dataset("cornell-movie-review-data/rotten_tomatoes")
+t_all = pxt.io.import_huggingface_dataset("reviews_all", dd, column_name_for_split="split")
+```
 
-# 1. Automatic embedding generation with Sentence Transformers
+## Stream from the Hub
+
+A streaming dataset (`IterableDataset`) can be used as the source as well, so rows are read from the Hub without downloading the full dataset first:
+
+```python
+stream = load_dataset("cornell-movie-review-data/rotten_tomatoes", split="train", streaming=True)
+t_stream = pxt.create_table("reviews_stream", source=stream.take(50))
+```
+
+## Run Hugging Face models as computed columns
+
+Functions in `pixeltable.functions.huggingface` run models from the Hub inside the table. A computed column is evaluated for the existing rows and then automatically for every new row, and its results are stored:
+
+```python
+from pixeltable.functions.huggingface import text_classification
+
+t.add_computed_column(
+    sentiment=text_classification(
+        t.text, model_id="distilbert-base-uncased-finetuned-sst-2-english", top_k=2
+    )
+)
+```
+
+## Vector similarity search
+
+An embedding index is declared on a column and maintained on insert, update, and delete. Here it uses a Sentence Transformers model from the Hub:
+
+```python
+from pixeltable.functions.huggingface import sentence_transformer
+
 embed = sentence_transformer.using(model_id="sentence-transformers/all-MiniLM-L6-v2")
-t.add_computed_column(embedding=embed(t.text))
+t.add_embedding_index("text", embedding=embed)
 
-# 2. Text classification or sentiment analysis via Transformers pipeline
-sentiment = pipeline.using(task="sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
-t.add_computed_column(sentiment_result=sentiment(t.text))
+sim = t.text.similarity(string="a heartfelt family drama")
+results = t.order_by(sim, asc=False).limit(5).select(t.text, t.label, score=sim).collect()
 ```
 
-Whenever new rows are inserted, Pixeltable automatically computes the new values, caches results, and ensures transformations stay synchronized.
-
-## Vector Similarity Search
-
-Pixeltable features native embedding indexes for high-performance vector search:
+New rows are classified and indexed as they are inserted:
 
 ```python
-# Create an embedding index on the text column
-t.add_embedding_index("text", string_embed=embed)
-
-# Run semantic similarity queries
-sim = t.text.similarity("machine learning multimodal databases")
-results = t.order_by(sim, desc=True).limit(5).select(t.text, sim).collect()
+t.insert([{"text": "A gorgeous, moving film.", "label": "pos"}])
 ```
 
-## Multimodal Media Support
-
-Pixeltable handles text, images, video, audio, and documents natively in tables:
-- **Image & Video**: Store paths or URLs to media files, automatically extract video frames, and run vision models (CLIP, YOLO, ViT).
-- **Audio**: Transcribe audio files automatically with Whisper models.
-- **Documents**: Chunk documents and extract text for multimodal RAG pipelines.
-
-Learn more at [docs.pixeltable.com](https://docs.pixeltable.com/).
+Learn more in the [Pixeltable documentation](https://docs.pixeltable.com/), including the [Hugging Face integration guide](https://docs.pixeltable.com/howto/providers/working-with-hugging-face).
