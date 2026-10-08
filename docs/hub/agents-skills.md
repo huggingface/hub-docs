@@ -15,7 +15,7 @@ Skills work with all major coding agents: Claude Code, OpenAI Codex, Google Gemi
 
 ```bash
 # register the skills marketplace
-/plugin marketplace add huggingface/skills
+/plugin marketplace add huggingface-skills
 
 # install a specific Skill
 /plugin install <skill-name>@huggingface/skills
