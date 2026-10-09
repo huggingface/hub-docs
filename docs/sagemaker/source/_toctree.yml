@@ -28,6 +28,11 @@
       title: Train models with the SageMaker SDK
     - local: tutorials/sagemaker-sdk/deploy-sagemaker-sdk
       title: Deploy models with the SageMaker SDK
+    - title: Advanced usage
+      isExpanded: false
+      sections:
+        - local: examples/sagemaker-sdk-prefix-aware-routing-vllm
+          title: Cut LLM time-to-first-token with prefix-aware routing
 # GENERATED CONTENT DO NOT EDIT!
     - title: Examples
       isExpanded: false
