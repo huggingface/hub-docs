@@ -462,6 +462,8 @@
     title: Configuration
   - local: jobs-images
     title: Using Docker images
+  - local: jobs-inference
+    title: Run LLM Inference
   - local: jobs-serving
     title: Serve Models
   - local: jobs-training
