@@ -10,7 +10,11 @@ It is advantageous to collect series of chunks in Xorbs such that they can be re
 
 Suppose a file is chunked into chunks A, B, C, D in the order ABCD. Then create a Xorb X1 with chunks A, B, C, D in this order (starting at chunk index 0), let's say this Xorb's hash is X1. Then to reconstruct the file we ask for Xorb X1 chunk range `[0, 4)`.
 
-While there's no explicit limit on the number of chunks in a Xorb, there is a limit of 64MiB on the total size of the Xorb as serialized.
+There is a limit of 64 MiB on the total size of the Xorb as serialized. The reference client additionally caps a Xorb at **8192 chunks** (`MAX_XORB_CHUNKS`), cutting the Xorb as soon as either limit is reached.
+
+> [!NOTE]
+> The 8192-chunk cap is a producer-side limit, not part of the wire format: the serialized Xorb encodes no chunk-count limit, and the CAS server does not reject a Xorb for chunk count (only for exceeding the 64 MiB serialized size). A reader MUST NOT assume a Xorb has at most 8192 chunks; a writer SHOULD apply the cap so that Xorbs stay comparable to those produced by the reference client.
+
 Since some chunks will get compressed, it is generally advised to collect chunks until their total uncompressed length is near 64 MiB then serialize the struct.
 Namely, Xorbs point to roughly 64 MiB worth of data.
 (Recall that the target chunk size is 64 KiB so expect roughly ~1024 chunks per Xorb).
@@ -22,6 +26,24 @@ It is RECOMMENDED to pack chunks from multiple files into a Xorb if the size req
 ## Xorb Format
 
 A Xorb is a series of "Chunks" that is serialized according to a specific format that enables accessing chunks of ranges and builds in chunk level compression.
+The chunk sequence is followed by a metadata footer (`XorbObjectInfo`) and a trailing 4-byte length, which together are how a reader locates the metadata.
+
+```txt
+Offset 0:
+┌───────────────────────────────────────────────────────┐
+│                                                       │
+│                    Chunk sequence                     │ ← variable size
+│                (Chunk 0 .. Chunk N)                   │
+│                                                       │
+├───────────────────────────────────────────────────────┤
+│           XorbObjectInfo (metadata footer)            │ ← variable size
+├───────────────────────────────────────────────────────┤
+│      XorbObjectInfo length: u32 (final 4 bytes)       │ ← fixed size
+└───────────────────────────────────────────────────────┘
+[END OF XORB]
+```
+
+The chunk sequence itself:
 
 ```txt
 ┌─────────┬─────────────────────────────────┬─────────┬─────────────────────────────────┬─────────┬─────────────────────────────────┬──────────
@@ -37,6 +59,42 @@ A Xorb is a series of "Chunks" that is serialized according to a specific format
 Each chunk has an index within the Xorb it is in, starting at 0.
 Chunks can be addressed individually by their index but are usually addressed or fetched in range.
 Chunk ranges are always specified start inclusive and end exclusive i.e. `[start, end)`.
+
+### Xorb Footer (XorbObjectInfo)
+
+After the last chunk, a Xorb carries a variable-length `XorbObjectInfo` metadata footer, followed by a 4-byte length.
+The footer holds the Xorb hash, the hash of every chunk, and the chunk boundary offsets that make range reads possible.
+
+The final 4 bytes of a Xorb are the reader's entry point. They hold the length of the `XorbObjectInfo` block as a little-endian `u32`, which does **not** count itself. A reader therefore:
+
+1. Seeks to `end - 4` and reads `info_length`.
+2. Seeks to `end - 4 - info_length` and deserializes `XorbObjectInfo` from there.
+
+For this reason `info_length` MUST remain the final 4 bytes of the serialized Xorb.
+
+The tail of the footer is fixed-size and at a known position, so a reader that only needs the chunk boundaries can seek straight to it:
+
+```txt
+┌─────────┬──────────┬───────────┬─────────┬──────────┬─────────┐
+│   num_  │ hashes_  │ boundary_ │  nonce  │ reserved │  info_  │
+│  chunks │ section_ │  section_ │  (4 B)  │  (12 B)  │  length │
+│  (4 B)  │ offset_  │  offset_  │         │          │  (4 B)  │
+│         │ from_end │  from_end │         │          │         │
+│         │  (4 B)   │   (4 B)   │         │          │         │
+└─────────┴──────────┴───────────┴─────────┴──────────┴─────────┘
+-32       -28        -24         -20       -16        -4        0
+                                            (offsets relative to the end of the Xorb)
+```
+
+The trailing 16-byte buffer is an extensibility buffer:
+
+- The leading 4 bytes are a per-upload **uniqueness nonce**. The remaining 12 bytes are reserved for future use and stay zero.
+- The nonce is **excluded from the Xorb hash**, which is a Merkle tree over chunk contents only. Writing a nonce therefore does not change the Xorb's content address or its storage key — only its serialized bytes. Two Xorbs with identical content can be made to serialize to distinct byte streams.
+- Xorbs written before the nonce existed carry an all-zero buffer and remain valid. The buffer's size is unchanged, so the format is wire-compatible in both directions.
+- Readers MUST ignore the contents of this buffer.
+
+> [!NOTE]
+> Because the nonce does not participate in the hash, byte-identical content does not imply a byte-identical serialized Xorb. Do not treat serialized Xorb bytes as a stable identity for content; use the Xorb hash.
 
 ## Chunk Format
 
