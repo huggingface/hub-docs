@@ -47,7 +47,9 @@ The URL looks like this: `https://huggingface.co/organizations/[organizationIden
 On Okta, set the following settings:
 
 - Set Audience URI (SP Entity Id) to match the "SP Entity ID" value on Hugging Face.
-- Set Name ID format to EmailAddress.
+- Set Name ID format to `Unspecified`.
+- Set Application username to `Custom`, with the expression `user.getInternalProperty("id")`.
+- Under "Attribute Statements", add `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` with the value `user.email`.
 - Under "Show Advanced Settings", verify that Response and Assertion Signature are set to: Signed.
 
 Save your new application.

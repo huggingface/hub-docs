@@ -5,16 +5,9 @@ This guide explains how to set up SCIM user and group provisioning between Okta 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> and <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plans.
 
-## Step 0: Confirm your organization is properly set up
-
-> [!NOTE]
-> This step is only required if you're setting up managed users on Hugging Face.
-
-Before proceeding, make sure your organization has been converted to a Hugging Face **managed organization**. SCIM provisioning for managed users is only available on managed organizations — if yours hasn't been converted yet, contact your Hugging Face account team before continuing with the steps below.
-
 ## Step 1: Get SCIM configuration from Hugging Face
 
-1.  Log in to a Hugging Face account that is an owner of the organization (for managed users, use the owner account provided after the managed user conversion).
+1.  Log in to a Hugging Face account that is an owner of the organization.
 2.  Navigate to your organization's settings page on Hugging Face.
 3.  Go to the **SSO** tab, then click on the **SCIM** sub-tab.
 4.  Copy the **SCIM Tenant URL**. You will need this for the Okta configuration.
@@ -39,15 +32,15 @@ Before proceeding, make sure your organization has been converted to a Hugging F
 10. Click **Test Connector Configuration** to verify the connection.
 11. Save your changes.
 
-## Step 3: Reconfigure SAML
+## Step 3: Check your SAML settings
 
-For SCIM provisioning with a managed organization configured with SAML SSO, update your existing SAML application so its identifiers align with SCIM:
+In the **General** tab, under **SAML Settings**, check that:
 
-1.  Go to the **General** tab and click **Edit** on SAML Settings.
-2.  Click **Next** to get to step 2, **Configure SAML**, and set:
-    - Name ID format to `EmailAddress`
-    - Application username to `Custom`, with the expression `user.getInternalProperty("id")`
-3.  Click **Next**, then **Finish**.
+- Name ID format is `Unspecified`
+- Application username is `Custom`, with the expression `user.getInternalProperty("id")`
+- Under **Attribute Statements**, `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` is set to `user.email`
+
+If you changed any of these settings, disable then re-enable SSO in your organization's SSO settings on Hugging Face.
 
 ## Step 4: Configure Provisioning
 
@@ -69,23 +62,10 @@ For SCIM provisioning with a managed organization configured with SAML SSO, upda
 
 1. Visit the **Assignments** tab, click **Assign**
 2. Click **Assign to People** or **Assign to Groups**
-3. After finding the User or Group that needs to be assigned, click **Assign** next to their name
-4. In the mapping modal the Username needs to be edited to comply with the following rules.
-
-> [!WARNING]
->
-> <ul>
-> <li>Only regular characters and `-` are accepted in the Username.</li>
-> <li>`--` (double dash) is forbidden.</li>
-> <li>`-` cannot start or end the name.</li>
-> <li>Digit-only names are not accepted.</li>
-> <li>Minimum length is 2 and maximum length is 42.</li>
-> <li>Username has to be unique within your org.</li>
-> </ul>
-
-5. Scroll down and click **Save and Go Back**
-6. Click **Done**
-7. Confirm that users or groups are created, updated, or deactivated in your Hugging Face organization as expected.
+3. After finding the User or Group that needs to be assigned, click **Assign** next to their name. Leave the Username as is.
+4. Scroll down and click **Save and Go Back**
+5. Click **Done**
+6. Confirm that users or groups are created, updated, or deactivated in your Hugging Face organization as expected.
 
 ## Step 7: Push Okta Groups to Hugging Face via SCIM
 
@@ -119,3 +99,4 @@ Once your groups are provisioned from Okta, you can link them to Hugging Face Re
 5.  Click **Link to SCIM group** and save the mapping.
 
 Once linked, the Resource Group becomes **SCIM-managed**: any members already in the SCIM group are immediately added to the Resource Group (backfill), and all future membership changes in Okta are automatically reflected. Manual membership edits on the Resource Group via the Hub UI or API will be blocked.
+
