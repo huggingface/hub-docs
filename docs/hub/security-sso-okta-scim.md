@@ -5,6 +5,9 @@ This guide explains how to set up SCIM user and group provisioning between Okta 
 > [!WARNING]
 > This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> and <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plans.
 
+> [!NOTE]
+> SCIM requires SSO to be set up on your organization first. [Basic SSO](./security-sso-basic) is self-serve, [Managed SSO](./enterprise-advanced-sso) is set up with the Hugging Face team.
+
 ## Step 1: Get SCIM configuration from Hugging Face
 
 1.  Log in to a Hugging Face account that is an owner of the organization.
