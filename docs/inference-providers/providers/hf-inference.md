@@ -60,7 +60,7 @@ Find out more about Feature Extraction [here](../tasks/feature-extraction).
 
 <InferenceSnippet
     pipeline=feature-extraction
-    providersMapping={ {"hf-inference":{"modelId":"BAAI/bge-small-en-v1.5","providerModelId":"BAAI/bge-small-en-v1.5"} } }
+    providersMapping={ {"hf-inference":{"modelId":"perplexity-ai/pplx-embed-v2-late-0.6b","providerModelId":"perplexity-ai/pplx-embed-v2-late-0.6b"} } }
 />
 
 
@@ -90,7 +90,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/mask2former-swin-base-ade-semantic","providerModelId":"facebook/mask2former-swin-base-ade-semantic"} } }
 />
 
 
@@ -140,7 +140,7 @@ Find out more about Text Classification [here](../tasks/text-classification).
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-Prompt-Guard-2-86M","providerModelId":"meta-llama/Llama-Prompt-Guard-2-86M"} } }
+    providersMapping={ {"hf-inference":{"modelId":"com-kotobalabs/open-jev-deberta-v3-large","providerModelId":"com-kotobalabs/open-jev-deberta-v3-large"} } }
 />
 
 
@@ -160,7 +160,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Qwen/Qwen3-ForcedAligner-0.6B-hf","providerModelId":"Qwen/Qwen3-ForcedAligner-0.6B-hf"} } }
 />
 
 
@@ -180,6 +180,6 @@ Find out more about Zero Shot Classification [here](../tasks/zero-shot-classific
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
+    providersMapping={ {"hf-inference":{"modelId":"jeff-legacy/Jeff-Qwen3.5-0.8B","providerModelId":"jeff-legacy/Jeff-Qwen3.5-0.8B"} } }
 />
 

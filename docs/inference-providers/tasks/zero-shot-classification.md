@@ -36,7 +36,7 @@ hf models ls --warm --pipeline-tag zero-shot-classification --sort trending_scor
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"}} }
+    providersMapping={ {"hf-inference":{"modelId":"jeff-legacy/Jeff-Qwen3.5-0.8B","providerModelId":"jeff-legacy/Jeff-Qwen3.5-0.8B"}} }
 />
 
 
