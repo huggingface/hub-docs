@@ -90,7 +90,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"facebook/mask2former-swin-base-ade-semantic","providerModelId":"facebook/mask2former-swin-base-ade-semantic"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/mask2former-swin-large-ade-semantic","providerModelId":"facebook/mask2former-swin-large-ade-semantic"} } }
 />
 
 
