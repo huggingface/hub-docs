@@ -124,6 +124,8 @@
     title: Groq
   - local: providers/hf-inference
     title: HF Inference
+  - local: providers/impossibl
+    title: Impossibl
   - local: providers/novita
     title: Novita
   - local: providers/nscale
