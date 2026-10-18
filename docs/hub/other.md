@@ -8,6 +8,7 @@
   - [Access control in organizations](./organizations-security)
 - [Team & Enterprise](./enterprise)
 - [Moderation](./moderation)
+- [DMCA Guidelines](./dmca)
 - [Billing](./billing)
 - [Digital Object Identifier (DOI)](./doi)
 - [Security](./security)
