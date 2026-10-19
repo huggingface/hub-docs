@@ -134,12 +134,18 @@ You can download access reports for the Gated Group Collection through the setti
 
 Visit our [gated models](https://huggingface.co/docs/hub/models-gated#download-access-report) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#download-access-report) documentation to know more about it.
 
+#### Choose which profile data to collect
+
+By default, Hugging Face shares the requester's username and primary email address with the organization. In the gating group settings, you can uncheck **Collect username** to receive anonymous requests, or uncheck **Collect email** to stop sharing the requester's email address (this option requires **Collect username**). These settings apply to all the repos in the collection, and only affect new requests.
+
+Visit our [gated models](https://huggingface.co/docs/hub/models-gated#choose-which-profile-data-to-collect) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#choose-which-profile-data-to-collect) documentation to know more about it.
+
 #### Customize requested information
 
 Organizations can customize the gating parameters as well as the user information that is collected per gated repo. Please, visit our [gated models](https://huggingface.co/docs/hub/models-gated#customize-requested-information) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#customize-requested-information) documentation for more details.
 
 > [!WARNING]
-> There is currently no way to customize the gate parameters and requested information in a centralized way. If you want to collect the same data no matter which collection's repository a user requests access throughout, you need to add the same gate parameters in the metadata of all the models and datasets of the collection, and keep it synced.
+> Apart from the profile data settings above, there is currently no way to customize the gate parameters and requested information in a centralized way. If you want to collect the same data no matter which collection's repository a user requests access throughout, you need to add the same gate parameters in the metadata of all the models and datasets of the collection, and keep it synced.
 
 ## Advanced settings
 

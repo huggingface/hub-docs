@@ -1,6 +1,6 @@
 # Gated models
 
-To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. Users must agree to share their contact information (username and email address) with the model authors to access the model files when enabled. Model authors can configure this request with additional fields. A model with access requests enabled is called a **gated model**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
+To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. By default, users must agree to share their contact information (username and email address) with the model authors to access the model files when enabled. Authors can also choose not to collect this information. Model authors can configure this request with additional fields. A model with access requests enabled is called a **gated model**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
 
 ## Manage gated models as a model author
 
@@ -58,10 +58,12 @@ You can automate the approval of access requests by using the API. You must pass
 | `GET` | `/api/models/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted requests. | `{"authorization": "Bearer $token"}` | |
 | `GET` | `/api/models/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected requests. | `{"authorization": "Bearer $token"}` | |
 | `GET` | `/api/models/{repo_id}/user-access-request/reset` | Retrieve the list of reset requests. | `{"authorization": "Bearer $token"}` | |
-| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending"/"reset", "user": "username", "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters).", "resetReason": "Optional reset reason that will be included in the email sent to the user (max 200 characters)."}` |
+| `POST` | `/api/models/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending"/"reset", "user": "username" (or "requestId": "request id"), "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters).", "resetReason": "Optional reset reason that will be included in the email sent to the user (max 200 characters)."}` |
 | `POST` | `/api/models/{repo_id}/user-access-request/grant` | Allow a specific user to access your repo. | `{"authorization":  "Bearer $token"}` | `{"user": "username"} ` |
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
+
+Each request returned by the list endpoints includes a `requestId`. Requests made while username collection was disabled (see [Choose which profile data to collect](#choose-which-profile-data-to-collect)) have no `user` field: to accept or reject them, pass their `requestId` instead of `user` to the `handle` endpoint. The `grant` endpoint never affects these requests.
 
 Setting a request to `reset` revokes the previous decision and asks the user to start over: they lose access to the model, receive an email notifying them that their request has been reset (including the optional `resetReason`), and are prompted to agree to the gating terms and submit a new request the next time they visit the model page. This differs from `pending`, which keeps the existing request as-is and simply puts it back in the review queue, and from `rejected`, which blocks the user from requesting access again.
 
@@ -71,18 +73,32 @@ Setting a request to `reset` revokes the previous decision and asks the user to 
 ### Download access report
 
 You can download a report of all access requests for a gated model with the **download user access report** button. Click on it to download a json file with a list of users. For each entry, you have:
-- **user**: the user id. Example: *julien-c*.
-- **fullname**: name of the user on the Hub. Example: *Julien Chaumond*.
+- **user**: the user id. Example: *julien-c*. Omitted if username collection was disabled when the request was made.
+- **fullname**: name of the user on the Hub. Example: *Julien Chaumond*. Omitted if username collection was disabled when the request was made.
+- **requestId**: the id of the request. Only set when username collection was disabled when the request was made.
 - **status**: status of the request. Either `"pending"`, `"accepted"`, `"rejected"` or `"reset"`.
-- **email**: email of the user.
+- **email**: email of the user. Omitted if email collection was disabled when the request was made.
 - **time**: datetime when the user initially made the request.
 - **reviewedAt**: datetime when the request was accepted or rejected. Not set for pending requests.
+
+### Choose which profile data to collect
+
+By default, Hugging Face shares the requester's username and primary email address with you. You can change this from the gating options on the model settings page:
+
+- **Collect username**: when unchecked, requests are anonymous. You won't see the requester's username, name, avatar, or email address. Anonymous requests are listed with a request id and can be accepted or rejected like any other request.
+- **Collect email**: when unchecked, the requester's email address is not shared. This option requires **Collect username**.
+
+You still receive the answers to your [custom form fields](#customize-requested-information), so you can ask for any contact details you need there. These settings apply to new requests only: existing requests keep the settings that were in place when they were made.
+
+If you reject a request that included the username, the user cannot request access again, even anonymously. If you reject an anonymous request, the user can request access again once username collection is enabled.
+
+For models in a [Gating Group Collection](./enterprise-gating-group-collections), these options are configured on the collection instead.
 
 <a id="modifying-the-prompt"></a> <!-- backward compatible anchor -->
 
 ### Customize requested information
 
-By default, users landing on your gated model will be asked to share their contact information (email and username) by clicking the **Agree and send request to access repo** button.
+By default, users landing on your gated model will be asked to share their contact information (email and username, unless you [disabled their collection](#choose-which-profile-data-to-collect)) by clicking the **Agree and send request to access repo** button.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side.png"/>
@@ -173,7 +189,7 @@ Requesting access can only be done from your browser. Go to the model on the Hub
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side-dark.png"/>
 </div>
 
-By clicking on **Agree**, you agree to share your username and email address with the model authors. In some cases, additional fields might be requested. To help the model authors decide whether to grant you access, try to fill out the form as completely as possible.
+By clicking on **Agree**, you agree to share your username and email address with the model authors. Authors can choose not to collect your username or email address: the request form tells you which information will be shared. In some cases, additional fields might be requested. To help the model authors decide whether to grant you access, try to fill out the form as completely as possible.
 
 Once the access request is sent, there are two possibilities. If the approval mechanism is automatic, you immediately get access to the model files. Otherwise, the requests have to be approved manually by the authors, which can take more time. 
 
