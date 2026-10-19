@@ -142,6 +142,10 @@ A. View and download all invoices here: https://huggingface.co/settings/billing/
 
 A. Head to https://huggingface.co/settings/billing/payment and update your payment method at anytime. 
 
+**Q. What happens if I delete my payment method?**
+
+A. Deleting your payment method cancels your paid subscription (such as PRO or Team) and any public storage subscription. They stay active until the end of the current billing period. Before the payment method is deleted, a confirmation dialog shows which subscriptions will be canceled and when they end. Adding a new card afterwards does not restore your subscription on its own: once a new card is on file, you can click **Resubscribe** on the payment page at https://huggingface.co/settings/billing/payment before the end of the billing period.
+
 
 **Subscriptions**
 
