@@ -446,6 +446,10 @@
   - local: storage-buckets-security
     title: Bucket Security
 
+- local: container-images
+  title: Container Images
+  new: true
+
 - local: jobs
   title: Jobs
   isExpanded: true
