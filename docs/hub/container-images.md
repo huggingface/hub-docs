@@ -55,7 +55,7 @@ Because `hf image` stores layers uncompressed, the images it pushes get differen
 
 ## Deleting Images
 
-On the Hub, a tag's page has **Remove tag**, and the repository's page lists untagged images, each with **Delete**. With [`hf image`](#faster-pushes-and-pulls-with-hf-image), remove an image's tags, then delete it by digest:
+On the Hub, remove a tag with **Delete this tag** in its menu, on the image page or the tag's page. With [`hf image`](#faster-pushes-and-pulls-with-hf-image), remove an image's tags, then delete it by digest:
 
 ```bash
 hf image untag cr.hf.co/my-org/my-app:v1                # prints the image's digest
