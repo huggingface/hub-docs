@@ -317,6 +317,8 @@
             title: Image Dataset
           - local: datasets-video
             title: Video Dataset
+          - local: datasets-3d
+            title: 3D Dataset
           - local: datasets-viewer-embed
             title: Embed the Dataset Viewer in a webpage
           - local: datasets-viewer-sql-console
