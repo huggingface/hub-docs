@@ -62,7 +62,7 @@ hf image untag cr.hf.co/my-org/my-app:v1                # prints the image's dig
 hf image delete cr.hf.co/my-org/my-app@sha256:<digest>
 ```
 
-A delete refused because of tags names them. Other OCI tools work the same way, such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md):
+A refused delete names what still references the image. Other OCI tools work the same way, such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md):
 
 ```bash
 crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag
