@@ -51,7 +51,7 @@ hf image pull cr.hf.co/my-org/my-app:v2
 
 It needs Docker with the [containerd image store](https://docs.docker.com/engine/storage/containerd/). Images pushed with `hf image` can be pulled by any client.
 
-Because `hf image` stores layers uncompressed, the images it pushes get different digests than with `docker push`. To keep the `docker push` digests, for signatures or deployments pinned by digest, use `hf image push --preserve-digests`: changed layers are then uploaded in full.
+Because `hf image` stores layers uncompressed, the images it pushes get different digests than with `docker push`. To keep the `docker push` digests, for signatures or deployments pinned by digest, use `hf image push --preserve-digests`. It is slower: changed layers are then pushed and pulled in full, as with `docker push`.
 
 ## Deleting Images
 
