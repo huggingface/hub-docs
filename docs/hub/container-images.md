@@ -55,24 +55,23 @@ Because `hf image` stores layers uncompressed, the images it pushes get differen
 
 ## Deleting Images
 
-On the Hub, open a tag of the image and click **Delete**. From the CLI, delete by tag or digest with [`hf image`](#faster-pushes-and-pulls-with-hf-image):
+An image is deleted by digest once no tag points to it. On the Hub, a tag's page has **Remove tag**, and the repository's page lists untagged images, each with **Delete**. From the CLI, with [`hf image`](#faster-pushes-and-pulls-with-hf-image), remove the image's tags, then delete it:
 
 ```bash
-hf image delete cr.hf.co/my-org/my-app:v1
+hf image untag cr.hf.co/my-org/my-app:v1                # prints the image's digest
+hf image delete cr.hf.co/my-org/my-app@sha256:<digest>
 ```
 
-Both delete the image with every tag on it.
-
-Other OCI tools work too, such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) or [skopeo](https://github.com/containers/skopeo):
+A delete refused because of tags names them. Other OCI tools work the same way, such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md):
 
 ```bash
-crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag only
-crane delete cr.hf.co/my-org/my-app@sha256:<digest>  # deletes the image and its tags
+crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag
+crane delete cr.hf.co/my-org/my-app@sha256:<digest>  # deletes the image
 ```
 
 Deleting a multi-arch image also deletes its platform images that no other image uses.
 
-An image that loses its tag, deleted or pushed again with another image, stays in the repository: the repository's page on the Hub lists untagged images, where you can delete them.
+An image whose tag is pushed again with another image stays in the repository, untagged, until deleted.
 
 Layers that no image references are deleted after about two days.
 
