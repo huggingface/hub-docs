@@ -62,7 +62,7 @@ hf image untag cr.hf.co/my-org/my-app:v1                # prints the image's dig
 hf image delete cr.hf.co/my-org/my-app@sha256:<digest>
 ```
 
-If something still references the image, such as another tag, the delete is refused and lists what to remove first. Deleting a multi-arch image also deletes its platform images. Layers that no other image uses are deleted about two days later.
+If something still references the image, such as another tag, the delete is refused and lists what to remove first. Deleting a multi-arch image also deletes its platform images. Layers that no other image uses are deleted.
 
 ## Limits
 
