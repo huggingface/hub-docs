@@ -55,14 +55,30 @@ Because `hf image` stores layers uncompressed, the images it pushes get differen
 
 ## Deleting Images
 
-To delete a tag or an image, use an OCI tool such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) or [skopeo](https://github.com/containers/skopeo):
+Delete an image by tag or digest with [`hf image`](#faster-pushes-and-pulls-with-hf-image); this deletes the image and every tag on it:
 
 ```bash
-crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag
+hf image delete cr.hf.co/my-org/my-app:v1
+```
+
+Other OCI tools work too, such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) or [skopeo](https://github.com/containers/skopeo):
+
+```bash
+crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag only
 crane delete cr.hf.co/my-org/my-app@sha256:<digest>  # deletes the image and its tags
 ```
 
-Untagged images are kept until deleted by digest. Layers that no image references are deleted after about two days.
+An image that loses its tag, deleted or pushed again with another image, stays in the repository until deleted by digest, and untagged images are not listed yet: to delete an image later, note its digest (`crane digest cr.hf.co/my-org/my-app:v1`) before moving its tag.
+
+A multi-arch image is an index listing one image per platform. A platform image cannot be deleted while an index lists it, and deleting the index leaves its platform images behind. To delete a multi-arch image entirely, delete the index, then its platform images:
+
+```bash
+platforms=$(crane manifest cr.hf.co/my-org/my-app:v1 | jq -r '.manifests[].digest')
+hf image delete cr.hf.co/my-org/my-app:v1
+for d in $platforms; do hf image delete cr.hf.co/my-org/my-app@$d; done
+```
+
+Layers that no image references are deleted after about two days.
 
 ## Limits
 
