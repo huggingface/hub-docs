@@ -120,7 +120,7 @@ Find out more about Summarization [here](../tasks/summarization).
 
 <InferenceSnippet
     pipeline=summarization
-    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-cnn","providerModelId":"facebook/bart-large-cnn"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/text_summarization","providerModelId":"Falconsai/text_summarization"} } }
 />
 
 
@@ -160,7 +160,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"w11wo/indonesian-roberta-base-posp-tagger","providerModelId":"w11wo/indonesian-roberta-base-posp-tagger"} } }
+    providersMapping={ {"hf-inference":{"modelId":"NYTK/named-entity-recognition-nerkor-hubert-hungarian","providerModelId":"NYTK/named-entity-recognition-nerkor-hubert-hungarian"} } }
 />
 
 
