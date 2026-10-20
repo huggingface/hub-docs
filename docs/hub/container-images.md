@@ -55,25 +55,14 @@ Because `hf image` stores layers uncompressed, the images it pushes get differen
 
 ## Deleting Images
 
-An image is deleted by digest once no tag points to it. On the Hub, a tag's page has **Remove tag**, and the repository's page lists untagged images, each with **Delete**. From the CLI, with [`hf image`](#faster-pushes-and-pulls-with-hf-image), remove the image's tags, then delete it:
+On the Hub, a tag's page has **Remove tag**, and the repository's page lists untagged images, each with **Delete**. With [`hf image`](#faster-pushes-and-pulls-with-hf-image), remove an image's tags, then delete it by digest:
 
 ```bash
 hf image untag cr.hf.co/my-org/my-app:v1                # prints the image's digest
 hf image delete cr.hf.co/my-org/my-app@sha256:<digest>
 ```
 
-A refused delete names what still references the image. Other OCI tools work the same way, such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md):
-
-```bash
-crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag
-crane delete cr.hf.co/my-org/my-app@sha256:<digest>  # deletes the image
-```
-
-Deleting a multi-arch image also deletes its platform images that no other image uses.
-
-An image whose tag is pushed again with another image stays in the repository, untagged, until deleted.
-
-Layers that no image references are deleted after about two days.
+If something still references the image, such as another tag, the delete is refused and lists what to remove first. Deleting a multi-arch image also deletes its platform images. Layers that no other image uses are deleted about two days later.
 
 ## Limits
 
