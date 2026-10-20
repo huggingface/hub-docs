@@ -40,20 +40,22 @@ Other OCI clients work the same way. Helm appends the chart name to the URL: `he
 
 ## Faster Pushes and Pulls with `hf image`
 
-[`hf image`](https://github.com/huggingface/hf-image), an extension of the `hf` CLI, stores layers uncompressed so that Xet deduplicates them chunk by chunk: rebuilding a 2 GB layer that changed by 100 MB uploads about 100 MB, and pulling it over the previous version downloads about 100 MB.
+[`hf image`](https://github.com/huggingface/hf-image), an extension of the `hf` CLI, only transfers the parts of each layer that changed since the previous version.
 
 ```bash
 hf extensions install hf-image
-hf image build -t cr.hf.co/my-org/my-app:v2 .
+hf image build -t cr.hf.co/my-org/my-app:v2 .   # optional: docker build works too
 hf image push cr.hf.co/my-org/my-app:v2
 hf image pull cr.hf.co/my-org/my-app:v2
 ```
 
-It needs Docker with the [containerd image store](https://docs.docker.com/engine/storage/containerd/). Images stay plain OCI: any client can pull them, and the registry compresses their layers on the wire. Because layers are stored uncompressed, their digests differ from those of `docker push`; `hf image push --preserve-digests` keeps the original digests, without chunk deduplication.
+It needs Docker with the [containerd image store](https://docs.docker.com/engine/storage/containerd/). Images pushed with `hf image` can be pulled by any client.
+
+Because `hf image` stores layers uncompressed, the images it pushes get different digests than with `docker push`. To keep the `docker push` digests, for signatures or deployments pinned by digest, use `hf image push --preserve-digests`: changed layers are then uploaded in full.
 
 ## Deleting Images
 
-Docker cannot delete images from a registry; use [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) or [skopeo](https://github.com/containers/skopeo):
+To delete a tag or an image, use an OCI tool such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) or [skopeo](https://github.com/containers/skopeo):
 
 ```bash
 crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag
@@ -67,5 +69,3 @@ Untagged images are kept until deleted by digest. Layers that no image reference
 - Image names are `cr.hf.co/<namespace>/<name>`, in lowercase.
 - Layers up to 100 GB, manifests up to 4 MiB.
 - Tag lists can take a few seconds to show a new tag.
-- Upload sessions expire after 24 hours of inactivity.
-- The registry has no catalog (`/v2/_catalog`): browse your images on the Hub.
