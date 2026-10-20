@@ -55,26 +55,28 @@ Because `hf image` stores layers uncompressed, the images it pushes get differen
 
 ## Deleting Images
 
-Delete an image by tag or digest with [`hf image`](#faster-pushes-and-pulls-with-hf-image); this deletes the image and every tag on it:
+An image is deleted by digest once no tag points to it. With [`hf image`](#faster-pushes-and-pulls-with-hf-image), remove its tags, then delete it:
 
 ```bash
-hf image delete cr.hf.co/my-org/my-app:v1
+hf image untag cr.hf.co/my-org/my-app:v1                # prints the image's digest
+hf image delete cr.hf.co/my-org/my-app@sha256:<digest>
 ```
 
-Other OCI tools work too, such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md) or [skopeo](https://github.com/containers/skopeo):
+A delete refused because of tags names them. Other OCI tools work the same way, such as [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md):
 
 ```bash
-crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag only
-crane delete cr.hf.co/my-org/my-app@sha256:<digest>  # deletes the image and its tags
+crane delete cr.hf.co/my-org/my-app:v1               # deletes the tag
+crane delete cr.hf.co/my-org/my-app@sha256:<digest>  # deletes the image
 ```
 
-An image that loses its tag, deleted or pushed again with another image, stays in the repository until deleted by digest, and untagged images are not listed yet: to delete an image later, note its digest (`crane digest cr.hf.co/my-org/my-app:v1`) before moving its tag.
+An image whose tag is pushed again with another image stays in the repository until deleted by digest, and untagged images are not listed yet: to delete it later, note its digest (`crane digest cr.hf.co/my-org/my-app:v1`) before pushing.
 
 A multi-arch image is an index listing one image per platform. A platform image cannot be deleted while an index lists it, and deleting the index leaves its platform images behind. To delete a multi-arch image entirely, delete the index, then its platform images:
 
 ```bash
 platforms=$(crane manifest cr.hf.co/my-org/my-app:v1 | jq -r '.manifests[].digest')
-hf image delete cr.hf.co/my-org/my-app:v1
+index=$(hf image untag cr.hf.co/my-org/my-app:v1)
+hf image delete cr.hf.co/my-org/my-app@$index
 for d in $platforms; do hf image delete cr.hf.co/my-org/my-app@$d; done
 ```
 
