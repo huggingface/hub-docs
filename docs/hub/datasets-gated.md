@@ -87,8 +87,6 @@ By default, Hugging Face shares the requester's username and primary email addre
 
 You still receive the answers to your [custom form fields](#customize-requested-information), so you can ask for any contact details you need there. These settings apply to new requests only: existing requests keep the settings that were in place when they were made.
 
-If you reject a request that included the username, the user cannot request access again, even anonymously. If you reject an anonymous request, the user can request access again once username collection is enabled.
-
 For datasets in a [Gating Group Collection](./enterprise-gating-group-collections), these options are configured on the collection instead.
 
 <a id="modifying-the-prompt"></a> <!-- backward compatible anchor -->
