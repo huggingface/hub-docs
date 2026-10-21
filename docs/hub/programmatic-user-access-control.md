@@ -524,7 +524,7 @@ The response is the updated resource group, including its `spendLimits`.
 
 ## Invite external collaborators via API
 
-[External invitations](./security-resource-groups#external-invitations) let resource group admins invite users from outside the organization into a Resource Group. They join as external collaborators, with the `no_access` organization role.
+[External invitations](./security-resource-groups#external-invitations) let resource group admins invite users from outside the organization into a Resource Group. Invitees join as external collaborators with the `no_access` organization role.
 
 **Enable external invitations**
 
@@ -566,7 +566,7 @@ Content-Type: application/json
   - `username`: Username of an existing Hugging Face user who isn't a member of the organization yet. To add an org member, use [Add users to a resource group](#add-users-to-a-resource-group) instead.
   - `role`: Role the invitee gets in the Resource Group, `"read"` or `"write"`.
 
-The user receives an invitation by email, and gets access to the Resource Group once they accept it.
+The user gets an email invitation and access to the Resource Group after they accept.
 
 **Manage pending invitations**
 
@@ -581,7 +581,7 @@ The user receives an invitation by email, and gets access to the Resource Group 
 
 ## Change member account type via API
 
-Convert an organization member into an [external collaborator](./security-sso-user-management#external-collaborators), who isn't required to sign in with SSO, or back into a member. Requires a paid plan and **Write** (or Admin) permission on the organization. This isn't available in organizations with managed users, where members are provisioned through SCIM.
+Turn an organization member into an [external collaborator](./security-sso-user-management#external-collaborators) (no SSO required), or convert them back into a member. Requires a paid plan and **Write** (or Admin) permission on the organization. Not available in organizations with managed users, where members are provisioned through SCIM.
 
 ```http
 PUT /api/organizations/{org_name}/members/{username}/account-type

@@ -101,24 +101,28 @@ To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disab
 
 ## External invitations
 
-Resource Groups can be shared with people from outside your organization, like contractors or partners. Org admins can let resource group admins invite them from the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It is disabled by default, and isn't available for organizations with [managed users](./enterprise-advanced-sso).
+You can share Resource Groups with people outside your organization. Org admins turn this on with the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It's off by default, and isn't available for organizations with [managed users](./enterprise-advanced-sso).
 
-Invited users join the organization as [external collaborators](./security-sso-user-management#external-collaborators):
+Invited users join as [external collaborators](./security-sso-user-management#external-collaborators):
 
-- They get the `no_access` organization role, so they only see the resources of the Resource Group they were invited to, nothing else in the organization.
-- They can be invited with the `read` or `write` role in the Resource Group.
-- They aren't required to sign in with your organization's SSO.
-- They consume billable seats.
+- They get the `no_access` organization role, so they only see that Resource Group's resources.
+- You can invite them with the `read` or `write` role in the Resource Group.
+- They don't have to sign in with your organization's SSO.
 
-To invite someone, open the Resource Group's **Users** tab and add them by username. Org members are added to the group directly, while users from outside the organization receive an invitation. Pending invitations are listed with the group's users, with a "Pending" badge, and can be resent or revoked. Use the **External** filter to only list external collaborators.
+To invite someone, open the Resource Group's **Users** tab and add them by username. Org members join the group right away; outsiders get an invitation. Pending invitations sit with the group's users under a "Pending" badge, and you can resend or revoke them. Use the **External** filter to list only external collaborators.
 
 ### Share a repository with external collaborators
 
-Resource group admins can also share a private repository directly from its **Settings** page, in the **Share with external collaborators** section. It lists the people in the repository's Resource Group, and lets you invite external collaborators into it. Keep in mind that people added there get access to every resource of the Resource Group, not only to this repository.
+Resource group admins can also share a private repository from its **Settings** page, under **Share with external collaborators**. That section lists who's already in the repository's Resource Group, and lets you invite external collaborators into it. Anyone you add there gets access to every resource in the Resource Group, not just that repository.
 
-If the repository doesn't belong to a Resource Group yet, members allowed to [create Resource Groups](#who-can-create-resource-groups) can create one from that section, and invite collaborators to it in one step. Check the **Auto-include** option to add the organization's members (except those with the `no_access` role) to the new group with read access, using [auto-join](#auto-join), so they keep access to the repository. Otherwise, only the people added to the Resource Group, and organization admins, will be able to see the repository.
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo-settings-external-collaborators-light-min.png" alt="The Share with external collaborators section"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo-settings-external-collaborators-dark-min.png" alt="The Share with external collaborators section"/>
+</div>
 
-You can also manage external invitations programmatically, see [Invite external collaborators via API](./programmatic-user-access-control#invite-external-collaborators-via-api).
+If the repository isn't in a Resource Group yet, members who can [create Resource Groups](#who-can-create-resource-groups) can create one from that section and invite collaborators at the same time. Turn on **Auto-include** to put the organization's members (except those with the `no_access` role) into the new group with read access via [auto-join](#auto-join), so they keep seeing the repository. Without that, only people you add to the Resource Group, plus organization admins, can see it.
+
+You can also manage external invitations through the API: [Invite external collaborators via API](./programmatic-user-access-control#invite-external-collaborators-via-api).
 
 ## Who can create Resource Groups
 

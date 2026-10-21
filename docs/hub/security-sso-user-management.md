@@ -86,16 +86,15 @@ To add an email domain, fill out the 'Matching email domains' field, click enter
 
 ## External Collaborators
 
-External collaborators are people from outside your organization, like contractors or partners, who need access to some of its resources. They aren't required to complete the Single Sign-On (SSO) flow, which is helpful when they aren't part of your organization's Identity Provider (IdP). External collaborators are available to organizations on a paid plan, and show up with an "External collaborator" badge in your organization's member lists.
+External collaborators are people outside your organization who need access to some of its resources without going through Single Sign-On (SSO). That usually means they aren't in your Identity Provider (IdP). They're available on paid plans, and show up with an "External collaborator" badge in your organization's member lists.
 
-There are several ways to add an external collaborator:
+You can add them by:
 
-- **Invite them to the organization**: when inviting a user from the **Members** page of your organization's settings, check the **External Collaborator** option.
-- **Convert an existing member**: on the **Members** page, open the member's menu and select **Convert to external collaborator**. Use **Convert to member** to revert: if your organization uses SSO, the user will then have to sign in through it to keep access. You can also do this [via the API](./programmatic-user-access-control#change-member-account-type-via-api).
-- **Share a resource group or a repository with them**: if [external invitations](./security-resource-groups#external-invitations) are enabled, resource group admins can invite users from outside the organization directly into a Resource Group, including from the **Share with external collaborators** section of a repository's settings. These users join with the `no_access` organization role and only get access to that Resource Group.
+- **Inviting them to the organization**: on the **Members** page of your organization's settings, check **External Collaborator** when you send the invite.
+- **Converting an existing member**: on the **Members** page, open the member's menu and select **Convert to external collaborator**. Use **Convert to member** to switch them back. If your organization uses SSO, they'll need to sign in through it afterward to keep access. You can also do this [via the API](./programmatic-user-access-control#change-member-account-type-via-api).
+- **Sharing a resource group or repository**: if [external invitations](./security-resource-groups#external-invitations) are enabled, resource group admins can invite outsiders straight into a Resource Group, including from **Share with external collaborators** on a repository's settings page. Those users join with the `no_access` organization role and only get that Resource Group.
 
-External collaborators are still subject to your organization's access controls ([Resource Groups](./enterprise-resource-groups)).
-It's crucial to manage their access carefully to maintain your organization's data security.
+External collaborators still go through your organization's access controls ([Resource Groups](./enterprise-resource-groups)).
 
 > [!NOTE]
 > With [Managed SSO](./enterprise-advanced-sso), internal members are provisioned through your identity provider (SCIM), so users invited to the organization can only be added as external collaborators.
