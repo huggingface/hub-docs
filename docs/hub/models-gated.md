@@ -1,6 +1,6 @@
 # Gated models
 
-To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. By default, users must agree to share their contact information (username and email address) with the model authors to access the model files when enabled. Authors can also choose not to collect this information. Model authors can configure this request with additional fields. A model with access requests enabled is called a **gated model**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
+To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. When enabled, users must submit an access request to access the model files, which shares their contact information (username and email address) with the model authors unless the authors opted out of collecting it. Model authors can configure this request with additional fields. A model with access requests enabled is called a **gated model**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
 
 ## Manage gated models as a model author
 

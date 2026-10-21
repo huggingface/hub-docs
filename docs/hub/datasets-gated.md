@@ -1,6 +1,6 @@
 # Gated datasets
 
-To give more control over how datasets are used, the Hub allows datasets authors to enable **access requests** for their datasets. By default, users must agree to share their contact information (username and email address) with the datasets authors to access the datasets files when enabled. Authors can also choose not to collect this information. Datasets authors can configure this request with additional fields. A dataset with access requests enabled is called a **gated dataset**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated datasets is to provide access to early research datasets before the wider release.
+To give more control over how datasets are used, the Hub allows datasets authors to enable **access requests** for their datasets. When enabled, users must submit an access request to access the dataset files, which shares their contact information (username and email address) with the dataset authors unless the authors opted out of collecting it. Datasets authors can configure this request with additional fields. A dataset with access requests enabled is called a **gated dataset**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated datasets is to provide access to early research datasets before the wider release.
 
 ## Manage gated datasets as a dataset author
 
