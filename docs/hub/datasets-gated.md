@@ -1,6 +1,6 @@
 # Gated datasets
 
-To give more control over how datasets are used, the Hub allows datasets authors to enable **access requests** for their datasets. When enabled, users must submit an access request to access the dataset files, which shares their contact information (username and email address) with the dataset authors unless the authors opted out of collecting it. Datasets authors can configure this request with additional fields. A dataset with access requests enabled is called a **gated dataset**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated datasets is to provide access to early research datasets before the wider release.
+To give more control over how datasets are used, the Hub allows datasets authors to enable **access requests** for their datasets. When enabled, users must submit a request to access the dataset files, which shares their contact information (username and email address) with the dataset authors unless the authors opted out of collecting it. Datasets authors can configure this request with additional fields. A dataset with access requests enabled is called a **gated dataset**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated datasets is to provide access to early research datasets before the wider release.
 
 ## Manage gated datasets as a dataset author
 
@@ -171,7 +171,7 @@ Requesting access can only be done from your browser. Go to the dataset on the H
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated-user-side-dark.png"/>
 </div>
 
-By clicking on **Agree**, you agree to share your username and email address with the dataset authors. Authors can choose not to collect your username or email address: the request form tells you which information will be shared. In some cases, additional fields might be requested. To help the dataset authors decide whether to grant you access, try to fill out the form as completely as possible.
+By clicking on **Agree**, you agree to share the information listed on the request form with the dataset authors: by default your username and email address, unless the authors chose not to collect them. In some cases, additional fields might be requested. To help the dataset authors decide whether to grant you access, try to fill out the form as completely as possible.
 
 Once the access request is sent, there are two possibilities. If the approval mechanism is automatic, you immediately get access to the dataset files. Otherwise, the requests have to be approved manually by the authors, which can take more time.
 

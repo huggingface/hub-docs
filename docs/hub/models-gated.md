@@ -185,7 +185,7 @@ Requesting access can only be done from your browser. Go to the model on the Hub
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side-dark.png"/>
 </div>
 
-By clicking on **Agree**, you agree to share your username and email address with the model authors. Authors can choose not to collect your username or email address: the request form tells you which information will be shared. In some cases, additional fields might be requested. To help the model authors decide whether to grant you access, try to fill out the form as completely as possible.
+By clicking on **Agree**, you agree to share the information listed on the request form with the model authors: by default your username and email address, unless the authors chose not to collect them. In some cases, additional fields might be requested. To help the model authors decide whether to grant you access, try to fill out the form as completely as possible.
 
 Once the access request is sent, there are two possibilities. If the approval mechanism is automatic, you immediately get access to the model files. Otherwise, the requests have to be approved manually by the authors, which can take more time. 
 
