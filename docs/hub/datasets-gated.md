@@ -54,12 +54,9 @@ You can automate the approval of access requests by using the API. You must pass
 
 | Method | URI | Description | Headers | Payload
 | ------ | --- | ----------- | -------  | -------  |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/pending` | Retrieve the list of pending requests. | `{"authorization": "Bearer $token"}` | |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted requests. | `{"authorization": "Bearer $token"}` | |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected requests. | `{"authorization": "Bearer $token"}` | |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/reset` | Retrieve the list of reset requests. | `{"authorization": "Bearer $token"}` | |
-| `POST` | `/api/datasets/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending"/"reset", "user": "username" (or "requestId": "request id"), "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters).", "resetReason": "Optional reset reason that will be included in the email sent to the user (max 200 characters)."}}` |
-| `POST` | `/api/datasets/{repo_id}/user-access-request/grant` | Allow a specific user to access your repo. | `{"authorization":  "Bearer $token"}` | `{"user": "username"} ` |
+| `GET` | [`/api/datasets/{repo_id}/user-access-request/{status}`](https://huggingface.co/spaces/huggingface/openapi#tag/datasets/GET/api/datasets/{namespace}/{repo}/user-access-request/{status}) | List the requests with the given `status`: `pending`, `accepted`, `rejected` or `reset`. Each request has a `requestId`, and a `user` when the username was collected. | `{"authorization": "Bearer $token"}` | |
+| `POST` | [`/api/datasets/{repo_id}/user-access-request/handle`](https://huggingface.co/spaces/huggingface/openapi#tag/datasets/POST/api/datasets/{namespace}/{repo}/user-access-request/handle) | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending"/"reset", "user": "username" (or "requestId": "request id"), "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters).", "resetReason": "Optional reset reason that will be included in the email sent to the user (max 200 characters)."}` |
+| `POST` | [`/api/datasets/{repo_id}/user-access-request/grant`](https://huggingface.co/spaces/huggingface/openapi#tag/datasets/POST/api/datasets/{namespace}/{repo}/user-access-request/grant) | Allow a specific user to access your repo. | `{"authorization":  "Bearer $token"}` | `{"user": "username"} ` |
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
 
