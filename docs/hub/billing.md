@@ -99,6 +99,8 @@ In both cases, you start from the marketplace listing, then pick which of your H
 
 A cloud marketplace subscription must be approved by the Hugging Face team before paid usage starts being billed through it. Until the subscription is active and approved, the organization's billing settings show it as pending, and usage keeps being billed to the organization's existing payment method. You will receive an email notification once the subscription is validated.
 
+Once the subscription is approved, organizations that already have a credit card on file switch to cloud marketplace billing at the start of their next billing period. Organizations on the free tier with no credit card on file usually switch immediately, so their paid usage is billed through the cloud marketplace right away.
+
 Cloud marketplace billing is available for organizations only, and replaces the credit card as the organization's payment method. Adding credits is not available while an organization is billed through a cloud marketplace: usage is metered and reported to your cloud provider instead. Linking and unlinking a cloud marketplace account is recorded in your organization's [audit logs](./audit-logs).
 
 ## Support FAQ 
