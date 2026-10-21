@@ -7,6 +7,8 @@ This guide describes how to manage organization member roles and resource group 
 - [Change member role via API](#change-member-role-via-api) — Set a member's org role and resource group assignments (one member per request).
 - [Resource Groups API](#resource-groups-api) — List resource groups and add users to them.
 - [Configure auto-join via API](#configure-auto-join-via-api) — Enable or disable auto-join on a Resource Group.
+- [Invite external collaborators via API](#invite-external-collaborators-via-api) — Invite users from outside the organization into a Resource Group.
+- [Change member account type via API](#change-member-account-type-via-api) — Convert a member into an external collaborator, or back.
 
 ---
 
@@ -519,3 +521,77 @@ curl -s -X PATCH \
 ```
 
 The response is the updated resource group, including its `spendLimits`.
+
+## Invite external collaborators via API
+
+[External invitations](./security-resource-groups#external-invitations) let resource group admins invite users from outside the organization into a Resource Group. They join as external collaborators, with the `no_access` organization role.
+
+**Enable external invitations**
+
+Org admins can enable the setting with:
+
+```http
+POST /api/organizations/{org_name}/resource-groups/settings
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "allowExternalInvites": true
+}
+```
+
+- **Body**
+  - `allowExternalInvites` (optional): Whether resource group admins may invite users from outside the organization.
+  - `minRoleToCreate` (optional): Minimum organization role required to [create Resource Groups](./security-resource-groups#who-can-create-resource-groups).
+
+Omitted fields are left unchanged. Use `GET /api/organizations/{org_name}/resource-groups/settings` to read the current settings.
+
+**Invite a user**
+
+```http
+POST /api/organizations/{org_name}/resource-groups/{resource_group_id}/invite
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "username": "partner-user",
+  "role": "read"
+}
+```
+
+- **Path parameters**
+  - `org_name`: Organization slug (e.g. `my-org`).
+  - `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [list resource groups endpoint](#list-resource-groups)).
+- **Body**
+  - `username`: Username of an existing Hugging Face user who isn't a member of the organization yet. To add an org member, use [Add users to a resource group](#add-users-to-a-resource-group) instead.
+  - `role`: Role the invitee gets in the Resource Group, `"read"` or `"write"`.
+
+The user receives an invitation by email, and gets access to the Resource Group once they accept it.
+
+**Manage pending invitations**
+
+- **List:** `GET /api/organizations/{org_name}/resource-groups/{resource_group_id}/invitations`
+- **Resend:** `POST /api/organizations/{org_name}/resource-groups/{resource_group_id}/invitation/{invitation_id}/resend`
+- **Revoke:** `DELETE /api/organizations/{org_name}/resource-groups/{resource_group_id}/invitation/{invitation_id}`
+
+**Typical errors:**
+
+- `403` — External invitations are not enabled for the organization.
+- `409` — The user is already a member of the organization, or already has a pending invitation to it.
+
+## Change member account type via API
+
+Convert an organization member into an [external collaborator](./security-sso-user-management#external-collaborators), who isn't required to sign in with SSO, or back into a member. Requires a paid plan and **Write** (or Admin) permission on the organization. This isn't available in organizations with managed users, where members are provisioned through SCIM.
+
+```http
+PUT /api/organizations/{org_name}/members/{username}/account-type
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "accountType": "external"
+}
+```
+
+- **Body**
+  - `accountType`: `"external"` to convert the member into an external collaborator, or `"member"` to convert them back.

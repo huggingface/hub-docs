@@ -99,6 +99,27 @@ Auto-join and SCIM management are **mutually exclusive** on the same Resource Gr
 
 To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disable the current setting first.
 
+## External invitations
+
+Resource Groups can be shared with people from outside your organization, like contractors or partners. Org admins can let resource group admins invite them from the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It is disabled by default, and isn't available for organizations with [managed users](./enterprise-advanced-sso).
+
+Invited users join the organization as [external collaborators](./security-sso-user-management#external-collaborators):
+
+- They get the `no_access` organization role, so they only see the resources of the Resource Group they were invited to, nothing else in the organization.
+- They can be invited with the `read` or `write` role in the Resource Group.
+- They aren't required to sign in with your organization's SSO.
+- They consume billable seats.
+
+To invite someone, open the Resource Group's **Users** tab and add them by username. Org members are added to the group directly, while users from outside the organization receive an invitation. Pending invitations are listed with the group's users, with a "Pending" badge, and can be resent or revoked. Use the **External** filter to only list external collaborators.
+
+### Share a repository with external collaborators
+
+Resource group admins can also share a private repository directly from its **Settings** page, in the **Share with external collaborators** section. It lists the people in the repository's Resource Group, and lets you invite external collaborators into it. Keep in mind that people added there get access to every resource of the Resource Group, not only to this repository.
+
+If the repository doesn't belong to a Resource Group yet, members allowed to [create Resource Groups](#who-can-create-resource-groups) can create one from that section, and invite collaborators to it in one step. Check the **Auto-include** option to add the organization's members (except those with the `no_access` role) to the new group with read access, using [auto-join](#auto-join), so they keep access to the repository. Otherwise, only the people added to the Resource Group, and organization admins, will be able to see the repository.
+
+You can also manage external invitations programmatically, see [Invite external collaborators via API](./programmatic-user-access-control#invite-external-collaborators-via-api).
+
 ## Who can create Resource Groups
 
 By default, only organization admins can create new Resource Groups. Org admins can change this by setting the **minimum member role required to create Resource Groups** in the **Access settings** tab of the Resource Groups settings page.
