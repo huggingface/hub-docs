@@ -36,6 +36,8 @@ Because `hf image` stores layers uncompressed, the images it pushes get differen
 
 ## Using Docker and Other OCI Clients
 
+While we recommend using `hf image` (see previous section) to take full advantage of the [Xet backend](./xet/index), you can also interact with the registry through any OCI client.
+
 Log in with your Hugging Face username and a [User Access Token](./security-tokens) as the password: `read` to pull, `write` to push. Public images can be pulled without logging in.
 
 ```bash
