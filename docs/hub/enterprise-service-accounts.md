@@ -49,6 +49,19 @@ From the service account's page, administrators can:
 > [!WARNING]
 > An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.
 
+### S3 credentials
+
+Service account tokens can be used to access your organization's [Storage Buckets](./storage-buckets) through the [S3-compatible API](./storage-buckets-s3). From the service account's page, open a token's dropdown menu and choose **Generate S3 credentials** to create an AWS-style access key ID and secret access key paired with that token.
+
+- The S3 credentials inherit the permissions of the underlying token, so scope the token to only the buckets the workflow needs.
+- The secret access key is only displayed once. If you lose it, use **Refresh S3 credentials** to generate a new pair.
+- Use **Revoke S3 credentials** to disable the pair without deleting the token. Deleting the token (or the service account) also revokes its S3 credentials.
+- The service account's page shows the access key ID currently paired with each token.
+
+Use your organization name as the namespace in the S3 endpoint URL (`https://s3.hf.co/<org>`). Generating and revoking S3 credentials are recorded in the organization's [Audit Logs](./audit-logs).
+
+If a token has the [Network Security exemption](#network-security-exemption) enabled, only organization admins can generate S3 credentials for it.
+
 ### Network Security exemption
 
 > [!WARNING]

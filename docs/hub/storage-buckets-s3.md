@@ -24,6 +24,9 @@ The gateway authenticates with AWS-style access keys derived from a Hugging Face
 
 The S3 credentials inherit the permissions of the underlying access token. For fine-grained tokens, scope them to only the namespaces and buckets you intend to use.
 
+> [!TIP]
+> For automated workflows that access an organization's buckets, you can also generate S3 credentials from a [service account](./enterprise-service-accounts#s3-credentials) token instead of a personal access token.
+
 ## Configuring a Client
 
 Point your S3 client at the gateway endpoint and set a few required options. Use your Hugging Face **namespace** (your username or an organization name) in the endpoint URL — see [Addressing buckets](#addressing-buckets) below.
