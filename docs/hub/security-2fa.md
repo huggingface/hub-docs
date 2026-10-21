@@ -19,9 +19,6 @@ To turn on two-factor authentication, you first need at least one method: add a 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/two-fa/two-factor-off-dark.png" />
 </div>
 
-> [!TIP]
-> You need to confirm your email address before setting up two-factor authentication.
-
 ### Set up an authenticator app
 
 To set up an authenticator app with a one-time password:
