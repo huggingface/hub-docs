@@ -86,7 +86,7 @@ To add an email domain, fill out the 'Matching email domains' field, click enter
 
 ## External Collaborators
 
-This enables certain users within your organization to access resources without completing the Single Sign-On (SSO) flow. This can be helpful when you work with external parties who aren't part of your organization's Identity Provider (IdP) but require access to specific resources.
+This enables certain users within your organization to access resources without completing the Single Sign-On (SSO) flow. This can be helpful when you work with external parties who aren't part of your organization's Identity Provider (IdP) but require access to specific resources. External collaborators do count toward the number of paid seats in your organization.
 
 To add a user as an "External Collaborator" visit the `SSO/Users Management` section in your organization's settings. Once added, these users won't need to go through the SSO process.
 
