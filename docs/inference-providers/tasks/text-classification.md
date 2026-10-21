@@ -39,7 +39,7 @@ hf models ls --warm --pipeline-tag text-classification --sort trending_score
 
 <InferenceSnippet
     pipeline=text-classification
-    providersMapping={ {"hf-inference":{"modelId":"com-kotobalabs/open-jev-deberta-v3-large","providerModelId":"com-kotobalabs/open-jev-deberta-v3-large"}} }
+    providersMapping={ {"hf-inference":{"modelId":"meta-llama/Llama-Prompt-Guard-2-86M","providerModelId":"meta-llama/Llama-Prompt-Guard-2-86M"}} }
 />
 
 
