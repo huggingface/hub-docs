@@ -68,13 +68,16 @@ Setting a request to `reset` revokes the previous decision and asks the user to 
 ### Download access report
 
 You can download a report of all access requests for a gated model with the **download user access report** button. Click on it to download a json file with a list of users. For each entry, you have:
-- **user**: the user id. Example: *julien-c*. Omitted if username collection was disabled when the request was made.
-- **fullname**: name of the user on the Hub. Example: *Julien Chaumond*. Omitted if username collection was disabled when the request was made.
-- **requestId**: the id of the request. Only set when username collection was disabled when the request was made.
+- **requestId**: the id of the request.
+- **user**: the user id. Example: *julien-c*.
+- **fullname**: name of the user on the Hub. Example: *Julien Chaumond*.
 - **status**: status of the request. Either `"pending"`, `"accepted"`, `"rejected"` or `"reset"`.
-- **email**: email of the user. Omitted if email collection was disabled when the request was made.
+- **email**: email of the user.
 - **time**: datetime when the user initially made the request.
 - **reviewedAt**: datetime when the request was accepted or rejected. Not set for pending requests.
+
+> [!TIP]
+> `user`, `fullname` and `email` are only present if you [collected them](#choose-which-profile-data-to-collect) when the request was made. Anonymous requests can still be identified by their `requestId`.
 
 ### Choose which profile data to collect
 
