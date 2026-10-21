@@ -20,7 +20,7 @@ You can register several passkeys, for example one per device or one in your pas
 </div>
 
 > [!NOTE]
-> If your organization requires you to sign in with [SSO](./security-sso), you can't add passkeys to your account.
+> [Managed accounts](./enterprise-advanced-sso), which sign in through their organization's identity provider, can't add passkeys.
 
 ## Sign in with a passkey
 
