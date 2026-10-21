@@ -14,6 +14,11 @@ Passkeys can be used in two ways:
 
 You can register several passkeys, for example one per device or one in your password manager and one on a hardware security key. Passkeys that are synced across your devices by a password manager are marked with a **Synced** badge.
 
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/passkeys/passkeys-settings.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/passkeys/passkeys-settings-dark.png" />
+</div>
+
 > [!NOTE]
 > If your organization requires you to sign in with [SSO](./security-sso), you can't add passkeys to your account.
 
@@ -25,16 +30,17 @@ Signing in with a passkey already verifies your identity with your device, so yo
 
 ## Use passkeys for two-factor authentication
 
-Once you've added at least one passkey, you can use passkeys as a second factor when you sign in with your password:
+When [two-factor authentication](./security-2fa) is on, any of your passkeys can be used as the second step after you sign in with your password. To turn it on with passkeys:
 
-1. Go to your [Authentication settings](https://hf.co/settings/authentication)
-2. In the **Passkeys** section, click **Turn on** next to **Two-factor authentication**
+1. Add at least one passkey
+2. Go to your [Authentication settings](https://hf.co/settings/authentication)
+3. In the **Two-factor authentication** section, click **Turn on**
 
-If you didn't already have two-factor authentication enabled, the Hub then displays a list of recovery codes. Download them and keep them in a safe place. See [Recovery codes](./security-2fa#recovery-codes) for more details.
+The Hub then displays a list of recovery codes. Download them and keep them in a safe place. See [Recovery codes](./security-2fa#recovery-codes) for more details.
 
 After signing in with your password, you'll be asked to confirm with one of your passkeys. If you have also set up an authenticator app, you can choose to use it instead, or use a recovery code.
 
-To stop using passkeys as a second factor, click **Turn off** next to **Two-factor authentication** in the **Passkeys** section. This doesn't remove your passkeys, and you can still use them to sign in.
+Turning off two-factor authentication doesn't remove your passkeys, and you can still use them to sign in.
 
 ## Manage your passkeys
 
@@ -43,6 +49,6 @@ In the **Passkeys** section of your [Authentication settings](https://hf.co/sett
 - **Remove** a passkey. You won't be able to sign in with it anymore.
 
 > [!TIP]
-> If passkeys are enabled for two-factor authentication, you need to turn off two-factor authentication with passkeys before you can remove your last passkey.
+> If two-factor authentication is on and you don't have an authenticator app, you need to set up an authenticator app or turn off two-factor authentication before you can remove your last passkey.
 
 When you remove a passkey from the Hub, it may still be stored on your device or in your password manager. You can delete it there as well.
