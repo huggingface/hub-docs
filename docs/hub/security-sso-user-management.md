@@ -66,7 +66,7 @@ When enabled, Resource Group Mapping allows you to dynamically assign members to
 
 - **Resource Group Mapping**
 
-  A mapping from the IdP attribute value to a resource group in your Hugging Face organization. You can assign a specific role (`admin`, `write`, `contributor`, `read`) for each resource group mapping, or `inherit` to give users the same role as their organization role.
+  A mapping from the IdP attribute value to a resource group in your Hugging Face organization. You can assign a specific role (`admin`, `write`, `contributor`, `read`, `inherit`) for each resource group mapping.
 
 Unlike Role Mapping, **Resource Group Mapping is additive**. If a user matches multiple mappings (e.g. they belong to multiple groups in your IdP that are mapped to different Resource Groups), they will be added to **all** matched Resource Groups.
 

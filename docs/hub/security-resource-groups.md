@@ -18,8 +18,7 @@ Members are assigned a **role** in each Resource Group that determines their per
 - `contributor`: Provides **write rights limited to the repositories created by the user** (i.e., users can create repos and then modify only those repos). Similar to the 'Write' role, but limited to repos created by the user.
 - `write`: Offers **write access to all repositories** in the Resource Group. Users can create, delete, or rename any repository in the Resource Group.
 - `admin`: In addition to write permissions on repositories, admin members can **administer the Resource Group**: add, remove, and alter the roles of other members. They can also manage already existing repositories in a Resource Group.
-
-You can also assign the `inherit` role to a member. With `inherit`, the member's role in the Resource Group is the same as their **organization role**, and it follows that role when it changes. For example, a member with the `write` organization role who is added to a group with `inherit` gets `write` access in the group. If their organization role is later changed to `read`, they get `read` access in every group where they have `inherit`. In the **Users** tab, `inherit` members are displayed with their resulting role, along with a tooltip explaining that it comes from their organization role.
+- `inherit`: The member's role in the Resource Group is the same as their **organization role**. For example, a member with the `write` organization role who is added to a group with `inherit` gets `write` access in the group
 
 In addition, Organization admins can manage **all resource groups** inside the organization. This includes moving repositories in and out of any Resource Group.
 
@@ -73,7 +72,7 @@ This is useful for Resource Groups that should be accessible to your entire orga
 
 ### Enabling auto-join
 
-- **Via the UI**: Open the Resource Group's **Settings** tab and check the **Automatically include all org members** option in the **Auto-include org members** section, then select the role to assign. Select `inherit` to give each auto-joined member the same role they have in the organization. The Users tab also links there, showing whether auto-include is on or off.
+- **Via the UI**: Open the Resource Group's **Settings** tab and check the **Automatically include all org members** option in the **Auto-include org members** section, then select the role to assign. The Users tab also links there, showing whether auto-include is on or off.
 - **Via the API**: See [Configure auto-join via API](./programmatic-user-access-control#configure-auto-join-via-api).
 
 <div class="flex justify-center">
