@@ -55,7 +55,7 @@ Content-Type: application/json
   - `role` (required): The member's **organization-level** role. One of: `"no_access"`, `"read"`, `"contributor"`, `"write"`, or `"admin"`.
   - `resourceGroups` (optional): Array of resource group assignments for this user. Each item:
     - `id`: Resource group ID (24-character hex string; get IDs from the [resource groups list API](#list-resource-groups)).
-    - `role`: Role in that resource group: `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+    - `role`: Role in that resource group: `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"`.
   - If you omit `resourceGroups` or pass `[]`, the user is removed from all resource groups. To only change org role and leave resource groups unchanged, pass their current resource group memberships (the body always sets both org role and resource group list).
 
 **Example (curl) – set org role to "read", no resource groups (removes any the user was previously in)**
@@ -226,7 +226,7 @@ Content-Type: application/json
 - **Body**
   - `users`: Array of objects. Each object must have:
     - `user`: Hugging Face **username** (required).
-    - `role`: One of `"read"`, `"contributor"`, `"write"`, `"admin"`.
+    - `role`: One of `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"`.
 
 **Example (curl)**
 
@@ -446,7 +446,7 @@ Content-Type: application/json
   - `org_name`: Organization slug (e.g. `my-org`).
   - `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [list resource groups endpoint](#list-resource-groups)).
 - **Body**
-  - `role`: The role to assign to automatically added members. One of `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+  - `role`: The role to assign to automatically added members. One of `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"`.
   - `scope` (optional): Which org members to add automatically. Use `"all"` to include every org member. Use `"read_plus"` to exclude members with the `no_access` organization role. Defaults to `"all"` when omitted.
 
 Enabling auto-join on an existing Resource Group immediately adds current org members matching the selected scope (backfill).

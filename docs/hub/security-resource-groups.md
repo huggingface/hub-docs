@@ -18,6 +18,7 @@ Members are assigned a **role** in each Resource Group that determines their per
 - `contributor`: Provides **write rights limited to the repositories created by the user** (i.e., users can create repos and then modify only those repos). Similar to the 'Write' role, but limited to repos created by the user.
 - `write`: Offers **write access to all repositories** in the Resource Group. Users can create, delete, or rename any repository in the Resource Group.
 - `admin`: In addition to write permissions on repositories, admin members can **administer the Resource Group**: add, remove, and alter the roles of other members. They can also manage already existing repositories in a Resource Group.
+- `inherit`: The member's role in the Resource Group is the same as their **organization role**. For example, a member with the `write` organization role who is added to a group with `inherit` gets `write` access in the group
 
 In addition, Organization admins can manage **all resource groups** inside the organization. This includes moving repositories in and out of any Resource Group.
 
@@ -120,7 +121,7 @@ Resource group admins can also share a private repository from its **Settings** 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo-settings-external-collaborators-dark-min.png" alt="The Share with external collaborators section"/>
 </div>
 
-If the repository isn't in a Resource Group yet, members who can [create Resource Groups](#who-can-create-resource-groups) can create one from that section and invite collaborators at the same time. Turn on **Auto-include** to put the organization's members (except those with the `no_access` role) into the new group with read access via [auto-join](#auto-join), so they keep seeing the repository. Without that, only users you add to the Resource Group, plus organization admins, can see it.
+If the repository isn't in a Resource Group yet, members who can [create Resource Groups](#who-can-create-resource-groups) can create one from that section and invite collaborators at the same time. **Auto-include** is on by default: it puts the organization's members (except those with the `no_access` role) into the new group via [auto-join](#auto-join) with the `inherit` role, so they keep their current access to the repository. If you turn it off, only users you add to the Resource Group, plus organization admins, can see it.
 
 You can also manage external invitations through the API: [Invite external collaborators via API](./programmatic-user-access-control#invite-external-collaborators-via-api).
 
