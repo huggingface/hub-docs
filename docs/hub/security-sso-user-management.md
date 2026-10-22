@@ -96,5 +96,9 @@ You can add them by:
 
 External collaborators still go through your organization's access controls ([Resource Groups](./enterprise-resource-groups)).
 
+External collaborators aren't shown as part of your organization's team. They're hidden from the member avatars, the member count, and the "Team members" list on your organization's page. On their side, the organization doesn't appear on their profile or in their organization switcher, and they can't set it as their primary organization. They still appear on the **Members** page of your organization's settings, and they can leave the organization from their own **Settings › Organizations** page.
+
+The [organization members API](https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/&#123;name&#125;/members) also leaves external collaborators out by default. Users with the Write or Admin role in the organization can include them by passing `includeExternal=true`.
+
 > [!NOTE]
 > With [Managed SSO](./enterprise-advanced-sso), internal members are provisioned through your identity provider (SCIM), so users invited to the organization can only be added as external collaborators.

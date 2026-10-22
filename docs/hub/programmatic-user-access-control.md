@@ -260,6 +260,8 @@ Authorization: Bearer <your_access_token>
 
 Response is an array of members; each member has `user` (username). Use `user` for the add-users call.
 
+External collaborators are left out of this list by default. To look them up too, add `includeExternal=true` (requires the Write or Admin role in the organization).
+
 **Step 2 – Add to resource group**
 
 Use the username from step 1 in a normal add-users request:
