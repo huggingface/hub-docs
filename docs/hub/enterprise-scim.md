@@ -52,7 +52,7 @@ Before linking, make sure the following conditions are met:
 - The Resource Group must have **no existing members**. Linking to a non-empty Resource Group is not allowed.
 - The Resource Group must **not have auto-join enabled**. Auto-join (which automatically adds every new org member to the RG) is mutually exclusive with SCIM management. Disable auto-join on the RG before linking.
 
-A SCIM group can be linked to multiple Resource Groups, each with its own role.
+A SCIM group can be linked to multiple Resource Groups, each with its own role. Use the `inherit` role to give members the same role in the Resource Group as their organization role.
 
 ### What happens after linking
 

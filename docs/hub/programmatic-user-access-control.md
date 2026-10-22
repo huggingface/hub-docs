@@ -55,7 +55,7 @@ Content-Type: application/json
   - `role` (required): The member's **organization-level** role. One of: `"no_access"`, `"read"`, `"contributor"`, `"write"`, or `"admin"`.
   - `resourceGroups` (optional): Array of resource group assignments for this user. Each item:
     - `id`: Resource group ID (24-character hex string; get IDs from the [resource groups list API](#list-resource-groups)).
-    - `role`: Role in that resource group: `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+    - `role`: Role in that resource group: `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"` (the member gets the same role as their organization role, and follows it when it changes). `"inherit"` is only valid for resource group roles, not for the organization-level `role`.
   - If you omit `resourceGroups` or pass `[]`, the user is removed from all resource groups. To only change org role and leave resource groups unchanged, pass their current resource group memberships (the body always sets both org role and resource group list).
 
 **Example (curl) – set org role to "read", no resource groups (removes any the user was previously in)**
@@ -226,7 +226,7 @@ Content-Type: application/json
 - **Body**
   - `users`: Array of objects. Each object must have:
     - `user`: Hugging Face **username** (required).
-    - `role`: One of `"read"`, `"contributor"`, `"write"`, `"admin"`.
+    - `role`: One of `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"`. Use `"inherit"` to give the member the same role they have in the organization, following it when it changes.
 
 **Example (curl)**
 
@@ -238,7 +238,7 @@ curl -s -X POST \
   "https://huggingface.co/api/organizations/my-org/resource-groups/507f1f77bcf86cd799439011/users"
 ```
 
-**Success:** Status `200 OK`; body is the updated resource group object (includes the new users in `users`).
+**Success:** Status `200 OK`; body is the updated resource group object (includes the new users in `users`). For each user, `role` is the role in effect (with `inherit` resolved to the member's organization role) and `assignedRole` is the role as assigned on the membership, which can be `"inherit"`.
 
 **Typical errors:**
 
@@ -446,7 +446,7 @@ Content-Type: application/json
   - `org_name`: Organization slug (e.g. `my-org`).
   - `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [list resource groups endpoint](#list-resource-groups)).
 - **Body**
-  - `role`: The role to assign to automatically added members. One of `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+  - `role`: The role to assign to automatically added members. One of `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"` (each member gets the same role as their organization role).
   - `scope` (optional): Which org members to add automatically. Use `"all"` to include every org member. Use `"read_plus"` to exclude members with the `no_access` organization role. Defaults to `"all"` when omitted.
 
 Enabling auto-join on an existing Resource Group immediately adds current org members matching the selected scope (backfill).

@@ -22,7 +22,7 @@ This feature allows organization administrators to:
 
 - Group related repositories together for better organization
 - Control member access at a group level rather than individual repository level
-- Assign different permission roles (no_access, read, contributor, write, admin) to team members
+- Assign different permission roles (no_access, read, contributor, write, admin) to team members, or let them inherit their organization role
 - Keep private repositories visible only to authorized group members
 - Enable multiple teams to work independently within the same organization
 - Configure which member roles are allowed to create new resource groups
