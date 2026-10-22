@@ -105,7 +105,7 @@ You can share Resource Groups with people outside your organization. Org admins 
 
 Invited users join as [external collaborators](./security-sso-user-management#external-collaborators):
 
-- They get the `no_access` organization role, so they only see that Resource Group's resources.
+- By default, they get the `no_access` organization role, so they only see that Resource Group's resources.
 - You can invite them with the `read` or `write` role in the Resource Group.
 - They don't have to sign in with your organization's SSO.
 

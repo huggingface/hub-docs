@@ -574,6 +574,8 @@ The user gets an email invitation and access to the Resource Group after they ac
 - **Resend:** `POST /api/organizations/{org_name}/resource-groups/{resource_group_id}/invitation/{invitation_id}/resend`
 - **Revoke:** `DELETE /api/organizations/{org_name}/resource-groups/{resource_group_id}/invitation/{invitation_id}`
 
+You can also [check out the full OpenAPI specification](https://huggingface.co/spaces/huggingface/openapi#tag/resource-groups)
+
 **Typical errors:**
 
 - `403` — External invitations are not enabled for the organization.
@@ -582,6 +584,9 @@ The user gets an email invitation and access to the Resource Group after they ac
 ## Change member account type via API
 
 Turn an organization member into an [external collaborator](./security-sso-user-management#external-collaborators) (no SSO required), or convert them back into a member. Requires a paid plan and **Write** (or Admin) permission on the organization. Not available in organizations with managed users, where members are provisioned through SCIM.
+
+> [!WARNING]
+> Changing a user's account type doesn't change their role. See [Change member role via API](https://huggingface.co/docs/hub/main/en/programmatic-user-access-control#change-member-role-via-api) to change a user's role.
 
 ```http
 PUT /api/organizations/{org_name}/members/{username}/account-type
