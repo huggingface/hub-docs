@@ -86,7 +86,7 @@ To add an email domain, fill out the 'Matching email domains' field, click enter
 
 ## External Collaborators
 
-External collaborators are people outside your organization who need access to some of its resources without going through Single Sign-On (SSO). That usually means they aren't in your Identity Provider (IdP). They're available on paid plans, and show up with an "External collaborator" badge in your organization's member lists.
+External collaborators are users outside your organization who need access to some of its resources without going through Single Sign-On (SSO). That usually means they aren't in your Identity Provider (IdP). They're available on paid plans, and show up with an "External collaborator" badge in your organization's member lists. They do count toward the number of paid seats in your organization.
 
 You can add them by:
 
