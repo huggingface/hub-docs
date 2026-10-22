@@ -136,9 +136,9 @@ Visit our [gated models](https://huggingface.co/docs/hub/models-gated#download-a
 
 #### Choose which profile data to collect
 
-By default, Hugging Face shares the requester's username and primary email address with the organization. In the gating group settings, you can uncheck **Collect username** to receive anonymous requests, or uncheck **Collect email** to stop sharing the requester's email address (this option requires **Collect username**). These settings apply to all the repos in the collection, and only affect new requests.
+By default, Hugging Face shares the requester's username and primary email address with the organization. In the gating group settings, you can control that and change what information Hugging Face shares with you. These settings apply to all the repos in the collection and only affect new requests.
 
-Visit our [gated models](https://huggingface.co/docs/hub/models-gated#choose-which-profile-data-to-collect) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#choose-which-profile-data-to-collect) documentation to know more about it.
+Visit our [gated models](https://huggingface.co/docs/hub/models-gated#choose-which-profile-data-hugging-face-shares-with-you) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#choose-which-profile-data-hugging-face-shares-with-you) documentation to know more about it.
 
 #### Customize requested information
 

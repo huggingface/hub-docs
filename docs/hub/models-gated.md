@@ -1,6 +1,6 @@
 # Gated models
 
-To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. When enabled, users must submit an access request to access the model files, which shares their contact information (username and email address) with the model authors unless the authors opted out of collecting it. Model authors can configure this request with additional fields. A model with access requests enabled is called a **gated model**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
+To give more control over how models are used, the Hub allows model authors to enable **access requests** for their models. When enabled, users must submit an access request to access the model files, which shares their Hugging Face information (username and email address) with the model authors unless the authors opted out of collecting it. Model authors can also add custom fields. A model with access requests enabled is called a **gated model**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated models is to provide access to early research models before the wider release.
 
 ## Manage gated models as a model author
 
@@ -54,7 +54,7 @@ You can automate the approval of access requests by using the API. You must pass
 
 | Method | URI | Description | Headers | Payload
 | ------ | --- | ----------- | -------  | -------  |
-| `GET` | [`/api/models/{repo_id}/user-access-request/{status}`](https://huggingface.co/spaces/huggingface/openapi#tag/models/GET/api/models/{namespace}/{repo}/user-access-request/{status}) | List the requests with the given `status`: `pending`, `accepted`, `rejected` or `reset`. Each request has a `requestId`, and a `user` when the username was collected. | `{"authorization": "Bearer $token"}` | |
+| `GET` | [`/api/models/{repo_id}/user-access-request/{status}`](https://huggingface.co/spaces/huggingface/openapi#tag/models/GET/api/models/{namespace}/{repo}/user-access-request/{status}) | List the requests with the given `status`: `pending`, `accepted`, `rejected` or `reset`. Each request has a `requestId`, and a `user` if the username was collected. | `{"authorization": "Bearer $token"}` | |
 | `POST` | [`/api/models/{repo_id}/user-access-request/handle`](https://huggingface.co/spaces/huggingface/openapi#tag/models/POST/api/models/{namespace}/{repo}/user-access-request/handle) | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending"/"reset", "user": "username" (or "requestId": "request id"), "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters).", "resetReason": "Optional reset reason that will be included in the email sent to the user (max 200 characters)."}` |
 | `POST` | [`/api/models/{repo_id}/user-access-request/grant`](https://huggingface.co/spaces/huggingface/openapi#tag/models/POST/api/models/{namespace}/{repo}/user-access-request/grant) | Allow a specific user to access your repo. | `{"authorization":  "Bearer $token"}` | `{"user": "username"} ` |
 
@@ -77,14 +77,14 @@ You can download a report of all access requests for a gated model with the **do
 - **reviewedAt**: datetime when the request was accepted or rejected. Not set for pending requests.
 
 > [!TIP]
-> `user`, `fullname` and `email` are only present if you [collected them](#choose-which-profile-data-to-collect) when the request was made. Anonymous requests can still be identified by their `requestId`.
+> `user`, `fullname` and `email` are only present if you opted to [collect them](#choose-which-profile-data-hugging-face-shares-with-you) when the request was made. Requests can always be identified by their `requestId`.
 
-### Choose which profile data to collect
+### Choose which profile data Hugging Face shares with you
 
-By default, Hugging Face shares the requester's username and primary email address with you. You can change this from the gating options on the model settings page:
+By default, Hugging Face shares the requester's username and primary email address with you. You are responsible for handling any personally identifiable information (PII) and disclosing how you handle it in accordance with applicable laws (for instance by linking to your own Privacy Policy). You can change this in the gating options on the model settings page:
 
-- **Collect username**: when unchecked, requests are anonymous. You won't see the requester's username, name, avatar, or email address. Anonymous requests are listed with a request id and can be accepted or rejected like any other request.
-- **Collect email**: when unchecked, the requester's email address is not shared. This option requires **Collect username**.
+- **Collect username**: when unchecked, you won't receive the Hugging Face username, full name, and avatar of the requester. Requests are listed with a request id and can be accepted or rejected like any other request.
+- **Collect email**: collect the Hugging Face's profile email of the requester. Requires **Collect username**.
 
 You still receive the answers to your [custom form fields](#customize-requested-information), so you can ask for any contact details you need there. These settings apply to new requests only: existing requests keep the settings that were in place when they were made.
 
@@ -94,7 +94,7 @@ For models in a [Gating Group Collection](./enterprise-gating-group-collections)
 
 ### Customize requested information
 
-By default, users landing on your gated model will be asked to share their contact information (email and username, unless you [disabled their collection](#choose-which-profile-data-to-collect)) by clicking the **Agree and send request to access repo** button.
+By default, users landing on your gated model will be asked to share their Hugging Face information (email and username, unless you [disabled their collection](#choose-which-profile-data-hugging-face-shares-with-you)) by clicking the **Agree and send request to access repo** button.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side.png"/>
@@ -185,7 +185,7 @@ Requesting access can only be done from your browser. Go to the model on the Hub
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-gated-user-side-dark.png"/>
 </div>
 
-By clicking on **Agree**, you agree to share the information listed on the request form with the model authors: by default your username and email address, unless the authors chose not to collect them. In some cases, additional fields might be requested. To help the model authors decide whether to grant you access, try to fill out the form as completely as possible.
+By clicking on **Agree**, you agree to share the information you enter in the request form (when applicable) with the model authors, as well as your Hugging Face username and email address if the authors opted to collect them. To help the model authors decide whether to grant you access, try to fill out any form fields as completely as possible.
 
 Once the access request is sent, there are two possibilities. If the approval mechanism is automatic, you immediately get access to the model files. Otherwise, the requests have to be approved manually by the authors, which can take more time. 
 
