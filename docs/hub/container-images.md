@@ -51,9 +51,7 @@ Other OCI clients work the same way. Helm appends the chart name to the URL: `he
 
 ## Deleting Images
 
-An image that no tag points to anymore, directly or through a multi-arch image, is deleted 6 hours later, such as the previous `latest` after a new push. To keep pulling an image by digest, keep a tag on it.
-
-On the Hub, remove a tag with **Delete this tag** in its menu, on the image page or the tag's page. With [`hf image`](#pushing-and-pulling-with-hf-image), remove an image's tags, and delete it by digest to delete it right away:
+On the Hub, remove a tag with **Delete this tag** in its menu, on the image page or the tag's page. With [`hf image`](#pushing-and-pulling-with-hf-image), remove an image's tags, then delete it by digest:
 
 ```bash
 hf image untag cr.hf.co/my-org/my-app:v1                # prints the image's digest
@@ -61,6 +59,10 @@ hf image delete cr.hf.co/my-org/my-app@sha256:<digest>
 ```
 
 If something still references the image, such as another tag, the delete is refused and lists what to remove first. Deleting a multi-arch image also deletes its platform images.
+
+## Garbage Collection
+
+The registry deletes images that no tag points to anymore, directly or through a multi-arch image, such as the previous `latest` after a new push. It also deletes the layers that no remaining image uses. To keep pulling an image by digest, keep a tag on it.
 
 ## Limits
 
