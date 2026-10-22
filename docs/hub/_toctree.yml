@@ -528,6 +528,8 @@
       title: Trusted Publishers (CI/CD)
     - local: security-2fa
       title: Two-Factor Authentication
+    - local: security-passkeys
+      title: Passkeys
     - local: security-git-ssh
       title: Git over SSH
     - local: security-gpg
