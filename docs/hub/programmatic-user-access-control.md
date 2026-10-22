@@ -7,6 +7,8 @@ This guide describes how to manage organization member roles and resource group 
 - [Change member role via API](#change-member-role-via-api) — Set a member's org role and resource group assignments (one member per request).
 - [Resource Groups API](#resource-groups-api) — List resource groups and add users to them.
 - [Configure auto-join via API](#configure-auto-join-via-api) — Enable or disable auto-join on a Resource Group.
+- [Invite external collaborators via API](#invite-external-collaborators-via-api) — Invite users from outside the organization into a Resource Group.
+- [Change member account type via API](#change-member-account-type-via-api) — Convert a member into an external collaborator, or back.
 
 ---
 
@@ -53,7 +55,7 @@ Content-Type: application/json
   - `role` (required): The member's **organization-level** role. One of: `"no_access"`, `"read"`, `"contributor"`, `"write"`, or `"admin"`.
   - `resourceGroups` (optional): Array of resource group assignments for this user. Each item:
     - `id`: Resource group ID (24-character hex string; get IDs from the [resource groups list API](#list-resource-groups)).
-    - `role`: Role in that resource group: `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+    - `role`: Role in that resource group: `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"`.
   - If you omit `resourceGroups` or pass `[]`, the user is removed from all resource groups. To only change org role and leave resource groups unchanged, pass their current resource group memberships (the body always sets both org role and resource group list).
 
 **Example (curl) – set org role to "read", no resource groups (removes any the user was previously in)**
@@ -224,7 +226,7 @@ Content-Type: application/json
 - **Body**
   - `users`: Array of objects. Each object must have:
     - `user`: Hugging Face **username** (required).
-    - `role`: One of `"read"`, `"contributor"`, `"write"`, `"admin"`.
+    - `role`: One of `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"`.
 
 **Example (curl)**
 
@@ -444,7 +446,7 @@ Content-Type: application/json
   - `org_name`: Organization slug (e.g. `my-org`).
   - `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [list resource groups endpoint](#list-resource-groups)).
 - **Body**
-  - `role`: The role to assign to automatically added members. One of `"read"`, `"contributor"`, `"write"`, or `"admin"`.
+  - `role`: The role to assign to automatically added members. One of `"read"`, `"contributor"`, `"write"`, `"admin"`, or `"inherit"`.
   - `scope` (optional): Which org members to add automatically. Use `"all"` to include every org member. Use `"read_plus"` to exclude members with the `no_access` organization role. Defaults to `"all"` when omitted.
 
 Enabling auto-join on an existing Resource Group immediately adds current org members matching the selected scope (backfill).
@@ -519,3 +521,82 @@ curl -s -X PATCH \
 ```
 
 The response is the updated resource group, including its `spendLimits`.
+
+## Invite external collaborators via API
+
+[External invitations](./security-resource-groups#external-invitations) let resource group admins invite users from outside the organization into a Resource Group. Invitees join as external collaborators with the `no_access` organization role. They do count toward the number of paid seats in your organization.
+
+**Enable external invitations**
+
+Org admins can enable the setting with:
+
+```http
+POST /api/organizations/{org_name}/resource-groups/settings
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "allowExternalInvites": true
+}
+```
+
+- **Body**
+  - `allowExternalInvites` (optional): Whether resource group admins may invite users from outside the organization.
+  - `minRoleToCreate` (optional): Minimum organization role required to [create Resource Groups](./security-resource-groups#who-can-create-resource-groups).
+
+Omitted fields are left unchanged. Use `GET /api/organizations/{org_name}/resource-groups/settings` to read the current settings.
+
+**Invite a user**
+
+```http
+POST /api/organizations/{org_name}/resource-groups/{resource_group_id}/invite
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "username": "partner-user",
+  "role": "read"
+}
+```
+
+- **Path parameters**
+  - `org_name`: Organization slug (e.g. `my-org`).
+  - `resource_group_id`: The Resource Group's ID (24-character hex string; get IDs from the [list resource groups endpoint](#list-resource-groups)).
+- **Body**
+  - `username`: Username of an existing Hugging Face user who isn't a member of the organization yet. To add an org member, use [Add users to a resource group](#add-users-to-a-resource-group) instead.
+  - `role`: Role the invitee gets in the Resource Group, `"read"` or `"write"`.
+
+The user gets an email invitation and access to the Resource Group after they accept.
+
+**Manage pending invitations**
+
+- **List:** `GET /api/organizations/{org_name}/resource-groups/{resource_group_id}/invitations`
+- **Resend:** `POST /api/organizations/{org_name}/resource-groups/{resource_group_id}/invitation/{invitation_id}/resend`
+- **Revoke:** `DELETE /api/organizations/{org_name}/resource-groups/{resource_group_id}/invitation/{invitation_id}`
+
+You can also [check out the full OpenAPI specification](https://huggingface.co/spaces/huggingface/openapi#tag/resource-groups)
+
+**Typical errors:**
+
+- `403` — External invitations are not enabled for the organization.
+- `409` — The user is already a member of the organization, or already has a pending invitation to it.
+
+## Change member account type via API
+
+Turn an organization member into an [external collaborator](./security-sso-user-management#external-collaborators) (no SSO required), or convert them back into a member. Requires a paid plan and **Write** (or Admin) permission on the organization. Not available in organizations with managed users, where members are provisioned through SCIM.
+
+> [!WARNING]
+> Changing a user's account type doesn't change their role. See [Change member role via API](https://huggingface.co/docs/hub/main/en/programmatic-user-access-control#change-member-role-via-api) to change a user's role.
+
+```http
+PUT /api/organizations/{org_name}/members/{username}/account-type
+Authorization: Bearer <your_access_token>
+Content-Type: application/json
+
+{
+  "accountType": "external"
+}
+```
+
+- **Body**
+  - `accountType`: `"external"` to convert the member into an external collaborator, or `"member"` to convert them back.

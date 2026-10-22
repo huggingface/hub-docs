@@ -80,6 +80,8 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 
 - **Member lifecycle** — Adding and removing members, role changes, and members leaving the organization.
   - **Events:** `org.add_user`, `org.remove_user`, `org.change_role`, `org.leave`
+- **Account type** — Converting a member into an [external collaborator](./security-sso-user-management#external-collaborators), or back into a member.
+  - **Event:** `org.change_account_type`
 - **Invitations** — Sending invites, invitation links by email, and users accepting invites.
   - **Events:** `org.invite_user`, `org.invite.accept`, `org.invite.email`
 - **Automatic joins** — Joins via verified email domain or “request access”.
@@ -103,6 +105,8 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
   - **Events:** `resource_group.create`, `resource_group.delete`, `resource_group.settings`
 - **Resource group members** — Adding and removing users, and role changes.
   - **Events:** `resource_group.add_users`, `resource_group.remove_users`, `resource_group.change_role`
+- **Resource group invitations** — Inviting users from outside the organization into a resource group, and revoking those invitations.
+  - **Events:** `resource_group.invite_user`, `resource_group.invite.revoke`
 
 ### Jobs and Scheduled Jobs
 

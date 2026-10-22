@@ -66,7 +66,7 @@ When enabled, Resource Group Mapping allows you to dynamically assign members to
 
 - **Resource Group Mapping**
 
-  A mapping from the IdP attribute value to a resource group in your Hugging Face organization. You can assign a specific role (`admin`, `write`, `contributor`, `read`) for each resource group mapping.
+  A mapping from the IdP attribute value to a resource group in your Hugging Face organization. You can assign a specific role (`admin`, `write`, `contributor`, `read`, `inherit`) for each resource group mapping.
 
 Unlike Role Mapping, **Resource Group Mapping is additive**. If a user matches multiple mappings (e.g. they belong to multiple groups in your IdP that are mapped to different Resource Groups), they will be added to **all** matched Resource Groups.
 
@@ -86,9 +86,15 @@ To add an email domain, fill out the 'Matching email domains' field, click enter
 
 ## External Collaborators
 
-This enables certain users within your organization to access resources without completing the Single Sign-On (SSO) flow. This can be helpful when you work with external parties who aren't part of your organization's Identity Provider (IdP) but require access to specific resources.
+External collaborators are users outside your organization who need access to some of its resources without going through Single Sign-On (SSO). That usually means they aren't in your Identity Provider (IdP). They're available on paid plans, and show up with an "External collaborator" badge in your organization's member lists. They do count toward the number of paid seats in your organization.
 
-To add a user as an "External Collaborator" visit the `SSO/Users Management` section in your organization's settings. Once added, these users won't need to go through the SSO process.
+You can add them by:
 
-However, they will still be subject to your organization's access controls ([Resource Groups](./enterprise-resource-groups)).
-It's crucial to manage their access carefully to maintain your organization's data security.
+- **Inviting them to the organization**: on the **Members** page of your organization's settings, check **External Collaborator** when you send the invite.
+- **Converting an existing member**: on the **Members** page, open the member's menu and select **Convert to external collaborator**. Use **Convert to member** to switch them back. If your organization uses SSO, they'll need to sign in through it afterward to keep access. You can also do this [via the API](./programmatic-user-access-control#change-member-account-type-via-api).
+- **Sharing a resource group or repository**: if [external invitations](./security-resource-groups#external-invitations) are enabled, resource group admins can invite outsiders straight into a Resource Group, including from **Share with external collaborators** on a repository's settings page. Those users join with the `no_access` organization role and only get that Resource Group.
+
+External collaborators still go through your organization's access controls ([Resource Groups](./enterprise-resource-groups)).
+
+> [!NOTE]
+> With [Managed SSO](./enterprise-advanced-sso), internal members are provisioned through your identity provider (SCIM), so users invited to the organization can only be added as external collaborators.
