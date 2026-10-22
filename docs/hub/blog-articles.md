@@ -14,7 +14,7 @@ Managed users (users provisioned through Enterprise IdP) cannot publish under th
 To publish under an **organization namespace**, both must hold:
 
 - The organization is on the [Team or Enterprise](https://huggingface.co/enterprise) plan.
-- You have the `write` or `admin` role in that organization. See [Access Control in Organizations](./organizations-security) for more on roles.
+- You have the `contributor`, `write`, or `admin` role in that organization, or the `contributor` or `write` role in one of its [Resource Groups](./security-resource-groups). See [Blog Articles for Organizations](./enterprise-blog-articles#permissions) for details, and [Access Control in Organizations](./organizations-security) for more on roles.
 
 See [Blog Articles for Organizations](./enterprise-blog-articles) for organization-specific details.
 
@@ -42,7 +42,7 @@ Published articles should fall into one of two categories:
 ## Editing an Article
 
 - Articles published under a user namespace can be edited by the original author and any coauthors listed on the article.
-- Articles published under an organization namespace can be edited by any organization member with `write` or `admin` role.
+- Articles published under an organization namespace can be edited by organization members with the `write` or `admin` role, and by `contributor` members listed as authors. If the article is assigned to a Resource Group, the member's role in that Resource Group applies instead of their organization role. Organization admins can always edit.
 
 ## Linking to Models and Datasets
 

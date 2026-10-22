@@ -22,7 +22,12 @@ To keep the main section varied, each organization can have one featured article
 
 ## Permissions
 
-To publish blog articles under an organization namespace, members need `write` or `admin` role at the organization level. See [Access Control in Organizations](./organizations-security) for more details on roles.
+To publish blog articles under an organization namespace, members need one of the following:
+
+- The `contributor`, `write`, or `admin` role at the organization level. Contributors can only edit the articles they author.
+- The `contributor` or `write` role in a [Resource Group](./security-resource-groups). When creating the article, the author selects that Resource Group in the editor's access control setting. This lets members whose organization role is `no_access` or `read` publish articles without getting read and/or write access to the organization's repositories.
+
+See [Access Control in Organizations](./organizations-security) for more details on roles.
 
 > [!NOTE]
 > On Enterprise plans and above, org admins can instead restrict who is allowed to write and publish organization blog articles through Resource Groups [Granular feature access](./security-resource-groups#granular-feature-access) settings.
