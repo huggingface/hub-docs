@@ -18,6 +18,7 @@ Members are assigned a **role** in each Resource Group that determines their per
 - `contributor`: Provides **write rights limited to the repositories created by the user** (i.e., users can create repos and then modify only those repos). Similar to the 'Write' role, but limited to repos created by the user.
 - `write`: Offers **write access to all repositories** in the Resource Group. Users can create, delete, or rename any repository in the Resource Group.
 - `admin`: In addition to write permissions on repositories, admin members can **administer the Resource Group**: add, remove, and alter the roles of other members. They can also manage already existing repositories in a Resource Group.
+- `inherit`: The member's role in the Resource Group is the same as their **organization role**. For example, a member with the `write` organization role who is added to a group with `inherit` gets `write` access in the group
 
 In addition, Organization admins can manage **all resource groups** inside the organization. This includes moving repositories in and out of any Resource Group.
 
@@ -98,6 +99,31 @@ Auto-join and SCIM management are **mutually exclusive** on the same Resource Gr
 - You cannot link a SCIM group to a Resource Group that has auto-join enabled.
 
 To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disable the current setting first.
+
+## External invitations
+
+You can share Resource Groups with users outside your organization. Org admins turn this on with the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It's off by default, and isn't available for organizations with [managed users](./enterprise-advanced-sso).
+
+Invited users join as [external collaborators](./security-sso-user-management#external-collaborators):
+
+- By default, they get the `no_access` organization role, so they only see that Resource Group's resources.
+- You can invite them with the `read` or `write` role in the Resource Group.
+- They don't have to sign in with your organization's SSO.
+
+To invite someone, open the Resource Group's **Users** tab and add them by username. Org members join the group right away; outsiders get an invitation. Pending invitations sit with the group's users under a "Pending" badge, and you can resend or revoke them. Use the **External** filter to list only external collaborators.
+
+### Share a repository with external collaborators
+
+Resource group admins can also share a private repository from its **Settings** page, under **Share with external collaborators**. That section lists who's already in the repository's Resource Group, and lets you invite external collaborators into it. Anyone you add there gets access to every resource in the Resource Group, not just that repository.
+
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo-settings-external-collaborators-light-min.png" alt="The Share with external collaborators section"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo-settings-external-collaborators-dark-min.png" alt="The Share with external collaborators section"/>
+</div>
+
+If the repository isn't in a Resource Group yet, members who can [create Resource Groups](#who-can-create-resource-groups) can create one from that section and invite collaborators at the same time. **Auto-include** is on by default: it puts the organization's members (except those with the `no_access` role) into the new group via [auto-join](#auto-join) with the `inherit` role, so they keep their current access to the repository. If you turn it off, only users you add to the Resource Group, plus organization admins, can see it.
+
+You can also manage external invitations through the API: [Invite external collaborators via API](./programmatic-user-access-control#invite-external-collaborators-via-api).
 
 ## Who can create Resource Groups
 
