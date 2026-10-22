@@ -101,7 +101,7 @@ To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disab
 
 ## External invitations
 
-You can share Resource Groups with people outside your organization. Org admins turn this on with the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It's off by default, and isn't available for organizations with [managed users](./enterprise-advanced-sso).
+You can share Resource Groups with users outside your organization. Org admins turn this on with the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It's off by default, and isn't available for organizations with [managed users](./enterprise-advanced-sso).
 
 Invited users join as [external collaborators](./security-sso-user-management#external-collaborators):
 
@@ -120,7 +120,7 @@ Resource group admins can also share a private repository from its **Settings** 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo-settings-external-collaborators-dark-min.png" alt="The Share with external collaborators section"/>
 </div>
 
-If the repository isn't in a Resource Group yet, members who can [create Resource Groups](#who-can-create-resource-groups) can create one from that section and invite collaborators at the same time. Turn on **Auto-include** to put the organization's members (except those with the `no_access` role) into the new group with read access via [auto-join](#auto-join), so they keep seeing the repository. Without that, only people you add to the Resource Group, plus organization admins, can see it.
+If the repository isn't in a Resource Group yet, members who can [create Resource Groups](#who-can-create-resource-groups) can create one from that section and invite collaborators at the same time. Turn on **Auto-include** to put the organization's members (except those with the `no_access` role) into the new group with read access via [auto-join](#auto-join), so they keep seeing the repository. Without that, only users you add to the Resource Group, plus organization admins, can see it.
 
 You can also manage external invitations through the API: [Invite external collaborators via API](./programmatic-user-access-control#invite-external-collaborators-via-api).
 
