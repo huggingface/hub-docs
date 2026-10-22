@@ -524,7 +524,7 @@ The response is the updated resource group, including its `spendLimits`.
 
 ## Invite external collaborators via API
 
-[External invitations](./security-resource-groups#external-invitations) let resource group admins invite users from outside the organization into a Resource Group. Invitees join as external collaborators with the `no_access` organization role.
+[External invitations](./security-resource-groups#external-invitations) let resource group admins invite users from outside the organization into a Resource Group. Invitees join as external collaborators with the `no_access` organization role. They do count toward the number of paid seats in your organization.
 
 **Enable external invitations**
 
