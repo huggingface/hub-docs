@@ -50,9 +50,10 @@ For the full volume mount syntax and Python API, see the [Jobs configuration doc
 
 ## Query with DuckDB
 
-[DuckDB](https://duckdb.org/) 2.0 and later read `hf://buckets/` paths natively through the `httpfs` extension. From the DuckDB CLI or any client, load `httpfs` and query a bucket:
+[DuckDB](https://duckdb.org/) 2.0 and later read `hf://buckets/` paths natively through the `httpfs` extension. From the DuckDB CLI or any client, install and load `httpfs`, then query a bucket:
 
 ```sql
+INSTALL httpfs;
 LOAD httpfs;
 
 SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10;
