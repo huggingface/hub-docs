@@ -74,7 +74,7 @@ JOB_ID      NAME         IMAGE/SPACE COMMAND      CREATED      STATUS    RUNTIME
 
 ## Monitor resource usage
 
-Use `hf jobs stats` to get the usage statistics for CPU, memory, network and GPU (if any) of running Jobs:
+Use `hf jobs stats` to get a snapshot of the CPU, memory, network and GPU (if any) usage of running Jobs:
 
 ```bash
 >>> hf jobs stats
@@ -87,6 +87,12 @@ Specify one or several Job ids to only show the statistics of certain Jobs:
 
 ```bash
 >>> hf jobs stats [job-ids]...
+```
+
+Use `-f` to follow the stats live until the Jobs complete:
+
+```bash
+>>> hf jobs stats -f [job-ids]...
 ```
 
 ## Inspect a Job
