@@ -8,7 +8,7 @@
 You can list the IP addresses of your organization's outbound traffic to enforce authenticated access to Hugging Face from your corporate network.
 The outbound IP address ranges are defined in <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">CIDR</a> format. For example, `52.219.168.0/24` or `2600:1f69:7400::/40`.
 
-You can set multiple ranges, one per line. 
+You can add multiple ranges at once by entering them separated by spaces or new lines. Each range is then listed individually, and you can remove any range from the list.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/network-sec-ip-ranges.png" alt="Screenshot of the Organization IP Ranges field."/>
@@ -16,6 +16,13 @@ You can set multiple ranges, one per line.
 </div>
 
 Once organization admins populate the “Organization IP Ranges” in the Network Security settings, a manual verification—carried out jointly by Hugging Face Solution Engineers and the organization’s admins—is required for the "Require login for users in your IP ranges" setting to become available.
+
+Each IP range in the list shows a status badge so you can see which ranges are currently applied:
+
+- **Active**: the range has been verified and is enforced.
+- **Pending approval**: the range has been saved but is awaiting verification. It is not enforced yet.
+- **Not saved yet**: the range has been added to the list but the settings haven't been saved.
+- **Pending removal**: the range was removed from the list but remains enforced until its removal is verified. You can restore it from the list.
 
 After the “Organization IP Ranges” have been manually verified, and the organization admins have enabled both “Restrict organization access to your IP ranges only” and “Require login for users in your IP ranges”, the following flow applies:
 - When a user arrives on the platform, their IP address is checked.
