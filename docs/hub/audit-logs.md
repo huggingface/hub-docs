@@ -87,6 +87,13 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 - **Automatic joins** — Joins via verified email domain or “request access”.
   - **Events:** `org.join.from_domain`, `org.join.automatic`
 
+### Service Accounts
+
+- **Service account lifecycle**: Creation and deletion of service accounts.
+  - **Events:** `org.service_account.create`, `org.service_account.delete`
+- **Service account tokens**: Token creation, deletion, rotation, and updates (name, permissions, network security exemption), plus generation and revocation of the S3 credentials paired with a token.
+  - **Events:** `org.service_account.token.create`, `org.service_account.token.delete`, `org.service_account.token.rotate`, `org.service_account.token.update`, `org.service_account.token.s3_credential.create`, `org.service_account.token.s3_credential.delete`
+
 ### Content and Resource Management
 
 - **Repository administration** — Creation, deletion, moving, disabling/re-enabling, duplication settings, DOI removal, resource group assignment, and general repo settings (visibility, gating, discussions, etc.). Also LFS file deletion.
