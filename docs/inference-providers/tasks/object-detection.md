@@ -35,7 +35,7 @@ hf models ls --warm --pipeline-tag object-detection --sort trending_score
 
 <InferenceSnippet
     pipeline=object-detection
-    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-50","providerModelId":"facebook/detr-resnet-50"}} }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/detr-resnet-101","providerModelId":"facebook/detr-resnet-101"}} }
 />
 
 

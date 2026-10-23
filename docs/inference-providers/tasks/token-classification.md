@@ -37,7 +37,7 @@ hf models ls --warm --pipeline-tag token-classification --sort trending_score
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"NYTK/named-entity-recognition-nerkor-hubert-hungarian","providerModelId":"NYTK/named-entity-recognition-nerkor-hubert-hungarian"}} }
+    providersMapping={ {"hf-inference":{"modelId":"w11wo/indonesian-roberta-base-posp-tagger","providerModelId":"w11wo/indonesian-roberta-base-posp-tagger"}} }
 />
 
 
