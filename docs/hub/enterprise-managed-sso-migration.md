@@ -11,14 +11,13 @@ Throughout this guide, we use `my-org` as an example organization name.
 
 ## Prerequisites
 
-- Your organization is on the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
-- [SSO](./security-sso-basic) is already configured, tested and enabled on your organization. The migration reuses your existing OIDC or SAML application.
+[SSO](./security-sso-basic) must already be configured, tested and enabled on your organization. The migration reuses your existing OIDC or SAML application.
 
 ## Migration steps
 
 1. **Prepare your members.** Go through the [pre-migration checklist](#before-you-migrate) with your members.
 2. **Contact Hugging Face.** <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Get in touch with the Hugging Face team</a> and confirm the switch. We convert the organization and send you the credentials for the `my-org:owner` break-glass account.
-3. **Set up SCIM in your IdP.** Use the SCIM Tenant URL and token from your organization's **SSO → SCIM** settings, in your existing OIDC or SAML application. Make sure the `userName` you send follows the [username requirements](#username-requirements). See [User Provisioning (SCIM)](./enterprise-scim) and the configuration guides for [Okta](./security-sso-okta-scim) and [Microsoft Entra ID](./security-sso-entra-id-scim).
+3. **Set up SCIM in your IdP.** Use the SCIM Tenant URL and token from your organization's **SSO → SCIM** settings, in your existing OIDC or SAML application. Make sure the `userName` you send follows the [username rules](./security-sso-entra-id-scim#step-4-configure-attribute-mappings): email-style values such as `jdoe@example.com` are rejected. See [User Provisioning (SCIM)](./enterprise-scim) and the configuration guides for [Okta](./security-sso-okta-scim) and [Microsoft Entra ID](./security-sso-entra-id-scim).
 4. **Have members free up their work emails.** See [Freeing up work email addresses](#freeing-up-work-email-addresses).
 5. **Assign users and groups in your IdP.** Managed accounts are created as users are provisioned.
 6. **Remove leftover personal accounts from the organization.** This step is required for security: personal accounts keep their role and their access tokens keep working until they are removed. Removing them also removes them from the organization's Resource Groups.
@@ -47,7 +46,6 @@ Throughout this guide, we use `my-org` as an example organization name.
 
 - Regular members can no longer be added by invitation. Internal members must be provisioned through SCIM.
 - Invitations remain available for [external collaborators](./security-sso-user-management#external-collaborators) only.
-- Pending invitations are not cancelled by the conversion, but regular-member invitations can no longer be accepted. Revoke them from the **Members** page of your organization's settings.
 
 ### Existing personal accounts in the organization
 
@@ -59,14 +57,6 @@ Personal accounts that are still members of the organization after the conversio
 
 Once their managed replacements are provisioned, [remove these personal accounts](#migration-steps) from the organization.
 
-### Billing
-
-The following accounts count as billable seats:
-
-- The `my-org:owner` break-glass account
-- Every [external collaborator](./security-sso-user-management#external-collaborators)
-- Any personal accounts still in the organization
-
 ## Before you migrate
 
 Go through this checklist with your members before requesting the conversion:
@@ -75,8 +65,6 @@ Go through this checklist with your members before requesting the conversion:
 - **Tokens and automation**: tokens from personal accounts keep their access to the organization until the account is removed from it. Migrate scripts, CI jobs and pipelines to [service accounts](./enterprise-service-accounts), or to tokens created from the managed accounts after the switch, then remove the old accounts.
 - **Other organizations**: managed accounts can't join other organizations. Members who need to keep working in other organizations should keep a separate personal account (see [option 2](#option-2-keep-the-personal-account) below).
 - **Work email addresses**: every member must free up their work email before they are provisioned. See [Freeing up work email addresses](#freeing-up-work-email-addresses).
-- **Pending invitations**: revoke pending invitations for regular members. They can't be accepted after the conversion.
-
 ## Freeing up work email addresses
 
 An email address can only belong to one Hugging Face account. This applies to **all** of an account's email addresses, primary and secondary, including unconfirmed ones. Matching is case-insensitive.
@@ -103,10 +91,7 @@ Delete your personal account from your [account settings](https://huggingface.co
 > [!WARNING]
 > Deleting an account is permanent. Transfer any repositories you want to keep to the organization first.
 
-Deletion is blocked if:
-
-- You are the only admin of another organization. Add another admin to that organization, or delete it, first. The organization being migrated is not a problem, since `my-org:owner` is also an admin.
-- Any of your repositories has a [DOI](./doi).
+Deletion is blocked if you are the only admin of another organization. Add another admin to that organization, or delete it, first. The organization being migrated is not a problem, since `my-org:owner` is also an admin.
 
 ### Option 2: Keep the personal account
 
@@ -119,18 +104,6 @@ Deletion is blocked if:
 > If your organization has a [verified email domain](./organizations-managing#organization-domain-name), logging in with an email address on that domain redirects you to the organization's SSO page. To log in to your personal account, use your username instead, or change your email first.
 
 Once the work email is free, the admin can retry provisioning for that user in the IdP, or wait for the next sync to pick it up.
-
-## Username requirements
-
-The `userName` your IdP sends through SCIM must:
-
-- Be 2 to 42 characters long
-- Contain only letters, digits and `-`
-- Not contain `--`
-- Not start or end with `-`
-- Not be digits only
-
-Email- or UPN-style values such as `jdoe@example.com` or `first.last` are rejected with a `400` error. This is a common cause of provisioning failures. See the [Entra ID SCIM guide](./security-sso-entra-id-scim#step-4-configure-attribute-mappings) for an example mapping.
 
 ## After the migration
 
