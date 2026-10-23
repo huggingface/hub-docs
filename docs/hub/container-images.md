@@ -51,7 +51,7 @@ Other OCI clients work the same way. Helm appends the chart name to the URL: `he
 
 ## Deleting Images
 
-On the Hub, remove a tag with **Delete this tag** in its menu, on the image page or the tag's page. With [`hf image`](#pushing-and-pulling-with-hf-image), remove an image's tags, then delete it by digest:
+On the Hub, remove a tag using **Delete this tag** in its menu, on the image or tag's page. With [`hf image`](#pushing-and-pulling-with-hf-image), remove an image's tags, then delete it by digest:
 
 ```bash
 hf image untag cr.hf.co/my-org/my-app:v1                # prints the image's digest
