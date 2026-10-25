@@ -43,6 +43,7 @@ const PROVIDERS_URLS: Record<string, string> = {
   "fireworks-ai": "https://fireworks.ai/",
   groq: "https://groq.com/",
   "hf-inference": "https://huggingface.co/",
+  infraxsky: "https://kencloudapi.duckdns.org",
   novita: "https://novita.ai/",
   nscale: "https://www.nscale.com/",
   ovhcloud: "https://www.ovhcloud.com/",
