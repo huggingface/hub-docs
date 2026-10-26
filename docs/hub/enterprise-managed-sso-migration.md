@@ -23,7 +23,7 @@ Throughout this guide, we use `my-org` as an example organization name.
    - **Microsoft Entra ID**: follow the [Entra ID guide](./security-sso-entra-id-scim). The `userName` must follow the [username rules](./security-sso-entra-id-scim#step-4-configure-attribute-mappings), so email-style values such as `jdoe@example.com` are rejected.
    - **Other IdPs**: see [User Provisioning (SCIM)](./enterprise-scim), with the same username rules.
 5. **Assign users and groups in your IdP.** Managed accounts are created as users are provisioned.
-6. **Remove leftover personal accounts from the organization.** This step is required for security: personal accounts keep their role and their access tokens keep working until they are removed. Removing them also removes them from the organization's Resource Groups.
+6. **Remove leftover personal accounts from the organization** as soon as each member's managed account is provisioned. This step is required for security, because [personal accounts keep access](#existing-personal-accounts-in-the-organization) until they are removed. Removing them also removes them from the organization's Resource Groups.
 7. **(Optional) Map groups to Resource Groups and roles.** [Link your SCIM groups to Resource Groups](./enterprise-scim#linking-a-scim-group-to-a-resource-group), and set up [Role Mapping](./security-sso-user-management#role-mapping) to assign organization roles from your IdP. A Resource Group can only be linked to a SCIM group if it has no members and auto-join is turned off. If auto-join is on, newly provisioned managed accounts are added to the group too, so turn it off before provisioning users, or remove any remaining members before linking.
 
 ## What changes
@@ -52,13 +52,11 @@ Throughout this guide, we use `my-org` as an example organization name.
 
 ### Existing personal accounts in the organization
 
-Personal accounts that are still members of the organization after the conversion keep their role, and their access tokens keep working. They can't log in to the organization through SSO anymore:
+Personal accounts that are still members of the organization after the conversion keep their role. Their access tokens, OAuth apps they already authorized, and git over SSH keep working, because these aren't checked against SSO. They can't start a new SSO login to the organization anymore:
 
 - If the user is signed in with their personal account, or that account was already linked to your IdP, they see:
   `You cannot login with SSO with this account because it's not managed by this organization. Contact your organization administrators.`
 - Otherwise, they see `User not found`.
-
-Once their managed replacements are provisioned, [remove these personal accounts](#migration-steps) from the organization.
 
 ## Before you migrate
 
@@ -90,7 +88,7 @@ To avoid this, each member must free up their work email address **before** they
 
 ### Option 1: Delete the personal account
 
-Delete your personal account from your [account settings](https://huggingface.co/settings/account). This permanently deletes all repositories in your personal namespace and removes you from every organization, so you don't need to leave the organization first.
+Delete your personal account from your [account settings](https://huggingface.co/settings/account). This permanently deletes all repositories in your personal namespace and removes you from every organization.
 
 > [!WARNING]
 > Deleting an account is permanent. Transfer any repositories you want to keep to the organization first.
@@ -103,7 +101,7 @@ Deletion is blocked if you are the only admin of another organization. Add anoth
 2. Make the personal email address your primary email.
 3. **Remove the work email address completely.** Making it a secondary email is not enough.
 
-You don't need to leave the organization with your personal account. Your admin removes it once your managed account is provisioned.
+Keep your personal account in the organization until your managed account is provisioned. Your admin removes it then.
 
 > [!NOTE]
 > If your organization already has Managed SSO enabled and has a [verified email domain](./organizations-managing#organization-domain-name), logging in with an email address on that domain redirects you to the organization's SSO page. To log in to your personal account, use your username instead.
