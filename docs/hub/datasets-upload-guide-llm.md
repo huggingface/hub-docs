@@ -67,6 +67,8 @@ find . -name "*.jpg" | wc -l
 
 **Storage Limits**:
 
+If these differ from [storage-limits](https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-recommendations), storage-limits is authoritative.
+
 ```yaml
 # Machine-readable Hub limits
 hub_limits:
