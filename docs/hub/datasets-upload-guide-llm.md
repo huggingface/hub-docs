@@ -80,11 +80,10 @@ hub_limits:
 
 **Human-readable summary**:
 
-- Private storage: 100GB (free), 1TB (PRO), 1TB per seat (Team or Enterprise), with pay-as-you-go above that
-- Public storage: best-effort on free accounts, more included with PRO, Team and Enterprise plans (see [storage plans](https://huggingface.co/docs/hub/storage-limits#storage-plans))
 - Per file: 500GB max, <200GB recommended
 - Per folder: <10k files
 - Per repo: <100k files recommended
+- Account storage (public and private) depends on the plan: see [storage plans](https://huggingface.co/docs/hub/storage-limits#storage-plans)
 
 See https://huggingface.co/docs/hub/storage-limits for current storage plans and repository recommendations.
 
