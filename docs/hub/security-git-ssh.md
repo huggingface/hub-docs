@@ -48,6 +48,9 @@ Then, enter a name for this key (for example, "Personal computer"), and copy and
 
 Click on "Add key", and voilà! You have added a SSH key to your huggingface.co account.
 
+> [!NOTE]
+> If you're a member of an organization that enforces [SSO](./security-sso-basic#access-tokens-and-ssh-keys), authorize your SSH key for it before pulling or pushing its repositories: open the menu next to the key, click **Configure SSO**, then **Authorize** next to the organization.
+
 
 ## Testing your SSH authentication
 

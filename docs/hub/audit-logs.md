@@ -71,8 +71,8 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
   - **Event:** `org.rotate_token`
   - Token approval system — Enabling or disabling the policy, authorization requests, approvals, denials, and revocations.
   - **Events:** `org.token_approval.enabled`, `org.token_approval.disabled`, `org.token_approval.authorization_request`, `org.token_approval.authorization_request.authorized`, `org.token_approval.authorization_request.revoked`, `org.token_approval.authorization_request.denied`
-  - SSO — Logins and joins via SSO.
-  - **Events:** `org.sso_login`, `org.sso_join`
+  - SSO — Logins and joins via SSO, and members authorizing or deauthorizing their access tokens and SSH keys.
+  - **Events:** `org.sso_login`, `org.sso_join`, `org.sso_credential.authorize`, `org.sso_credential.deauthorize`
 - **Join settings** — Domain-based access and automatic join configuration.
   - **Event:** `org.update_join_settings`
 
