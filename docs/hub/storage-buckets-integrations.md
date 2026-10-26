@@ -144,10 +144,11 @@ text_files = hffs.glob("buckets/username/my-bucket/*.txt")
 
 ## DuckDB
 
-DuckDB 2.0 and later read `hf://buckets/` paths natively through the `httpfs` extension, from the CLI and every client:
+DuckDB 2.0 and later read `hf://buckets/` paths natively through the `httpfs` extension (and with the `hf` extension for writing), from the CLI and every client:
 
 ```sql
 SELECT * FROM 'hf://buckets/username/my-bucket/data/**/*.parquet' LIMIT 10;
+COPY tbl TO 'hf://datasets/username/my-bucket/out.parquet';
 ```
 
 See [Query with DuckDB](./storage-buckets-access#query-with-duckdb) for private buckets and older DuckDB versions.

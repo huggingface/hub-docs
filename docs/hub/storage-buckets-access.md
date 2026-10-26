@@ -50,7 +50,7 @@ For the full volume mount syntax and Python API, see the [Jobs configuration doc
 
 ## Query with DuckDB
 
-[DuckDB](https://duckdb.org/) 2.0 and later read `hf://buckets/` paths natively through the `httpfs` extension. From the DuckDB CLI or any client, install and load `httpfs`, then query a bucket:
+[DuckDB](https://duckdb.org/) 2.0 and later user `hf://buckets/` paths natively through the `httpfs` extension (read) or the `hf` extension (read/write). From the DuckDB CLI or any client, install and load `httpfs`, then query a bucket:
 
 ```sql
 INSTALL httpfs;
@@ -65,6 +65,17 @@ Glob patterns work as they do for datasets, e.g. `'hf://buckets/username/my-buck
 
 ```sql
 CREATE SECRET hf (TYPE huggingface, PROVIDER credential_chain);
+```
+
+Writing to Hugging Face requires the `hf` [extension](https://huggingface.co/duckdb-extensions):
+
+```sql
+SET allow_extension_repositories = 'allowed';
+CREATE OR REPLACE EXTENSION REPOSITORY hf_repo WITH PREFIX 'https://hf.co/buckets/duckdb-extensions/builds/resolve';
+INSTALL hf FROM hf_repo;
+LOAD hf;
+
+COPY tbl TO 'hf://datasets/username/my-bucket/out.parquet';
 ```
 
 > [!NOTE]
