@@ -82,7 +82,7 @@ In the following sections, we will cover more complex operations you can perform
 > ```
 > Buckets are not versioned, so the `@revision` syntax does not apply to bucket paths. On DuckDB 1.x, register the Hugging Face filesystem from Python instead: `duckdb.register_filesystem(HfFileSystem())`. See [Query with DuckDB](./storage-buckets-access#query-with-duckdb) for details.
 
-## Saving a dataset
+## Save a dataset
 
 Use the `COPY ... TO` syntax to save a dataset to Hugging Face.
 
