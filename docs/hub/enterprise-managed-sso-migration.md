@@ -23,7 +23,7 @@ Throughout this guide, we use `my-org` as an example organization name.
    - **Microsoft Entra ID**: follow the [Entra ID guide](./security-sso-entra-id-scim). The `userName` must follow the [username rules](./security-sso-entra-id-scim#step-4-configure-attribute-mappings), so email-style values such as `jdoe@example.com` are rejected.
    - **Other IdPs**: see [User Provisioning (SCIM)](./enterprise-scim), with the same username rules.
 5. **Assign users and groups in your IdP.** Managed accounts are created as users are provisioned.
-6. **Remove leftover personal accounts from the organization** as soon as each member's managed account is provisioned. This step is required for security, because [personal accounts keep access](#existing-personal-accounts-in-the-organization) until they are removed. Removing them also removes them from the organization's Resource Groups.
+6. **Remove leftover personal accounts from the organization** as soon as each member's managed account is provisioned. This step is required for security, since [personal accounts keep access](#existing-personal-accounts-in-the-organization) until they are removed. Removing them also removes them from the organization's Resource Groups.
 7. **(Optional) Map groups to Resource Groups and roles.** [Link your SCIM groups to Resource Groups](./enterprise-scim#linking-a-scim-group-to-a-resource-group), and set up [Role Mapping](./security-sso-user-management#role-mapping) to assign organization roles from your IdP. A Resource Group can only be linked to a SCIM group if it has no members and auto-join is turned off. If auto-join is on, newly provisioned managed accounts are added to the group too, so turn it off before provisioning users, or remove any remaining members before linking.
 
 ## What changes
@@ -36,7 +36,7 @@ Throughout this guide, we use `my-org` as an example organization name.
 - **SSO can no longer be made optional.** It can still be disabled entirely.
 
 > [!WARNING]
-> Disabling SSO on a managed organization locks out every managed user, because managed accounts have no password.
+> Disabling SSO on a managed organization locks out every managed user, since managed accounts have no password.
 
 ### Managed accounts are new accounts
 
