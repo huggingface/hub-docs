@@ -6,6 +6,8 @@ on:
       - "docs/hub/**"
     branches:
       - main
+  # rebuild by hand, e.g. after bumping the doc-builder pin (workflow-only changes don't trigger a build)
+  workflow_dispatch:
 
 jobs:
    build:
