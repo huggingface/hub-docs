@@ -75,6 +75,15 @@ For help evaluating a model, see the [Evaluating models with Inspect](https://hu
 > [!TIP]
 > Community scores are visible while the PR is open. If a score is disputed, the model author can close the PR to remove it. The goal is to surface existing evaluation data transparently while building toward a fully reproducible standard via verified scores.
 
+### Hiding Models from a Leaderboard
+
+Benchmark maintainers (users with write access to the benchmark dataset repo) can hide a model from their leaderboard, for instance if they dispute its reported results:
+
+- On the benchmark dataset page, maintainers can use the toggle on each leaderboard row to hide or unhide a model. Hidden models are listed in a menu so they can be restored later.
+- Hiding applies to the model across all tasks of the benchmark.
+- Hidden models are removed from the public leaderboard, and the remaining models are re-ranked.
+- On the model page, results for that benchmark are no longer shown publicly. Members of the model repo still see them in a "hidden from leaderboard" section, with a link to contact the benchmark maintainers.
+
 ## Registering a Benchmark
 
 To register your dataset as a benchmark:
