@@ -55,6 +55,19 @@ To use Llama.cpp, navigate to the model card and click "Use this model" and copy
 
 Read our dedicated [llama.cpp + HF doc page](./gguf-llamacpp).
 
+### Llama
+
+[Llama](https://llama.app) is a macOS desktop application for running GGUF models from the Hub locally.
+
+**Advantages:**
+- Native macOS app with a graphical interface
+- One-click install of GGUF models from the Hub
+
+To use Llama, navigate to the model card of a GGUF model and click "Use this model". Llama will open and guide you through installing the model.
+
+> [!NOTE]
+> Llama is currently available on macOS only.
+
 ### Ollama
 
 Ollama is an application that lets you run large language models locally on your computer with a simple command-line interface.
