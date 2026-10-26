@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@a05dda3deaa1a624fb5f20b035e5b1f43a831315  # main
+    uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@8440c79a619b26fbf8444f42262757fbb8718617  # main
     with:
       package_name: sagemaker
     secrets:
