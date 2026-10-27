@@ -29,7 +29,9 @@ Local apps are applications that can run Hugging Face models directly on your ma
 
 ## Supported Local Apps
 
-The best way to check if a local app is supported is to go to the [Local Apps settings](https://huggingface.co/settings/local-apps) and see if the app is listed. The "Use this model" dropdown only shows an app when the model is compatible with it (for example, a GGUF model for llama.cpp or Ollama).
+Supported local apps are listed in your [Local Apps settings](https://huggingface.co/settings/local-apps).
+
+On a model page, the "Use this model" dropdown only shows an app when the model is compatible with it (for example, a GGUF model for llama.cpp or Ollama).
 
 The following apps are currently available on the Hub:
 
@@ -87,16 +89,19 @@ Read our dedicated [llama.cpp + HF doc page](./gguf-llamacpp).
 
 ### Llama
 
-[Llama](https://llama.app) is a macOS desktop application for running GGUF models from the Hub locally.
+[Llama](https://llama.app) is a native macOS and Windows application for running GGUF models locally.
 
 **Advantages:**
-- Native macOS app with a graphical interface
+- Lightweight native app that lives on your menu bar or taskbar
 - One-click install of GGUF models from the Hub
+- Local, private chat with installed models
+- Get recommended models for your computer
+- Easily integrate with agents such as Pi, Hermes, OpenClaw
 
 To use Llama, navigate to the model card of a GGUF model and click "Use this model". Llama will open and guide you through installing the model.
 
 > [!NOTE]
-> Llama is currently available on macOS only.
+> Llama is currently available for both macOS and Windows.
 
 ### LM Studio
 
@@ -281,9 +286,11 @@ llama serve -hf unsloth/gpt-oss-20b-GGUF:Q4_K_M
 # Install Pi:
 npm install -g @earendil-works/pi-coding-agent
 
-# Add the model to ~/.pi/agent/models.json (see the snippet on the model page), then
 # start Pi in your project directory:
 pi
+
+# configure Pi to use your llama server:
+/login llama.cpp
 ```
 
 ### Hermes Agent
