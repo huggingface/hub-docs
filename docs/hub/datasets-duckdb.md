@@ -129,3 +129,8 @@ LOAD hf FROM hf_repo;
 ```sql
 COPY tbl TO 'hf://datasets/username/my-dataset/out.parquet';
 ```
+
+> [!TIP]
+> Use `PARTITION_BY` to split the table into multiple files based on a partition key: `COPY tbl TO 'hf://datasets/username/my-dataset/out-directory' (FORMAT parquet, PARTITION_BY (year, month));`. File are placed be in the right subdirectory based on partition key values, e.g. `'hf://datasets/username/my-dataset/out-directory/year=2026/month=1/data_1.parquet'`.
+
+Since datasets are git repositories, every new file is a commit in the dataset history.
