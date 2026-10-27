@@ -1,6 +1,6 @@
 # Use Coding Environment with Inference Providers
 
-[OpenEnv](https://github.com/meta-pytorch/OpenEnv) is an open standard for Agentic environments where AI models can interact with tasks like coding, browsing the web, playing games, or trading in a stock market.
+[OpenEnv](https://github.com/openenv/OpenEnv) is an open standard for Agentic environments where AI models can interact with tasks like coding, browsing the web, playing games, or trading in a stock market.
 
 In this guide you'll learn how to pair Hugging Face **Inference Providers** with the OpenEnv Coding environment to iteratively generate, run, and refine Python programs. You can use this pattern for any code generation task, or try out other environments for tasks like browsing the web.
 
@@ -28,7 +28,7 @@ We need to install the OpenEnv library and connect to the coding environment.
 Let's start by installing the OpenEnv library from GitHub.
 
 ```bash
-pip install git+https://github.com/meta-pytorch/OpenEnv.git
+pip install git+https://github.com/openenv/OpenEnv.git
 ```
 
 With the OpenEnv library installed, we can start coding. We can connect to the coding environment by creating a `CodingEnv` object.
