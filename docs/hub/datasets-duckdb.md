@@ -93,6 +93,7 @@ SET allow_extension_repositories = 'allowed';
 CREATE OR REPLACE EXTENSION REPOSITORY hf_repo
   WITH PREFIX 'https://hf.co/buckets/duckdb-extensions/builds/resolve';
 INSTALL hf FROM hf_repo;
+LOAD hf FROM hf_repo;
 ```
 
 2. Authenticate using the `hf` CLI or in DuckDB directly:
@@ -120,7 +121,7 @@ INSTALL hf FROM hf_repo;
 * In DuckDB:
 
   ```sql
-  FROM hf_create_repo('hf://datasets/username/my-dataset', private=true)
+  FROM hf_create_repo('hf://datasets/username/my-dataset', private := true);
   ```
 
 4. Export your table to Hugging Face, e.g. in Parquet format:
