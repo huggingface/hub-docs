@@ -595,6 +595,5 @@ Now that you understand the basics, explore these resources to make the most of 
 - **[Announcement Blog Post](https://huggingface.co/blog/inference-providers)**: Learn more about the launch of Inference Providers
 - **[Pricing and Billing](./pricing)**: Understand costs and billing of Inference Providers
 - **[Hub Integration](./hub-integration)**: Learn how Inference Providers are integrated with the Hugging Face Hub
-- **[Register as a Provider](./register-as-a-provider)**: Requirements to join our partner network as a provider
 - **[Hub API](./hub-api)**: Advanced API features and configuration
 - **[API Reference](./tasks/index)**: Complete parameter documentation for all supported tasks

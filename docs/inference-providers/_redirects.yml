@@ -8,3 +8,4 @@ rate-limits: pricing
 guides/vscode: integrations/vscode
 providers/hyperbolic: index
 providers/sambanova: index
+register-as-a-provider: index
