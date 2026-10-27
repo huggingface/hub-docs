@@ -37,8 +37,8 @@ The following apps are currently available on the Hub:
 
 | App | Website | Compatible models |
 | --- | --- | --- |
-| <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/local-apps/svg/llama-cpp.svg" alt="" width="16" height="16" style="display:inline;vertical-align:middle"> [llama.cpp](#llamacpp) | [github.com/ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | GGUF |
 | <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/local-apps/svg/llama-app.svg" alt="" width="16" height="16" style="display:inline;vertical-align:middle"> [Llama](#llama) | [llama.app](https://llama.app) | GGUF |
+| <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/local-apps/svg/llama-cpp.svg" alt="" width="16" height="16" style="display:inline;vertical-align:middle"> [llama.cpp](#llamacpp) | [github.com/ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | GGUF |
 | <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/local-apps/svg/lmstudio.svg" alt="" width="16" height="16" style="display:inline;vertical-align:middle"> [LM Studio](#lm-studio) | [lmstudio.ai](https://lmstudio.ai) | GGUF, MLX |
 | <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/local-apps/svg/jan.svg" alt="" width="16" height="16" style="display:inline;vertical-align:middle"> [Jan](#jan) | [jan.ai](https://jan.ai) | GGUF |
 | <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/local-apps/svg/atomic-chat.svg" alt="" width="16" height="16" style="display:inline;vertical-align:middle"> [Atomic Chat](#atomic-chat) | [atomic.chat](https://atomic.chat) | GGUF, MLX |
@@ -61,6 +61,22 @@ The following apps are currently available on the Hub:
 > 👨‍💻 To use these local apps, copy the snippets from the model card as above.
 >
 > 👷 If you're building a local app, you can learn about integrating with the Hub in [this guide](https://huggingface.co/docs/hub/en/models-adding-libraries).
+
+### Llama
+
+[Llama](https://llama.app) is a native macOS and Windows application for running GGUF models locally.
+
+**Advantages:**
+- Lightweight native app that lives on your menu bar or taskbar
+- One-click install of GGUF models from the Hub
+- Local, private chat with installed models
+- Get recommended models for your computer
+- Easily integrate with agents such as Pi, Hermes, OpenClaw
+
+To use Llama, navigate to the model card of a GGUF model and click "Use this model". Llama will open and guide you through installing the model.
+
+> [!NOTE]
+> Llama is currently available for both macOS and Windows.
 
 ### Llama.cpp[[llamacpp]]
 
@@ -86,22 +102,6 @@ llama cli -hf unsloth/gpt-oss-20b-GGUF:Q4_K_M
 ```
 
 Read our dedicated [llama.cpp + HF doc page](./gguf-llamacpp).
-
-### Llama
-
-[Llama](https://llama.app) is a native macOS and Windows application for running GGUF models locally.
-
-**Advantages:**
-- Lightweight native app that lives on your menu bar or taskbar
-- One-click install of GGUF models from the Hub
-- Local, private chat with installed models
-- Get recommended models for your computer
-- Easily integrate with agents such as Pi, Hermes, OpenClaw
-
-To use Llama, navigate to the model card of a GGUF model and click "Use this model". Llama will open and guide you through installing the model.
-
-> [!NOTE]
-> Llama is currently available for both macOS and Windows.
 
 ### LM Studio
 
