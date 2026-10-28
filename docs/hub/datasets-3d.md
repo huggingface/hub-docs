@@ -4,7 +4,7 @@ This guide shows how 3D files are previewed on the Hub, and how to structure a d
 
 ## Previewing 3D files
 
-Click a 3D file in the **Files and versions** tab of a dataset, model or [Storage Bucket](./storage-buckets) to open it in an interactive 3D viewer. You can rotate, zoom and open the viewer in full screen.
+Click a 3D file in the **Files and versions** tab of a dataset or [Storage Bucket](./storage-buckets) to open it in an interactive 3D viewer. You can rotate, zoom and open the viewer in full screen.
 
 | Format  | Extensions                         |
 | ------- | ---------------------------------- |
