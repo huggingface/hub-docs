@@ -42,7 +42,7 @@ Point your S3 client at the gateway endpoint and set a few required options. Use
 The two checksum settings matter for recent clients: AWS CLI ≥ 2.23 and recent `boto3` versions send trailing CRC32 checksums (via `aws-chunked` framing) by default, which the gateway does not parse. 
 These settings tell the client to send checksums only when an operation strictly requires them.
 
-The following are optional but recommended. With the client default of 8MB, a large file is split into many parts; 256MB parts mean far fewer parts for the gateway to assemble, while a failed part is still quick to re-send:
+The following are optional but recommended. With the client default of 8MB, a large file is split into many parts; 256MB means far fewer parts per upload, while each part stays small enough for the gateway to process efficiently:
 
 | Setting                  | Value   |
 |--------------------------|---------|
@@ -207,7 +207,7 @@ secret_access_key = ...
 region = us-east-1
 ```
 
-The second points at the Hugging Face gateway. As with any other client, scope the endpoint to your [namespace](#addressing-buckets), use `path` addressing, force ListObjectsV2 (the only listing version the gateway supports), and set a 256M part size. That's much larger than rclone's 5M default, so large files go up in fewer parts, and small enough to keep memory in check, since rclone holds 4 parts per transfer in memory:
+The second points at the Hugging Face gateway. As with any other client, scope the endpoint to your [namespace](#addressing-buckets), use `path` addressing, force ListObjectsV2 (the only listing version the gateway supports), and set a 256M part size. That's much larger than rclone's 5M default, so large files go up in fewer parts, and small enough for the gateway to process efficiently and to keep rclone's memory in check (it holds 4 parts per transfer in memory):
 
 ```ini
 [hf]
