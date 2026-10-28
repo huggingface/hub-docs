@@ -134,7 +134,7 @@ hf sync /mnt/src hf://buckets/<namespace>/<bucket>
 umount /mnt/src
 ```
 
-For S3-compatible stores such as Cloudflare R2 or MinIO, add `--endpoint-url <url>` to `mount-s3`. Verification, tuning, and troubleshooting are the same as [for local data](#from-local-disk-or-a-cluster-filesystem).
+For S3-compatible stores such as Cloudflare R2 or MinIO, add `--endpoint-url <url>` to `mount-s3`. For a public bucket that allows anonymous reads, such as those in the [AWS Open Data registry](https://registry.opendata.aws/), add `--no-sign-request`. Verification, tuning, and troubleshooting are the same as [for local data](#from-local-disk-or-a-cluster-filesystem).
 
 ### Alternative: rclone through the S3 gateway
 
@@ -159,7 +159,7 @@ upload_cutoff = 256M
 chunk_size = 256M
 ```
 
-The gateway supports only ListObjectsV2, so `list_version = 2` is required. The 256M multipart settings mean fewer, larger parts, which improves deduplication. Then copy and check:
+The gateway supports only ListObjectsV2, so `list_version = 2` is required. With 256M parts, large files go up in far fewer parts than with rclone's 5M default. rclone holds 4 parts per transfer in memory, so `--transfers 16` below needs about 16 GB of RAM; lower it on a smaller machine. Then copy and check:
 
 ```bash
 rclone copy aws:my-source-bucket hf:<bucket> --transfers 16 --checkers 16 --progress
@@ -192,13 +192,15 @@ Without a mount, you can use rclone (it reads GCS and Azure natively; reuse the 
 
 [Jobs](./jobs) runs a script on Hugging Face compute: you pick the hardware, launch it from the CLI, and [pay by the minute](./jobs-pricing). Use it when you want a long, multi-TB migration to run unattended instead of on your laptop or a session you have to keep open.
 
-**1. Write the migration script** (`migrate.py`). This example streams an S3 prefix into a bucket through the Xet client, so writes are deduplicated, and skips files already copied, so it's safe to re-run. Adapt the settings at the top:
+**1. Write the migration script** (`migrate.py`). This example copies each object in an S3 prefix into a bucket through the Xet client, so writes are deduplicated. It suits a one-off copy of a moderate prefix; for very large ones, see [hf-s3ream](#very-large-s3-prefixes-with-hf-s3ream). Adapt the settings at the top:
 
 ```python
 # /// script
 # dependencies = ["huggingface_hub", "boto3"]
 # ///
 import boto3
+from botocore import UNSIGNED
+from botocore.config import Config
 from huggingface_hub import HfFileSystem
 
 # --- adapt these ---
@@ -208,14 +210,20 @@ DST = "buckets/<namespace>/<bucket>"
 # -------------------
 
 s3 = boto3.client("s3")   # AWS credentials come from the Job's secrets
+# For a public bucket (for example from the AWS Open Data registry), read anonymously
+# instead, and drop the AWS secrets from the launch command:
+# s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))
 fs = HfFileSystem()       # HF token comes from the Job's HF_TOKEN secret
+
+# List the destination once: {path: size} of the files already copied
+done = {path: info["size"] for path, info in fs.find(DST, detail=True).items()}
 
 pages = s3.get_paginator("list_objects_v2").paginate(Bucket=SRC_BUCKET, Prefix=SRC_PREFIX)
 for page in pages:
     for obj in page.get("Contents", []):
         key, size = obj["Key"], obj["Size"]
         dst = f"{DST}/{key}"
-        if fs.exists(dst) and fs.size(dst) == size:
+        if done.get(dst) == size:
             continue  # already copied
         body = s3.get_object(Bucket=SRC_BUCKET, Key=key)["Body"]
         with fs.open(dst, "wb") as out:
@@ -223,6 +231,9 @@ for page in pages:
                 out.write(chunk)
         print(f"copied {key}")
 ```
+
+- Each object is staged on the Job's disk and uploaded when it's closed, one file at a time, so every object must fit on the Job's disk.
+- Files already in the bucket with the same size are skipped, so re-running the script resumes an interrupted copy. It won't re-copy a source file that changed but kept its size: to keep a bucket in step with a changing source, [mount the source and run `hf sync`](#from-aws-s3-or-s3-compatible-storage) instead.
 
 For GCS or Azure, swap `boto3` for that cloud's SDK (`google-cloud-storage`, `azure-storage-blob`) and adjust the listing and read calls. The destination half stays the same.
 
@@ -264,12 +275,12 @@ See [Copying files between repos and buckets](./storage-buckets#copying-files-be
 > [!WARNING]
 > hf-s3ream is an early-stage (alpha) community tool, not an officially supported Hugging Face product. Test it on a small prefix before using it for a large migration.
 
-[hf-s3ream](https://huggingface.co/spaces/glutamatt/hf-s3ream) runs a large S3-to-bucket copy from a web UI:
+[hf-s3ream](https://huggingface.co/spaces/glutamatt/hf-s3ream) ([source on GitHub](https://github.com/glutamatt/hf-s3ream), Apache-2.0) runs a large S3-to-bucket copy from a web UI:
 
 1. Sign in with Hugging Face.
-2. Enter the S3 source prefix, the destination bucket, and your AWS credentials.
+2. Enter the S3 source prefix, the destination bucket, and your AWS credentials. For a public bucket that allows anonymous reads, turn on **Public bucket**: no AWS credentials are needed, and the Jobs read S3 unsigned.
 3. **Analyze** runs a cheap dry run that checks access, detects the source region, and recommends a configuration. It creates the destination bucket (private) if it doesn't exist.
-4. **Run** launches a planner job. The planner builds a range-based copy plan, starts copier jobs, and shows progress on a live graph. The copy keeps running if you close the tab, but the page won't reconnect to it.
+4. **Run** launches a planner job. The planner builds a range-based copy plan, starts copier jobs, and shows progress on a live graph. The copy keeps running if you close the tab, but the page won't reconnect to it. To stop a copy, click **Stop copy**, or cancel the planner job (`hf jobs cancel <planner-job-id>`): the planner cancels its copiers.
 
 hf-s3ream runs on [Jobs](./jobs) under your account, so the Jobs are billed to you. S3 buckets that only allow access from a private network (VPC) can't be reached from Jobs.
 
