@@ -90,7 +90,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"nvidia/segformer-b4-finetuned-ade-512-512","providerModelId":"nvidia/segformer-b4-finetuned-ade-512-512"} } }
+    providersMapping={ {"hf-inference":{"modelId":"nvidia/segformer-b5-finetuned-ade-640-640","providerModelId":"nvidia/segformer-b5-finetuned-ade-640-640"} } }
 />
 
 
@@ -160,7 +160,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"w11wo/indonesian-roberta-base-posp-tagger","providerModelId":"w11wo/indonesian-roberta-base-posp-tagger"} } }
+    providersMapping={ {"hf-inference":{"modelId":"dslim/bert-base-NER","providerModelId":"dslim/bert-base-NER"} } }
 />
 
 
