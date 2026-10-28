@@ -222,6 +222,8 @@ pages = s3.get_paginator("list_objects_v2").paginate(Bucket=SRC_BUCKET, Prefix=S
 for page in pages:
     for obj in page.get("Contents", []):
         key, size = obj["Key"], obj["Size"]
+        if key.endswith("/"):
+            continue  # folder marker: bucket keys can't end with "/"
         dst = f"{DST}/{key}"
         if done.get(dst) == size:
             continue  # already copied
