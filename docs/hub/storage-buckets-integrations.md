@@ -88,7 +88,7 @@ See the [datatrove README](https://github.com/huggingface/datatrove#hf-storage-b
 
 ## LeRobot
 
-[LeRobot](https://huggingface.co/docs/lerobot/training_dataset_streaming) can stream a training dataset from a bucket. The bucket must hold the full dataset (`meta/`, Parquet and video files) at its root:
+[LeRobot](https://huggingface.co/docs/lerobot/main/en/training_dataset_streaming) can stream a training dataset from a bucket. The bucket must hold the full dataset (`meta/`, Parquet and video files) at its root:
 
 ```bash
 lerobot-train \
