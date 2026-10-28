@@ -60,6 +60,8 @@ hf://datasets/{my-username}/{my-dataset}/{path_to_file}
 > hf://datasets/ibm/duorc@~parquet/ParaphraseRC/test/0000.parquet
 > ```
 
+## Query a dataset
+
 Let's start with a quick demo to query all the rows of a dataset:
 
 ```sql
@@ -79,3 +81,56 @@ In the following sections, we will cover more complex operations you can perform
 > SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10;
 > ```
 > Buckets are not versioned, so the `@revision` syntax does not apply to bucket paths. On DuckDB 1.x, register the Hugging Face filesystem from Python instead: `duckdb.register_filesystem(HfFileSystem())`. See [Query with DuckDB](./storage-buckets-access#query-with-duckdb) for details.
+
+## Save a dataset
+
+Use the `COPY ... TO` syntax to save a dataset to Hugging Face.
+
+1. Install the [extension](https://huggingface.co/duckdb-extensions) for DuckDB >=2.0:
+
+```sql
+SET allow_extension_repositories = 'allowed';
+CREATE OR REPLACE EXTENSION REPOSITORY hf_repo
+  WITH PREFIX 'https://hf.co/buckets/duckdb-extensions/builds/resolve';
+INSTALL hf FROM hf_repo;
+LOAD hf FROM hf_repo;
+```
+
+2. Authenticate using the `hf` CLI or in DuckDB directly:
+
+* In the CLI:
+
+  ```bash
+  hf auth login
+  ```
+
+* In DuckDB:
+
+  ```sql
+  CREATE SECRET (TYPE HUGGINGFACE, TOKEN 'hf_...');
+  ```
+
+3. Create your dataset repository if it doesn't exist already:
+
+* In the CLI:
+
+  ```bash
+  hf repos create username/my-dataset --repo-type dataset --private
+  ```
+
+* In DuckDB:
+
+  ```sql
+  FROM hf_create_repo('hf://datasets/username/my-dataset', private := true);
+  ```
+
+4. Export your table to Hugging Face, e.g. in Parquet format:
+
+```sql
+COPY tbl TO 'hf://datasets/username/my-dataset/out.parquet';
+```
+
+> [!TIP]
+> Use `PARTITION_BY` to split the table into multiple files based on a partition key: `COPY tbl TO 'hf://datasets/username/my-dataset/out-directory' (FORMAT parquet, PARTITION_BY (year, month));`. File are placed be in the right subdirectory based on partition key values, e.g. `'hf://datasets/username/my-dataset/out-directory/year=2026/month=1/data_1.parquet'`.
+
+Since datasets are git repositories, every new file is a commit in the dataset history.

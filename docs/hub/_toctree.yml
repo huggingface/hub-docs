@@ -543,6 +543,8 @@
         title: Basic SSO
       - local: enterprise-advanced-sso
         title: Managed SSO
+      - local: enterprise-managed-sso-migration
+        title: Migrating to Managed SSO
       - local: security-sso-user-management
         title: User Management
       - local: enterprise-scim

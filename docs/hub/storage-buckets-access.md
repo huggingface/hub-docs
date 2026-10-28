@@ -50,7 +50,7 @@ For the full volume mount syntax and Python API, see the [Jobs configuration doc
 
 ## Query with DuckDB
 
-[DuckDB](https://duckdb.org/) 2.0 and later read `hf://buckets/` paths natively through the `httpfs` extension. From the DuckDB CLI or any client, install and load `httpfs`, then query a bucket:
+[DuckDB](https://duckdb.org/) 2.0 and later use `hf://buckets/` paths natively through the `httpfs` extension (read) or the `hf` extension (read/write). From the DuckDB CLI or any client, install and load `httpfs`, then query a bucket:
 
 ```sql
 INSTALL httpfs;
@@ -59,12 +59,23 @@ LOAD httpfs;
 SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10;
 ```
 
-Glob patterns work as they do for datasets, e.g. `'hf://buckets/username/my-bucket/data/**/*.parquet'`. Buckets are not versioned, so the `@revision` syntax does not apply to bucket paths. Native `hf://buckets/` access is read-only for now; to write query results to a bucket, use the [S3-compatible API](./storage-buckets-s3#query-a-bucket-with-duckdb) or the Python client with `HfFileSystem`.
+Glob patterns work as they do for datasets, e.g. `'hf://buckets/username/my-bucket/data/**/*.parquet'`. Buckets are not versioned, so the `@revision` syntax does not apply to bucket paths. `httpfs` only reads; to write query results to a bucket, load the `hf` extension (see below).
 
 **Private buckets:** create a Hugging Face secret first. It picks up the token from `hf auth login` or the `HF_TOKEN` environment variable:
 
 ```sql
 CREATE SECRET hf (TYPE huggingface, PROVIDER credential_chain);
+```
+
+Writing to Hugging Face requires the `hf` [extension](https://huggingface.co/duckdb-extensions):
+
+```sql
+SET allow_extension_repositories = 'allowed';
+CREATE OR REPLACE EXTENSION REPOSITORY hf_repo WITH PREFIX 'https://hf.co/buckets/duckdb-extensions/builds/resolve';
+INSTALL hf FROM hf_repo;
+LOAD hf FROM hf_repo;
+
+COPY tbl TO 'hf://buckets/username/my-bucket/out.parquet';
 ```
 
 > [!NOTE]

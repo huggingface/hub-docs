@@ -145,6 +145,3 @@
 
 - local: hub-api
   title: Hub API
-
-- local: register-as-a-provider
-  title: Register as an Inference Provider
