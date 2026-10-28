@@ -94,6 +94,15 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 - **Service account tokens**: Token creation, deletion, rotation, and updates (name, permissions, network security exemption), plus generation and revocation of the S3 credentials paired with a token.
   - **Events:** `org.service_account.token.create`, `org.service_account.token.delete`, `org.service_account.token.rotate`, `org.service_account.token.update`, `org.service_account.token.s3_credential.create`, `org.service_account.token.s3_credential.delete`
 
+### OAuth Apps
+
+- **OAuth app management** — Creation, updates (name, URLs, scopes, or token expiration), and deletion of [OAuth apps](./oauth#organization-owned-oauth-apps) owned by the organization, including its [Token Exchange app](./oauth#token-exchange-for-organizations-rfc-8693). Logo changes are not recorded.
+  - **Events:** `oauth.app.create`, `oauth.app.update`, `oauth.app.delete`
+- **Client secret** — Rotating the client secret (or adding one to a public app), removing it, and expiration of the secret by Hugging Face.
+  - **Events:** `oauth.app.secret.rotate`, `oauth.app.secret.delete`, `oauth.app.secret.expire`
+- **Token issuance** — Tokens issued to members through the organization's [Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693) app.
+  - **Event:** `oauth.token`
+
 ### Content and Resource Management
 
 - **Repository administration** — Creation, deletion, moving, disabling/re-enabling, duplication settings, DOI removal, resource group assignment, and general repo settings (visibility, gating, discussions, etc.). Also LFS file deletion.
@@ -133,4 +142,4 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 
 ## Event reference
 
-The list above covers every event type shown in the audit log UI and export. Event names follow the `scope.action` pattern; scopes include `org`, `repo`, `collection`, `spaces`, `resource_group`, `jobs`, `scheduled_job`, and `billing`. The export action itself is recorded as `org.audit_log.export` but that event is not included in the default audit log view.
+The list above covers every event type shown in the audit log UI and export. Event names follow the `scope.action` pattern; scopes include `org`, `repo`, `collection`, `spaces`, `resource_group`, `jobs`, `scheduled_job`, `oauth`, and `billing`. The export action itself is recorded as `org.audit_log.export` but that event is not included in the default audit log view.

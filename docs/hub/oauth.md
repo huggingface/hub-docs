@@ -16,6 +16,17 @@ You can create your application in your [settings](https://huggingface.co/settin
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application.png)
 
+### Organization-owned OAuth apps
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
+
+OAuth apps can also be owned by an organization instead of an individual account. This is useful for apps that your team maintains together, as they stay with the organization rather than depending on a single member's account.
+
+Organization admins can create and manage organization-owned apps from the **OAuth Apps** section of the organization settings (`https://huggingface.co/organizations/<your-org>/settings/applications`). All admins of the organization can edit the app, rotate its client secret, or delete it. The app list shows which member created each app, and changes to the apps are recorded in the organization's [audit logs](./audit-logs#oauth-apps).
+
+The same page also lists the organization's [Token Exchange app](#token-exchange-for-organizations-rfc-8693), if one has been set up.
+
 ### Public OAuth apps (no secret)
 
 You can create or use OAuth apps without a client secret. This is useful for native apps, CLIs, or other contexts where keeping a secret is impractical.
@@ -199,7 +210,7 @@ Once configured, you will receive:
 - A **Client Secret** (keep this secure!)
 
 > [!WARNING]
-> Organization administrators can manage the OAuth app after creation, including refreshing the client secret and configuring the token duration.
+> Organization administrators can manage the OAuth app after creation, including refreshing the client secret and configuring the token duration. The app is listed in the **OAuth Apps** section of your organization settings, and changes to it are recorded in the organization's [audit logs](./audit-logs#oauth-apps).
 
 ### Authentication
 
