@@ -347,6 +347,18 @@ curl -N -H "Accept: text/event-stream" \
   "https://huggingface.co/api/buckets/username/my-bucket/events"
 ```
 
+> [!TIP]
+> In Python, you don't need to consume the stream yourself. [`HfFileSystem`](/docs/huggingface_hub/guides/hf_file_system#keep-listings-fresh) follows it for you with `live_follow=True`, so its cached listings stay current when another process changes the bucket:
+>
+> ```python
+> from huggingface_hub import HfFileSystem
+>
+> hffs = HfFileSystem(live_follow=True)
+> hffs.ls("buckets/username/my-bucket/data")  # starts following the bucket
+> ```
+>
+> Libraries that take fsspec `storage_options` (pandas, PyArrow, ...) accept it too.
+
 The stream emits four event types:
 
 | Event       | Data                                                  | Meaning                                                                                       |

@@ -32,6 +32,7 @@ While your hardware is public:
 
 - A **TFLOPS** badge appears on your profile, summarizing your estimated total compute power.
 - You can browse [what the community is running](https://huggingface.co/hardware) and see how your setup compares across GPUs, CPUs, and Apple Silicon.
+- Each vendor also has its own page, such as [NVIDIA](https://huggingface.co/hardware/nvidia), [AMD](https://huggingface.co/hardware/amd), [Apple](https://huggingface.co/hardware/apple), [Intel](https://huggingface.co/hardware/intel), and [Qualcomm](https://huggingface.co/hardware/qualcomm), grouping that brand's hardware in one place.
 
 ## Read hardware from the API
 

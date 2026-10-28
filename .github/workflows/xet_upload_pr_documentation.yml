@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@e008c246aaa2eaa86b7b95a19a1944d59917990a  # main
+    uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@8440c79a619b26fbf8444f42262757fbb8718617  # main
     with:
       package_name: xet
     secrets:
