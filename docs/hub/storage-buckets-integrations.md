@@ -114,10 +114,6 @@ See the [Diffusers CLI guide](https://huggingface.co/docs/diffusers/using-diffus
 
 When [Trackio](https://huggingface.co/docs/trackio) logs to a Space, it stores run data in a bucket created from the Space ID. Pass `bucket_id` to `trackio.init()` to use a bucket you choose.
 
-## Transformers and TRL
-
-On [Jobs](./jobs-training#after-it-ends), mount a bucket and set `--output_dir` to it, so checkpoints survive a timeout or crash.
-
 ## Inspect AI
 
 [Inspect AI](https://inspect.aisi.org.uk/) can write evaluation logs directly to a bucket — point its log directory at an `hf://buckets/` path (requires `huggingface_hub>=1.6.0`). Create the bucket and authenticate first (Inspect won't create it for you):
