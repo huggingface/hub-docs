@@ -67,26 +67,27 @@ find . -name "*.jpg" | wc -l
 
 **Storage Limits**:
 
+If these differ from [storage-limits](https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-recommendations), storage-limits is authoritative.
+
 ```yaml
 # Machine-readable Hub limits
 hub_limits:
-  max_file_size_gb: 200 # absolute hard stop enforced by LFS
-  recommended_file_size_gb: 50 # best-practice shard size
+  max_file_size_gb: 500 # absolute hard stop per file
+  recommended_file_size_gb: 200 # split larger files into chunks below this
   max_files_per_folder: 10000 # Git performance threshold
-  max_files_per_repo: 100000 # Repository file count limit
-  recommended_repo_size_gb: 300 # public-repo soft cap; contact HF if larger
+  max_files_per_repo: 100000 # recommended maximum; keep well below
   viewer_row_size_mb: 2 # approximate per-row viewer limit
+  # No per-repo size limit: repo size counts against the account's storage quota
 ```
 
 **Human-readable summary**:
 
-- Free: 100GB private datasets
-- Pro (for individuals) | Team or Enterprise (for organizations): 1TB+ private storage per seat (see [pricing](https://huggingface.co/pricing))
-- Public: 1TB (contact datasets@huggingface.co for larger)
-- Per file: 200GB max, <50GB recommended
+- Per file: 500GB max, <200GB recommended
 - Per folder: <10k files
+- Per repo: <100k files recommended
+- Account storage (public and private) depends on the plan: see [storage plans](https://huggingface.co/docs/hub/storage-limits#storage-plans)
 
-See https://huggingface.co/docs/hub/storage-limits#repository-limitations-and-recommendations for current limits for current recommendations for repository sizes and file counts.
+See https://huggingface.co/docs/hub/storage-limits for current storage plans and repository recommendations.
 
 ## Quick Reference by Data Type
 
@@ -428,7 +429,7 @@ hf upload username/dataset ./data --repo-type=dataset
 | "Repository not found"     | Run `hf auth login`          |
 | Memory errors              | Use `max_shard_size="500MB"`         |
 | Dataset viewer not working | Wait 5-10min, check README.md config |
-| Files >50GB                | Split into smaller files             |
+| Files >200GB               | Split into smaller files             |
 | "File not found"           | Use relative paths in metadata       |
 
 ## Dataset Viewer Configuration
