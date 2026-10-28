@@ -152,7 +152,28 @@ By default, the oauth app does not need to access organization resources.
 
 But some scopes like `read-repos` or `read-billing` apply to organizations as well.
 
-The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. You have to replace `ORG_ID` with the organization ID, which is available in the `organizations.sub` field of the userinfo response.
+The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. You have to replace `ORG_ID` with the organization ID, which is available in the `orgs[].sub` field of the userinfo response.
+
+## Syncing organization membership as groups
+
+The userinfo response (`https://huggingface.co/oauth/userinfo`) includes a `groups` claim: the names of the organizations the user belongs to, as an array of strings.
+
+```json
+{
+  "sub": "...",
+  "preferred_username": "my-username",
+  "groups": ["my-org", "another-org"],
+  "orgs": [ ... ]
+}
+```
+
+Many OIDC clients (e.g. Discourse, Grafana, Argo CD, Vault, Kubernetes) can sync group membership from a claim containing an array of strings, and are often configured with a `groups` claim. You can use it to map Hugging Face organizations to roles or groups in your app. For more details about each organization (ID, role, etc.), use the `orgs` field instead.
+
+A few things to keep in mind:
+
+- The `groups` claim is only returned by the userinfo endpoint, not in the ID token.
+- It contains organization names, not IDs. If an organization is renamed, mappings that use its old name will stop matching.
+- Resource groups are not included. For organizations on a paid plan, the user's resource groups and roles are listed in `orgs[].resourceGroups`.
 
 ## Branding
 
