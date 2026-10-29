@@ -25,9 +25,9 @@ OAuth apps can also be owned by an organization instead of an individual account
 
 Organization admins can create and manage organization-owned apps from the **OAuth Apps** section of the organization settings (`https://huggingface.co/organizations/<your-org>/settings/applications`). All admins of the organization can edit the app, rotate its client secret, or delete it. The app list shows which member created each app, and changes to the apps are recorded in the organization's [audit logs](./audit-logs#oauth-apps).
 
-You can also transfer an existing OAuth app that you own to an organization you're an admin of, from the **Transfer to an organization** section of the app's settings page. The organization must be on a Team or Enterprise plan. After the transfer, the app is managed by all admins of the organization. Its client ID, client secret, and existing authorizations and tokens stay the same, so your website or app keeps working without changes. The transfer can't be undone from the settings page.
-
 The same page also lists the organization's [Token Exchange app](#token-exchange-for-organizations-rfc-8693), if one has been set up.
+
+You can also transfer an existing OAuth app that you own to an organization you're an admin of, from the **Transfer to an organization** section of the app's settings page. The organization must be on a Team or Enterprise plan. After the transfer, the app is managed by all admins of the organization. Its client ID, client secret, and existing authorizations and tokens stay the same, so your website or app keeps working without changes. The transfer can't be undone from the settings page.
 
 ### Public OAuth apps (no secret)
 

@@ -49,7 +49,7 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 ### Organization Management & Security
 
   > [!TIP]
-  > The **Settings changes** events below are only available for actions taken after June 16th, 2026. Events before that date use a unique `org.update_settings` event type. Any integration that filters or parses the event `type` field for orgs created before June 16th, 2026, should handle both.  
+  > The **Settings changes** events below are only available for actions taken after June 16th, 2026. Events before that date use a unique `org.update_settings` event type. Any integration that filters or parses the event `type` field for orgs created before June 16th, 2026, should handle both.
 
 - **Core organization changes** — Creation, deletion, restoration, and renaming.
   - **Events:** `org.create`, `org.delete`, `org.restore`, `org.rename`
@@ -65,7 +65,7 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
   - Network — Network configuration updates, and enabling or disabling IP access restriction and authentication enforcement.
   - **Events:** `org.settings.network`, `org.settings.network.ip_restriction.enable`, `org.settings.network.ip_restriction.disable`, `org.settings.network.auth_enforcement.enable`, `org.settings.network.auth_enforcement.disable`
 
-  
+
 - **Security management**
   - Organization API token rotation.
   - **Event:** `org.rotate_token`
