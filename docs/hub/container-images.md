@@ -1,23 +1,36 @@
 # Container Images
 
-Container Images are a repo type on the Hugging Face Hub for Docker and other [OCI](https://opencontainers.org/) images, served by the Hugging Face container registry, `cr.hf.co`. Push and pull them with Docker or any OCI client, next to your models, datasets and Spaces.
+Container Images are a repo type on the Hugging Face Hub for Docker and other [OCI](https://opencontainers.org/) images, served by the Hugging Face container registry, `cr.hf.co`, and powered by the [Xet](./xet/index) storage backend. They live in your organization next to its models, datasets and Spaces.
+
+You can push and pull images with Docker or any OCI client, and browse their tags on the Hub.
 
 > [!NOTE]
 > Container Images are in private beta: [contact us](https://huggingface.co/contact/sales) to enable them for your organization.
 
+> [!TIP]
+> Images count toward your organization's Hub storage. See [Pricing](#pricing) for examples, and [hf.co/storage](https://huggingface.co/storage) for pricing details.
+
 ## Why Host Images on the Hub
 
-- **Next to the rest of your work**: images live in your user or organization namespace, with the same members, roles, visibility and [User Access Tokens](./security-tokens) as your other repos. There is no separate registry account to manage.
-- **On your Hub storage**: images count toward your account's [storage](#storage-and-pricing), public or private, with no separate registry bill.
-- **Served by the Hub's CDN**: layers are stored on [Xet](./xet/index) and downloaded through the Hugging Face CDN, with egress included in your plan.
+- **Next to the rest of your work**: images live in your organization, with the same members, roles, visibility and [User Access Tokens](./security-tokens) as your other repos. There is no separate registry account to manage.
+- **On your Hub storage**: images count toward your organization's [storage](#pricing), public or private, with no separate registry bill.
+- **Served by the Hub's CDN**: layers are stored on Xet and downloaded through the Hugging Face CDN wherever you run them, with egress included in your plan.
 - **A standard registry**: Docker, Podman, containerd and Kubernetes, crane, skopeo, ORAS, Helm and cosign work as they are, with multi-arch images and referrers (signatures, SBOMs and other artifacts attached to an image).
 - **Cleaned up for you**: images that no tag points to are deleted automatically, so your storage follows what you tag.
 
-<!-- TODO: link to a showcase container repo, with light and dark screenshots of its page -->
-
 ## Creating a Repository
 
-Go to [huggingface.co/new-container](https://huggingface.co/new-container) and choose the organization, a name and the visibility. Or use the API:
+### From the Hub UI
+
+1. Navigate to [huggingface.co/new-container](https://huggingface.co/new-container).
+
+2. Specify the organization that owns the repository.
+
+3. Enter a repository name and, optionally, a short description.
+
+4. Choose whether the repository should be public or private.
+
+### From the API
 
 ```bash
 curl -X POST https://huggingface.co/api/containers/my-org/my-app \
@@ -26,7 +39,13 @@ curl -X POST https://huggingface.co/api/containers/my-org/my-app \
   -d '{"private": true}'
 ```
 
-Create the repository before pushing: a push to a missing one fails with `NAME_UNKNOWN`. Its page, `https://huggingface.co/containers/my-org/my-app`, lists its tags. Who can pull and push follows the repository's visibility and each member's role in the organization.
+Create the repository before pushing: a push to a missing one fails with `NAME_UNKNOWN`. Who can pull and push follows the repository's visibility and each member's role in the organization.
+
+## Browsing Images on the Hub
+
+Every repository has a page on the Hub listing its tags, at `https://huggingface.co/containers/<owner>/<name>`.
+
+<!-- TODO: link to a showcase container repo, with light and dark screenshots of its page -->
 
 ## Pushing and Pulling
 
@@ -65,7 +84,7 @@ spec:
     - name: hf-registry
 ```
 
-Public images need no pull secret.
+Public images need no pull secret, but with one, pulls count against your account's rate limits instead of your cluster's IP address.
 
 ## Pushing from GitHub Actions
 
@@ -83,18 +102,6 @@ Add your username and a `write` token as repository secrets, here `HF_USERNAME` 
     push: true
     tags: cr.hf.co/my-org/my-app:${{ github.sha }}
 ```
-
-## Storage and Pricing
-
-Images use the storage of the user or organization that owns them: private storage for private repositories, public storage for public ones, shared with your models, datasets and buckets. Layers count at the size they are pushed, `docker push` uploading them compressed. Each repository counts a layer once, however many tags and images use it.
-
-Private storage is included in every plan: 100 GB on a free account, 1 TB with PRO, and 1 TB per seat for Team and Enterprise organizations. Beyond it, private storage costs $18 per TB per month, with discounts at volume. See [storage limits](./storage-limits#storage-plans) for public storage and the details, and [hf.co/storage](https://huggingface.co/storage) for the current prices.
-
-For example:
-
-- 20 tagged versions of a 5 GB image, all sharing the same 4 GB base layers, take 4 + 20 × 1 = 24 GB: they fit in a free account's private storage.
-- A Team organization with 10 members includes 10 TB of private storage.
-- Each private TB beyond what your plan includes costs $18 per month.
 
 ## Deleting Images
 
@@ -115,3 +122,16 @@ The registry deletes images that no tag points to anymore, directly or through a
 - Image names are `cr.hf.co/<namespace>/<name>`, in lowercase.
 - Layers up to 100 GB, manifests up to 4 MiB.
 - Tag lists can take a few seconds to show a new tag.
+- Pulls count toward your [Hub rate limits](./rate-limits) as resolver requests: log in so they count against your account rather than your IP address.
+
+## Pricing
+
+Images are billed as storage of the organization that owns them: private storage for private repositories, public storage for public ones, shared with its models, datasets and buckets. Layers count at the size they are pushed, `docker push` uploading them compressed, and each repository counts a layer once, however many tags and images use it.
+
+Pulls cost nothing extra, from any cloud, GPU provider or your own machines: they count toward the monthly egress allowance included in the plan of whoever pulls, shown in [Download Analytics](./download-analytics).
+
+Private storage is included in every plan: 100 GB for a free organization, and 1 TB per seat for Team and Enterprise organizations. Beyond it, private storage costs $18 per TB per month, with discounts at volume. For example:
+
+- 20 tagged versions of a 5 GB image, all sharing the same 4 GB base layers, take 4 + 20 × 1 = 24 GB: they fit in a free organization's private storage.
+- A Team organization with 10 members includes 10 TB of private storage. 12 releases of a vLLM image, about 9 GB each, use 110 GB of it.
+For usage above the [free tier](./storage-limits#storage-plans), see [hf.co/storage](https://huggingface.co/storage). For general billing information, see the [Billing](./billing) documentation.
