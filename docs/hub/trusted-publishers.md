@@ -121,7 +121,7 @@ On **other providers**, mint the ID token yourself (see [Other CI providers](#ot
 HF_OIDC_ID_TOKEN="$ID_TOKEN" HF_OIDC_RESOURCE="your-hf-username" hf download acme/gated-model
 ```
 
-The resulting token can read gated repos you have access to and uses your account's rate limits. It **cannot** write anything, and **cannot** read your private repos — to pull a private repo from CI, use a [read-only repo publisher](#read-only-repo-publishers) instead.
+The resulting token can read gated repos you have access to and uses your account's rate limits. It **cannot** write anything, and **cannot** read your private repos. To pull a private repo from CI, use a [read-only repo publisher](#read-only-repo-publishers) instead.
 
 > [!TIP]
 > Need the token itself (for `curl`, `git clone`, or a tool that reads `HF_TOKEN`)? `hf auth token` performs the exchange and prints the short-lived token to stdout:
@@ -137,9 +137,9 @@ The resulting token can read gated repos you have access to and uses your accoun
 
 ### Read-only repo publishers
 
-By default, a repo trusted publisher mints tokens that can push to the repo. If a workload only needs to *pull* a repo — for example, to download a private model or dataset from a CI job or an external platform that issues its own OIDC tokens — tick **Read-only** when adding the publisher. Exchanged tokens can then read the repo's content but cannot write to it, and the entry shows a **Read-only** badge in the list. This works for models, datasets, Spaces, kernels, and buckets.
+By default, a repo trusted publisher mints tokens that can push to the repo. If a workload only needs to *pull* a repo (for example, to download a private model or dataset from a CI job or an external platform that issues its own OIDC tokens), tick **Read-only** when adding the publisher. Exchanged tokens can then read the repo's content but cannot write to it, and the entry shows a **Read-only** badge in the list. This works for models, datasets, Spaces, kernels, and buckets.
 
-The exchange itself is unchanged: point `HF_OIDC_RESOURCE` (or `resource`) at the repo.
+The exchange itself is unchanged. Point `HF_OIDC_RESOURCE` (or `resource`) at the repo.
 
 ```yaml
       - name: Download a private model
@@ -148,7 +148,7 @@ The exchange itself is unchanged: point `HF_OIDC_RESOURCE` (or `resource`) at th
         run: hf download acme/private-model
 ```
 
-If an OIDC token matches several publishers on the same repo, a write-capable publisher takes precedence over a read-only one. Like other publisher settings, the permission is fixed at creation; to change it, delete the publisher and add it again.
+Like other publisher settings, the permission is fixed at creation. To change it, delete the publisher and add it again.
 
 ### Calling Inference Providers from CI
 
