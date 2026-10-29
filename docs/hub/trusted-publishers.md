@@ -142,6 +142,10 @@ By default, a repo trusted publisher mints tokens that can push to the repo. If 
 The exchange itself is unchanged. Point `HF_OIDC_RESOURCE` (or `resource`) at the repo.
 
 ```yaml
+    permissions:
+      id-token: write  # required so the job can request an OIDC token
+
+    steps:
       - name: Download a private model
         env:
           HF_OIDC_RESOURCE: acme/private-model
@@ -239,7 +243,7 @@ When the `hf` CLI performs the exchange, a failure surfaces the `error` code alo
 - **Tokens are short-lived.** 60 minutes from the moment of exchange — the clock only starts when you call the endpoint, not when the workflow starts. There's no refresh token; long jobs should re-exchange.
 - **Repo tokens are repo-scoped.** A token for `acme/awesome-model` cannot touch `acme/anything-else`. Pushes are attributed to a synthetic `[OIDC]` system user, with a reference to the originating issuer and subject. Tokens from a read-only publisher can only read that repo.
 - **User tokens are read-only.** `gated-repos` scope by default — no writes, no private repos, no account management. The optional `inference-api` scope adds Inference Providers calls (billed to your account), but still no write or private-repo access.
-- **Claims are matched exactly.** No regex, no prefix matching.
+- **Claims are matched exactly, or by prefix where a provider preset needs it** (GitHub's `workflow_ref`). No regex.
 - **Audit logs.** Adding or removing a publisher is logged, and successful exchanges update last used time.
 
 ## See also
