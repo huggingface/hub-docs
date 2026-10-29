@@ -16,6 +16,17 @@ You can create your application in your [settings](https://huggingface.co/settin
 
 ![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application.png)
 
+### Organization-owned OAuth apps
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
+
+OAuth apps can also be owned by an organization instead of an individual account. This is useful for apps that your team maintains together, as they stay with the organization rather than depending on a single member's account.
+
+Organization admins can create and manage organization-owned apps from the **OAuth Apps** section of the organization settings (`https://huggingface.co/organizations/<your-org>/settings/applications`). All admins of the organization can edit the app, rotate its client secret, or delete it. The app list shows which member created each app, and changes to the apps are recorded in the organization's [audit logs](./audit-logs#oauth-apps).
+
+The same page also lists the organization's [Token Exchange app](#token-exchange-for-organizations-rfc-8693), if one has been set up.
+
 ### Public OAuth apps (no secret)
 
 You can create or use OAuth apps without a client secret. This is useful for native apps, CLIs, or other contexts where keeping a secret is impractical.
@@ -141,7 +152,28 @@ By default, the oauth app does not need to access organization resources.
 
 But some scopes like `read-repos` or `read-billing` apply to organizations as well.
 
-The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. You have to replace `ORG_ID` with the organization ID, which is available in the `organizations.sub` field of the userinfo response.
+The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. The organization ID is available in the `orgs[].sub` field of the userinfo response.
+
+## Syncing organization membership as groups
+
+The userinfo response (`https://huggingface.co/oauth/userinfo`) includes a `groups` claim: the names of the organizations the user belongs to, as an array of strings.
+
+```json
+{
+  "sub": "...",
+  "preferred_username": "my-username",
+  "groups": ["my-org", "another-org"],
+  "orgs": [ ... ]
+}
+```
+
+Many OIDC clients (e.g. Discourse, Grafana, Argo CD, Vault, Kubernetes) can sync group membership from a claim containing an array of strings, and are often configured with a `groups` claim. You can use it to map Hugging Face organizations to roles or groups in your app. For more details about each organization (ID, role, etc.), use the `orgs` field instead.
+
+A few things to keep in mind:
+
+- The `groups` claim is only returned by the userinfo endpoint, not in the ID token.
+- It contains organization names, not IDs. If an organization is renamed, mappings that use its old name will stop matching.
+- Resource groups are not included. For organizations on a paid plan, the user's resource groups and roles are listed in `orgs[].resourceGroups`.
 
 ## Branding
 
@@ -199,7 +231,7 @@ Once configured, you will receive:
 - A **Client Secret** (keep this secure!)
 
 > [!WARNING]
-> Organization administrators can manage the OAuth app after creation, including refreshing the client secret and configuring the token duration.
+> Organization administrators can manage the OAuth app after creation, including refreshing the client secret and configuring the token duration. The app is listed in the **OAuth Apps** section of your organization settings, and changes to it are recorded in the organization's [audit logs](./audit-logs#oauth-apps).
 
 ### Authentication
 
