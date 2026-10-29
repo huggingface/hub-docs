@@ -96,8 +96,8 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 
 ### OAuth Apps
 
-- **OAuth app management** — Creation, updates (name, URLs, scopes, or token expiration), and deletion of [OAuth apps](./oauth#organization-owned-oauth-apps) owned by the organization, including its [Token Exchange app](./oauth#token-exchange-for-organizations-rfc-8693). Logo changes are not recorded.
-  - **Events:** `oauth.app.create`, `oauth.app.update`, `oauth.app.delete`
+- **OAuth app management** — Creation, updates (name, URLs, scopes, or token expiration), and deletion of [OAuth apps](./oauth#organization-owned-oauth-apps) owned by the organization, including its [Token Exchange app](./oauth#token-exchange-for-organizations-rfc-8693), and transfers of a member's personal app to the organization. Logo changes are not recorded.
+  - **Events:** `oauth.app.create`, `oauth.app.update`, `oauth.app.delete`, `oauth.app.move`
 - **Client secret** — Rotating the client secret (or adding one to a public app), removing it, and expiration of the secret by Hugging Face.
   - **Events:** `oauth.app.secret.rotate`, `oauth.app.secret.delete`, `oauth.app.secret.expire`
 - **Token issuance** — Tokens issued to members through the organization's [Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693) app.
