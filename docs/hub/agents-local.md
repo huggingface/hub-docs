@@ -39,34 +39,19 @@ Install Pi:
 npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 ```
 
-Then add your local model to Pi's configuration file at `~/.pi/agent/models.json`:
-
-```json
-{
-  "providers": {
-    "llama-cpp": {
-      "baseUrl": "http://localhost:8080/v1",
-      "api": "openai-completions",
-      "apiKey": "none",
-      "models": [
-        {
-          "id": "ggml-org-gemma-4-26b-4b-gguf"
-        }
-      ]
-    }
-  }
-}
-```
-
 Start Pi in your project directory:
 
 ```bash
 pi
 ```
 
-Pi connects to your local llama.cpp server and gives you an interactive agent session.
+Configure the provider:
 
-![Demo](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pi-llama-cpp-demo.gif)
+```bash
+/login llama.cpp
+```
+
+Run `/llama` to load a model, then `/model` to select the loaded model for the current session.
 
 ### Enabling vision support
 
