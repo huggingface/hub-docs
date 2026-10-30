@@ -59,7 +59,7 @@ LOAD httpfs;
 SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10;
 ```
 
-Glob patterns work as they do for datasets, e.g. `'hf://buckets/username/my-bucket/data/**/*.parquet'`. Buckets are not versioned, so the `@revision` syntax does not apply to bucket paths. Native `hf://buckets/` access is read-only for now; to write query results to a bucket, use the [S3-compatible API](./storage-buckets-s3#query-a-bucket-with-duckdb) or the Python client with `HfFileSystem`.
+Glob patterns work as they do for datasets, e.g. `'hf://buckets/username/my-bucket/data/**/*.parquet'`. Buckets are not versioned, so the `@revision` syntax does not apply to bucket paths. `httpfs` only reads; to write query results to a bucket, load the `hf` extension (see below).
 
 **Private buckets:** create a Hugging Face secret first. It picks up the token from `hf auth login` or the `HF_TOKEN` environment variable:
 
