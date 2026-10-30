@@ -52,6 +52,22 @@ Once SSO is enabled on your organization, a direct join link can be copied and s
 
 Organizations on the Enterprise plan can also use [SCIM](./enterprise-scim) to automate invitation-based provisioning from your Identity Provider. See the [SCIM guide](./enterprise-scim) for more details.
 
+## Access tokens and SSH keys
+
+To use a [User Access Token](./security-tokens) or an [SSH key](./security-git-ssh) with an organization that enforces SSO, you first need to authorize it for that organization. Until then, requests made with it to the organization's resources are rejected, Git over SSH included. Access to your other resources isn't affected.
+
+To authorize a token or SSH key:
+
+1. Go to [Access Tokens](https://huggingface.co/settings/tokens) or [SSH and GPG Keys](https://huggingface.co/settings/keys) in your settings.
+2. Open the menu next to the token or key and click **Configure SSO**.
+3. Click **Authorize** next to the organization. You're redirected to your Identity Provider to sign in.
+
+Tokens you create while signed in to the organization with SSO are authorized for it automatically.
+
+An authorization lasts until you deauthorize it from the same menu or leave the organization. If you rejoin, authorize your tokens and keys again. External collaborators don't need to authorize their credentials.
+
+Organization admins can see authorizations and deauthorizations in the [audit logs](./audit-logs).
+
 ## SSO features
 
 Basic SSO supports [role mapping, resource group mapping, session timeout, matching email domains, and external collaborators](./security-sso-user-management). These features are configurable from your organization's settings.
