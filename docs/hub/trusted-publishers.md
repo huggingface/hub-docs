@@ -96,7 +96,7 @@ Complete working examples:
 
 | Flavor | Configured on | What you get | Use it to… |
 | --- | --- | --- | --- |
-| **Repo trusted publisher** | A repo's **Settings → Trusted Publishers** | A token with **write access to that one repo** | Publish a model, dataset, Space, kernel, or bucket from CI |
+| **Repo trusted publisher** | A repo's **Settings → Trusted Publishers** | A token with **write access to that one repo** (or [read-only access](#read-only-repo-publishers)) | Publish a model, dataset, Space, kernel, or bucket from CI, or pull a private one |
 | **Account CI/CD identity** | Your account's [**Authentication settings → CI/CD Access**](https://huggingface.co/settings/authentication#ci-cd-access) | A read-only token with the `gated-repos` scope, plus `inference-api` if you opt in | Read **gated repos you have access to**, use your rate limits, and optionally call Inference Providers from CI |
 
 Both tokens expire after 60 minutes. You need the **Write** role on a Hub repo to manage its trusted publishers.
@@ -121,7 +121,7 @@ On **other providers**, mint the ID token yourself (see [Other CI providers](#ot
 HF_OIDC_ID_TOKEN="$ID_TOKEN" HF_OIDC_RESOURCE="your-hf-username" hf download acme/gated-model
 ```
 
-The resulting token can read gated repos you have access to and uses your account's rate limits. It **cannot** write anything, and **cannot** read your private repos.
+The resulting token can read gated repos you have access to and uses your account's rate limits. It **cannot** write anything, and **cannot** read your private repos. To pull a private repo from CI, use a [read-only repo publisher](#read-only-repo-publishers) instead.
 
 > [!TIP]
 > Need the token itself (for `curl`, `git clone`, or a tool that reads `HF_TOKEN`)? `hf auth token` performs the exchange and prints the short-lived token to stdout:
@@ -134,6 +134,25 @@ The resulting token can read gated repos you have access to and uses your accoun
 > ```
 >
 > This works with both CI/CD identities and repo publishers — the token is scoped to whatever `HF_OIDC_RESOURCE` points at.
+
+### Read-only repo publishers
+
+By default, a repo trusted publisher mints tokens that can push to the repo. If a workload only needs to *pull* a repo (for example, to download a private model or dataset from a CI job or an external platform that issues its own OIDC tokens), tick **Read-only** when adding the publisher. Exchanged tokens can then read the repo's content but cannot write to it, and the entry shows a **Read-only** badge in the list. This works for models, datasets, Spaces, kernels, and buckets.
+
+The exchange itself is unchanged. Point `HF_OIDC_RESOURCE` (or `resource`) at the repo.
+
+```yaml
+    permissions:
+      id-token: write  # required so the job can request an OIDC token
+
+    steps:
+      - name: Download a private model
+        env:
+          HF_OIDC_RESOURCE: acme/private-model
+        run: hf download acme/private-model
+```
+
+Like other publisher settings, the permission is fixed at creation. To change it, delete the publisher and add it again.
 
 ### Calling Inference Providers from CI
 
@@ -222,9 +241,9 @@ When the `hf` CLI performs the exchange, a failure surfaces the `error` code alo
 ## Security model
 
 - **Tokens are short-lived.** 60 minutes from the moment of exchange — the clock only starts when you call the endpoint, not when the workflow starts. There's no refresh token; long jobs should re-exchange.
-- **Repo tokens are repo-scoped.** A token for `acme/awesome-model` cannot touch `acme/anything-else`. Pushes are attributed to a synthetic `[OIDC]` system user, with a reference to the originating issuer and subject.
+- **Repo tokens are repo-scoped.** A token for `acme/awesome-model` cannot touch `acme/anything-else`. Pushes are attributed to a synthetic `[OIDC]` system user, with a reference to the originating issuer and subject. Tokens from a read-only publisher can only read that repo.
 - **User tokens are read-only.** `gated-repos` scope by default — no writes, no private repos, no account management. The optional `inference-api` scope adds Inference Providers calls (billed to your account), but still no write or private-repo access.
-- **Claims are matched exactly.** No regex, no prefix matching.
+- **Claims are matched exactly, or by prefix where a provider preset needs it** (GitHub's `workflow_ref`). No regex.
 - **Audit logs.** Adding or removing a publisher is logged, and successful exchanges update last used time.
 
 ## See also
