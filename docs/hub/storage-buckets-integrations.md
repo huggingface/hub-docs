@@ -1,8 +1,11 @@
 # Bucket Integrations
 
-Storage Buckets can be read and written from many Python data libraries using `hf://buckets/` paths, backed by the [`huggingface_hub` filesystem interface](/docs/huggingface_hub/guides/hf_file_system).
+Most tools can already use a bucket, in one of two ways:
 
-For the underlying access mechanisms — mounts, volume mounts, and fsspec — see [Access Patterns](./storage-buckets-access).
+- **Python libraries built on fsspec** (pandas, Dask, PyArrow, and others) read and write `hf://buckets/` paths through the [`huggingface_hub` filesystem interface](/docs/huggingface_hub/guides/hf_file_system).
+- **Tools that talk to S3** (boto3, the AWS CLI, rclone, DVC, and others) work against the [S3-compatible API](./storage-buckets-s3).
+
+This page covers libraries with built-in bucket support, plus examples for common data libraries. For mounts and volume mounts, see [Access Patterns](./storage-buckets-access).
 
 ## pandas
 
@@ -68,6 +71,48 @@ from datasets import load_dataset
 
 ds = load_dataset("buckets/username/my-bucket", data_files=["data.parquet"])
 ```
+
+## datatrove
+
+[datatrove](https://github.com/huggingface/datatrove) readers and writers accept `hf://buckets/` paths. `HuggingFaceBucketWriter` uploads large outputs with Xet:
+
+```python
+from datatrove.pipeline.readers import ParquetReader
+from datatrove.pipeline.writers import HuggingFaceBucketWriter
+
+reader = ParquetReader(data_folder="hf://buckets/username/my-bucket/raw/")
+writer = HuggingFaceBucketWriter(bucket="username/my-bucket", prefix="filtered")
+```
+
+See the [datatrove README](https://github.com/huggingface/datatrove#hf-storage-buckets) for more.
+
+## LeRobot
+
+[LeRobot](https://huggingface.co/docs/lerobot/main/en/training_dataset_streaming) can stream a training dataset from a bucket. The bucket must hold the full dataset (`meta/`, Parquet and video files) at its root:
+
+```bash
+lerobot-train \
+  --dataset.repo_id=username/my-bucket \
+  --dataset.repo_type=bucket \
+  --dataset.streaming=true \
+  --policy.type=act
+```
+
+## Diffusers
+
+`diffusers-cli run` uploads its outputs to a bucket with `--push-to`. The bucket is created if it does not exist:
+
+```bash
+diffusers-cli run --model black-forest-labs/FLUX.1-dev --dtype bf16 \
+  --pipeline-kwargs '{"prompt": "an astronaut riding a horse"}' \
+  --push-to hf://buckets/username/my-bucket/outputs
+```
+
+See the [Diffusers CLI guide](https://huggingface.co/docs/diffusers/using-diffusers/cli) for more.
+
+## Trackio
+
+When [Trackio](https://huggingface.co/docs/trackio) logs to a Space, it stores run data in a bucket created from the Space ID. Pass `bucket_id` to `trackio.init()` to use a bucket you choose.
 
 ## Inspect AI
 
@@ -159,4 +204,4 @@ See [Query with DuckDB](./storage-buckets-access#query-with-duckdb) for private 
 
 ## Coming soon
 
-Native `hf://` URL support is on the way for more libraries — including Polars and WebDataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).
+Native `hf://` URL support is on the way for more libraries — including WebDataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).
