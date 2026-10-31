@@ -20,6 +20,7 @@ This table lists _some_ tools, libraries, and applications that work with Huggin
 | [Codex](https://developers.openai.com/codex)                       | OpenAI's agentic coding CLI for the terminal                            | [Getting started](./codex)                                                                                                                         |
 | [Claude Code](https://docs.anthropic.com/en/docs/claude-code)      | Agentic coding tool for the terminal                                    | [Getting started](./claude-code)                                                                                                                   |
 | [Hermes Agent](https://github.com/NousResearch/hermes-agent)       | Open-source AI agent CLI for coding and development                     | [Getting started](./hermes-agent) |
+| [Mercury CLI](https://github.com/Whq02/MercuryCLI) | Terminal coding agent with parallel sessions and Git worktree crewmates | [Getting started](./mercury-cli) |
 | [CrewAI](https://www.crewai.com/)                                  | Framework for orchestrating AI agent teams                              | [Official docs](https://docs.crewai.com/en/concepts/llms#hugging-face)                                                                             |
 | [NeMo Data Designer](https://github.com/NVIDIA-NeMo/DataDesigner)  | Synthetic dataset generation framework                                  | [Getting started](./datadesigner)                                                                                                                  |
 | [GitHub Copilot Chat](https://docs.github.com/en/copilot)          | AI pair programmer in VS Code                                           | [Getting started](./vscode)                                                                                                                        |
@@ -58,6 +59,7 @@ AI-powered coding assistants and development environments.
 - [Codex](https://developers.openai.com/codex) - OpenAI's agentic coding CLI for the terminal ([Getting started](./codex))
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) - Agentic coding tool for the terminal ([Getting started](./claude-code))
 - [Hermes Agent](https://github.com/NousResearch/hermes-agent) - Open-source AI agent CLI for coding and development ([Getting started](./hermes-agent))
+- [Mercury CLI](https://github.com/Whq02/MercuryCLI) - Terminal coding agent with parallel sessions and Git worktree crewmates ([Getting started](./mercury-cli))
 - [GitHub Copilot Chat](https://docs.github.com/en/copilot) - AI pair programmer in VS Code ([Getting started](./vscode))
 - [Roo Code](https://roocode.com/) - AI-powered code generation and refactoring ([Official docs](https://docs.roocode.com/providers/huggingface))
 
