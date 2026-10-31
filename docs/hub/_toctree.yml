@@ -439,6 +439,8 @@
   new: true
   isExpanded: true
   sections:
+  - local: storage-buckets-migration
+    title: Migration Guide
   - local: storage-buckets-access
     title: Access Patterns
   - local: storage-buckets-s3

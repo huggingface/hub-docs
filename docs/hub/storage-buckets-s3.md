@@ -42,12 +42,12 @@ Point your S3 client at the gateway endpoint and set a few required options. Use
 The two checksum settings matter for recent clients: AWS CLI ≥ 2.23 and recent `boto3` versions send trailing CRC32 checksums (via `aws-chunked` framing) by default, which the gateway does not parse. 
 These settings tell the client to send checksums only when an operation strictly requires them.
 
-The following are optional but recommended so large uploads use as few multipart parts as possible:
+The following are optional but recommended. With the client default of 8MB, a large file is split into many parts; 256MB means far fewer parts per upload, while each part stays small enough for the gateway to process efficiently:
 
-| Setting                  | Value |
-|--------------------------|-------|
-| `s3.multipart_threshold` | `2GB` |
-| `s3.multipart_chunksize` | `2GB` |
+| Setting                  | Value   |
+|--------------------------|---------|
+| `s3.multipart_threshold` | `256MB` |
+| `s3.multipart_chunksize` | `256MB` |
 
 ### Example: AWS CLI profile
 
@@ -59,8 +59,8 @@ region = us-east-1
 endpoint_url = https://s3.hf.co/<namespace>
 s3 =
     addressing_style = path
-    multipart_threshold = 2GB
-    multipart_chunksize = 2GB
+    multipart_threshold = 256MB
+    multipart_chunksize = 256MB
 request_checksum_calculation = when_required
 response_checksum_validation = when_required
 ```
@@ -193,6 +193,9 @@ SELECT * FROM read_parquet('s3://my-bucket/data.parquet');
 
 [`rclone`](https://rclone.org/) is a convenient way to copy data between two S3-compatible stores, so it's a good fit for moving an existing AWS S3 bucket (or any S3-compatible source) into a Storage Bucket.
 
+> [!TIP]
+> Moving a large dataset? Mounting the source and running `hf sync` deduplicates on the client, so it usually uploads fewer bytes than rclone. See the [Migration Guide](./storage-buckets-migration).
+
 The idea is to declare two remotes — your source bucket and the Hugging Face gateway — and let `rclone` stream the objects between them. Add both remotes to `~/.config/rclone/rclone.conf`. The first points at your existing S3 bucket; adjust it to match your source (here, plain AWS S3):
 
 ```ini
@@ -204,7 +207,7 @@ secret_access_key = ...
 region = us-east-1
 ```
 
-The second points at the Hugging Face gateway. As with any other client, scope the endpoint to your [namespace](#addressing-buckets), use `path` addressing, force ListObjectsV2 (the only listing version the gateway supports), and set large multipart sizes so uploads use as few parts as possible:
+The second points at the Hugging Face gateway. As with any other client, scope the endpoint to your [namespace](#addressing-buckets), use `path` addressing, force ListObjectsV2 (the only listing version the gateway supports), and set a 256M part size. That's much larger than rclone's 5M default, so large files go up in fewer parts, and small enough for the gateway to process efficiently and to keep rclone's memory in check (it holds 4 parts per transfer in memory):
 
 ```ini
 [hf]
@@ -216,8 +219,8 @@ secret_access_key = ...
 region = us-east-1
 force_path_style = true
 list_version = 2
-upload_cutoff = 2G
-chunk_size = 2G
+upload_cutoff = 256M
+chunk_size = 256M
 ```
 
 Note: replace the `<namespace>` above with the username or organization your buckets are stored in, and use the [S3 credentials](#generating-s3-credentials) generated from your access token. The destination bucket must already exist under that namespace.
