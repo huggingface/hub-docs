@@ -22,7 +22,7 @@ Spaces requires you to define:
   Space to be visible only to you or your organization, or _public_ if you want
   it to be visible to other users. 
 
-* The **Hardware**: the hardware you want to use for your JupyterLab instance. This goes from CPUs to H100s.
+* The **Hardware**: the hardware you want to use for your JupyterLab instance. This goes from CPUs to H200s.
 
 * You can optionally configure a `JUPYTER_TOKEN` password to protect your JupyterLab workspace. When unspecified, defaults to `huggingface`. We strongly recommend setting this up if your Space is public or if the Space is in an organization.
 
