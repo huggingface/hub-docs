@@ -46,6 +46,8 @@
     title: Claude Code
   - local: integrations/hermes-agent
     title: Hermes Agent
+  - local: integrations/mercury-cli
+    title: Mercury CLI
   - local: integrations/datadesigner
     title: NeMo Data Designer
   - local: integrations/macwhisper
