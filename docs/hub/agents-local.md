@@ -1,8 +1,26 @@
 # Local Agents with llama.cpp
 
-You can run a coding agent entirely on your own hardware. Several open-source agents can connect to a local [llama.cpp](https://github.com/ggerganov/llama.cpp) server to give you an experience similar to Claude Code or Codex — but everything runs on your machine.
+You can run a coding agent locally, entirely on your own hardware. Several open-source agents can connect to a local [llama.cpp](https://llama.app/) server to give you an experience similar to Claude Code or Codex — but everything runs on your machine.
 
-## Getting Started
+## How It Works
+
+The setup has two components running locally:
+
+1. **llama.cpp server** — Serves the model as an OpenAI-compatible API on `localhost`.
+2. **Your agent** — The agent process that sends prompts to the local server, reasons about tasks, and executes actions.
+
+```shell
+┌─────────┐     API calls     ┌──────────────────┐
+│  Agent  │ ───────────────▶  │  llama.cpp server │
+│         │ ◀───────────────  │  (local model)    │
+└─────────┘    responses      └──────────────────┘
+     │
+     ▼
+  Your files,
+  terminal, etc.
+```
+
+## Set up llama.cpp server
 
 ### 1. Set Your Local Hardware
 
@@ -12,18 +30,29 @@ Go to [huggingface.co/settings/hardware](https://huggingface.co/settings/hardwar
 
 ### 2. Find a Compatible Model
 
-Browse for [Llama.cpp-compatible models](https://huggingface.co/models?apps=llama.cpp&sort=trending).
+Browse for [Llama.cpp-compatible models](https://huggingface.co/models?apps=llama.cpp&sort=trending). Once selected, download the model on your hardware.
 
+### 3. Install and Launch the llama.cpp Server
 
-### 3. Launch the llama.cpp Server
-
-On the model page, click the **"Use this model"** button and select `llama.cpp`. It will show you the exact commands for your setup. The first step is to start a llama.cpp server, e.g.
+You can install the llama.cpp CLI using the following command.
 
 ```bash
-llama-server -hf ggml-org/gemma-4-26b-a4b-it-GGUF:Q4_K_M
+curl -LsSf https://llama.app/install.sh | sh
 ```
 
-This downloads the model and starts an OpenAI-compatible API server on your machine. See the [llama.cpp guide](./gguf-llamacpp) for installation instructions.
+> [!NOTE]
+> See the [llama.cpp guide](./gguf-llamacpp) for more installation instructions.
+
+Launch the llama.cpp server in the router mode.
+
+```bash
+llama serve \
+  --no-models-autoload \
+  --host 127.0.0.1 \
+  --port 8080 \
+  -ngl all \
+  -c 32768
+```
 
 ### 4. Connect Your Agent
 
@@ -45,7 +74,7 @@ Start Pi in your project directory:
 pi
 ```
 
-Configure the provider:
+Configure llama.cpp:
 
 ```bash
 /login llama.cpp
@@ -73,21 +102,13 @@ Browse [vision-language models compatible with Pi](https://huggingface.co/models
 [OpenClaw](https://github.com/openclaw) works locally with llama.cpp. You can set your model via the onboard command:
 
 ```bash
-openclaw onboard --non-interactive \
-  --auth-choice custom-api-key \
-  --custom-base-url "http://127.0.0.1:8080/v1" \
-  --custom-model-id "ggml-org-gemma-4-26b-a4b-gguf" \
-  --custom-api-key "llama.cpp" \
-  --secret-input-mode plaintext \
-  --custom-compatibility openai \
-  --accept-risk
+openclaw plugins install @openclaw/llama-cpp-provider
+openclaw onboard
 ```
-
-You can also run `openclaw onboard` interactively, select `custom-compatibility` with `openai`, and pass the same configuration.
 
 ### Local Memory Search for OpenClaw
 
-You can run local embedding models with Llama.cpp for your agent's memory search. To do so, make sure to have node-llama-cpp. 
+You can run local embedding models with Llama.cpp for your agent's memory search. To do so, make sure to have node-llama-cpp.
 
 ```bash
 npm i node-llama-cpp 
@@ -112,23 +133,15 @@ openclaw memory status
 
 ## Hermes Agent
 
-[Hermes Agent](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. Define a default config as:
+[Hermes Agent](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. In `~/.hermes/config.yaml` add the following.
 
 ```yaml
-model:
-  provider: custom
-  default: ggml-org/gemma-4-26B-A4B-it-GGUF:Q4_K_M
-  base_url: http://127.0.0.1:8080/v1
-  api_key: llama.cpp
-
 custom_providers:
-  - name: Local (127.0.0.1:8080)
+  - name: llama cpp (127.0.0.1:8080)
     base_url: http://127.0.0.1:8080/v1
-    api_key: llama.cpp
-    model: ggml-org/gemma-4-26B-A4B-it-GGUF:Q4_K_M
 ```
 
-### Local Memory Search for Hermes Agent
+### Local Memory Search for Hermes Agent
 
 Hermes Agent consumes semantic search models through endpoints. Once you get your preferred embedding model up on endpoint 8080 with llama.cpp or the inference engine of your choice, add the following to `~/.hermes/config.yaml`.
 
@@ -178,24 +191,6 @@ $ hermes memory status
     }
   }
 }
-```
-
-## How It Works
-
-The setup has two components running locally:
-
-1. **llama.cpp server** — Serves the model as an OpenAI-compatible API on `localhost`.
-2. **Your agent** — The agent process that sends prompts to the local server, reasons about tasks, and executes actions.
-
-```
-┌─────────┐     API calls     ┌──────────────────┐
-│  Agent  │ ───────────────▶  │  llama.cpp server │
-│         │ ◀───────────────  │  (local model)    │
-└─────────┘    responses      └──────────────────┘
-     │
-     ▼
-  Your files,
-  terminal, etc.
 ```
 
 ## Alternative: llama-agent
