@@ -80,7 +80,7 @@ Find out more about Image Classification [here](../tasks/image-classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
+    providersMapping={ {"hf-inference":{"modelId":"google/vit-base-patch16-224","providerModelId":"google/vit-base-patch16-224"} } }
 />
 
 
@@ -90,7 +90,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"nvidia/segformer-b5-finetuned-ade-640-640","providerModelId":"nvidia/segformer-b5-finetuned-ade-640-640"} } }
+    providersMapping={ {"hf-inference":{"modelId":"nvidia/segformer-b2-finetuned-ade-512-512","providerModelId":"nvidia/segformer-b2-finetuned-ade-512-512"} } }
 />
 
 
@@ -160,7 +160,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"StanfordAIMI/stanford-deidentifier-with-radiology-reports-and-i2b2","providerModelId":"StanfordAIMI/stanford-deidentifier-with-radiology-reports-and-i2b2"} } }
+    providersMapping={ {"hf-inference":{"modelId":"redmadrobot-rnd/rubert-base-pii-ner","providerModelId":"redmadrobot-rnd/rubert-base-pii-ner"} } }
 />
 
 
@@ -180,6 +180,6 @@ Find out more about Zero Shot Classification [here](../tasks/zero-shot-classific
 
 <InferenceSnippet
     pipeline=zero-shot-classification
-    providersMapping={ {"hf-inference":{"modelId":"jeff-legacy/Jeff-Qwen3.5-0.8B","providerModelId":"jeff-legacy/Jeff-Qwen3.5-0.8B"} } }
+    providersMapping={ {"hf-inference":{"modelId":"facebook/bart-large-mnli","providerModelId":"facebook/bart-large-mnli"} } }
 />
 
