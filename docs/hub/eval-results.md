@@ -104,6 +104,10 @@ The `eval.yaml` should contain the following fields:
 - `evaluation_framework` — Canonical evaluation framework identifier for this benchmark. This is an enumerable which the Hugging Face team maintains. Add your own to the list [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/eval.ts). Exactly one framework is supported per benchmark.
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
 
+Optional top-level fields:
+
+- `leaderboard.base_models_only` — Whether the benchmark leaderboard shows only base models by default. Defaults to `true`. Set it to `false` to include non-base models by default, which is useful when most relevant submissions are not classified as base models (for example, robotics policies shipped as ONNX).
+
 Required fields in each `tasks[]` item:
 
 - `id` — Unique identifier for the task. (e.g. `"gpqa_diamond"`). A single benchmark can define several tasks, each producing its own leaderboard. Feel free to choose a leaderboard identifier for each task.
@@ -135,6 +139,9 @@ Extended example:
 name: MathArena AIME 2026
 description: The American Invitational Mathematics Exam (AIME).
 evaluation_framework: "math-arena"
+
+leaderboard:
+  base_models_only: false
 
 tasks:
   - id: MathArena/aime_2026
