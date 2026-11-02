@@ -196,17 +196,19 @@ Without a mount, you can use rclone (it reads GCS and Azure natively; reuse the 
 
 ```python
 # /// script
-# dependencies = ["huggingface_hub", "boto3"]
+# dependencies = ["huggingface_hub", "boto3", "tqdm"]
 # ///
 import boto3
 from botocore import UNSIGNED
 from botocore.config import Config
 from huggingface_hub import HfFileSystem
+from tqdm.contrib.concurrent import thread_map
 
 # --- adapt these ---
 SRC_BUCKET = "my-source-bucket"
 SRC_PREFIX = "some/prefix/"
 DST = "buckets/<namespace>/<bucket>"
+WORKERS = 8   # files copied in parallel
 # -------------------
 
 s3 = boto3.client("s3")   # AWS credentials come from the Job's secrets
@@ -218,23 +220,28 @@ fs = HfFileSystem()       # HF token comes from the Job's HF_TOKEN secret
 # List the destination once: {path: size} of the files already copied
 done = {path: info["size"] for path, info in fs.find(DST, detail=True).items()}
 
+# List the source and keep the objects not copied yet
+todo = []
 pages = s3.get_paginator("list_objects_v2").paginate(Bucket=SRC_BUCKET, Prefix=SRC_PREFIX)
 for page in pages:
     for obj in page.get("Contents", []):
-        key, size = obj["Key"], obj["Size"]
+        key = obj["Key"]
         if key.endswith("/"):
             continue  # folder marker: bucket keys can't end with "/"
-        dst = f"{DST}/{key}"
-        if done.get(dst) == size:
-            continue  # already copied
-        body = s3.get_object(Bucket=SRC_BUCKET, Key=key)["Body"]
-        with fs.open(dst, "wb") as out:
-            for chunk in iter(lambda: body.read(64 << 20), b""):
-                out.write(chunk)
-        print(f"copied {key}")
+        if done.get(f"{DST}/{key}") != obj["Size"]:
+            todo.append(key)
+
+def copy(key):
+    body = s3.get_object(Bucket=SRC_BUCKET, Key=key)["Body"]
+    with fs.open(f"{DST}/{key}", "wb") as out:
+        for chunk in iter(lambda: body.read(64 << 20), b""):
+            out.write(chunk)
+
+# Copy WORKERS files at a time, with a progress bar
+thread_map(copy, todo, max_workers=WORKERS)
 ```
 
-- Each object is staged on the Job's disk and uploaded when it's closed, one file at a time, so every object must fit on the Job's disk.
+- Each object is staged on the Job's disk and uploaded when it's closed, so the disk must hold `WORKERS` of your largest objects at once. Raise `WORKERS` to speed up many small objects; lower it for very large ones.
 - Files already in the bucket with the same size are skipped, so re-running the script resumes an interrupted copy. It won't re-copy a source file that changed but kept its size: to keep a bucket in step with a changing source, [mount the source and run `hf sync`](#from-aws-s3-or-s3-compatible-storage) instead.
 
 For GCS or Azure, swap `boto3` for that cloud's SDK (`google-cloud-storage`, `azure-storage-blob`) and adjust the listing and read calls. The destination half stays the same.
