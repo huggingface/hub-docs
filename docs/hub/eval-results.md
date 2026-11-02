@@ -120,8 +120,9 @@ When setting `evaluation_framework: inspect-ai`, one also requires to set the fo
 
 Optional fields:
 
-- `leaderboard.base_models_only` — Whether the benchmark leaderboard shows only base models by default. Defaults to `true`. Set it to `false` to include non-base models by default, which is useful when most relevant submissions are not classified as base models (for example, robotics policies shipped as ONNX).
 - `evaluation_framework` — Canonical evaluation framework identifier for this benchmark. This is an enumerable which the Hugging Face team maintains. Add your own to the list [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/eval.ts). Exactly one framework is supported per benchmark.
+- `leaderboard.base_models_only` — Whether the benchmark leaderboard shows only base models by default. Defaults to `true`. Set it to `false` to include non-base models by default, which is useful when most relevant submissions are not classified as base models (for example, robotics policies shipped as ONNX).
+
 
 Minimal example (required fields only):
 
