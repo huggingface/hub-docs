@@ -101,12 +101,7 @@ The `eval.yaml` should contain the following fields:
 
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
-- `evaluation_framework` — Canonical evaluation framework identifier for this benchmark. This is an enumerable which the Hugging Face team maintains. Add your own to the list [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/eval.ts). Exactly one framework is supported per benchmark.
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
-
-Optional top-level fields:
-
-- `leaderboard.base_models_only` — Whether the benchmark leaderboard shows only base models by default. Defaults to `true`. Set it to `false` to include non-base models by default, which is useful when most relevant submissions are not classified as base models (for example, robotics policies shipped as ONNX).
 
 Required fields in each `tasks[]` item:
 
@@ -122,6 +117,11 @@ When setting `evaluation_framework: inspect-ai`, one also requires to set the fo
 - `field_spec` — Specification of the input and output fields. Consists of `input`, `target`, `choices` and optional `input_image` subfields. See the [docs](https://inspect.aisi.org.uk/tasks.html#hugging-facehttps://inspect.aisi.org.uk/tasks.html#hugging-face) for more details.
 - `solvers` — Solvers used to go from input to output using the AI model. This can range from a simple system prompt to self-critique loops. See the [docs](https://inspect.aisi.org.uk/solvers.html) for more details.
 - `scores` — Scorers used. Scorers determine whether solvers were successful in finding the right output for the target defined in the dataset, and in what measure. See the [docs](https://inspect.aisi.org.uk/scorers.html) for more details.
+
+Optional fields:
+
+- `leaderboard.base_models_only` — Whether the benchmark leaderboard shows only base models by default. Defaults to `true`. Set it to `false` to include non-base models by default, which is useful when most relevant submissions are not classified as base models (for example, robotics policies shipped as ONNX).
+- `evaluation_framework` — Canonical evaluation framework identifier for this benchmark. This is an enumerable which the Hugging Face team maintains. Add your own to the list [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/eval.ts). Exactly one framework is supported per benchmark.
 
 Minimal example (required fields only):
 
