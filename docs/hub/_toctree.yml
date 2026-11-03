@@ -499,6 +499,8 @@
     title: Building agents with the HF SDK
   - local: agents-local
     title: Local Agents with llama.cpp
+  - local: agents-funes
+    title: Cross-Agent Memory with funes
   - local: agents-libraries
     title: Agent Libraries
   - local: session-traces-format
