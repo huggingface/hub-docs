@@ -14,6 +14,7 @@ Each report describes one transfer. An upload of several files in one commit is 
 | Timing | How long the transfer took. For uploads, also the time spent chunking and uploading the data and the time spent finalizing the commit. |
 | Size | Number of files, total size of the files, and the number of bytes sent over the network. |
 | Deduplication | For uploads, how much data was already stored on the Hub and skipped, how much was new, and how well the new data compressed. |
+| Upload path | For uploads (`hf_xet` 1.8.0 and later), how many blocks of data went directly to cloud storage and how many through the Xet storage server, their total size and upload time, and how often a direct upload fell back to the Xet storage server. |
 | Speed | Average throughput and the highest number of parallel requests used. |
 | Client | `hf_xet` version, operating system, CPU architecture, number of CPUs, and the user agent string. This is the same user agent `huggingface_hub` sends with every request to the Hub, with the name and version of the calling library (such as `transformers`) and the versions of `huggingface_hub`, Python, and PyTorch. |
 | IDs | A random ID for the transfer, a random ID for the `hf_xet` session, and the host name of the Xet storage server that handled the transfer. |

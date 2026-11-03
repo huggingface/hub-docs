@@ -155,9 +155,8 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 
 | Environment Variable | Default | Description |
 |---|---|---|
-| `HF_XET_CLIENT_ENABLE_ADAPTIVE_CONCURRENCY` | `true` | Enable or disable adaptive concurrency control. When disabled, concurrency stays at the initial value. |
-| `HF_XET_CLIENT_AC_INITIAL_UPLOAD_CONCURRENCY` | `1` | Starting number of concurrent upload streams. HP mode: `16`. |
-| `HF_XET_CLIENT_AC_INITIAL_DOWNLOAD_CONCURRENCY` | `1` | Starting number of concurrent download streams. HP mode: `16`. |
+| `HF_XET_CLIENT_AC_INITIAL_UPLOAD_CONCURRENCY` | `2` | Starting number of concurrent upload streams. HP mode: `16`. |
+| `HF_XET_CLIENT_AC_INITIAL_DOWNLOAD_CONCURRENCY` | `4` | Starting number of concurrent download streams. HP mode: `16`. |
 | `HF_XET_CLIENT_AC_MIN_UPLOAD_CONCURRENCY` | `1` | Lower bound for upload concurrency. HP mode: `4`. |
 | `HF_XET_CLIENT_AC_MIN_DOWNLOAD_CONCURRENCY` | `1` | Lower bound for download concurrency. HP mode: `4`. |
 | `HF_XET_CLIENT_AC_MAX_UPLOAD_CONCURRENCY` | `64` | Upper bound for upload concurrency. HP mode: `124`. |
@@ -173,15 +172,20 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 
 ### Network and Retry
 
+Starting with `hf_xet` 1.8.0, uploads can go directly to cloud storage instead of through the Xet storage server, when the server offers it. If your network restricts outbound traffic, allow `s3.us-east-1.amazonaws.com`, and `s3.eu-west-3.amazonaws.com` for repositories stored in the EU. If these hosts can't be reached, `hf_xet` falls back to uploading through the Xet storage server after retrying, which makes uploads slower; set `HF_XET_CLIENT_LEGACY_DIRECT_XORB_UPLOAD=true` to skip direct uploads entirely.
+
 | Environment Variable | Default | Description |
 |---|---|---|
 | `HF_XET_CLIENT_RETRY_MAX_ATTEMPTS` | `5` | Maximum number of retry attempts for failed requests. |
 | `HF_XET_CLIENT_RETRY_BASE_DELAY` | `3000ms` | Base delay between retries (with exponential backoff). |
-| `HF_XET_CLIENT_RETRY_MAX_DURATION` | `360s` | Maximum total time to spend retrying a request. |
+| `HF_XET_CLIENT_RETRY_MAX_DURATION` | `360s` | Maximum wait before any single retry. Retrying stops after `HF_XET_CLIENT_RETRY_MAX_ATTEMPTS`, so the total retry time can exceed this value. |
 | `HF_XET_CLIENT_CONNECT_TIMEOUT` | `60s` | TCP connection timeout. |
 | `HF_XET_CLIENT_READ_TIMEOUT` | `120s` | Read timeout for HTTP responses. |
 | `HF_XET_CLIENT_IDLE_CONNECTION_TIMEOUT` | `60s` | Timeout before idle connections are closed. |
 | `HF_XET_CLIENT_MAX_IDLE_CONNECTIONS` | `16` | Maximum number of idle connections in the pool. |
+| `HF_XET_CLIENT_LEGACY_DIRECT_XORB_UPLOAD` | `false` | Set to `true` to send all upload data through the Xet storage server instead of directly to cloud storage (`hf_xet` 1.8.0 and later). |
+| `HF_XET_CLIENT_RECONSTRUCTION_API_VERSION` | (unset) | Force the download (reconstruction) API version to `1` or `2`, with no fallback. When unset, `hf_xet` tries version 2 and falls back to version 1 if the server doesn't support it. |
+| `HF_XET_CLIENT_SHARD_API_VERSION` | (unset) | Force the upload (shard) API version to `1` or `2`, with no fallback. When unset, `hf_xet` tries version 2 and falls back to version 1 if the server doesn't support it. |
 
 ### Data Transfer
 
@@ -219,7 +223,7 @@ The **shard cache** holds the deduplication index (the "shards" describing chunk
 | Environment Variable | Default | Description |
 |---|---|---|
 | `HF_XET_SHARD_CACHE_SIZE_LIMIT` | `16gb` | Soft cap on the on-disk shard cache. The cache is pruned to this size at the **start** of a run, but may grow past it within a single long-running session. As a rough guide, a cache of size *X* deduplicates against roughly 1000 × *X* of data (16 GB → ~16 TB). Raise it for better dedup on very large repos; lower it if the growing cache risks filling your disk. Accepts a human-readable size (e.g. `32gb`) or a raw byte count. |
-| `HF_XET_SHARD_CHUNK_INDEX_TABLE_MAX_SIZE` | `64mb` | Maximum size of the in-memory chunk index. Once reached, no further chunks are loaded for deduplication. |
+| `HF_XET_SHARD_CHUNK_INDEX_TABLE_MAX_SIZE` | `67108864` | Maximum number of chunk entries in the in-memory deduplication index. Set a whole number, not a size such as `128mb`. Starting with `hf_xet` 1.7.1, when the index is full the oldest shards are removed from it to make room for new ones; earlier versions stop adding chunks once it is full. |
 | `HF_XET_SHARD_CACHE_SUBDIR` | `shard-cache` | Subdirectory for the shard cache within the Xet cache directory. |
 
 ### Chunk Cache
