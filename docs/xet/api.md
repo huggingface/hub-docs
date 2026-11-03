@@ -111,6 +111,8 @@ An example shard response body can be found in [Xet reference files](https://hug
   - `prefix`: The only acceptable prefix for the Xorb upload API is `default`.
   - `hash`: Xorb hash in hex format (64 lowercase hexadecimal characters).
 See [Xorb Hashes](./hashing#xorb-hashes) to compute the hash, and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Headers**:
+  - `Content-Length`: REQUIRED. Size of the serialized Xorb in bytes. Requests without a valid `Content-Length` are rejected with `400 Bad Request`. Most HTTP clients set it automatically for a fixed-size body; set it explicitly when streaming the body.
 - **Minimum Token Scope**: `write`
 - **Body**: Serialized Xorb bytes (`application/octet-stream`).
 See [xorb format serialization](./xorb).
@@ -124,10 +126,12 @@ See [xorb format serialization](./xorb).
 
 - Note: `was_inserted` is `false` if the Xorb already exists; this is not an error.
 
+> [!NOTE]
+> Clients MAY instead upload the Xorb directly to object storage through an [upload grant](./api#11-request-xorb-upload-grant). This endpoint remains available, and clients MUST use it when the grant request returns `404 Not Found`.
+
 - **Error Responses**: See [Error Cases](./api#error-cases)
-  - `400 Bad Request`: Malformed hash in the path, Xorb hash does not match the body, or body is incorrectly serialized.
-  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
-  - `403 Forbidden`: Token provided but does not have a wide enough scope (for example, a `read` token was provided). Clients MUST retry with a `write` scope token.
+  - `400 Bad Request`: Missing or invalid `Content-Length` header, malformed hash in the path, Xorb hash does not match the body, or body is incorrectly serialized.
+  - `401 Unauthorized`: The token is missing, invalid, or expired, or does not have `write` scope (for example, a `read` token). Refresh the token, or provide a `write` scope token.
 
 ```txt
 POST /v1/xorbs/default/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
@@ -144,6 +148,8 @@ An example xorb request body can be found in [Xet reference files](https://huggi
 Uploads file reconstructions and new xorb listing, serialized into the shard format; marks the files as uploaded.
 - **Path**: `/v1/shards`
 - **Method**: `POST`
+- **Headers**:
+  - `Content-Length`: REQUIRED. Size of the serialized Shard in bytes. Requests without a valid `Content-Length` are rejected with `400 Bad Request`. Most HTTP clients set it automatically for a fixed-size body; set it explicitly when streaming the body.
 - **Minimum Token Scope**: `write`
 - **Body**: Serialized Shard data as bytes (`application/octet-stream`).
 See [Shard format guide](./shard#shard-upload).
@@ -151,21 +157,22 @@ See [Shard format guide](./shard#shard-upload).
 
 ```json
 {
-  "result": 0
+  "result": 1,
+  "shard_hash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
 }
 ```
 
 - Where `result` is:
   - `0`: The Shard already exists.
   - `1`: `SyncPerformed` — the Shard was registered.
+- `shard_hash`: the hash the server stored the Shard under, in the [hash string format](./api#converting-hashes-to-strings). The server re-serializes the Shard before storing it, so this can differ from a hash the client computed over the uploaded bytes. Older servers omit this field.
 
 The value of `result` does not carry any meaning, if the upload shard API returns a `200 OK` status code, the upload was successful and the files listed are considered uploaded.
 
 - **Error Responses**: See [Error Cases](./api#error-cases)
-  - `400 Bad Request`: Shard is incorrectly serialized or Shard contents failed verification.
+  - `400 Bad Request`: Missing or invalid `Content-Length` header, Shard is incorrectly serialized, or Shard contents failed verification.
     - Can mean that a referenced Xorb doesn't exist or the shard is too large
-  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
-  - `403 Forbidden`: Token provided but does not have a wide enough scope (for example, a `read` token was provided).
+  - `401 Unauthorized`: The token is missing, invalid, or expired, or does not have `write` scope (for example, a `read` token). Refresh the token, or provide a `write` scope token.
 
 ```txt
 POST /v1/shards
@@ -181,16 +188,22 @@ An example shard request body can be found in [Xet reference files](https://hugg
 - **Description**: Runs the same validation and registration as [Upload Shard](./api#4-upload-shard), but streams finalization progress back as newline-delimited JSON so clients can show real progress on large shards, which can take several seconds to finalize server-side.
 - **Path**: `/v2/shards`
 - **Method**: `POST`
+- **Headers**:
+  - `Content-Length`: REQUIRED. Size of the serialized Shard in bytes. Requests without a valid `Content-Length` are rejected with `400 Bad Request`.
 - **Minimum Token Scope**: `write`
 - **Body**: Serialized Shard data as bytes (`application/octet-stream`), identical to [`/v1/shards`](./api#4-upload-shard). See [Shard format guide](./shard#shard-upload).
 - **Response**: A newline-delimited JSON stream (`Content-Type: application/x-ndjson`, `Cache-Control: no-cache`), one JSON object ("event") per line.
 
-The HTTP status is `200 OK` as soon as the stream starts, so success or failure is carried by the terminal event, NOT by the status code.
+The server starts the response only after it has received the full request body, so a failure is reported only after the whole body is sent.
+The HTTP status is then `200 OK`, so success or failure is carried by the terminal event, NOT by the status code.
 Clients MUST read the stream to completion and inspect the terminal event.
 
-Each event has a `type` field:
+Verification starts while the body is still arriving, but progress from that period is not streamed: when the response starts, the server sends the most recent event, then streams events as they happen.
+The first event can therefore be any event, including the terminal one.
 
-  - `validating`: verification progress. `verified` is the number of completed verification tasks, `total` the number spawned so far. While the shard is still being received `total` grows, so treat `verified / total` as a live ratio, not a final percentage.
+Each event has a `type` field. Clients SHOULD ignore events with an unknown `type`.
+
+  - `validating`: verification progress. `verified` is the number of completed verification tasks, `total` the number spawned so far. `total` can still grow, so treat `verified / total` as a live ratio, not a final percentage.
 
     ```json
     {"type":"validating","verified":120,"total":512}
@@ -204,36 +217,36 @@ Each event has a `type` field:
     {"type":"committing","stage":"uploading"}
     ```
 
-  - `result`: terminal success. Carries the same [`UploadShardResponse`](./api#4-upload-shard) values (`0`: already existed, `1`: registered); as with `/v1/shards` the value is informational, a `result` event means the upload succeeded.
+  - `result`: terminal success; a `result` event means the upload succeeded. It carries no other fields: unlike `/v1/shards`, the stream does not report whether the Shard already existed, or the stored Shard hash.
 
     ```json
-    {"type":"result","result":1}
+    {"type":"result"}
     ```
 
-  - `error`: terminal failure with a sanitized message. Because the status is already `200 OK`, this event is the only failure signal once streaming has started.
+  - `error`: terminal failure with a sanitized `message` and a `retryable` flag. Because the status is already `200 OK`, this event is the only failure signal once streaming has started. If `retryable` is `true` (a transient server-side fault), the client SHOULD retry the upload. If it is `false` (for example, the Shard failed verification), the client MUST NOT retry the same Shard.
 
     ```json
-    {"type":"error","message":"..."}
+    {"type":"error","message":"...","retryable":false}
     ```
 
 A typical successful stream:
 
 ```txt
-{"type":"validating","verified":0,"total":512}
 {"type":"validating","verified":256,"total":512}
+{"type":"validating","verified":512,"total":512}
 {"type":"committing","stage":"uploading"}
 {"type":"committing","stage":"syncing"}
-{"type":"result","result":1}
+{"type":"result"}
 ```
 
 If validation stalls, the server periodically re-emits the last progress event as a heartbeat so the stream never looks dead, which lets clients keep a short read timeout.
 
 > [!NOTE]
-> Additive change: `/v1/shards` is unchanged. Clients SHOULD try `/v2/shards` and fall back to `/v1/shards` on `404 Not Found`.
+> Additive change: `/v1/shards` is unchanged. Clients SHOULD try `/v2/shards` and fall back to `/v1/shards` on `404 Not Found` or `501 Not Implemented`.
 
-- **Error Responses**: A malformed or unauthorized request can still fail before streaming starts; see [Error Cases](./api#error-cases). Once the stream has started (`200 OK`), validation and registration failures are reported through the terminal `error` event instead.
-  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
-  - `403 Forbidden`: Token provided but does not have a wide enough scope (for example, a `read` token was provided).
+- **Error Responses**: A malformed or unauthorized request fails with a status code before the stream starts; see [Error Cases](./api#error-cases). Once the stream has started (`200 OK`), validation and registration failures are reported through the terminal `error` event instead.
+  - `400 Bad Request`: Missing or invalid `Content-Length` header.
+  - `401 Unauthorized`: The token is missing, invalid, or expired, or does not have `write` scope (for example, a `read` token). Refresh the token, or provide a `write` scope token.
 
 ```txt
 POST /v2/shards
@@ -364,7 +377,8 @@ See [file hashes](./hashing#file-hashes) and [converting hashes to strings](./ap
   - `gapVerification`: one hash per stable original segment (a segment lying entirely in a gap between dirty windows or before/after them, in segment order). The client wraps each into a `FileVerificationEntry` for the verification section of the composed shard. Empty when every segment overlaps a dirty range.
 
 - **Error Responses**: See [Error Cases](./api#error-cases)
-  - `400 Bad Request`: Missing or malformed `X-Range-Dirty` header, malformed `file_id`, or no range survives clamping to the file.
+  - `400 Bad Request`: Missing `X-Range-Dirty` header, or malformed `file_id`.
+  - `416 Range Not Satisfiable`: Malformed `X-Range-Dirty` value (including open-ended ranges such as `bytes=100-`), or no dirty range overlaps the file.
   - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
   - `404 Not Found`: The file does not exist. Not retryable.
 
@@ -411,13 +425,133 @@ GET /v1/reconstructions/0123456789abcdef0123456789abcdef0123456789abcdef01234567
 OPTIONAL: -H Range: "bytes=0-100000"
 ```
 
+### 11. Request Xorb Upload Grant
+
+- **Description**: Requests a grant to upload a serialized Xorb directly to object storage instead of through the CAS server. After uploading to the grant, the client MUST call [Commit Xorb Upload](./api#12-commit-xorb-upload). This flow is OPTIONAL: [Upload Xorb](./api#3-upload-xorb) always works, and clients MUST fall back to it when this endpoint returns `404 Not Found`.
+- **Path**: `/v1/xorb-grants/{prefix}/{hash}`
+- **Method**: `POST`
+- **Parameters**:
+  - `prefix`: `default`.
+  - `hash`: Xorb hash in hex format (64 lowercase hexadecimal characters).
+See [Xorb Hashes](./hashing#xorb-hashes) and [converting hashes to strings](./api#converting-hashes-to-strings).
+- **Headers**:
+  - `Content-Type`: `application/json`.
+- **Minimum Token Scope**: `write`
+- **Body**: JSON (`XorbUploadGrantRequest`)
+
+  ```json
+  {
+    "length": 1234567,
+    "checksum": { "algo": "crc64nvme", "value": "18446744073709551615" }
+  }
+  ```
+
+  - `length`: size in bytes of the serialized Xorb. MUST be greater than 0.
+  - `checksum`: CRC-64/NVME checksum of the serialized Xorb bytes. `value` is the unsigned 64-bit checksum written as a decimal **string**, since JSON numbers lose precision above 2^53. `crc64nvme` is the only supported `algo`.
+
+- **Response**:
+  - `201 Created`: an upload is needed. JSON (`XorbUploadGrant`):
+
+    ```json
+    {
+      "id": "01JBX6Q0Z8K4T3V9M2N5P7R1SA",
+      "method": "PUT",
+      "url": "https://...",
+      "headers": { "If-None-Match": "*", "...": "..." }
+    }
+    ```
+
+    - `id`: opaque grant id, used to commit the upload.
+    - `method`, `url`, `headers`: send the serialized Xorb as the body of a `method` request to `url`, with exactly these headers. `url` is a short-lived pre-signed URL on an object storage host, not on the CAS server; treat it as opaque. Do NOT send the CAS `Authorization` header to `url`.
+  - `200 OK` with an empty body: the Xorb already exists. Nothing needs to be uploaded or committed.
+
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: Malformed JSON, malformed hash in the path, or `length` is 0 or larger than the maximum Xorb size.
+  - `401 Unauthorized`: The token is missing, invalid, or expired, or does not have `write` scope (for example, a `read` token). Refresh the token, or provide a `write` scope token.
+  - `404 Not Found`: The server does not offer an upload grant for this request (servers that predate this API also return `404`). This is not an error: upload through [`POST /v1/xorbs`](./api#3-upload-xorb) instead.
+  - `422 Unprocessable Entity`: The body is valid JSON, but `checksum` is missing or uses an unknown `algo`.
+
+#### Uploading to the Grant URL
+
+The response to the upload request sent to the grant `url` determines the next step:
+
+- `2xx`: the Xorb was uploaded; call [Commit Xorb Upload](./api#12-commit-xorb-upload).
+- `412 Precondition Failed`: an earlier attempt with this grant already stored the data; treat it as success and commit.
+- `409 Conflict`: an earlier attempt with this grant is still being stored; retry with backoff.
+- `400 Bad Request` or `403 Forbidden` (for example, the grant expired): request a new grant and upload again. Clients SHOULD limit the number of new grants per Xorb (the reference client requests up to 3), then upload through [`POST /v1/xorbs`](./api#3-upload-xorb).
+- Any other failure (for example, the object storage host cannot be reached): upload through [`POST /v1/xorbs`](./api#3-upload-xorb).
+
+```txt
+POST /v1/xorb-grants/default/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+-H "Authorization: Bearer <token>"
+-H "Content-Type: application/json"
+```
+
+### 12. Commit Xorb Upload
+
+- **Description**: Validates a Xorb uploaded through an [upload grant](./api#11-request-xorb-upload-grant) and stores it. Until it is committed, the Xorb does not exist, and Shards that reference it are rejected.
+- **Path**: `/v1/xorb-commits/{prefix}/{hash}/grant/{grant_id}`
+- **Method**: `POST`
+- **Parameters**:
+  - `prefix`: `default`.
+  - `hash`: Xorb hash in hex format (64 lowercase hexadecimal characters).
+  - `grant_id`: the `id` from the grant, URL-encoded.
+- **Minimum Token Scope**: `write`
+- **Body**: None.
+- **Response**: `200 OK` with an empty body. Also returned when the Xorb already existed (for example, committed by a concurrent upload).
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: `grant_id` is malformed, or the uploaded data is not a valid Xorb or does not match `hash`. Not retryable.
+  - `401 Unauthorized`: The token is missing, invalid, or expired, or does not have `write` scope (for example, a `read` token). Refresh the token, or provide a `write` scope token.
+  - `404 Not Found`: No uploaded data was found for this grant. Request a new grant and upload again.
+
+```txt
+POST /v1/xorb-commits/default/0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef/grant/01JBX6Q0Z8K4T3V9M2N5P7R1SA
+-H "Authorization: Bearer <token>"
+```
+
+### 13. Upload Telemetry
+
+- **Description**: Accepts one client telemetry report. OPTIONAL for clients. See [Telemetry](https://huggingface.co/docs/hub/xet/telemetry) for what `hf_xet` sends and how to opt out.
+- **Path**: `/v1/telemetry`
+- **Method**: `POST`
+- **Headers**:
+  - `Content-Type`: `application/json`.
+- **Minimum Token Scope**: `read`
+- **Body**: JSON, at most 5 KiB. Other top-level fields are ignored.
+
+  ```json
+  {
+    "time": "2026-07-27T10:00:00.000Z",
+    "event": "upload_complete",
+    "session_id": "abc-123",
+    "user_agent": "hf-xet/1.8.0",
+    "metrics": { "bytes": 42 }
+  }
+  ```
+
+  - `time`: RFC 3339 timestamp.
+  - `event`, `session_id`: strings of at most 128 bytes.
+  - `user_agent`: string of at most 512 bytes.
+  - `metrics`: JSON object with at most 128 keys in total, each key at most 128 bytes, nested at most 4 levels deep.
+
+- **Response**: `200 OK` with an empty body.
+- **Error Responses**: See [Error Cases](./api#error-cases)
+  - `400 Bad Request`: The body is not valid JSON, a field is missing or has the wrong type, `time` is not RFC 3339, or a limit above is exceeded.
+  - `401 Unauthorized`: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
+  - `413 Payload Too Large`: The body is larger than 5 KiB.
+
+```txt
+POST /v1/telemetry
+-H "Authorization: Bearer <token>"
+-H "Content-Type: application/json"
+```
+
 ## Error Cases
 
 ### Non-Retryable Errors
 
 - **400 Bad Request**: Returned when the request parameters are invalid (for example, invalid Xorb/Shard on upload APIs).
-- **401 Unauthorized**: Refresh the token to continue making requests, or provide a token in the `Authorization` header.
-- **403 Forbidden**: Token provided but does not have a wide enough scope (for example, a `read` token was provided for an API requiring `write` scope).
+- **401 Unauthorized**: The token is missing, invalid, or expired, or does not have the scope the API requires (for example, a `read` token on an upload API). Refresh the token, or request one with the required scope.
 - **404 Not Found**: Occurs on `GET` APIs where the resource (Xorb, file) does not exist.
 - **416 Range Not Satisfiable**: Reconstruction API only; returned when byte range requests are invalid. Specifically, the requested start range is greater than or equal to the length of the file.
 
@@ -425,6 +559,7 @@ OPTIONAL: -H Range: "bytes=0-100000"
 
 - **Connection Errors**: Often caused by network issues. Retry if intermittent.
 Clients SHOULD ensure no firewall blocks requests and SHOULD NOT use DNS overrides.
+With [upload grants](./api#11-request-xorb-upload-grant), Xorb data is uploaded to object storage hosts such as `s3.us-east-1.amazonaws.com` and `s3.eu-west-3.amazonaws.com` rather than to the CAS server; if those hosts are blocked, clients fall back to [`POST /v1/xorbs`](./api#3-upload-xorb), which can be slower.
 - **429 Rate Limiting**: Lower your request rate using a backoff strategy, then wait and retry.
 Assume all APIs are rate limited.
 - **500 Internal Server Error**: The server experienced an intermittent issue; clients SHOULD retry their requests.
