@@ -66,11 +66,13 @@ hf speedtest
 
 `hf_xet` is a Rust-based package leveraging the [Xet storage backend](https://huggingface.co/docs/hub/en/xet/index) to optimize file transfers with chunk-based deduplication. By default, `hf_xet` uses **adaptive concurrency** — it automatically tunes the number of parallel transfer streams based on real-time network conditions, starting conservatively (1 stream) and scaling up to 64 concurrent streams as bandwidth permits.
 
-For most machines — including data center environments — the default settings will already saturate the available network bandwidth. For advanced users on machines with high bandwidth **and at least 64 GB of RAM**, `HF_XET_HIGH_PERFORMANCE=1` raises concurrency bounds and significantly increases memory buffer sizes, which can help when downloading many large files in parallel.
+For most machines — including data center environments — the default settings will already saturate the available network bandwidth. For advanced users on machines with high bandwidth and fast disk, `HF_XET_HIGH_PERFORMANCE=1` raises concurrency bounds and increases memory buffer sizes, which can help when downloading many large files in parallel.
 
 ```bash
 HF_XET_HIGH_PERFORMANCE=1 hf download ...
 ```
+
+Starting with `hf_xet` 1.7.0, download buffer sizes are based on the memory available to `hf_xet`, including container memory limits, with or without `HF_XET_HIGH_PERFORMANCE=1`. With earlier versions, only use `HF_XET_HIGH_PERFORMANCE=1` on machines with at least 64 GB of RAM. See [Download Buffers](./xet/using-xet-storage#download-buffers) for the values used.
 
 ## Using hf-mount
 

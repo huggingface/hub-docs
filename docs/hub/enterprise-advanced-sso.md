@@ -20,6 +20,8 @@ When a user is deactivated in your IdP, their Hugging Face account is deactivate
 
 Managed SSO cannot be self-configured. To enable Managed SSO for your organization, please <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">contact the Hugging Face team</a>. The setup is done in collaboration with our technical team to ensure a smooth transition for your organization.
 
+If you are converting an existing organization, read [Migrating to Managed SSO](./enterprise-managed-sso-migration) first: members' existing personal accounts are not converted, and each member must free up their work email before they can be provisioned.
+
 Both SAML 2.0 and OIDC protocols are supported and can be integrated with popular identity providers such as Okta, Microsoft Entra ID (Azure AD), and Google Workspace.
 
 ## User provisioning

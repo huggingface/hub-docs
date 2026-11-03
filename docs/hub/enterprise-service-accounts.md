@@ -49,6 +49,28 @@ From the service account's page, administrators can:
 > [!WARNING]
 > An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.
 
+### Generating S3 Credentials
+
+Service account tokens can be used to access your organization's [Storage Buckets](./storage-buckets) through the [S3-compatible API](./storage-buckets-s3). The gateway authenticates with AWS-style access keys derived from a service account token.
+
+1. Go to the service account's page. [Create a token](#managing-access-tokens) with the **Create new token** button if you don't already have one. The token's permissions become the S3 credentials' permissions.
+2. Find the token in the list, open its dropdown menu, and choose **Generate S3 credentials**.
+
+   <div class="flex justify-center">
+   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-generate-s3-credentials.png" alt="Generate S3 credentials option in service account token's dropdown menu"/>
+   <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-generate-s3-credentials.png" alt="Generate S3 credentials option in service account token's dropdown menu"/>
+   </div>
+
+3. Copy the generated **access key ID** (prefixed `HFAK…`) and **secret access key** somewhere safe — the secret is shown only once. If you lose it, use **Invalidate and refresh S3 credentials** to generate a new pair. The previous access key stops working immediately.
+
+The S3 credentials inherit the permissions of the underlying access token. Scope the token to only the buckets you intend to use.
+
+Use **Revoke S3 credentials** to disable the pair without deleting the token — deleting the token (or the service account) also revokes its S3 credentials. The service account's page shows the access key ID currently paired with each token.
+
+Use your organization name as the `<namespace>` in the endpoint URL (see [Configuring a Client](./storage-buckets-s3#configuring-a-client)). Generating and revoking S3 credentials are recorded in the organization's [Audit Logs](./audit-logs).
+
+If a token has the [Network Security exemption](#network-security-exemption) enabled, only organization admins can generate S3 credentials for it.
+
 ### Network Security exemption
 
 > [!WARNING]

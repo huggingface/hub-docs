@@ -46,11 +46,11 @@ The easiest way to develop with Evidence is using the [VS Code Extension](https:
 4. Select the folder you'd like to clone the project to and press Enter
 5. Press `Start Evidence` in the bottom status bar
 
-Check out the docs for [alternative install methods](https://docs.evidence.dev/getting-started/install-evidence), Github Codespaces, and alongside dbt.
+Check out the docs for [alternative install methods](https://docs.evidence.dev/getting-started/install-evidence), GitHub Codespaces, and alongside dbt.
 
 ## Learning More
 
 - [Docs](https://docs.evidence.dev/)
-- [Github](https://github.com/evidence-dev/evidence)
+- [GitHub](https://github.com/evidence-dev/evidence)
 - [Slack Community](https://slack.evidence.dev/)
 - [Evidence Home Page](https://www.evidence.dev)

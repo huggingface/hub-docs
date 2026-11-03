@@ -7,8 +7,9 @@ You can use them to auto-convert models, build community bots, or build CI/CD fo
 
 The documentation for Webhooks is below – or you can also browse our **guides** showcasing a few possible use cases of Webhooks:
 - [Fine-tune a new model whenever a dataset gets updated (Python)](./webhooks-guide-auto-retrain)
-- [Create a discussion bot on the Hub, using a LLM API (NodeJS)](./webhooks-guide-discussion-bot)
+- [Create a discussion bot on the Hub, using an LLM API (NodeJS)](./webhooks-guide-discussion-bot)
 - [Create metadata quality reports (Python)](./webhooks-guide-metadata-review)
+- [Process new files in a bucket with Jobs (CLI)](./webhooks-guide-bucket-jobs)
 - and more to come…
 
 ## Create your Webhook

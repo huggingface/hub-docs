@@ -1,21 +1,8 @@
 # Examples & Tutorials
 
-## Guides to train with Jobs
+## Train models
 
-Guides for using popular libraries with Jobs:
-
-- [Training with TRL on Jobs](https://huggingface.co/docs/trl/jobs_training) - Run SFT, GRPO, DPO and more using TRL and TRL Jobs
-- [Fine-tune with Unsloth on Jobs](https://huggingface.co/blog/unsloth-jobs) - ~2x faster training and ~60% less VRAM using Unsloth
-- [Transformers example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) - UV-compatible training scripts for text classification, summarization, image classification, NER, speech recognition, and more — run directly on Jobs:
-
-```bash
-hf jobs uv run --flavor a10g-small --secrets HF_TOKEN \
-  https://raw.githubusercontent.com/huggingface/transformers/main/examples/pytorch/image-classification/run_image_classification.py \
-  --model_name_or_path google/vit-base-patch16-224-in21k \
-  --dataset_name ethz/food101 \
-  --output_dir vit-food101 \
-  --push_to_hub
-```
+The launch commands for Transformers, TRL, Unsloth and Axolotl are on [Train Models on Jobs](./jobs-training). Each one links to the library's own guide.
 
 ## Process data at scale
 
@@ -52,6 +39,7 @@ The [expose ports](./jobs-configuration#expose-ports) feature of Jobs makes them
 - [Train on massive datasets without downloading](https://danielvanstrien.xyz/posts/2026/hf-streaming-unsloth/train-massive-datasets-without-downloading.html) - Stream datasets directly on Jobs with Unsloth, no local storage needed
 - [Fine-tune a vision-language model with TRL](https://danielvanstrien.xyz/posts/2025/iconclass-vlm-sft/trl-vlm-fine-tuning-iconclass.html) - Fine-tune Qwen2.5-VL for art history tasks using TRL and Jobs
 - [FreeFlow](https://github.com/wjbmattingly/freeflow) - Open-source annotation platform with built-in Jobs integration for training YOLOv11 object detection models
+- [hfdask](https://github.com/Hanno-Labs/hfdask) - Run Dask programs across CPU and GPU Jobs from one YAML cluster definition, with mTLS between nodes and automatic cleanup
 
 ---
 

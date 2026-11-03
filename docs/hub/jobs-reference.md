@@ -23,7 +23,7 @@ Find the installation steps and guides in the `huggingface_hub` documentation:
 
 The Jobs HTTP API Endpoints are available under `https://huggingface.co/api/jobs`.
 
-Authenticate using a Hugging face token with the permission to start and manage Jobs under your namespace (your account or organization).
+Authenticate using a Hugging Face token with the permission to start and manage Jobs under your namespace (your account or organization).
 Pass the token as a Bearer token with the header: `"Authorization: Bearer {token}"`.
 
 Here is a list of available endpoints and arguments:

@@ -15,7 +15,7 @@ The Dev Mode Docker image starts your application as a sub-process, allowing you
 
 The ability to connect to the running Space unlocks several use cases:
 
-    - You can make changes to the app code without the Space rebuilding everytime
+    - You can make changes to the app code without the Space rebuilding every time
     - You can debug a running application and monitor resources live
 
 Overall it makes developing and experimenting with Spaces much faster by skipping the Docker image rebuild phase.
@@ -202,7 +202,7 @@ Feel free to duplicate them in your namespace!
 
 Example Python app (FastAPI HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-python
 
-Example Javascript app (Express.js HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-javascript
+Example JavaScript app (Express.js HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-javascript
 
 
 ## Feedback

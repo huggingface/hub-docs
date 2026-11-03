@@ -82,7 +82,7 @@ See the list of [Libraries supported by the Datasets Hub](./datasets-libraries) 
 
 ## Ingest raw data
 
-If you are ingesting raw data that need further curation before being published as AI-ready datasets or if you need an S3-like experience, consider ingesting them to [Hugging Face Storage Buckets](./storage-buckets).
+If you are ingesting raw data that need further curation before being published as AI-ready datasets or if you need an S3-like experience, consider ingesting them to [Hugging Face Storage Buckets](./storage-buckets). To move a large existing collection into a bucket from local disk or another cloud, see the [Migration Guide](./storage-buckets-migration).
 
 If your data already lives in a dataset, model, or Space repository, you can copy it into a bucket **server-side** — no download or re-upload — with `hf buckets cp`:
 

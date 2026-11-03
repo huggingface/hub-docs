@@ -280,6 +280,8 @@ curl -H "Authorization: Bearer $HF_TOKEN" https://<job_id>--<port>.hf.jobs/
 
 This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants. Repeat the flag to expose multiple ports (`--expose 8000 --expose 8001`), or pass several ports in the list (`expose=[8000, 8001]`).
 
+To make a port reachable without an HF token, use `--expose-public <port>` (CLI) or `expose_public=[<port>]` (Python API) instead. Anyone who has the URL can then reach the port, so use it only for a service that is safe to share. You can combine both options: some ports then require an HF token and others are public.
+
 > [!NOTE]
 > Exposed ports are billed at a small flat hourly rate on top of the job's hardware price, only while the job is running. See the [pricing page](./jobs-pricing) for details.
 
@@ -304,6 +306,23 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 >>> job.status.expose_urls
 ['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
 ```
+
+### Change the ports of a running Job
+
+Use `hf jobs expose` to change which ports are exposed, without restarting the Job:
+
+```bash
+# Expose port 8000 (requires an HF token)
+>>> hf jobs expose <job_id> 8000
+
+# Expose port 8000 (requires an HF token) and port 9000 publicly
+>>> hf jobs expose <job_id> 8000 --public 9000
+
+# Close all exposed ports
+>>> hf jobs expose <job_id> --clear
+```
+
+The command replaces the full list of exposed ports, so a port that you leave out is closed. In Python, use `update_job_expose`.
 
 ## SSH
 
@@ -441,6 +460,18 @@ Supported time units:
 
 > [!WARNING]
 > If you don't specify a timeout, a default timeout will be applied to your job. For long-running tasks like model training that may take hours, make sure to set an appropriate timeout to avoid unexpected job terminations.
+
+## Retries
+
+By default, a Job runs once. Use `--attempts <n>` (CLI) or `attempts=<n>` (Python API) to retry a Job that fails. The number includes the first run, so `--attempts 3` allows up to two retries:
+
+```bash
+>>> hf jobs uv run --attempts 3 --flavor a10g-large train.py
+```
+
+This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+
+A retry runs the command again from the start, under the same Job ID. To let a retry resume where the previous attempt stopped, write checkpoints to a mounted bucket and have your script resume from them. See [After it ends](./jobs-training#after-it-ends) in Train Models on Jobs.
 
 ## Namespace
 

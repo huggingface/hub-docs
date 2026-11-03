@@ -59,7 +59,7 @@ df = (
 )
 ```
 
-See [PySpark on the Hub](./datasets-pyspark) for more.
+See [PySpark on the Hub](./datasets-spark) for more.
 
 ## 🤗 Datasets
 
@@ -142,10 +142,21 @@ files = hffs.ls("buckets/username/my-bucket")
 text_files = hffs.glob("buckets/username/my-bucket/*.txt")
 ```
 
+## DuckDB
+
+DuckDB 2.0 and later read `hf://buckets/` paths natively through the `httpfs` extension (and with the `hf` extension for writing), from the CLI and every client:
+
+```sql
+SELECT * FROM 'hf://buckets/username/my-bucket/data/**/*.parquet' LIMIT 10;
+COPY tbl TO 'hf://buckets/username/my-bucket/out.parquet';
+```
+
+See [Query with DuckDB](./storage-buckets-access#query-with-duckdb) for private buckets and older DuckDB versions.
+
 ## Other languages
 
 [OpenDAL](https://opendal.apache.org/) provides a similar filesystem interface for Rust, Java, Go, JavaScript, and more.
 
 ## Coming soon
 
-Native `hf://` URL support is on the way for more libraries — including Polars, DuckDB, and webdataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).
+Native `hf://` URL support is on the way for more libraries — including Polars and WebDataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).

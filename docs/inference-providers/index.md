@@ -76,7 +76,7 @@ Here's what you can build:
 - **Search & Retrieval**: State-of-the-art embeddings for semantic search, RAG systems, and recommendation engines
 - **Traditional ML Tasks**: Ready-to-use models for classification, NER, summarization, and speech recognition
 
-⚡ **Get Started for Free**: Inference Providers includes a generous free tier, with additional credits for [PRO users](https://hf.co/subscribe/pro) and [Team & Enterprise organizations](https://huggingface.co/enterprise).
+⚡ **Get Started**: Inference Providers is pay-as-you-go, with monthly included credits for [PRO users](https://hf.co/subscribe/pro) and [Team & Enterprise organizations](https://huggingface.co/enterprise).
 
 ## Key Features
 
@@ -241,7 +241,7 @@ Install with NPM:
 npm install @huggingface/inference
 ```
 
-Then use the client with Javascript.
+Then use the client with JavaScript.
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
@@ -271,7 +271,7 @@ console.log(chatCompletion.choices[0].message);
 
 <hfoption id="openai">
 
-If you're already using OpenAI's Javascript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
+If you're already using OpenAI's JavaScript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
 By default, our system automatically selects the fastest available provider for the specified model (equivalent to the `:fastest` policy — highest throughput in tokens per second).
 
@@ -595,6 +595,5 @@ Now that you understand the basics, explore these resources to make the most of 
 - **[Announcement Blog Post](https://huggingface.co/blog/inference-providers)**: Learn more about the launch of Inference Providers
 - **[Pricing and Billing](./pricing)**: Understand costs and billing of Inference Providers
 - **[Hub Integration](./hub-integration)**: Learn how Inference Providers are integrated with the Hugging Face Hub
-- **[Register as a Provider](./register-as-a-provider)**: Requirements to join our partner network as a provider
 - **[Hub API](./hub-api)**: Advanced API features and configuration
 - **[API Reference](./tasks/index)**: Complete parameter documentation for all supported tasks

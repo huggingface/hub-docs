@@ -32,7 +32,7 @@ An easy way is to use a Space for this. We use the user account we created, but 
 
 The Space's code is [here](https://huggingface.co/spaces/discussion-bot/webhook/tree/main).
 
-We used NodeJS and Typescript to implement it, but any language or framework would work equally well. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
+We used NodeJS and TypeScript to implement it, but any language or framework would work equally well. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
 
 **The main `server.ts` file is [here](https://huggingface.co/spaces/discussion-bot/webhook/blob/main/server.ts)**
 
@@ -92,7 +92,7 @@ In that case, we will continue to the next step:
 		...
 ```
 
-This is the coolest part: using [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/chat-completions), we call an open-weight model (`moonshotai/Kimi-K2.6`) with a system prompt and the user's comment. The model generates a reply, which we extract from `choices[0].message.content`.
+This is the coolest part: using [Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers/tasks/chat-completion), we call an open-weight model (`moonshotai/Kimi-K2.6`) with a system prompt and the user's comment. The model generates a reply, which we extract from `choices[0].message.content`.
 
 You can pick any model from the [list of available models](https://huggingface.co/inference/models) — just swap the `model` field.
 

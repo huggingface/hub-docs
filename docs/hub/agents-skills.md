@@ -14,11 +14,15 @@ Skills work with all major coding agents: Claude Code, OpenAI Codex, Google Gemi
 <hfoption id="Claude Code">
 
 ```bash
-# register the skills marketplace
-/plugin marketplace add huggingface/skills
+# install a specific Skill with the hf CLI (use --global to install it for all projects)
+hf skills add <skill-name> --global
+```
 
-# install a specific Skill
-/plugin install <skill-name>@huggingface/skills
+The `hf-cli` Skill is also available as a Claude Code plugin:
+
+```bash
+/plugin marketplace add huggingface/skills
+/plugin install hf-cli@huggingface-skills
 ```
 
 </hfoption>
@@ -27,7 +31,7 @@ Skills work with all major coding agents: Claude Code, OpenAI Codex, Google Gemi
 
 Copy or symlink skills from the [repository](https://github.com/huggingface/skills) into one of Codex's standard `.agents/skills` locations (e.g. `$REPO_ROOT/.agents/skills` or `$HOME/.agents/skills`). Codex discovers them automatically via the Agent Skills standard.
 
-Alternatively, use the bundled [`agents/AGENTS.md`](https://github.com/huggingface/skills/blob/main/agents/AGENTS.md) as a fallback.
+Alternatively, use the bundled [`agentsmd/AGENTS.md`](https://github.com/huggingface/skills/blob/main/agentsmd/AGENTS.md) as a fallback.
 
 </hfoption>
 

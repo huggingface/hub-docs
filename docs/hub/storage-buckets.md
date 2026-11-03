@@ -8,7 +8,7 @@ You can interact with buckets using the Hub web interface, the [`hf` CLI](https:
 > Buckets are available to all users and organizations. See [hf.co/storage](https://huggingface.co/storage) for pricing details.
 
 > [!TIP]
-> See [Access Patterns](./storage-buckets-access) for how to reach bucket data from your tools (mount as a filesystem, `hf://` paths, volume mounts in Jobs/Spaces), the [S3-Compatible API](./storage-buckets-s3) for using existing S3 tooling (AWS CLI, boto3, s5cmd), and [Bucket Integrations](./storage-buckets-integrations) for ready-to-use snippets in popular data libraries like pandas, Dask, and Spark.
+> See the [Migration Guide](./storage-buckets-migration) for moving existing data into a bucket from local disk, another cloud, or the Hub, [Access Patterns](./storage-buckets-access) for how to reach bucket data from your tools (mount as a filesystem, `hf://` paths, volume mounts in Jobs/Spaces), the [S3-Compatible API](./storage-buckets-s3) for using existing S3 tooling (AWS CLI, boto3, s5cmd), and [Bucket Integrations](./storage-buckets-integrations) for ready-to-use snippets in popular data libraries like pandas, Dask, and Spark.
 
 ## Buckets vs Repositories
 
@@ -334,7 +334,7 @@ Note that transferring data the other way from a bucket to a repository (model, 
 
 Buckets are mutable, so tools that keep a view of a bucket — mounts, filesystem layers, sync daemons, dashboards — need to know when files change. Two mechanisms are available:
 
-- [Webhooks](./webhooks#buckets): HTTP callbacks to a server you control, for automation and integrations.
+- [Webhooks](./webhooks#buckets): HTTP callbacks to a server you control, or a [Job](./jobs) started on each change — see [Process new files in a bucket with Jobs](./webhooks-guide-bucket-jobs).
 - **Live follow**: a server-sent events stream your client subscribes to.
 
 ### Live follow
@@ -347,6 +347,18 @@ curl -N -H "Accept: text/event-stream" \
   "https://huggingface.co/api/buckets/username/my-bucket/events"
 ```
 
+> [!TIP]
+> In Python, you don't need to consume the stream yourself. [`HfFileSystem`](/docs/huggingface_hub/guides/hf_file_system#keep-listings-fresh) follows it for you with `live_follow=True`, so its cached listings stay current when another process changes the bucket:
+>
+> ```python
+> from huggingface_hub import HfFileSystem
+>
+> hffs = HfFileSystem(live_follow=True)
+> hffs.ls("buckets/username/my-bucket/data")  # starts following the bucket
+> ```
+>
+> Libraries that take fsspec `storage_options` (pandas, PyArrow, ...) accept it too.
+
 The stream emits four event types:
 
 | Event       | Data                                                  | Meaning                                                                                       |
@@ -356,7 +368,7 @@ The stream emits four event types:
 | `reset`     | `{"reason": "cursor_too_old"}`                        | The resume point cannot be replayed; the stream ends and you should re-list the bucket.       |
 | `reconnect` | `{"cursor": "..."}`                                   | The server is closing the stream on purpose; reconnect with that cursor.                      |
 
-Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically. Fields that did not change are omitted; `mtime`/`mtimeNanos` may also be `null` when an upload cleared them, so treat absent and `null` alike. `xetHash` is only included if you have read access to the bucket's content.
+Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically. Fields that did not change are omitted; `mtime`/`mtimeNanos` may also be `null` when an upload cleared them, so treat absent and `null` alike.
 
 ```
 event: ready
@@ -366,11 +378,11 @@ event: changes
 data: {"cursor":"...","changes":[{"path":"data/train.txt","op":"add","size":20,"uploadedAt":"2026-09-16T09:21:45.000Z"},{"path":"data/old.txt","op":"delete"}]}
 ```
 
-**Resuming.** Every `ready` and `changes` event carries an opaque `cursor`. Reconnect with `?cursor=<cursor>` to get the changes that happened after it, or with `?since=<ISO timestamp>` (inclusive, e.g. `2026-09-16T09:21:45Z`) to resume from an instant instead. With neither parameter, you only receive changes that happen after you connect.
+**Resuming.** A new stream starts from the moment you connect. To also get the changes you missed, pass the last `cursor` you received (every `ready` and `changes` event carries one) as `?cursor=<cursor>`, or a timestamp as `?since=<ISO timestamp>` (inclusive, e.g. `2026-09-16T09:21:45Z`).
 
 Only the **last ~15 minutes** of changes can be replayed. If your `cursor` or `since` is older than that, you receive `reset` instead of a replay: list the bucket once to rebuild your view, then follow again from the `cursor` of the new stream's `ready` event. Resuming is meant to bridge short gaps such as a dropped connection or a restart; a client that has been away longer should expect to re-list.
 
-**Reconnecting.** Long-lived connections are recycled: about every 20 minutes (and during deployments) the server sends `reconnect` and then ends the stream. Treat *any* end of the stream the same way — reconnect with the last cursor you received. If a `reconnect` arrives without a cursor, reconnect with the same `cursor` or `since` you originally requested. A `: ping` comment is sent every 30 seconds to keep the connection alive, so a stream that goes fully silent can be considered dead.
+**Reconnecting.** Long-lived connections are recycled: about every 20 minutes (and during deployments) the server sends `reconnect` and then ends the stream. Treat *any* end of the stream the same way — reconnect with the last cursor you received. A `: ping` comment is sent every 30 seconds to keep the connection alive, so a stream that goes fully silent can be considered dead.
 
 A `503` response means live follow is momentarily unavailable — retry after the delay in the `Retry-After` header.
 
