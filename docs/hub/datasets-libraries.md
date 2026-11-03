@@ -24,7 +24,7 @@ The table below summarizes the supported libraries and their level of integratio
 
 _ * Requires passing extra arguments to write optimized Parquet files_
 
-Other libraries have integrations for curating datasets: [Argilla](./datasets-argilla) (labeling), [Distilabel](./datasets-distilabel) (synthetic data generation), [Embedding Atlas](./datasets-embedding-atlas) (embeddings visualization), [Fenic](./datasets-fenic) (semantic processing), [FiftyOne](./datasets-fiftyone) (images visualization and curation).
+Other libraries have integrations for curating datasets: [Embedding Atlas](./datasets-embedding-atlas) (embeddings visualization), [Fenic](./datasets-fenic) (semantic processing), [FiftyOne](./datasets-fiftyone) (images visualization and curation).
 
 ## Data Processing Libraries
 
