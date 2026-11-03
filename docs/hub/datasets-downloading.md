@@ -114,6 +114,11 @@ Allowlist the following hostnames (all over HTTPS / port 443):
 > security policy allows it, allowlist the `hf.co` and `huggingface.co` suffixes (all
 > subdomains) so your rules don't break when a specific endpoint changes.
 
+> [!NOTE]
+> Uploads with `hf_xet` 1.8.0 or later can also go directly to Amazon S3 hostnames, which
+> are not under `hf.co` or `huggingface.co`. See
+> [Uploading behind a proxy or firewall](./xet/using-xet-storage#uploading-behind-a-proxy-or-firewall).
+
 ### Machine-readable list
 
 The hostnames above are also published as JSON at
