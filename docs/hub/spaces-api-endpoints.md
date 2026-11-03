@@ -228,15 +228,15 @@ ZeroGPU Spaces have usage quotas based on your account type:
 | Account Type | Included Daily GPU Quota |
 |-------------|--------------------------|
 | Unauthenticated | 2 minutes |
-| Free account | 3.5 minutes |
-| PRO account | 25 minutes |
+| Free account | 5 minutes |
+| PRO account | 40 minutes |
 
 When you authenticate with your token, your account's GPU quota is consumed. Unauthenticated requests use a shared pool with stricter limits.
 
 PRO, Team, and Enterprise users can go beyond their included daily quota using pre-paid credits at the rate of **$1 per 10 minutes** of GPU time.
 
 > [!TIP]
-> You can [subscribe to PRO](https://huggingface.co/subscribe/pro) for 25 minutes of daily GPU quota, higher queue priority, and the ability to extend your quota with credits.
+> You can [subscribe to PRO](https://huggingface.co/subscribe/pro) for 40 minutes of daily GPU quota, higher queue priority, and the ability to extend your quota with credits.
 
 ## Common patterns
 

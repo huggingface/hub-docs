@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@huggingface/inference':
-        specifier: ^4.13.15
-        version: 4.13.15
+        specifier: ^4.13.32
+        version: 4.13.32
       '@huggingface/tasks':
-        specifier: ^0.20.16
-        version: 0.20.16
+        specifier: ^0.22.2
+        version: 0.22.2
       '@types/node':
         specifier: ^22.5.0
         version: 22.5.0
@@ -189,19 +189,19 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@huggingface/inference@4.13.15':
-    resolution: {integrity: sha512-V7B13KFDVhYkQqgx8vpMcmtEG+PoePlh65IUvpphTTItHAq6zRLcsS4torh1QavUaT+6nEwho4wFXzBQNGBwKQ==}
+  '@huggingface/inference@4.13.32':
+    resolution: {integrity: sha512-8ciIAPAV+Ck/om1PkvQ+flogKcoi6XEs4MDuwX9HeaYfmPdF1ooWXLsYo0wU5fRwxiYkqPaN4TuDUBXed3ywIA==}
     engines: {node: '>=18'}
 
-  '@huggingface/jinja@0.5.7':
-    resolution: {integrity: sha512-OosMEbF/R6zkKNNzqhI7kvKYCpo1F0UeIv46/h4D4UjVEKKd6k3TiV8sgu6fkreX4lbBiRI+lZG8UnXnqVQmEQ==}
+  '@huggingface/jinja@0.5.11':
+    resolution: {integrity: sha512-YzEzwM5oQf4r0vs7ifWQ+yuVR1YkAHrjERQ+a8WRsStHHp4NRBg+NesjiFc+X2AFUpRvvrIeHDS1xFy9jY/IjQ==}
     engines: {node: '>=18'}
 
-  '@huggingface/tasks@0.19.90':
-    resolution: {integrity: sha512-nfV9luJbvwGQ/5oKXkKhCV9h4X7mwh1YaGG3ORd6UMLDSwr1OFSSatcBX0O9OtBtmNK19aGSjbLFqqgcIR6+IA==}
+  '@huggingface/tasks@0.21.61':
+    resolution: {integrity: sha512-bAki2SyAkxYbzYCAcOmPYq++CzCHI1CkxeVQnF2jkXAh60wnIuR+jZJ+Eha1aaI049bB1aO8H+icr4C/kvLnuw==}
 
-  '@huggingface/tasks@0.20.16':
-    resolution: {integrity: sha512-Jf1qCqL4e8xMBFGEelWgmJ2MGbOP2XYA3ggj3BPlA5U+3Kr+zO8mzo+ODf13u/xXeo/TF77UH7e1f7KxIVve5A==}
+  '@huggingface/tasks@0.22.2':
+    resolution: {integrity: sha512-m+LqKsOQPlG3UYolaQo9q154VlCV9cE26GL2bdqkhNVOeeeQYCzqZG7C9JvVl6+rwgupvmFIFxPrkTDbFp8U9w==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -418,16 +418,16 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@huggingface/inference@4.13.15':
+  '@huggingface/inference@4.13.32':
     dependencies:
-      '@huggingface/jinja': 0.5.7
-      '@huggingface/tasks': 0.19.90
+      '@huggingface/jinja': 0.5.11
+      '@huggingface/tasks': 0.21.61
 
-  '@huggingface/jinja@0.5.7': {}
+  '@huggingface/jinja@0.5.11': {}
 
-  '@huggingface/tasks@0.19.90': {}
+  '@huggingface/tasks@0.21.61': {}
 
-  '@huggingface/tasks@0.20.16': {}
+  '@huggingface/tasks@0.22.2': {}
 
   '@jridgewell/resolve-uri@3.1.2': {}
 

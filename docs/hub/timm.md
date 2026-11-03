@@ -14,7 +14,7 @@ All models on the Hub come with several useful features:
 
 ## Using existing models from the Hub
 
-Any `timm` model from the Hugging Face Hub can be loaded with a single line of code as long as you have `timm` installed! Once you've selected a model from the Hub, pass the model's ID prefixed with `hf-hub:` to `timm`'s `create_model` method to download and instantiate the model. 
+Any `timm` model from the Hugging Face Hub can be loaded with a single line of code as long as you have `timm` installed! Once you've selected a model from the Hub, pass the model's ID prefixed with `hf-hub:` to `timm`'s `create_model` method to download and instantiate the model.
 
 ```py
 import timm
@@ -23,7 +23,7 @@ import timm
 model = timm.create_model("hf-hub:timm/eca_nfnet_l0", pretrained=True)
 ```
 
-If you want to see how to load a specific model, you can click **Use in timm** and you will be given a working snippet to load it! 
+If you want to see how to load a specific model, you can click **Use in timm** and you will be given a working snippet to load it!
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-timm_snippet1.png"/>
@@ -138,23 +138,6 @@ model_reloaded = timm.create_model(
     'hf-hub:<your-username>/resnet18-random-classifier',
     pretrained=True
 )
-```
-
-## Inference Widget and API
-
-All `timm` models on the Hub are automatically equipped with an [inference widget](./models-widgets), pictured below for [nateraw/timm-resnet50-beans](https://huggingface.co/nateraw/timm-resnet50-beans). Additionally, `timm` models are available through the [Inference Providers](./models-inference), which you can access through HTTP with cURL, Python's `requests` library, or your preferred method for making network requests. 
-
-<div class="flex justify-center">
-<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-timm_widget.png"/>
-<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/libraries-timm_widget-dark.png"/>
-</div>
-
-```sh
-curl https://api-inference.huggingface.co/models/nateraw/timm-resnet50-beans \
-        -X POST \
-        --data-binary '@beans.jpeg' \
-        -H "Authorization: Bearer {$HF_API_TOKEN}"
-# [{"label":"angular_leaf_spot","score":0.9845947027206421},{"label":"bean_rust","score":0.01368315052241087},{"label":"healthy","score":0.001722085871733725}]
 ```
 
 ## Additional resources

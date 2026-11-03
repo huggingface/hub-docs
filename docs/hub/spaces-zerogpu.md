@@ -2,7 +2,7 @@
 
 <img src="https://cdn-uploads.huggingface.co/production/uploads/5f17f0a0925b9863e28ad517/naVZI-v41zNxmGlhEhGDJ.gif" style="max-width: 440px; width: 100%" alt="ZeroGPU schema" />
 
-ZeroGPU is a shared infrastructure that optimizes GPU usage for AI models and demos on Hugging Face Spaces. It dynamically allocates and releases NVIDIA H200 GPUs as needed, offering:
+ZeroGPU is a shared infrastructure that optimizes GPU usage for AI models and demos on Hugging Face Spaces. It dynamically allocates and releases NVIDIA RTX Pro 6000 Blackwell GPUs as needed, offering:
 
 1. **Free GPU Access**: Enables cost-effective GPU usage for Spaces.
 2. **Multi-GPU Support**: Allows Spaces to leverage multiple GPUs concurrently on a single application.
@@ -15,17 +15,18 @@ Unlike traditional single-GPU allocations, ZeroGPU's efficient system lowers bar
   - ZeroGPU Spaces are available to use for free to all users. (Visit [the curated list](https://huggingface.co/spaces/enzostvs/zero-gpu-spaces)).
   - [PRO users](https://huggingface.co/subscribe/pro) get x8 more daily usage quota, highest priority in GPU queues, and can go beyond their daily quota using pre-paid credits when using any ZeroGPU Spaces.
 - **Hosting your own ZeroGPU Spaces**
-  - Personal accounts: [Subscribe to PRO](https://huggingface.co/settings/billing/subscription) to access ZeroGPU in the hardware options when creating a new Gradio SDK Space.
+  - Free personal accounts: accounts in good standing (verified email, account older than 30 days) can host up to 2 ZeroGPU Spaces for free.
+  - PRO accounts: [Subscribe to PRO](https://huggingface.co/settings/billing/subscription) to host up to 10 ZeroGPU Spaces under your account.
   - Organizations: [Subscribe to a Team or Enterprise plan](https://huggingface.co/enterprise) to enable ZeroGPU Spaces for all organization members.
 
 ## Technical Specifications
 
 ZeroGPU supports two GPU sizes
 
-| GPU size            | Backing hardware | Vram                     | Quota cost |
-|---------------------|------------------|--------------------------|------------|
-| `large` *(default)* | Half NVIDIA H200 | 70GB                     | 1×         |
-| `xlarge`            | Full NVIDIA H200 | 141GB                    | 2×         |
+| GPU size            | Backing hardware                   | Vram | Quota cost |
+|---------------------|------------------------------------|------|------------|
+| `large` *(default)* | Half NVIDIA RTX Pro 6000 Blackwell | 48GB | 1×         |
+| `xlarge`            | Full NVIDIA RTX Pro 6000 Blackwell | 96GB | 2×         |
 
 > [!NOTE]
 > See [GPU size selection](#gpu-size-selection) to learn how to use sizes
@@ -41,21 +42,16 @@ ZeroGPU Spaces are designed to be compatible with most PyTorch-based GPU Spaces.
 ### Supported Versions
 
 - **Gradio**: 4+
-- **PyTorch**: Almost all versions from **2.1.0** to **latest** are supported  
+- **PyTorch**: Almost all versions from **2.8.0** to **latest** are supported
   <details>
     <summary>See full list</summary>
 
-    - 2.1.0  
-    - 2.1.1  
-    - 2.1.2  
-    - 2.2.0  
-    - 2.2.2  
-    - 2.4.0  
-    - 2.5.1  
-    - 2.6.0  
-    - 2.7.1  
     - 2.8.0  
     - 2.9.1  
+    - 2.10.0  
+    - 2.11.0  
+    - 2.12.1  
+    - 2.13.0  
 
   </details>
 - **Python**:
@@ -106,9 +102,9 @@ Lazy-loading or moving models to CUDA inside `@spaces.GPU` is discouraged, as it
 
 ## GPU size selection
 
-The default size used by `@spaces.GPU` is `large` (half H200).
+The default size used by `@spaces.GPU` is `large` (half NVIDIA RTX Pro 6000 Blackwell).
 
-You can explicitly request a full H200 by specifying `size="xlarge"`:
+You can explicitly request a full NVIDIA RTX Pro 6000 Blackwell by specifying `size="xlarge"`:
 
 ``` python
 @spaces.GPU(size="xlarge")
@@ -163,10 +159,10 @@ GPU usage is subject to **daily** quotas, per account tier:
 | Account type                   | Included daily GPU quota | Queue priority  |
 | ------------------------------ | ------------------------ | --------------- |
 | Unauthenticated                | 2 minutes                | Low             |
-| Free account                   | 3.5 minutes              | Medium          |
-| PRO account                    | 25 minutes (extensible)  | Highest         |
-| Team organization member       | 25 minutes (extensible)  | Highest         |
-| Enterprise organization member | 45 minutes (extensible)  | Highest         |
+| Free account                   | 5 minutes                | Medium          |
+| PRO account                    | 40 minutes (extensible)  | Highest         |
+| Team organization member       | 40 minutes (extensible)  | Highest         |
+| Enterprise organization member | 60 minutes (extensible)  | Highest         |
 
 Included daily quota resets exactly 24 hours after your first GPU usage.
 
@@ -182,6 +178,7 @@ You can add credits from your [billing settings](https://huggingface.co/settings
 
 ## Hosting Limitations
 
+- **Free personal accounts**: Maximum of 2 ZeroGPU Spaces, for accounts in good standing (verified email, account older than 30 days).
 - **Personal accounts ([PRO subscribers](https://huggingface.co/subscribe/pro))**: Maximum of 10 ZeroGPU Spaces.
 - **Organization accounts ([Team & Enterprise](https://huggingface.co/enterprise))**: Maximum of 50 ZeroGPU Spaces.
 

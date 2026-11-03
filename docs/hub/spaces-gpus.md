@@ -28,6 +28,9 @@ In the following tables, you can see the Specs for the different upgrade options
 | CPU Basic              | 2 vCPU        | 16 GB        |  -              | 50 GB     | Free!             |
 | CPU Upgrade            | 8 vCPU        | 32 GB        |  -              | 50 GB     | $0.03             |
 
+> [!NOTE]
+> CPU Basic has no hourly cost, but creating a new Space that runs on compute (Gradio or Docker) requires a paid plan. Static Spaces are free for everyone. See the [Spaces Overview](./spaces-overview#hardware-resources) for details.
+
 ### GPU
 
 | **Hardware**           | **CPU**       | **Memory**   | **GPU Memory**  | **Disk**  | **Hourly Price**  |
@@ -39,6 +42,10 @@ In the following tables, you can see the Specs for the different upgrade options
 | 1x Nvidia L40S         | 8 vCPU        | 62 GB        | 48 GB           | 380 GB    | $1.80             |
 | 4x Nvidia L40S         | 48 vCPU       | 382 GB       | 192 GB          | 3200 GB   | $8.30             |
 | 8x Nvidia L40S         | 192 vCPU      | 1534 GB      | 384 GB          | 6500 GB   | $23.50            |
+| 1x Nvidia RTX PRO 6000 | 23 vCPU       | 256 GB       | 96 GB           | 475 GB    | $2.75             |
+| 2x Nvidia RTX PRO 6000 | 46 vCPU       | 512 GB       | 192 GB          | 950 GB    | $5.50             |
+| 4x Nvidia RTX PRO 6000 | 92 vCPU       | 1024 GB      | 384 GB          | 1900 GB   | $11.00            |
+| 8x Nvidia RTX PRO 6000 | 184 vCPU      | 2048 GB      | 768 GB          | 3800 GB   | $22.00            |
 | Nvidia A10G - small    | 4 vCPU        | 15 GB        | 24 GB           | 110 GB    | $1.00             |
 | Nvidia A10G - large    | 12 vCPU       | 46 GB        | 24 GB           | 200 GB    | $1.50             |
 | 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | 1000 GB   | $3.00             |
@@ -105,7 +112,7 @@ print(f"JAX device type: {jax.devices()[0].device_kind}")
 # JAX device type: Tesla T4
 ```
 
-### Tensorflow
+### TensorFlow
 
 The default `tensorflow` installation should recognize the CUDA device. Just add `tensorflow` to your `requirements.txt` file and use the following code in your `app.py` to verify in your Space logs.
 
@@ -182,6 +189,12 @@ You can stream real-time logs, status events, and metrics from your Space via SS
 
 These endpoints require authentication and return data using the [SSE protocol](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).
 
+The logs endpoint accepts an optional `tail` query parameter (non-negative integer) to limit the response to the last N lines of logs:
+
+```
+GET /api/spaces/{namespace}/{repo}/logs/{build|run}?tail=100
+```
+
 ## Pausing a Space[[pause]]
 
-You can `pause` a Space from the repo settings. A "paused" Space means that the Space is on hold and will not use resources until manually restarted, and only the owner of a paused Space can restart it. Paused time is not billed.
+You can `pause` a Space from the repo settings. A "paused" Space means that the Space is on hold and will not use resources until manually restarted. Anyone with write access to the Space can pause or restart it. Paused time is not billed.

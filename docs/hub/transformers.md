@@ -1,6 +1,6 @@
 # Using 🤗 `transformers` at Hugging Face
 
-🤗 `transformers` is a library maintained by Hugging Face and the community, for state-of-the-art Machine Learning for Pytorch, TensorFlow and JAX. It provides thousands of pretrained models to perform tasks on different modalities such as text, vision, and audio. We are a bit biased, but we really like 🤗 `transformers`!
+🤗 `transformers` is a library maintained by Hugging Face and the community, for state-of-the-art Machine Learning for PyTorch, TensorFlow and JAX. It provides thousands of pretrained models to perform tasks on different modalities such as text, vision, and audio. We are a bit biased, but we really like 🤗 `transformers`!
 
 ## Exploring 🤗 transformers in the Hub
 

@@ -8,7 +8,7 @@ You can interact with buckets using the Hub web interface, the [`hf` CLI](https:
 > Buckets are available to all users and organizations. See [hf.co/storage](https://huggingface.co/storage) for pricing details.
 
 > [!TIP]
-> See [Access Patterns](./storage-buckets-access) for how to reach bucket data from your tools (mount as a filesystem, `hf://` paths, volume mounts in Jobs/Spaces), and [Bucket Integrations](./storage-buckets-integrations) for ready-to-use snippets in popular data libraries like pandas, Dask, and Spark.
+> See [Access Patterns](./storage-buckets-access) for how to reach bucket data from your tools (mount as a filesystem, `hf://` paths, volume mounts in Jobs/Spaces), the [S3-Compatible API](./storage-buckets-s3) for using existing S3 tooling (AWS CLI, boto3, s5cmd), and [Bucket Integrations](./storage-buckets-integrations) for ready-to-use snippets in popular data libraries like pandas, Dask, and Spark.
 
 ## Buckets vs Repositories
 
@@ -22,7 +22,7 @@ The Hub offers two types of storage: Git-based **repositories** for versioned, c
 | Operations         | Hub API, Git push/pull          | S3-like `sync`, `cp`, `rm`          |
 | Deduplication      | Xet chunk-level                 | Xet chunk-level                     |
 | Pull Requests      | Yes                             | No                                  |
-| Model/Dataset Cards| Yes                             | No                                  |
+| Model/Dataset Cards| Yes                             | No (but plain README rendered)      |
 
 Use **repositories** when you want version history, collaboration features (PRs, discussions), and library integrations. Use **buckets** when you need fast, mutable storage for data that changes frequently — files can be overwritten or deleted in place.
 
@@ -82,6 +82,25 @@ create_bucket("my-bucket", private=True)
 create_bucket("my-org/shared-bucket")
 ```
 
+### Changing visibility
+
+You can change a bucket's visibility after creation:
+
+```bash
+# Make a bucket private
+hf buckets settings username/my-bucket --private
+
+# Make it public again
+hf buckets settings username/my-bucket --public
+```
+
+```python
+from huggingface_hub import update_bucket_settings
+
+update_bucket_settings("username/my-bucket", private=True)
+update_bucket_settings("username/my-bucket", private=False)
+```
+
 For the full Python API reference including deleting, moving, and listing buckets, see the [`huggingface_hub` Buckets guide](https://huggingface.co/docs/huggingface_hub/guides/buckets).
 
 ## Browsing Buckets on the Hub
@@ -93,6 +112,12 @@ Every bucket has a page on the Hub where you can browse its contents, navigate d
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-file-browser.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/buckets/buckets-file-browser-dark.png"/>
 </div>
+
+### README rendering
+
+If a directory in your bucket contains a `README.md` file, the Hub renders it below the file list on that directory's page. This works both at the bucket root and inside any subdirectory — useful for documenting what a bucket contains, how data is organized, or how downstream tools should consume it.
+
+### Listing from the CLI
 
 You can also list bucket contents from the CLI:
 
@@ -147,6 +172,8 @@ hf buckets list julien-c/my-training-bucket --tree -h -R
 ## Managing Files
 
 You can upload and download files directly from the bucket page on the Hub, or use the CLI and Python API for programmatic access. Bucket files are referenced using `hf://buckets/` paths (e.g., `hf://buckets/username/my-bucket/path/to/file`). The `hf buckets cp` command handles individual file transfers while `hf buckets sync` is better suited for directories. All commands work in both directions — local-to-remote and remote-to-local.
+
+If your data already lives in a model, dataset, or Space repository (or another bucket), you can copy it **server-side** with `hf buckets cp` — no download or re-upload required. See [Copying files between repos and buckets](#copying-files-between-repos-and-buckets).
 
 ### Uploading files
 
@@ -275,10 +302,10 @@ For more deletion options (pattern-based filtering, recursive removal, etc.), se
 
 ### Copying files between repos and buckets
 
-You can copy [Xet](./xet/index)-tracked files from any repository (model, dataset, Space) or bucket into a destination bucket without re-uploading the data. The copy is server-side: only the Xet content hashes are migrated, so even very large files are copied instantly.
+You can copy [Xet](./xet/index)-tracked files from any repository (model, dataset, Space) or bucket into a destination bucket without re-uploading the data. The copy is server-side: only the Xet content hashes are migrated, so even very large files are copied instantly thanks to [chunk-level deduplication](./xet/deduplication).
 
 > [!NOTE]
-> Only Xet-tracked files are copied server-to-server. Small non-Xet files (e.g., config files and READMEs) are automatically downloaded and re-uploaded.
+> Only Xet-tracked files are copied server-to-server. Small non-Xet files (e.g., config files and READMEs) are automatically downloaded and re-uploaded. Server-side copy also requires the source and destination to be in the same storage region.
 
 **CLI:**
 ```bash
@@ -302,6 +329,62 @@ api.copy_files(
 You need read access to the source repository or bucket and write access to the destination bucket.
 
 Note that transferring data the other way from a bucket to a repository (model, dataset, Space) without reuploading is not yet available, but is on the roadmap.
+
+## Tracking Changes
+
+Buckets are mutable, so tools that keep a view of a bucket — mounts, filesystem layers, sync daemons, dashboards — need to know when files change. Two mechanisms are available:
+
+- [Webhooks](./webhooks#buckets): HTTP callbacks to a server you control, or a [Job](./jobs) started on each change — see [Process new files in a bucket with Jobs](./webhooks-guide-bucket-jobs).
+- **Live follow**: a server-sent events stream your client subscribes to.
+
+### Live follow
+
+`GET https://huggingface.co/api/buckets/<owner>/<bucket-name>/events` streams a bucket's file changes as [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events). The request must carry `Accept: text/event-stream` (otherwise it returns a `400`), and it requires the same read access as listing the bucket — no token is needed for a public bucket. See the [OpenAPI spec](https://huggingface.co/spaces/huggingface/openapi#tag/buckets/GET/api/buckets/{namespace}/{repo}/events) for the full parameter and response schema.
+
+```bash
+curl -N -H "Accept: text/event-stream" \
+  -H "Authorization: Bearer $HF_TOKEN" \
+  "https://huggingface.co/api/buckets/username/my-bucket/events"
+```
+
+> [!TIP]
+> In Python, you don't need to consume the stream yourself. [`HfFileSystem`](/docs/huggingface_hub/guides/hf_file_system#keep-listings-fresh) follows it for you with `live_follow=True`, so its cached listings stay current when another process changes the bucket:
+>
+> ```python
+> from huggingface_hub import HfFileSystem
+>
+> hffs = HfFileSystem(live_follow=True)
+> hffs.ls("buckets/username/my-bucket/data")  # starts following the bucket
+> ```
+>
+> Libraries that take fsspec `storage_options` (pandas, PyArrow, ...) accept it too.
+
+The stream emits four event types:
+
+| Event       | Data                                                  | Meaning                                                                                       |
+| ----------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `ready`     | `{"cursor": "..."}`                                   | Any requested replay is done and live changes follow.                                         |
+| `changes`   | `{"cursor": "...", "changes": [...]}`                 | A batch of file changes, coalesced over a short window.                                       |
+| `reset`     | `{"reason": "cursor_too_old"}`                        | The resume point cannot be replayed; the stream ends and you should re-list the bucket.       |
+| `reconnect` | `{"cursor": "..."}`                                   | The server is closing the stream on purpose; reconnect with that cursor.                      |
+
+Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically. Fields that did not change are omitted; `mtime`/`mtimeNanos` may also be `null` when an upload cleared them, so treat absent and `null` alike.
+
+```
+event: ready
+data: {"cursor":"..."}
+
+event: changes
+data: {"cursor":"...","changes":[{"path":"data/train.txt","op":"add","size":20,"uploadedAt":"2026-09-16T09:21:45.000Z"},{"path":"data/old.txt","op":"delete"}]}
+```
+
+**Resuming.** A new stream starts from the moment you connect. To also get the changes you missed, pass the last `cursor` you received (every `ready` and `changes` event carries one) as `?cursor=<cursor>`, or a timestamp as `?since=<ISO timestamp>` (inclusive, e.g. `2026-09-16T09:21:45Z`).
+
+Only the **last ~15 minutes** of changes can be replayed. If your `cursor` or `since` is older than that, you receive `reset` instead of a replay: list the bucket once to rebuild your view, then follow again from the `cursor` of the new stream's `ready` event. Resuming is meant to bridge short gaps such as a dropped connection or a restart; a client that has been away longer should expect to re-list.
+
+**Reconnecting.** Long-lived connections are recycled: about every 20 minutes (and during deployments) the server sends `reconnect` and then ends the stream. Treat *any* end of the stream the same way — reconnect with the last cursor you received. A `: ping` comment is sent every 30 seconds to keep the connection alive, so a stream that goes fully silent can be considered dead.
+
+A `503` response means live follow is momentarily unavailable — retry after the delay in the `Retry-After` header.
 
 ## Pre-warming and CDN
 

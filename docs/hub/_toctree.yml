@@ -21,12 +21,16 @@
     title: Advanced Security
   - local: enterprise-tokens-management
     title: Tokens Management
+  - local: enterprise-service-accounts
+    title: Service Accounts
   - local: publisher-analytics
     title: Publisher Analytics
   - local: enterprise-gating-group-collections
     title: Gating Group Collections
   - local: enterprise-network-security
     title: Network Security
+  - local: download-analytics
+    title: Download Analytics
   - local: rate-limits
     title: Rate Limits
   - local: enterprise-blog-articles
@@ -54,6 +58,8 @@
       title: Using Xet Storage
     - local: xet/security
       title: Security
+    - local: xet/telemetry
+      title: Telemetry
     - local: xet/legacy-git-lfs
       title: Backwards Compatibility & Legacy
     - local: xet/deduplication
@@ -72,9 +78,11 @@
       - local: webhooks-guide-auto-retrain
         title: "How-to: Automatic fine-tuning with Auto-Train"
       - local: webhooks-guide-discussion-bot
-        title: "How-to: Build a Discussion bot based on BLOOM"
+        title: "How-to: Build a Discussion bot with Inference Providers"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
+      - local: webhooks-guide-bucket-jobs
+        title: "How-to: Process new files in a bucket with Jobs"
   - local: repositories-github-actions
     title: GitHub Actions
   - local: notebooks
@@ -181,6 +189,8 @@
     title: Models Download Stats
   - local: model-release-checklist
     title: Model Release Checklist
+  - local: hardware
+    title: Hardware
   - local: local-apps
     title: Local Apps
   - local: models-faq
@@ -307,10 +317,14 @@
             title: Image Dataset
           - local: datasets-video
             title: Video Dataset
+          - local: datasets-3d
+            title: 3D Dataset
           - local: datasets-viewer-embed
             title: Embed the Dataset Viewer in a webpage
           - local: datasets-viewer-sql-console
             title: "SQL Console"
+  - local: agent-traces
+    title: Agent Traces
   - local: datasets-download-stats
     title: Datasets Download Stats
 
@@ -427,10 +441,16 @@
   sections:
   - local: storage-buckets-access
     title: Access Patterns
+  - local: storage-buckets-s3
+    title: S3 Compatibility
   - local: storage-buckets-integrations
     title: Bucket Integrations
   - local: storage-buckets-security
     title: Bucket Security
+
+- local: container-images
+  title: Container Images
+  new: true
 
 - local: jobs
   title: Jobs
@@ -446,10 +466,16 @@
     title: Manage Jobs
   - local: jobs-configuration
     title: Configuration
-  - local: jobs-popular-images
-    title: Popular Images
+  - local: jobs-images
+    title: Using Docker images
+  - local: jobs-serving
+    title: Serve Models
+  - local: jobs-training
+    title: Train Models
   - local: jobs-examples
     title: Examples & Tutorials
+  - local: jobs-large-datasets
+    title: Process Large Datasets
   - local: jobs-schedule
     title: Schedule Jobs
   - local: jobs-webhooks
@@ -472,9 +498,11 @@
   - local: agents-sdk
     title: Building agents with the HF SDK
   - local: agents-local
-    title: Local Agents with llama.cpp and Pi
+    title: Local Agents with llama.cpp
   - local: agents-libraries
     title: Agent Libraries
+  - local: session-traces-format
+    title: Session Traces Format
 
 - local: other
   title: Other
@@ -496,8 +524,12 @@
     sections:
     - local: security-tokens
       title: User Access Tokens
+    - local: trusted-publishers
+      title: Trusted Publishers (CI/CD)
     - local: security-2fa
       title: Two-Factor Authentication
+    - local: security-passkeys
+      title: Passkeys
     - local: security-git-ssh
       title: Git over SSH
     - local: security-gpg
@@ -509,6 +541,8 @@
         title: Basic SSO
       - local: enterprise-advanced-sso
         title: Managed SSO
+      - local: enterprise-managed-sso-migration
+        title: Migrating to Managed SSO
       - local: security-sso-user-management
         title: User Management
       - local: enterprise-scim
@@ -552,6 +586,8 @@
     title: Paper Pages
   - local: academia-hub
     title: Academia Hub
+  - local: blog-articles
+    title: Blog Articles
   - local: search
     title: Search
   - local: doi

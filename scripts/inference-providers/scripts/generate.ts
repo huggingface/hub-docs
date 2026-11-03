@@ -1,5 +1,5 @@
 import { PipelineType } from "@huggingface/tasks";
-import { PROVIDERS_HUB_ORGS } from "@huggingface/inference";
+import { PROVIDERS_HUB_ORGS, getProviderHelper } from "@huggingface/inference";
 import Handlebars from "handlebars";
 import * as fs from "node:fs/promises";
 import * as path from "node:path/posix";
@@ -33,30 +33,30 @@ const HEADERS: Record<string, string> = process.env.HF_TOKEN
   ? { Authorization: `Bearer ${process.env.HF_TOKEN}` }
   : {};
 
-
 const PROVIDERS_URLS: Record<string, string> = {
+  baseten: "https://www.baseten.co/",
   cerebras: "https://www.cerebras.ai/",
   cohere: "https://cohere.com/",
+  deepinfra: "https://deepinfra.com/",
   "fal-ai": "https://fal.ai/",
   "featherless-ai": "https://featherless.ai/",
   "fireworks-ai": "https://fireworks.ai/",
   groq: "https://groq.com/",
   "hf-inference": "https://huggingface.co/",
-  hyperbolic: "https://hyperbolic.xyz/",
-  //nebius: "https://nebius.com/",
   novita: "https://novita.ai/",
   nscale: "https://www.nscale.com/",
   ovhcloud: "https://www.ovhcloud.com/",
   publicai: "https://publicai.co/",
   replicate: "https://replicate.com/",
-  sambanova: "https://sambanova.ai/",
   scaleway: "https://www.scaleway.com",
   together: "https://together.xyz/",
   wavespeed: "https://wavespeed.ai/",
-  "zai-org": "https://z.ai/"
+  "zai-org": "https://z.ai/",
 };
 //filter PROVIDERS_HUB_ORGS to only include providers that are in PROVIDERS_URLS
-const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS).filter(provider => PROVIDERS_URLS[provider]); 
+const INFERENCE_PROVIDERS = Object.keys(PROVIDERS_HUB_ORGS).filter(
+  (provider) => PROVIDERS_URLS[provider],
+);
 
 async function authFetchJson(url: string) {
   const headers = url.includes("huggingface.co") ? HEADERS : {};
@@ -376,7 +376,11 @@ const TIP_LINK_TO_TASK_PAGE_TEMPLATE = Handlebars.compile(`> [!TIP]
 `);
 
 const TIP_LIST_MODELS_LINK_TEMPLATE = Handlebars.compile(
-  `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending).`,
+  `Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag={{task}}&sort=trending), or from the terminal with the [\`hf\` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
+
+\`\`\`bash
+hf models ls --warm --pipeline-tag {{task}} --sort trending_score
+\`\`\``,
 );
 const SPECS_HEADERS = await readTemplate("specs-headers", "common");
 const PAGE_HEADER = Handlebars.compile(
@@ -477,6 +481,19 @@ await Promise.all(
   }),
 );
 
+/// A provider may serve a live model for a task that `@huggingface/inference`
+/// has no snippet helper for. Emitting an `<InferenceSnippet>` for such a combo
+/// crashes the doc-builder prerender (`getProviderHelper` throws), so we mirror
+/// that lookup here and skip any (provider, task) combo it can't handle.
+function isSnippetSupported(provider: string, task: string): boolean {
+  try {
+    getProviderHelper(provider, task);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 async function fetchWarmModels(
   task: PipelineType,
   conversational: boolean = false,
@@ -497,9 +514,18 @@ async function fetchWarmModels(
         ]
       : ["hf-inference", ...(PER_TASK_SUPPORTED_PROVIDERS[task] ?? [])]
   ).sort();
+  // The doc-builder resolves conversational text-generation / image-text-to-text
+  // snippets to the "conversational" helper task; mirror that here.
+  const helperTask = conversational ? "conversational" : task;
   return (
     await Promise.all(
       providers.map(async (provider) => {
+        if (!isSnippetSupported(provider, helperTask)) {
+          console.warn(
+            `   ⏭️  Skipping ${provider} for ${task}: @huggingface/inference has no snippet helper for this (provider, task) combo`,
+          );
+          return;
+        }
         console.log(
           `   ⚡ Fetching most popular warm model for ${task} from ${provider}`,
         );

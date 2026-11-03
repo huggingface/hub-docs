@@ -8,7 +8,7 @@ You can run a coding agent entirely on your own hardware. Several open-source ag
 
 Set your local hardware so it can show you which models are compatible with your setup.
 
-Go to [huggingface.co/settings/local-apps](https://huggingface.co/settings/local-apps) and configure your local hardware profile. Select `llama.cpp` in the Local Apps section as this will be the engine you'll use.
+Go to [huggingface.co/settings/hardware](https://huggingface.co/settings/hardware) and configure your local hardware profile. Then select `llama.cpp` in your [Local Apps settings](https://huggingface.co/settings/local-apps), as this will be the engine you'll use.
 
 ### 2. Find a Compatible Model
 
@@ -20,7 +20,7 @@ Browse for [Llama.cpp-compatible models](https://huggingface.co/models?apps=llam
 On the model page, click the **"Use this model"** button and select `llama.cpp`. It will show you the exact commands for your setup. The first step is to start a llama.cpp server, e.g.
 
 ```bash
-llama-server -hf ggml-org/gemma-4-26b-a4b-it-GGUF:Q4_K_M --jinja
+llama-server -hf ggml-org/gemma-4-26b-a4b-it-GGUF:Q4_K_M
 ```
 
 This downloads the model and starts an OpenAI-compatible API server on your machine. See the [llama.cpp guide](./gguf-llamacpp) for installation instructions.
@@ -36,7 +36,7 @@ Pick one of the agents below and follow the setup instructions.
 Install Pi:
 
 ```bash
-npm install -g @mariozechner/pi-coding-agent
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 ```
 
 Then add your local model to Pi's configuration file at `~/.pi/agent/models.json`:
@@ -68,6 +68,21 @@ Pi connects to your local llama.cpp server and gives you an interactive agent se
 
 ![Demo](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pi-llama-cpp-demo.gif)
 
+### Enabling vision support
+
+For vision-capable models, add `"input": ["text", "image"]` to the model entry in `~/.pi/agent/models.json`:
+
+```json
+"models": [
+  {
+    "id": "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
+    "input": ["text", "image"]
+  }
+]
+```
+
+Browse [vision-language models compatible with Pi](https://huggingface.co/models?pipeline_tag=image-text-to-text&apps=pi).
+
 ## OpenClaw
 
 [OpenClaw](https://github.com/openclaw) works locally with llama.cpp. You can set your model via the onboard command:
@@ -85,9 +100,34 @@ openclaw onboard --non-interactive \
 
 You can also run `openclaw onboard` interactively, select `custom-compatibility` with `openai`, and pass the same configuration.
 
-## Hermes
+### Local Memory Search for OpenClaw
 
-[Hermes](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. Define a default config as:
+You can run local embedding models with Llama.cpp for your agent's memory search. To do so, make sure to have node-llama-cpp. 
+
+```bash
+npm i node-llama-cpp 
+```
+
+Here's an example snippet to run [quantized EmbeddingGemma-300M](https://huggingface.co/ggml-org/embeddinggemma-300M-GGUF?show_file_info=embeddinggemma-300M-Q8_0.gguf) locally for memory search. OpenClaw automatically downloads and serves the model with the command below.
+
+```bash
+openclaw config set agents.defaults.memorySearch.provider local
+openclaw config set agents.defaults.memorySearch.local.modelPath "hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF/embeddinggemma-300m-qat-Q8_0.gguf"
+```
+
+Restart the gateway and validate.
+
+```bash
+openclaw gateway restart
+openclaw memory status
+# Memory Search (main)
+# Provider: local (requested: local)
+# Model: hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF/embeddinggemma-300m-qat-Q8_0.gguf
+```
+
+## Hermes Agent
+
+[Hermes Agent](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. Define a default config as:
 
 ```yaml
 model:
@@ -101,6 +141,30 @@ custom_providers:
     base_url: http://127.0.0.1:8080/v1
     api_key: llama.cpp
     model: ggml-org/gemma-4-26B-A4B-it-GGUF:Q4_K_M
+```
+
+### Local Memory Search for Hermes Agent
+
+Hermes Agent consumes semantic search models through endpoints. Once you get your preferred embedding model up on endpoint 8080 with llama.cpp or the inference engine of your choice, add the following to `~/.hermes/config.yaml`.
+
+```bash
+auxiliary:
+  session_search:
+    base_url: "http://127.0.0.1:8080/v1"
+    api_key: "no-key-required"
+    model: "local-llama" # your model alias
+    timeout: 90
+    max_concurrency: 1
+```
+
+Check if this works, `none - built-in only` shows that no other memory plug-ins are used. The output below shows that local serving is active.
+
+```bash
+$ hermes memory status
+# Memory status
+#────────────────────────────────────────
+#  Built-in:  always active
+#  Provider:  (none — built-in only)
 ```
 
 ## OpenCode

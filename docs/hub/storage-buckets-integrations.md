@@ -15,10 +15,28 @@ df.to_parquet("hf://buckets/username/my-bucket/output.parquet")
 
 ## Dask
 
+Dask reads and writes lazily, one partition per file, so you can process datasets larger than memory straight from a bucket:
+
 ```python
 import dask.dataframe as dd
 
-df = dd.read_parquet("hf://buckets/username/my-bucket/data.parquet")
+df = dd.read_parquet("hf://buckets/username/my-bucket/data/")
+df.to_parquet("hf://buckets/username/my-bucket/output/")
+```
+
+See [Dask on the Hub](./datasets-dask) for more.
+
+## Daft
+
+Daft supports `hf://buckets/` paths natively, with [Xet-accelerated reads](https://docs.daft.ai/en/stable/connectors/huggingface/) enabled by default:
+
+```python
+import daft
+from daft.io import IOConfig, HuggingFaceConfig
+from huggingface_hub import get_token
+
+io_config = IOConfig(hf=HuggingFaceConfig(token=get_token()))
+df = daft.read_parquet("hf://buckets/username/my-bucket/data.parquet", io_config=io_config)
 ```
 
 ## PyArrow
@@ -41,7 +59,7 @@ df = (
 )
 ```
 
-See [PySpark on the Hub](./datasets-pyspark) for more.
+See [PySpark on the Hub](./datasets-spark) for more.
 
 ## 🤗 Datasets
 
@@ -50,6 +68,63 @@ from datasets import load_dataset
 
 ds = load_dataset("buckets/username/my-bucket", data_files=["data.parquet"])
 ```
+
+## Inspect AI
+
+[Inspect AI](https://inspect.aisi.org.uk/) can write evaluation logs directly to a bucket — point its log directory at an `hf://buckets/` path (requires `huggingface_hub>=1.6.0`). Create the bucket and authenticate first (Inspect won't create it for you):
+
+```bash
+hf auth login
+hf buckets create username/my-bucket --private
+
+export INSPECT_LOG_DIR=hf://buckets/username/my-bucket/eval-logs
+inspect eval popularity.py --model openai/gpt-4
+inspect view
+```
+
+See [Inspect's eval logs guide](https://inspect.aisi.org.uk/eval-logs.html#sec-hugging-face-storage-buckets) for details.
+
+## SkyPilot
+
+[SkyPilot](https://docs.skypilot.co/) runs AI workloads across 20+ clouds, Kubernetes, and on-prem, and can use Hugging Face storage as a backend — so one bucket is readable from every cloud with no per-cloud copies. Set `store: hf` on a `file_mounts` entry to mount a bucket read-write or a repo read-only:
+
+```yaml
+# qwen-sft.yaml — launch anywhere: sky launch qwen-sft.yaml --infra aws|gcp|...
+resources:
+  accelerators: H100:1
+
+file_mounts:
+  /base-model:
+    source: hf://Qwen/Qwen2.5-3B           # model repo, read-only
+    store: hf
+    mode: MOUNT
+  /data:
+    source: hf://datasets/username/my-data@v1.0   # dataset repo, pinned to a tag, read-only
+    store: hf
+    mode: MOUNT
+  /checkpoints:
+    source: hf://buckets/username/qwen-sft   # bucket, read-write — checkpoints sync back
+    store: hf
+    mode: MOUNT
+
+run: |
+  python train.py --model /base-model --output_dir /checkpoints
+```
+
+Authenticate once - `hf auth login` (or `export HF_TOKEN=<your-token>`) is all SkyPilot needs. It forwards your local Hugging Face token to every cloud, so the bucket and repo mounts authenticate automatically:
+
+```bash
+pip install "skypilot[huggingface]"
+hf auth login                              # or: export HF_TOKEN=<your-token>
+sky launch qwen-sft.yaml
+```
+
+If your own `run` code pulls gated repos, add `--secret HF_TOKEN` to the launch command to also expose the token as an env var.
+
+> [!TIP]
+> `MOUNT` and `MOUNT_CACHED` behave identically for `hf` and use the [hf-mount](https://github.com/huggingface/hf-mount) FUSE backend, which needs a base image with glibc ≥ 2.34 and `/dev/fuse`. Bare-VM clouds provide both. SkyPilot's default Kubernetes image ships older glibc, so set a newer `image_id` (e.g. `docker:mirror.gcr.io/ubuntu:22.04`). See the [SkyPilot storage docs](https://docs.skypilot.co/en/latest/reference/storage.html) for the current environment requirements.
+
+See the [SkyPilot + Hugging Face storage blog post](https://huggingface.co/blog/skypilot-hf-storage) for benchmarks and a full walkthrough.
 
 ## Filesystem operations
 
@@ -67,10 +142,21 @@ files = hffs.ls("buckets/username/my-bucket")
 text_files = hffs.glob("buckets/username/my-bucket/*.txt")
 ```
 
+## DuckDB
+
+DuckDB 2.0 and later read `hf://buckets/` paths natively through the `httpfs` extension (and with the `hf` extension for writing), from the CLI and every client:
+
+```sql
+SELECT * FROM 'hf://buckets/username/my-bucket/data/**/*.parquet' LIMIT 10;
+COPY tbl TO 'hf://buckets/username/my-bucket/out.parquet';
+```
+
+See [Query with DuckDB](./storage-buckets-access#query-with-duckdb) for private buckets and older DuckDB versions.
+
 ## Other languages
 
 [OpenDAL](https://opendal.apache.org/) provides a similar filesystem interface for Rust, Java, Go, JavaScript, and more.
 
 ## Coming soon
 
-Support for more libraries is on the way — including Polars, DuckDB (native `hf://` URL support), Daft, and webdataset.
+Native `hf://` URL support is on the way for more libraries — including Polars and WebDataset. In the meantime, all of these already work today through the [S3-compatible API](./storage-buckets-s3).

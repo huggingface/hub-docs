@@ -1,4 +1,4 @@
-# Managing Spaces with Github Actions
+# Managing Spaces with GitHub Actions
 
 You can keep your Space in sync with your GitHub repository using the official [`huggingface/hub-sync`](https://github.com/marketplace/actions/sync-github-to-hugging-face-hub) GitHub Action.
 
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: huggingface/hub-sync@v0.1.0
+      - uses: huggingface/hub-sync@v0.3.0
         with:
           github_repo_id: ${{ github.repository }}
           huggingface_repo_id: username/my-space
@@ -35,17 +35,17 @@ You can configure the Space SDK with `space_sdk` (defaults to `gradio`). See [al
 
 ## How it works
 
-The action mirrors your files to the Hub using the `hf` CLI (`hf repo create` + `hf upload`). It is not a git-to-git sync — it uploads the file contents and automatically excludes `.github/` and `.git/` directories. Files removed from your GitHub repository will also be removed from the Hub.
+The action mirrors your files to the Hub using the `hf` CLI (`hf repos create` + `hf upload`). It is not a git-to-git sync — it uploads the file contents and automatically excludes `.github/` and `.git/` directories. Files removed from your GitHub repository will also be removed from the Hub.
 
 For more complex workflows (e.g. build steps, custom logic), you can install and use the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/en/guides/cli) directly in your workflow instead.
 
 ## File size considerations
 
-For files larger than 10MB, Spaces requires [Git-LFS](./repositories-getting-started#terminal). Make sure large files in your GitHub repository are tracked with LFS before syncing.
+The action uploads file contents with `hf upload`, so you don't need to set up Git LFS or git-xet for the Hub: large files are stored in Xet automatically. If your GitHub repository stores files with Git LFS (GitHub requires it for files over 100MB), set `lfs: true` on the `actions/checkout` step so the action uploads the files rather than LFS pointers.
 
 ## Alternative: manual git push
 
-If you prefer a direct git-to-git sync instead of file mirroring, you can push to your Space's git remote directly:
+If you prefer a direct git-to-git sync instead of file mirroring, you can push to your Space's git remote directly. With a git push, files larger than 10MB must be tracked with [git-xet](./xet/using-xet-storage#git-xet) (recommended) or Git LFS:
 
 ```yaml
 name: Sync to Hugging Face hub

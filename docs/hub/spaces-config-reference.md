@@ -35,6 +35,7 @@ Value must be a valid hardware flavor. Current valid hardware flavors:
 - CPU: `"cpu-basic"`, `"cpu-upgrade"`
 - GPU: `"t4-small"`, `"t4-medium"`, `"l4x1"`, `"l4x4"`,
 	`"l40sx1"`, `"l40sx4"`, `"l40sx8"`,
+	`"rtx-pro-6000"`, `"rtx-pro-6000x2"`, `"rtx-pro-6000x4"`, `"rtx-pro-6000x8"`,
 	`"a10g-small"`, `"a10g-large"`, `"a10g-largex2"`,
 	`"a10g-largex4"`, `"a100-large"`, `"a100x4"`, `"a100x8"`
 

@@ -73,7 +73,7 @@ We gathered a list of tips and recommendations for structuring your repo. If you
 | Files per repo     | <100k              | merge data into fewer files                            |
 | Entries per folder | <10k               | use subdirectories in repo                             |
 | File size          | <200GB             | split data into chunked files                          |
-| Commit size        | <100 files*        | upload files in multiple commits                       |
+| Commit size        | <100 files*        | `upload_folder`/`hf upload` auto-split large folders into multiple commits                       |
 | Commits per repo   | -                  | upload multiple files per commit and/or squash history |
 
 _\* Not relevant when using `git` CLI directly_
@@ -113,8 +113,7 @@ git operation (addition or delete) is checked by the server. When a hundred Larg
 each file is checked individually to ensure it's been correctly uploaded. When pushing data through HTTP,
 a timeout of 60s is set on the request, meaning that if the process takes more time, an error is raised. However, it can
 happen (in rare cases) that even if the timeout is raised client-side, the process is still
-completed server-side. This can be checked manually by browsing the repo on the Hub. To prevent this timeout, we recommend
-adding around 50-100 files per commit.
+completed server-side. This can be checked manually by browsing the repo on the Hub. The [`upload_folder`](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload) method and `hf upload` command avoid this automatically by splitting large folders into multiple commits. If you commit manually, keep around 50-100 files per commit.
 
 ### Sharing large datasets on the Hub
 

@@ -24,7 +24,11 @@ Table Question Answering (Table QA) is the answering a question about an informa
 
 - [google/tapas-base-finetuned-wtq](https://huggingface.co/google/tapas-base-finetuned-wtq): A robust table question answering model.
 
-Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=table-question-answering&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=table-question-answering&sort=trending), or from the terminal with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
+
+```bash
+hf models ls --warm --pipeline-tag table-question-answering --sort trending_score
+```
 
 ### Using the API
 

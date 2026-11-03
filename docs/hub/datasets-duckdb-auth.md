@@ -4,6 +4,9 @@ To access private or gated datasets, you need to configure your Hugging Face Tok
 
 Visit [Hugging Face Settings - Tokens](https://huggingface.co/settings/tokens) to obtain your access token.
 
+> [!TIP]
+> If you query through [`hf datasets sql`](/docs/huggingface_hub/package_reference/cli#hf-datasets-sql), the token secret is configured automatically from your logged-in session (or `--token`) — no manual secret setup is needed.
+
 DuckDB supports two providers for managing secrets:
 
 - `CONFIG`: Requires the user to pass all configuration information into the CREATE SECRET statement.

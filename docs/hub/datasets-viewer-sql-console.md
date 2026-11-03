@@ -21,7 +21,7 @@ Through the SQL Console, you can:
 - Query datasets with natural language
 
 > [!TIP]
-> You can also use the DuckDB locally through the CLI to query the dataset via the `hf://` protocol. See the <a href="https://huggingface.co/docs/hub/en/datasets-duckdb" target="_blank" rel="noopener noreferrer">DuckDB Datasets documentation</a> for more information. The SQL Console provides a convenient `Copy to DuckDB CLI` button that generates the SQL query for creating views and executing your query in the DuckDB CLI.
+> You can also use the DuckDB locally through the CLI to query the dataset via the `hf://` protocol. See the <a href="https://huggingface.co/docs/hub/en/datasets-duckdb" target="_blank" rel="noopener noreferrer">DuckDB Datasets documentation</a> for more information. The SQL Console provides a convenient `Copy to DuckDB CLI` button that generates the SQL query for creating views and executing your query in the DuckDB CLI. Alternatively, run the same queries from a terminal or script with [`hf datasets sql`](/docs/huggingface_hub/package_reference/cli#hf-datasets-sql).
 
 
 ## Examples

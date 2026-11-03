@@ -3,6 +3,9 @@
 The [Hugging Face Hub](https://huggingface.co/models) is the go-to platform for sharing machine learning models.
 A well-executed release can boost your model's visibility and impact. This section covers **essential** steps for a concise, informative, and user-friendly model release.
 
+> [!TIP]
+> Releasing with a coding agent? Install the [`hf` CLI Skill](./agents-cli) to let your agent handle the upload, model card, and metadata for you.
+
 ## ⏳ Preparing Your Model for Release
 
 ### Upload Model Weights

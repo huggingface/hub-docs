@@ -41,13 +41,23 @@ Together decentralized cloud services empower developers and researchers at orga
 ## Supported tasks
 
 
+### Automatic Speech Recognition
+
+Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
+
+<InferenceSnippet
+    pipeline=automatic-speech-recognition
+    providersMapping={ {"together":{"modelId":"nvidia/nemotron-3.5-asr-streaming-0.6b","providerModelId":"nvidia/nemotron-3.5-asr-streaming-0.6b"} } }
+/>
+
+
 ### Chat Completion (LLM)
 
 Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"together":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"} } }
+    providersMapping={ {"together":{"modelId":"zai-org/GLM-5.3","providerModelId":"zai-org/GLM-5.3"} } }
 conversational />
 
 
@@ -57,16 +67,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"together":{"modelId":"Qwen/Qwen3.5-9B","providerModelId":"Qwen/Qwen3.5-9B"} } }
+    providersMapping={ {"together":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017"} } }
 conversational />
-
-
-### Text To Image
-
-Find out more about Text To Image [here](../tasks/text-to-image).
-
-<InferenceSnippet
-    pipeline=text-to-image
-    providersMapping={ {"together":{"modelId":"black-forest-labs/FLUX.1-schnell","providerModelId":"black-forest-labs/FLUX.1-schnell"} } }
-/>
 

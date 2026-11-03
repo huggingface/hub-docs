@@ -49,7 +49,7 @@ Find out more about Chat Completion (LLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"arcee-ai/Trinity-Large-Thinking","providerModelId":"arcee-ai/Trinity-Large-Thinking"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Llama-3.1-8B-Instruct"} } }
 conversational />
 
 
@@ -59,16 +59,6 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"featherless-ai":{"modelId":"Qwen/Qwen3.5-397B-A17B","providerModelId":"Qwen/Qwen3.5-397B-A17B"} } }
+    providersMapping={ {"featherless-ai":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen/Qwen3.8-27B"} } }
 conversational />
-
-
-### Text Generation
-
-Find out more about Text Generation [here](../tasks/text-generation).
-
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"arcee-ai/Trinity-Large-Thinking","providerModelId":"arcee-ai/Trinity-Large-Thinking"} } }
-/>
 

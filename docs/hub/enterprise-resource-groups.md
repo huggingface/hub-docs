@@ -9,12 +9,12 @@ Resource Groups allow organizations to enforce fine-grained access control to th
   <img
     class="block dark:hidden m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/resource-groups.png"
-    alt="screenshot of Hugging Face Resource Groups feature"
+    alt="The Overview tab of a resource group"
   />
   <img
     class="hidden dark:block m-0!"
     src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-resource-groups.png"
-    alt="screenshot of Hugging Face Resource Groups feature"
+    alt="The Overview tab of a resource group"
   />
 </div>
 
@@ -22,10 +22,14 @@ This feature allows organization administrators to:
 
 - Group related repositories together for better organization
 - Control member access at a group level rather than individual repository level
-- Assign different permission roles (no_access, read, contributor, write, admin) to team members
+- Assign different permission roles (no_access, read, contributor, write, admin, inherit) to team members
 - Keep private repositories visible only to authorized group members
 - Enable multiple teams to work independently within the same organization
 - Configure which member roles are allowed to create new resource groups
+- Share resource groups and their repositories with [external collaborators](./security-resource-groups#external-invitations)
+- Restrict organization features such as Blog, Collections, Jobs, Inference Endpoints and Inference Providers to the members of specific resource groups
+- Attribute costs to specific resource groups for better budget management
+- Cap monthly compute spend per resource group, in total or per product
 
 This Team & Enterprise feature helps organizations manage complex team structures and maintain proper access control over their repositories.
 

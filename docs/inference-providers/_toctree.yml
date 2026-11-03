@@ -36,8 +36,12 @@
   sections:
   - local: integrations/index
     title: Overview
-  - local: integrations/adding-integration
-    title: Add Your Integration
+  - local: integrations/pi
+    title: Pi
+  - local: integrations/opencode
+    title: OpenCode
+  - local: integrations/codex
+    title: Codex
   - local: integrations/claude-code
     title: Claude Code
   - local: integrations/hermes-agent
@@ -46,14 +50,12 @@
     title: NeMo Data Designer
   - local: integrations/macwhisper
     title: MacWhisper
-  - local: integrations/opencode
-    title: OpenCode
-  - local: integrations/pi
-    title: Pi
   - local: integrations/visionagents
     title: Vision Agents
   - local: integrations/vscode
     title: VS Code with GitHub Copilot
+  - local: integrations/adding-integration
+    title: Add Your Integration
 
 - local: tasks/index
   title: Inference Tasks
@@ -104,10 +106,14 @@
           
 - title: Providers
   sections:
+  - local: providers/baseten
+    title: Baseten
   - local: providers/cerebras
     title: Cerebras
   - local: providers/cohere
     title: Cohere
+  - local: providers/deepinfra
+    title: DeepInfra
   - local: providers/fal-ai
     title: Fal AI
   - local: providers/featherless-ai
@@ -116,8 +122,6 @@
     title: Fireworks
   - local: providers/groq
     title: Groq
-  - local: providers/hyperbolic
-    title: Hyperbolic
   - local: providers/hf-inference
     title: HF Inference
   - local: providers/novita
@@ -130,8 +134,6 @@
     title: Public AI
   - local: providers/replicate
     title: Replicate
-  - local: providers/sambanova
-    title: SambaNova
   - local: providers/scaleway
     title: Scaleway
   - local: providers/together
@@ -143,6 +145,3 @@
 
 - local: hub-api
   title: Hub API
-
-- local: register-as-a-provider
-  title: Register as an Inference Provider

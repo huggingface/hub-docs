@@ -1,9 +1,6 @@
 # Spaces Dev Mode: Seamless development in Spaces
 
 > [!WARNING]
-> This feature is still in Beta stage.
-
-> [!WARNING]
 > The Spaces Dev Mode is part of <a href="https://huggingface.co/pro">PRO</a> or <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
 
 ## Spaces Dev Mode
@@ -14,11 +11,11 @@ Whenever your commit some changes to your Space repo, the underlying Docker imag
 
 The Dev Mode allows you to update your Space much quicker by overriding the Docker image.
 
-The Dev Mode Docker image starts your application as a sub-process, allowing you to restart it without stopping the Space container itself. It also starts a VS Code server and a SSH server in the background for you to connect to the Space.
+The Dev Mode Docker image starts your application as a sub-process, allowing you to restart it without stopping the Space container itself. It also starts an SSH server (for local editors and terminals) and a VS Code server (for the in-product VS Code Web) in the background, so you can connect to the Space.
 
 The ability to connect to the running Space unlocks several use cases:
 
-    - You can make changes to the app code without the Space rebuilding everytime
+    - You can make changes to the app code without the Space rebuilding every time
     - You can debug a running application and monitor resources live
 
 Overall it makes developing and experimenting with Spaces much faster by skipping the Docker image rebuild phase.
@@ -39,16 +36,46 @@ The application does not restart automatically when you change the code. For you
   You will need to manually run `pip install` from VS Code or SSH.
 </div>
 
-### SSH connection and VS Code
+### Connecting
 
-The Dev Mode allows you to connect to your Space's docker container using SSH.
+Dev Mode exposes the running Space as a standard SSH host. VS Code and any other editor connect through that same SSH endpoint.
 
-Instructions to connect are listed in the Dev Mode controls modal.
+#### SSH
+
+Once Dev Mode is running, connect with:
+
+```shell
+ssh <space-subdomain>@ssh.hf.space
+```
+
+The subdomain is shown in the Dev Mode controls modal. You can also retrieve it programmatically:
+
+```python
+from huggingface_hub import HfApi
+print(HfApi().space_info("namespace/repo").subdomain)
+```
+
+The Hugging Face CLI can resolve the subdomain and open the session for you:
+
+```shell
+# SSH into the Space's Dev Mode container
+hf spaces ssh username/my-space
+
+# Print the SSH command instead of running it
+hf spaces ssh username/my-space --dry-run
+
+# Use a specific identity file
+hf spaces ssh username/my-space -i ~/.ssh/id_ed25519
+```
+
+Pass `--auto` to enable Dev Mode without prompting if it isn't already running. See the [`hf spaces ssh` CLI reference](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-spaces-ssh) for the full list of options.
 
 You will need to add your machine's SSH public key to [your user account](https://huggingface.co/settings/keys) to be able to connect to the Space using SSH.
 Check out the [Git over SSH](./security-git-ssh#add-a-ssh-key-to-your-account) documentation for more detailed instructions.
 
-You can also use a local install of VS Code to connect to the Space container. To do so, you will need to install the [SSH Remote](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension.
+#### VS Code
+
+You can also use a local install of VS Code to connect to the Space container. To do so, install the [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) extension and connect to the same `<space-subdomain>@ssh.hf.space` host.
 
 ### Persisting changes
 
@@ -175,7 +202,7 @@ Feel free to duplicate them in your namespace!
 
 Example Python app (FastAPI HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-python
 
-Example Javascript app (Express.js HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-javascript
+Example JavaScript app (Express.js HTTP server): https://huggingface.co/spaces/dev-mode-explorers/dev-mode-javascript
 
 
 ## Feedback

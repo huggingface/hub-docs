@@ -31,8 +31,8 @@ It can be combined with other filters to e.g. select only `text-to-image` models
 Pass a comma-separated list of providers to select multiple:
 
 ```sh
-# List image-text-to-text models served by Novita or Sambanova
-~ curl -s https://huggingface.co/api/models?inference_provider=sambanova,novita&pipeline_tag=image-text-to-text | jq ".[].id"
+# List image-text-to-text models served by Novita or Nscale
+~ curl -s https://huggingface.co/api/models?inference_provider=nscale,novita&pipeline_tag=image-text-to-text | jq ".[].id"
 "meta-llama/Llama-3.2-11B-Vision-Instruct"
 "meta-llama/Llama-3.2-90B-Vision-Instruct"
 "Qwen/Qwen2-VL-72B-Instruct"
@@ -51,6 +51,24 @@ Finally, you can select all models served by at least one inference provider:
 "genmo/mochi-1-preview"
 "BagOu22/Lora_HKLPAZ"
 ```
+
+The same filters are available from the terminal with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
+
+```bash
+# List models served by at least one inference provider
+hf models ls --warm
+
+# Search served models for GLM-5.2
+hf models ls --warm --search GLM-5.2
+
+# List text-to-image models served by Fal AI
+hf models ls --inference-provider fal-ai --pipeline-tag text-to-image
+
+# List models served by Fireworks AI, most downloaded first
+hf models ls --inference-provider fireworks-ai --sort downloads
+```
+
+Repeat `--inference-provider` to match models served by any of several providers. Add `--expand inferenceProviderMapping` to see which provider serves each model and the provider-specific model id, or `--json` for machine-readable output.
 
 ## Get model status
 
@@ -119,6 +137,111 @@ None
 </python>
 
 </inferencesnippet>
+
+## List OpenAI-compatible models
+
+The router exposes an OpenAI-compatible endpoint to list chat-completion models served by Inference Providers, together with provider metadata used for routing and comparison:
+
+```sh
+~ curl -s https://router.huggingface.co/v1/models | jq '.data'
+{
+  "id": "deepseek-ai/DeepSeek-V4-Pro",
+  "object": "model",
+  "created": 1776837885,
+  "owned_by": "deepseek-ai",
+  "architecture": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "providers": [
+    {
+      "provider": "novita",
+      "status": "live",
+      "context_length": 1048576,
+      "pricing": {
+        "input": 1.69,
+        "output": 3.38
+      },
+      "supports_tools": true,
+      "supports_structured_output": false,
+      "first_token_latency_ms": 1490,
+      "throughput": 24.69124008437934,
+      "is_model_author": false
+    },
+    {
+      "provider": "together",
+      "status": "live",
+      "context_length": 512000,
+      "pricing": {
+        "input": 2.1,
+        "output": 4.4
+      },
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "first_token_latency_ms": 611,
+      "throughput": 40.13113557470821,
+      "is_model_author": false
+    },
+    {
+      "provider": "fireworks-ai",
+      "status": "live",
+      "context_length": 1048576,
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "first_token_latency_ms": 588.4,
+      "throughput": 45.42948747753918,
+      "is_model_author": false
+    },
+    {
+      "provider": "featherless-ai",
+      "status": "live",
+      "is_model_author": false
+    },
+    {
+      "provider": "deepinfra",
+      "status": "live",
+      "context_length": 65536,
+      "pricing": {
+        "input": 1.74,
+        "output": 3.48
+      },
+      "supports_tools": true,
+      "supports_structured_output": true,
+      "first_token_latency_ms": 525.8,
+      "throughput": 34.615908579189465,
+      "is_model_author": false
+    }
+  ]
+}
+...
+```
+
+To retrieve a single model, append its model id to the endpoint:
+
+```sh
+~ curl -s https://router.huggingface.co/v1/models/deepseek-ai/DeepSeek-V4-Pro | jq '.'
+```
+
+Each provider entry may include the following fields:
+
+| Field | Type | Description |
+|---|---|---|
+| `provider` | string | Provider identifier |
+| `status` | string | `live` or `error` |
+| `context_length` | number | Maximum context length supported by this provider for the model, when available |
+| `pricing` | object | `input` and `output` prices in USD per million tokens, when available |
+| `is_free` | boolean | Whether the model is currently free of charge on this provider (temporary promo), when applicable |
+| `supports_tools` | boolean | Whether the provider supports tool calling, when available |
+| `supports_structured_output` | boolean | Whether the provider supports structured output, when available |
+| `first_token_latency_ms` | number | Time to first token in milliseconds from the latest validation probe, when available |
+| `throughput` | number | Output throughput in tokens per second from the latest validation probe, when available |
+| `is_model_author` | boolean | Whether the model was published by this provider |
+
+These metrics are the same provider performance signals shown in the [provider comparison table](https://huggingface.co/inference/models). They are optional because some providers or models may not have the latest probe data available.
 
 ## Get model providers
 

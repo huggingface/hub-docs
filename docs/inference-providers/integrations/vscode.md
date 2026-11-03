@@ -19,11 +19,11 @@ Use frontier open LLMs like Kimi K2, DeepSeek V3.1, GLM 4.5 and more in VS Code 
 ## ✨ Why use the Hugging Face provider in Copilot
 
 - Access [SoTA open‑source LLMs](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending) with tool calling capabilities.
-- Single API to switch between multiple providers like Groq, Cerebras, Together AI, SambaNova, and more.
+- Single API to switch between multiple providers like Groq, Cerebras, Together AI, and more.
 - Built for high availability (across providers) and low latency.
 - Transparent pricing: what the provider charges is what you pay.
 
-💡 Every Hugging Face user gets monthly inference credits to experiment, and can purchase additional credits for pay‑as‑you‑go access. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) or [Team or Enterprise](https://huggingface.co/enterprise) for $2 in monthly credits!
+💡 Every Hugging Face user can purchase credits for pay‑as‑you‑go access. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) or [Team or Enterprise](https://huggingface.co/enterprise) for $2 in monthly credits!
 
 Check out the whole workflow in action in the video below:
 

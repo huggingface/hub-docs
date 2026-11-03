@@ -1,0 +1,6 @@
+# The Hugging Face PyTorch training DLC already ships transformers, torch,
+# datasets and accelerate at curated, CUDA-matched versions. Only
+# sentence-transformers is missing, so we install just that. Do NOT pin
+# transformers/torch/datasets here: pip would downgrade the DLC's build and
+# break pre-installed packages (e.g. peft -> ImportError on EncoderDecoderCache).
+sentence-transformers>=3.0.0,<4.0.0

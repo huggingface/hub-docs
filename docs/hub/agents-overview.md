@@ -9,6 +9,7 @@ Hugging Face provides tools and protocols that connect AI agents directly to the
 | [Skills](./agents-skills) | Task-specific guidance for AI/ML workflows |
 | [SDK](./agents-sdk) | Build agents programmatically with Python or JavaScript |
 | [Local Agents](./agents-local) | Run fully local agents with llama.cpp and Pi |
+| [Agent Traces](./agent-traces) | View Claude Code, Codex, and Pi sessions on the Hub |
 
 ## Chat with Hugging Face
 
@@ -118,7 +119,7 @@ claude
 
 Then, to install a Skill specification:
 ```bash
-/plugin install hf-cli@huggingface/skills
+/plugin install hf-cli@huggingface-skills
 ```
 
 See the [Skills Guide](./agents-skills) for available skills and usage.
@@ -180,6 +181,23 @@ Agent: [Fetches documentation]
                             model="distilbert-base-uncased-finetuned-sst-2-english")
        result = classifier("I love this product!")
 ```
+
+## Register your agent harness
+
+Hugging Face maintains a public registry of agent harnesses, the coding agents and tools that interact with the Hub (Claude Code, Codex, Cursor, and more). When `huggingface_hub` detects it is running inside a registered harness, it reports it via the user agent on Hub requests. Registering your harness means this activity is attributed to your tool by name and gives your project a friendly display label, links back to your docs and repository, and a place in the public [agent usage dataset](https://huggingface.co/datasets/huggingface/agent-usage) — unregistered tools are only counted in its aggregate `unknown` share.
+
+To register a harness, open a Pull Request adding an entry to [`agent-harnesses.ts`](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/agent-harnesses.ts) in the `@huggingface/tasks` package:
+
+- the harness id (the entry key) should be lowercased and hyphen-separated (example: `"claude-code"`).
+- set `prettyLabel` with user-friendly casing (example: `Claude Code`).
+- (optional) set `repoUrl` with a link to the harness source code (usually a GitHub repository).
+- (optional) set `docsUrl` with a link to the harness documentation or website.
+- (optional) set `description` with a short, one-line explanation of the harness.
+- define how your harness is detected from the environment:
+  - If your harness sets one of the standard environment variables (`AI_AGENT` or `AGENT`), its value is used directly as the identifier and no extra config is needed.
+  - Otherwise, set `envVars` to map environment variable names to value patterns. Use `"*"` to match any non-empty value, an exact string for an exact match, or `"<prefix>*"` for prefix matching.
+
+And that's it! Once the PR is merged, `huggingface_hub` traffic (including the `hf` CLI) from your agent harness is attributed to it by name, and it appears in the [agent usage dataset](https://huggingface.co/datasets/huggingface/agent-usage) from the next monthly update.
 
 ## Next Steps
 

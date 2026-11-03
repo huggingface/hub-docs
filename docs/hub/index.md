@@ -1,6 +1,6 @@
 # Hugging Face Hub documentation
 
-The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M demo apps (Spaces), all open source and publicly available, in an online platform where people can easily collaborate and build ML together. The Hub works as a central place where anyone can explore, experiment, collaborate, and build technology with Machine Learning. Are you ready to join the path towards open source Machine Learning? 🤗
+The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M models, 1.5M datasets, and 1.5M AI apps (Spaces), all open and publicly available. Beyond open AI, the Hub is also a great collaboration platform for internal and private teams. Explore, experiment, collaborate, and build, all in one place! 🤗
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10 not-prose">
 
@@ -103,10 +103,11 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs">Introduction</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-overview">Jobs Overview</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-quickstart">Quickstart</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-training">Train Models</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-pricing">Pricing</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-manage">Manage Jobs</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-configuration">Jobs Configuration</a>
-<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-popular-images">Popular images</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-images">Using Docker images</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-schedule">Schedule Jobs</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-webhooks">Webhooks Automation</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./jobs-reference">Reference</a>
@@ -133,6 +134,8 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./security">Security</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./moderation">Moderation</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./paper-pages">Paper Pages</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./academia-hub">Academia Hub</a>
+<a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./blog-articles">Blog Articles</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./search">Search</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./doi">Digital Object Identifier (DOI)</a>
 <a class="no-underline! transform transition-colors hover:translate-x-px text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white" href="./api">Hub API Endpoints</a>
@@ -146,8 +149,6 @@ The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M de
 ## What's the Hugging Face Hub?
 
 We are helping the community work together towards the goal of advancing Machine Learning 🔥.
-
-The Hugging Face Hub is a platform with over 2M models, 500k datasets, and 1M demos in which people can easily collaborate in their ML workflows. The Hub works as a central place where anyone can share, explore, discover, and experiment with open-source Machine Learning.
 
 No single company, including the Tech Titans, will be able to “solve AI” by themselves – the only way we'll achieve this is by sharing knowledge and resources in a community-centric approach. We are building the largest open-source collection of models, datasets, and demos on the Hugging Face Hub to democratize and advance ML for everyone 🚀.
 
@@ -176,7 +177,7 @@ To upload models to the Hub, or download models and integrate them into your wor
 
 ## Datasets
 
-The Hub is home to over 500k public datasets in more than 8k languages that can be used for a broad range of tasks across NLP, Computer Vision, and Audio. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of [**Dataset Cards**](./datasets-cards) and [**Data Studio**](./datasets-viewer) to let you explore the data directly in your browser. While many datasets are public, [**organizations**](./organizations) and individuals can create private datasets to comply with licensing or privacy issues. You can learn more about [**Datasets here on the Hugging Face Hub documentation**](./datasets-overview).
+The Hub is home to over 500k public datasets in more than 8k languages that can be used for a broad range of tasks across NLP, Computer Vision, and Audio. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of [**Dataset Cards**](./datasets-cards) and [**Data Studio**](./data-studio) to let you explore the data directly in your browser. While many datasets are public, [**organizations**](./organizations) and individuals can create private datasets to comply with licensing or privacy issues. You can learn more about [**Datasets here on the Hugging Face Hub documentation**](./datasets-overview).
 
 The [🤗 `datasets`](https://huggingface.co/docs/datasets/index) library allows you to programmatically interact with the datasets, so you can easily use datasets from the Hub in your projects. With a single line of code, you can access the datasets; even if they are so large they don't fit in your computer, you can use streaming to efficiently access the data.
 
@@ -186,7 +187,7 @@ The [🤗 `datasets`](https://huggingface.co/docs/datasets/index) library allows
 
 We currently support two awesome Python SDKs (**[Gradio](https://gradio.app/)** and **[Streamlit](./spaces-sdks-streamlit)**) that let you build cool apps in a matter of minutes. Users can also create static Spaces, which are simple HTML/CSS/JavaScript pages, or deploy any Docker-based application.
 
-If you need GPU power for your demos, try [**ZeroGPU**](./spaces-zerogpu): it dynamically provides NVIDIA H200 GPUs, in real-time, only when needed.
+If you need GPU power for your demos, try [**ZeroGPU**](./spaces-zerogpu): it dynamically provides NVIDIA RTX Pro 6000 Blackwell GPUs, in real-time, only when needed.
 
 After you've explored a few Spaces (take a look at our [Space of the Week!](https://huggingface.co/spaces)), dive into the [**Spaces documentation**](./spaces-overview) to learn all about how you can create your own Space. You'll also be able to upgrade your Space to run on a GPU or other accelerated hardware. ⚡️
 

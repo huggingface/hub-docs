@@ -1,21 +1,18 @@
 # Examples & Tutorials
 
-## Guides to train with Jobs
+## Train models
 
-Guides for using popular libraries with Jobs:
+The launch commands for Transformers, TRL, Unsloth and Axolotl are on [Train Models on Jobs](./jobs-training). Each one links to the library's own guide.
 
-- [Training with TRL on Jobs](https://huggingface.co/docs/trl/jobs_training) - Run SFT, GRPO, DPO and more using TRL and TRL Jobs
-- [Fine-tune with Unsloth on Jobs](https://huggingface.co/blog/unsloth-jobs) - ~2x faster training and ~60% less VRAM using Unsloth
-- [Transformers example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) - UV-compatible training scripts for text classification, summarization, image classification, NER, speech recognition, and more — run directly on Jobs:
+## Process data at scale
 
-```bash
-hf jobs uv run --flavor a10g-small --secrets HF_TOKEN \
-  https://raw.githubusercontent.com/huggingface/transformers/main/examples/pytorch/image-classification/run_image_classification.py \
-  --model_name_or_path google/vit-base-patch16-224-in21k \
-  --dataset_name ethz/food101 \
-  --output_dir vit-food101 \
-  --push_to_hub
-```
+[DataTrove](https://github.com/huggingface/datatrove) provides an experimental [`JobsPipelineExecutor`](https://github.com/huggingface/datatrove#jobspipelineexecutor) for distributing data processing pipelines across a pool of Jobs. It supports concurrency limits, multi-stage dependencies, retries, and resumable runs — re-running a pipeline skips tasks that already completed and only runs the remaining ones.
+
+See the ready-to-run examples for:
+
+- [Filtering a Hub dataset](https://github.com/huggingface/datatrove/blob/main/examples/filter_hf_dataset_jobs.py)
+- [Tokenizing and merging a Hub dataset](https://github.com/huggingface/datatrove/blob/main/examples/tokenize_hf_dataset_jobs.py)
+- [Multi-stage MinHash deduplication](https://github.com/huggingface/datatrove/blob/main/examples/minhash_deduplication_jobs.py)
 
 ## UV Scripts
 
@@ -25,13 +22,24 @@ The [uv-scripts](https://huggingface.co/uv-scripts) organization maintains a col
 
 ## Coding Agent Skills
 
-The [hugging-face-jobs skill](https://github.com/huggingface/skills/tree/main/skills/hugging-face-jobs) lets coding agents like Claude Code and Cursor submit and monitor Jobs directly from your editor.
+Coding agents like Claude Code, Codex and Cursor can submit and monitor Jobs for you. Install the `hf` CLI skill, generated from your installed CLI so it stays current:
+
+```bash
+hf skills add
+```
+
+See [Hugging Face CLI for AI agents](./agents-cli) for setup per agent, and [Agent Skills](./agents-skills) for training and other workflow skills.
+
+## Sandboxes
+
+The [expose ports](./jobs-configuration#expose-ports) feature of Jobs makes them a great fit for building sandboxes, i.e. temporary self-contained environments used by agents and LLM applications.
 
 ## Community Tutorials and Projects
 
 - [Train on massive datasets without downloading](https://danielvanstrien.xyz/posts/2026/hf-streaming-unsloth/train-massive-datasets-without-downloading.html) - Stream datasets directly on Jobs with Unsloth, no local storage needed
 - [Fine-tune a vision-language model with TRL](https://danielvanstrien.xyz/posts/2025/iconclass-vlm-sft/trl-vlm-fine-tuning-iconclass.html) - Fine-tune Qwen2.5-VL for art history tasks using TRL and Jobs
 - [FreeFlow](https://github.com/wjbmattingly/freeflow) - Open-source annotation platform with built-in Jobs integration for training YOLOv11 object detection models
+- [hfdask](https://github.com/Hanno-Labs/hfdask) - Run Dask programs across CPU and GPU Jobs from one YAML cluster definition, with mTLS between nodes and automatic cleanup
 
 ---
 

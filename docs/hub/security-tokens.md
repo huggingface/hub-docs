@@ -56,7 +56,7 @@ model = AutoModel.from_pretrained("private/model", token=access_token)
 ```
 
 > [!WARNING]
-> Try not to leak your token! Though you can always rotate it, anyone will be able to read or write your private repos in the meantime which is 💩
+> Try not to leak your token! Though you can always rotate it, anyone will be able to read or write your private repos in the meantime which is 💩 See [Revoking a leaked token](#revoking-a-leaked-token) if a token has been exposed.
 
 ### Best practices
 
@@ -72,9 +72,35 @@ We also recommend using only fine-grained tokens for production usage. The impac
 
 For example, if your production application needs read access to a gated model, a member of your organization can request access to the model and then create a fine-grained token with read access to that model. This token can then be used in your production application without giving it access to all your private models.
 
+### For CI/CD pipelines
+
+If you only need access from a CI/CD workflow (GitHub Actions, GitLab CI, CircleCI, …), you can avoid storing an access token as a CI secret entirely. See [Trusted Publishers](./trusted-publishers), which exchanges your CI provider's OpenID Connect (OIDC) identity token for a short-lived Hub token at the start of each run — either repo-scoped (to publish models, datasets, Spaces or kernels, or to pull them read-only) or user-scoped (to read gated repos you have access to and get your account's rate limits).
+
 ### For Enterprise organizations
 
 If your organization needs to programmatically issue tokens for members without requiring each user to create their own token, see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature is ideal for building internal platforms, CI/CD pipelines, or custom integrations that need to access Hugging Face resources on behalf of organization members.
+
+## Revoking a leaked token
+
+If one of your own tokens has leaked, delete or refresh it from the [Access Tokens tab](https://huggingface.co/settings/tokens) of your settings.
+
+If you have found somebody else's Hugging Face access token you can invalidate it with the [`POST /api/credentials/revoke`](https://huggingface-openapi.hf.space/#tag/tokens/POST/api/credentials/revoke) endpoint. You don't need any rights over the account or organization that owns the token.
+
+```bash
+# LEAKED_HF_TOKEN should contain the raw token value to revoke
+curl -X POST "https://huggingface.co/api/credentials/revoke" \
+  -H "Content-Type: application/json" \
+  -d "{\"credentials\": [\"${LEAKED_HF_TOKEN}\"]}"
+```
+
+You can pass several token values in the `credentials` array in a single call, which is convenient for secret-scanning pipelines that report findings in batches.
+
+Every submitted token that matches an existing one is invalidated immediately and stops working everywhere — unlike [organization-level revocation](./enterprise-tokens-management#revoking-via-api), which only cuts off the token's access to a single organization. The owner of the token is notified by email and needs to create a new token to restore access.
+
+The endpoint always responds with `202 Accepted`, whether or not any of the tokens you submitted existed, so its response cannot be used to probe whether a token is valid. Submitting the same token again is harmless: repeat calls do nothing and the owner is only notified once.
+
+> [!TIP]
+> To avoid leaking token values in shell history or logs, pass them via environment variables or files, and avoid pasting raw tokens directly into command lines.
 
 ## Tokens in organizations with token management policies
 

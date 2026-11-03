@@ -21,7 +21,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | ----------------------------------------------------- | ----------- | -------------------- | --------------------- | ---------------------- |
 | Storage – Public repos                                | Best effort | 12TB base + 1TB/seat | 200TB base + 1TB/seat | 500TB base + 1TB/seat  |
 | Storage – Private repos                               | 100GB       | 1TB/seat + PAYG      | 1TB/seat + PAYG       | 1TB/seat + PAYG        |
-| [Extra storage](./storage-limits#pay-as-you-go-price) | ❌          | ✅ PAYG              | ✅ PAYG               | ✅ PAYG                |
+| [Extra storage](./storage-limits#private-storage-pay-as-you-go) | ❌          | ✅ PAYG              | ✅ PAYG               | ✅ PAYG                |
 | API requests / period\*                               | 1,000       | 3,000                | 6,000                 | 10,000 up to 100,000†  |
 | Resolver requests / period\*                          | 5,000       | 20,000               | 50,000                | 100,000 up to 500,000† |
 | Pages requests / period\*                             | 200         | 400                  | 600                   | 1,000 up to 10,000†    |
@@ -30,23 +30,24 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 † When Organization IP Ranges are defined
 
-### Inference & Hub credits
+### Inference & Compute Credits
 
-| Feature                                                                                                                | Free    | Team                              | Enterprise                        | Enterprise Plus                   |
-| ---------------------------------------------------------------------------------------------------------------------- | ------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| Serve models with Inference Providers                                                                                  | ✅ <br>PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG | ✅ <br>$2/seat/mo included + PAYG |
-| [Usage & billing control](https://huggingface.co/docs/inference-providers/pricing#inference-providers-usage-breakdown) | ❌      | ✅                                | ✅                                | ✅                                |
-| Scale deployment with Inference Endpoints                                                                              | ✅ PAYG | ✅ PAYG                           | ✅ PAYG                           | ✅ PAYG                           |
-| Hub credits\* included in plan                                                                                         | ❌      | ❌ (bulk purchase available)      | $2k included                      | 5% of ACV included                |
+| Feature                                                                                                                | Free        | Team                              | Enterprise                        | Enterprise Plus                   |
+| ---------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------------------- | --------------------------------- | --------------------------------- |
+| Serve models with Inference Providers                                                                                  | ✅ <br>PAYG | ✅ <br>PAYG                       | ✅ <br>PAYG                       | ✅ <br>PAYG                       |
+| Included monthly compute credits\*                                                                                     | ❌          | $2/seat/mo                        | $2/seat/mo                        | $2/seat/mo                        |
+| [Usage & billing control](https://huggingface.co/docs/inference-providers/pricing#inference-providers-usage-breakdown) | ❌          | ✅                                | ✅                                | ✅                                |
+| Scale deployment with Inference Endpoints                                                                              | ✅ PAYG     | ✅ PAYG                           | ✅ PAYG                           | ✅ PAYG                           |
+| Additional compute credits\* included in plan                                                                          | ❌          | ❌ (bulk purchase available)      | ❌ (bulk purchase available)      | 5% of ACV included                |
 
-\* Hub credits can be utilized for inference providers, inference endpoints, Jobs, Space upgrade, ZeroGPU quota extension
+\* Compute credits can be utilized for Inference Providers, Inference Endpoints, Jobs, Space upgrade, ZeroGPU quota extension. Included monthly credits are applied automatically before any pay-as-you-go usage is billed.
 
 ### Spaces & Jobs
 
 | Feature                                | Free      | Team        | Enterprise  | Enterprise Plus |
 | -------------------------------------- | --------- | ----------- | ----------- | --------------- |
 | Spaces – CPU-based runtime             | 8 units\* | ✅ No limit | ✅ No limit | ✅ No limit     |
-| Spaces – ZeroGPU usage tiers           | 3.5 min†  | 25 min†     | 45 min†     | 45 min†         |
+| Spaces – ZeroGPU usage tiers           | 5 min†    | 40 min†     | 60 min†     | 60 min†         |
 | Spaces – Upgraded hardware             | PAYG      | PAYG        | PAYG        | PAYG            |
 | Dev Mode / Custom domain for Spaces    | ❌        | ✅          | ✅          | ✅              |
 | Jobs & Scripts (train/fine-tune, eval) | PAYG      | PAYG        | PAYG        | PAYG            |
@@ -76,24 +77,26 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [SSO to public Hub](./enterprise-advanced-sso) |  ❌  |      ❌      |      ❌      |       ✅        |
 | [Enforce 2FA](./enterprise-advanced-security)  |  ❌  |      ✅      |      ✅      |       ✅        |
 | [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693) |  ❌  |      ❌      |      ✅      |       ✅        |
+| [Service Accounts](./enterprise-service-accounts)  |  ❌  |      ❌      |      ✅      |       ✅        |
 | Disable personal public repos for users            |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable joining other orgs for users               |  ❌  |      ❌      |      ❌      |       ✅        |
 | Disable PRO subscription                           |  ❌  |      ❌      |      ❌      |       ✅        |
-| Hide members list                                  |  ❌  |      ❌      |      ❌      |       ✅        |
+| Hide members list                                  |  ❌  |      ✅      |      ✅      |       ✅        |
 
 ### Governance, auditing, compliance
 
-| Feature                                                                 | Free |    Team     | Enterprise  | Enterprise Plus |
-| ----------------------------------------------------------------------- | :--: | :---------: | :---------: | :-------------: |
-| RBAC                                                                    |  ✅  | ✅ Advanced | ✅ Advanced |   ✅ Advanced   |
-| [Audit logs](./audit-logs)                                              |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Resource groups](./enterprise-advanced-security)                   |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Tokens admin / management](./enterprise-tokens-management)         |  ❌  |     ✅      |     ✅      |       ✅        |
-| [Token revocation](./enterprise-tokens-management#revoking-via-api) |  ❌  |     ❌      |     ✅      |       ✅        |
-| [Users Download analytics](./enterprise-network-security)           |  ❌  |     ❌      |     ❌      |       ✅        |
-| [Content access / policy controls](./enterprise-network-security)   |  ❌  |     ❌      |     ❌      |       ✅        |
-| [Network access controls](./enterprise-network-security)            |  ❌  |     ❌      |     ❌      |       ✅        |
-| [Enforced authentication (advanced)](./enterprise-network-security) |  ❌  |     ❌      |     ❌      |       ✅        |
+| Feature                                                                                | Free |    Team     | Enterprise  | Enterprise Plus |
+|----------------------------------------------------------------------------------------| :--: | :---------: | :---------: | :-------------: |
+| RBAC                                                                                   |  ✅  | ✅ Advanced | ✅ Advanced |   ✅ Advanced   |
+| [Audit logs](./audit-logs)                                                             |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Resource groups](./enterprise-advanced-security)                                      |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Feature access per resource group](./security-resource-groups#granular-feature-access)|  ❌  |     ❌      |     ✅      |       ✅        |
+| [Tokens admin / management](./enterprise-tokens-management)                            |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Token revocation](./enterprise-tokens-management#revoking-via-api)                    |  ❌  |     ❌      |     ✅      |       ✅        |
+| [Download analytics](./download-analytics)                                             |  ✅  |     ✅      |     ✅      |       ✅        |
+| [Content access / policy controls](./enterprise-network-security)                      |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Network access controls](./enterprise-network-security)                               |  ❌  |     ❌      |     ❌      |       ✅        |
+| [Enforced authentication (advanced)](./enterprise-network-security)                    |  ❌  |     ❌      |     ❌      |       ✅        |
 
 ### User provisioning & admin
 

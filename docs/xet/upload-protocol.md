@@ -2,7 +2,7 @@
 
 This document describes how files are uploaded in the Xet protocol to the Content Addressable Storage (CAS) service.
 The flow converts input files into chunks, applies deduplication, groups chunks into xorbs, uploads xorbs, then forms and uploads shards that reference those xorbs.
-The steps can be done all be done concurrently except that all xorbs MUST be uploaded before a shard referencing them is uploaded.
+The steps can all be done concurrently except that all xorbs MUST be uploaded before a shard referencing them is uploaded.
 Content addressing uses hashes as stable keys for deduplication and integrity verification.
 
 ## Xet Object Types
@@ -35,7 +35,7 @@ Xorbs are always less than or equal to 64MiB in length and on average contain 10
 A file reconstruction is a "recipe" to recreate a file using data from xorbs.
 
 Each file reconstruction is made of a series of "terms" where each term contains a xorb hash and a chunk index range.
-To reconstruct a file, a user needs will need the chunks at the specified range for each term, deserialized and decompressed and concatenated in term order.
+To reconstruct a file, a user will need the chunks at the specified range for each term, deserialized and decompressed and concatenated in term order.
 
 ### Shards
 
@@ -115,6 +115,9 @@ The client uploads the shard via the [shard upload](./api#4-upload-shard) endpoi
 For this to succeed, all xorbs referenced by the shard MUST have already completed uploading.
 
 This API registers files as uploaded.
+
+> [!TIP]
+> A [streaming variant](./api#5-streaming-shard-upload) (`POST /v2/shards`) runs the same validation and registration but streams finalization progress back as newline-delimited JSON, so clients can show real progress while the server verifies a large shard. Clients SHOULD fall back to `/v1/shards` on a `404`.
 
 > [!NOTE]
 > For a large batch of files or a batch of large files if the serialized shard will be greater than 64 MiB you MUST break up the content into multiple shards.

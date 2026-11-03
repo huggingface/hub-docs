@@ -2,6 +2,8 @@
 
 Spaces also accommodate custom HTML for your app instead of using Streamlit or Gradio. Set `sdk: static` inside the `YAML` block at the top of your Spaces **README.md** file. Then you can place your HTML code within an **index.html** file.
 
+Static Spaces are free for everyone: they are served directly without running on compute, so unlike [Gradio](./spaces-sdks-gradio) and [Docker](./spaces-sdks-docker) Spaces, creating them never requires a paid plan.
+
 Here are some examples of Spaces using custom HTML:
 
 * [Smarter NPC](https://huggingface.co/spaces/mishig/smarter_npc): Display a PlayCanvas project with an iframe in Spaces.

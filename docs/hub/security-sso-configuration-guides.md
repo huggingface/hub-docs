@@ -8,6 +8,9 @@ These guides help you configure SAML 2.0 and OpenID Connect (OIDC) with your Ide
 > [!NOTE]
 > If you are looking to set up [Managed SSO](./enterprise-advanced-sso), the configuration is done in collaboration with the Hugging Face team. Please <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">contact us</a> to get started.
 
+> [!TIP]
+> **OIDC token endpoint authentication method.** When exchanging the authorization code, Hugging Face authenticates to your Identity Provider's token endpoint using the `client_secret_post` method. If your IdP application is configured to expect a different method (such as `client_secret_basic`), the login will fail with an `invalid_client` error. To resolve this, set your IdP application's token endpoint authentication method to `client_secret_post`.
+
 ## Okta
 
 - [How to configure OIDC with Okta](./security-sso-okta-oidc)

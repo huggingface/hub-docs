@@ -29,14 +29,18 @@ Example applications:
 
 - [openai/whisper-large-v3](https://huggingface.co/openai/whisper-large-v3): A powerful ASR model by OpenAI.
 
-Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=automatic-speech-recognition&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=automatic-speech-recognition&sort=trending), or from the terminal with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
+
+```bash
+hf models ls --warm --pipeline-tag automatic-speech-recognition --sort trending_score
+```
 
 ### Using the API
 
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"fal-ai":{"modelId":"openai/whisper-large-v3","providerModelId":"fal-ai/whisper"},"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"},"replicate":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper:8099696689d249cf8b122d833c36ac3f75505c666a395ca40ef26f68e7d3d16e"}} }
+    providersMapping={ {"deepinfra":{"modelId":"nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B","providerModelId":"nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B"},"fal-ai":{"modelId":"openai/whisper-large-v3","providerModelId":"fal-ai/whisper"},"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"},"replicate":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper:8099696689d249cf8b122d833c36ac3f75505c666a395ca40ef26f68e7d3d16e"},"together":{"modelId":"nvidia/nemotron-3.5-asr-streaming-0.6b","providerModelId":"nvidia/nemotron-3.5-asr-streaming-0.6b"}} }
 />
 
 

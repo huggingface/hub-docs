@@ -21,7 +21,7 @@ After cutting a chunk of data, the chunk hash is computed via a blake3 keyed has
 ]
 ```
 
-[reference implementation](https://github.com/huggingface/xet-core/blob/main/merklehash/src/data_hash.rs#L308-L311)
+[reference implementation](https://github.com/huggingface/xet-core/blob/c3c726bed5cf54ded92a63fab892cfb7857c751a/xet_core_structures/src/merklehash/data_hash.rs#L310-L313)
 
 ## Xorb Hashes
 
@@ -39,7 +39,7 @@ The hash function used to compute internal node hashes is as follows:
   - finally a newline `\n` character
 - Then take the bytes from this string and compute a blake3 keyed hash with the following key (INTERNAL_NODE_KEY)
 
-[reference implementation](https://github.com/huggingface/xet-core/blob/main/merklehash/src/aggregated_hashes.rs#L103-L109)
+[reference implementation](https://github.com/huggingface/xet-core/blob/c3c726bed5cf54ded92a63fab892cfb7857c751a/xet_core_structures/src/merklehash/aggregated_hashes.rs#L123-L136)
 
 ### INTERNAL_NODE_KEY
 
@@ -95,7 +95,7 @@ After chunking a whole file, to compute the file hash, follow the same procedure
 This means create a MerkleTree using the same hashing functions described in the previous section.
 Then take the root node's hash and compute a blake3 keyed hash with the key being 32 0-value bytes.
 
-[reference implementation](https://github.com/huggingface/xet-core/blob/main/merklehash/src/aggregated_hashes.rs#L123-L125)
+[reference implementation](https://github.com/huggingface/xet-core/blob/c3c726bed5cf54ded92a63fab892cfb7857c751a/xet_core_structures/src/merklehash/aggregated_hashes.rs#L191-L195)
 
 ## Term Verification Hashes
 
@@ -117,7 +117,7 @@ To generate this hash, take the chunk hashes for the specific range of chunks th
 
 The result of the blake3 keyed hash is the verification hash that MUST be used in the FileVerificationEntry for the term.
 
-[reference implementation](https://github.com/huggingface/xet-core/blob/main/mdb_shard/src/chunk_verification.rs#L4-L16)
+[reference implementation](https://github.com/huggingface/xet-core/blob/c3c726bed5cf54ded92a63fab892cfb7857c751a/xet_core_structures/src/metadata_shard/chunk_verification.rs#L4-L16)
 
 ### Example Python code for the verification hash
 

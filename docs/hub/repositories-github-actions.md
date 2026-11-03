@@ -2,6 +2,9 @@
 
 You can use [GitHub Actions](https://docs.github.com/en/actions) to automatically sync your GitHub repository to the Hugging Face Hub. The official [`huggingface/hub-sync`](https://github.com/marketplace/actions/sync-github-to-hugging-face-hub) action supports syncing **Models**, **Datasets**, and **Spaces**.
 
+> [!TIP]
+> For keyless publishing — no `HF_TOKEN` secret to store or rotate — see [Trusted Publishers](./trusted-publishers), which exchanges GitHub Actions' built-in OIDC token for a short-lived, repo-scoped Hub token at the start of each run.
+
 ## Setup
 
 1. Create a Hugging Face [access token](https://huggingface.co/settings/tokens) with **write** permission to the target repo. For better security, use a [fine-grained token](https://huggingface.co/settings/tokens) scoped to only the repository you're syncing to.
@@ -21,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: huggingface/hub-sync@v0.1.0
+      - uses: huggingface/hub-sync@v0.3.0
         with:
           github_repo_id: ${{ github.repository }}
           huggingface_repo_id: username/repo-name
@@ -31,7 +34,7 @@ jobs:
 By default, this syncs to a **Space**. To sync a model or dataset, set the `repo_type` parameter:
 
 ```yaml
-      - uses: huggingface/hub-sync@v0.1.0
+      - uses: huggingface/hub-sync@v0.3.0
         with:
           github_repo_id: ${{ github.repository }}
           huggingface_repo_id: username/my-dataset

@@ -22,6 +22,10 @@ The Hugging Face Hub is also home to Spaces, which are interactive demos used to
 
 Spaces are a great way to show off a model you've made or explore new ways to use existing models! Visit the [Spaces documentation](./spaces) to learn how to make your own.
 
+## Are community blog articles linked to models?
+
+Yes — if you publish a [blog article](./blog-articles) that mentions a model you own (as a user or organization), it will automatically appear in the model page sidebar. The same applies to dataset pages. See [Linking to Models and Datasets](./blog-articles#linking-to-models-and-datasets) for details.
+
 ## How do I upload an update / new version of the model?
 
 Releasing an update to a model that you've already published can be done by pushing a new commit to your model's repo. To do this, go through the same process that you followed to upload your initial model. Your previous model versions will remain in the repository's commit history, so you can still download previous model versions from a specific git commit or tag or revert to previous versions if needed.

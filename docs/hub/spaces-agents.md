@@ -1,6 +1,6 @@
 # Spaces as Agent Tools
 
-Every Gradio Space exposes a plain-text `agents.md` that coding agents (Claude Code, Codex, OpenCode, Pi, etc.) can call directly. Find one via semantic search on [huggingface.co/spaces](https://huggingface.co/spaces) (e.g. "audio transcription"), optionally try it in the UI first, then point your agent at its `agents.md`. The response is four lines: schema URL, call template, poll template, auth hint.
+Every Gradio Space exposes a plain-text `agents.md` that coding agents (Claude Code, Codex, OpenCode, Pi, etc.) can call directly. Find one via semantic search on [huggingface.co/spaces](https://huggingface.co/spaces) (e.g. "audio transcription"), optionally try it in the UI first, then point your agent at its `agents.md`. The response gives everything needed to call the Space in one shot: schema URL, call and poll templates, file-upload instructions, and an auth hint.
 
 This gets even more powerful when **chaining Spaces**. An agent can turn a prompt into a 3D asset by calling [`black-forest-labs/flux-klein-9b-kv`](https://huggingface.co/spaces/black-forest-labs/flux-klein-9b-kv) for an image, then passing the generated image into [`microsoft/TRELLIS.2`](https://huggingface.co/spaces/microsoft/TRELLIS.2) for the 3D model. No client library, no hardcoded integration.
 
@@ -32,23 +32,44 @@ Returns:
 ```
 To use this application (microsoft/TRELLIS.2: Create 3D model from a single image):
 API schema: GET https://microsoft-trellis-2.hf.space/gradio_api/info
-Call endpoint: POST https://microsoft-trellis-2.hf.space/gradio_api/call/{endpoint} {"data": [...]}
+Call endpoint: POST https://microsoft-trellis-2.hf.space/gradio_api/call/v2/{endpoint} {"param_name": value, ...}
 Poll result: GET https://microsoft-trellis-2.hf.space/gradio_api/call/{endpoint}/{event_id}
-Auth: Bearer $HF_TOKEN
+File inputs: POST https://microsoft-trellis-2.hf.space/gradio_api/upload -F "files=@file.ext", use as: {"path": "<returned-path>", "meta": {"_type": "gradio.FileData"}, "orig_name": "file.ext"}
+Auth: Bearer $HF_TOKEN (https://huggingface.co/settings/tokens)
 ```
+
+## File inputs
+
+When an endpoint takes a file (image, audio, video, etc.), upload it first and reference the returned path in your call. Upload to `/gradio_api/upload` and reuse the path it returns:
+
+```bash
+# 1. Upload the file
+curl -H "Authorization: Bearer $HF_TOKEN" \
+  https://microsoft-trellis-2.hf.space/gradio_api/upload \
+  -F "files=@chair.png"
+# → ["/tmp/gradio/.../chair.png"]
+
+# 2. Reference the returned path as a FileData object in your call
+curl -H "Authorization: Bearer $HF_TOKEN" \
+  https://microsoft-trellis-2.hf.space/gradio_api/call/v2/predict \
+  -d '{"image": {"path": "/tmp/gradio/.../chair.png", "meta": {"_type": "gradio.FileData"}, "orig_name": "chair.png"}}'
+```
+
+Inputs that accept a public URL (rather than an uploaded file) can be passed directly without the upload step.
 
 ## Authentication and ZeroGPU
 
-Most popular Spaces run on [ZeroGPU](./spaces-zerogpu), which uses the caller's daily quota. Agents should always pass an `$HF_TOKEN` so calls are billed to your account rather than a throttled anonymous pool. The same token is also required for private Spaces.
+Most popular Spaces run on [ZeroGPU](./spaces-zerogpu), which uses the caller's daily quota. Agents should always pass an `$HF_TOKEN` so calls are billed to your account rather than a throttled anonymous pool. The same token is also required for private Spaces. Create one at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) (the `agents.md` auth line links to this page directly).
 
 ```bash
 curl -H "Authorization: Bearer $HF_TOKEN" \
-  https://microsoft-trellis-2.hf.space/gradio_api/call/predict \
-  -d '{"data": [{"path": "https://example.com/chair.png"}]}'
+  https://microsoft-trellis-2.hf.space/gradio_api/call/v2/predict \
+  -d '{"image": {"path": "https://example.com/chair.png"}}'
 ```
 
 ## How agents will use this
 
 1. The agent `curl`s `/agents.md` for the Space.
 2. It fetches `/gradio_api/info` to learn endpoint names and inputs.
-3. It POSTs to `/gradio_api/call/<endpoint>`, then GETs the poll URL to stream the result.
+3. For file inputs, it POSTs the file to `/gradio_api/upload` and keeps the returned path.
+4. It POSTs to `/gradio_api/call/v2/<endpoint>`, then GETs the poll URL to stream the result.

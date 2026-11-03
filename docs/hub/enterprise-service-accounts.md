@@ -1,0 +1,97 @@
+# Service Accounts
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> and <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plans.
+
+Service accounts are organization-owned identities designed for programmatic access to your organization's resources, such as CI/CD pipelines, automation scripts, and backend integrations. Unlike a personal member account, a service account is not tied to an individual person: it belongs to the organization and is managed by its administrators.
+
+Because a service account is decoupled from any individual, it keeps automated workflows running even as people join or leave the organization, and it lets you scope and rotate credentials without affecting any member's personal tokens.
+
+## Creating a Service Account
+
+As an organization administrator, go to the **Service Accounts** section of your organization settings to create and manage service accounts.
+
+<div class="flex justify-center">
+  <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create.png" alt="Creating a new service account from the organization settings."/>
+  <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-create.png" alt="Creating a new service account from the organization settings."/>
+</div>
+
+When creating a service account, you provide:
+
+- A **name** to identify the service account.
+- An optional **description** to document what the service account is used for.
+
+Service accounts do not have a password and cannot sign in interactively — they are accessed exclusively through the access tokens you issue for them. Unlike regular users, they also don't have an HF profile page, aren't part of the organization's member list, and are managed only through the **Service Accounts** settings.
+
+## Managing Access Tokens
+
+A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
+
+Permissions can be granted at two levels:
+
+- **Organization-wide** — apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
+- **Per-repository** — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. Selected repositories must be owned by the organization or be public.
+
+This lets you issue narrowly scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
+
+<div class="flex justify-center">
+  <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
+  <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
+</div>
+
+From the service account's page, administrators can:
+
+- **Create** a new access token with a chosen name and fine-grained permissions.
+- **Update** an existing token's name or permissions.
+- **Rotate** a token to replace it with a new value. The previous token stops working immediately, which is useful if a credential may have been exposed.
+- **Delete** a token to permanently revoke its access.
+
+> [!WARNING]
+> An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.
+
+### Generating S3 Credentials
+
+Service account tokens can be used to access your organization's [Storage Buckets](./storage-buckets) through the [S3-compatible API](./storage-buckets-s3). The gateway authenticates with AWS-style access keys derived from a service account token.
+
+1. Go to the service account's page. [Create a token](#managing-access-tokens) with the **Create new token** button if you don't already have one. The token's permissions become the S3 credentials' permissions.
+2. Find the token in the list, open its dropdown menu, and choose **Generate S3 credentials**.
+
+   <div class="flex justify-center">
+   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-generate-s3-credentials.png" alt="Generate S3 credentials option in service account token's dropdown menu"/>
+   <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-generate-s3-credentials.png" alt="Generate S3 credentials option in service account token's dropdown menu"/>
+   </div>
+
+3. Copy the generated **access key ID** (prefixed `HFAK…`) and **secret access key** somewhere safe — the secret is shown only once. If you lose it, use **Invalidate and refresh S3 credentials** to generate a new pair. The previous access key stops working immediately.
+
+The S3 credentials inherit the permissions of the underlying access token. Scope the token to only the buckets you intend to use.
+
+Use **Revoke S3 credentials** to disable the pair without deleting the token — deleting the token (or the service account) also revokes its S3 credentials. The service account's page shows the access key ID currently paired with each token.
+
+Use your organization name as the `<namespace>` in the endpoint URL (see [Configuring a Client](./storage-buckets-s3#configuring-a-client)). Generating and revoking S3 credentials are recorded in the organization's [Audit Logs](./audit-logs).
+
+If a token has the [Network Security exemption](#network-security-exemption) enabled, only organization admins can generate S3 credentials for it.
+
+### Network Security exemption
+
+> [!WARNING]
+> This option is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
+
+If your organization uses [Network Security](./enterprise-network-security) settings, service account tokens are subject to them like any other credential: they only work from your organization's IP ranges, and the Content Access Policy applies to what they can reach.
+
+Some automated workflows run outside your corporate network — for example, a CI job hosted by a cloud provider. For those cases, you can exempt an individual token from your organization's Network Security enforcement with the **Bypass IP restrictions and the Content Access Policy** option in the token form.
+
+When enabled:
+
+- The token works from any IP address, even when **Restrict organization access to your IP ranges only** is on.
+- The token can reach content that your organization's Content Access Policy would otherwise block.
+- The exemption only applies to your own organization's Network Security settings. It never bypasses another organization's policy.
+- The token is listed with a **No IP restrictions** badge on the service account's page.
+- Rotating the token preserves the exemption.
+
+Only organization admins can enable the exemption or rotate a token that is already exempt.
+
+Because an exempt token is no longer protected by your network perimeter, the token itself becomes the only credential guarding the resources it can reach. We recommend scoping it to the smallest possible set of repositories, granting read-only permissions where that is sufficient, and rotating it regularly.
+
+## Billing
+
+Service accounts are not counted as billable members of your organization, so creating them does not consume a paid seat in your plan.

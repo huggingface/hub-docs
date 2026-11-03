@@ -6,6 +6,17 @@ You need to be authenticated with `hf auth login` to run Jobs, and use a token w
 
 Alternatively, pass a Hugging Face token manually with `--token` in the CLI, or the `token` argument in Python.
 
+## Passing arguments
+
+Use `--` to separate Jobs options from your command or script and its arguments. Options after
+`--`, such as `--help` or `--timeout`, are passed through rather than interpreted by Jobs.
+This applies to both UV and Docker Jobs.
+
+```text
+hf jobs uv run --flavor t4-small -- script.py --early-stopping-patience 3
+               └─ Jobs option ┘    └─ script + arguments ─────────────┘
+```
+
 ## UV Jobs
 
 Specify the UV script or python command to run as you would with UV:
@@ -26,7 +37,7 @@ The `hf jobs uv run` command accepts an UV argument like `--with` and `--python`
 >>> hf jobs uv run --python 3.12 train.py
 ```
 
-Arguments following the command (or script) are not interpreted as arguments to uv. All options to uv must be provided before the command, e.g., uv run --verbose foo. A `--` can be used to separate the command from jobs/uv options for clarity, e.g.
+For example, pass arguments to a command using `--`:
 
 ```bash
 >>> hf jobs uv run --with trl-jobs -- trl-jobs sft --model_name Qwen/Qwen3-0.6B --dataset_name trl-lib/Capybara
@@ -36,6 +47,34 @@ Find the list of all arguments in the [CLI documentation](https://huggingface.co
 
 By default, UV Jobs run with the `ghcr.io/astral-sh/uv:python3.12-bookworm` Docker image, but you can use another image as long as it has UV installed, using `--image <docker-image>`.
 
+See [Using Docker images](./jobs-images#use-an-image-with-uv) for choosing an image and understanding how its environment interacts with UV dependencies.
+
+### Define the launch config in the script
+
+A script that only runs correctly on a specific runtime (a given image, GPU flavor or system interpreter) can carry that configuration with it, in an optional `[tool.hf-jobs]` table of its PEP 723 header:
+
+```python
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["vllm", "datasets"]
+#
+# [tool.hf-jobs]
+# image   = "vllm/vllm-openai:unlimited-ocr"
+# flavor  = "l4x1"
+# python  = "/usr/bin/python3"
+# secrets = ["HF_TOKEN"]
+# ///
+```
+
+`hf jobs uv run ocr.py` then launches on that image and hardware. A plain `uv run` ignores the table, as `[tool.*]` tables are part of PEP 723 and tools skip the ones they don't own.
+
+Supported keys, all optional: `image`, `flavor`, `python`, `timeout`, `name`, `namespace`, `env`, `secrets`, `labels`, `volumes`, `network_group` and `network_aliases`. They map to the flags of the same name. Values from the script are defaults: an explicit flag always wins, and `env`, `secrets`, `labels` and `volumes` are merged entry by entry, so `-e` and `-v` add to what the script declares. An unknown key is an error, and `secrets` only lists names: values come from the environment of whoever runs the script, and a secret that is not set locally is an error too.
+
+Use `--dry-run` to print the resolved configuration without submitting; values that come from the script are marked `(from script)`. See the [`hf` CLI guide](https://huggingface.co/docs/huggingface_hub/guides/cli#ship-the-launch-config-with-the-script) for the full merge rules.
+
+> [!WARNING]
+> The table is read by the `hf` CLI only. `run_uv_job()` and `create_scheduled_uv_job()` ignore it, so pass `image=`, `flavor=`, ... explicitly from Python.
+
 ## Docker Jobs
 
 Specify the Docker image and the command to run as you would with docker:
@@ -44,13 +83,15 @@ Specify the Docker image and the command to run as you would with docker:
 >>> hf jobs run ubuntu echo "Hello from the cloud!"
 ```
 
-All options to Jobs must be provided before the command. A `--` can be used to separate the command from jobs/uv options for clarity, e.g.
+Here, `--help` reaches Python rather than showing Jobs help:
 
 ```bash
->>> hf jobs run --token hf_xxx ubuntu -- echo "Hello from the cloud!"
+>>> hf jobs run --flavor cpu-basic python:3.12 -- python --help
 ```
 
 Find the list of all arguments in the [CLI documentation](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-jobs-run).
+
+See [Using Docker images](./jobs-images) for examples using existing images and images built by Docker Spaces.
 
 ## Environment variables and Secrets
 
@@ -64,6 +105,8 @@ Similarly to the [built-in environment variables in Spaces](./spaces-overview#bu
 | `ACCELERATOR` | The type of accelerator available (e.g., `t4-medium`, `a10g-small`, `a100x4`), or `none` for CPU-only jobs. |
 | `CPU_CORES` | The number of CPU cores allocated to the job. |
 | `MEMORY` | The amount of memory allocated to the job (e.g., `8Gi`). |
+| `HF_NETWORK_GROUP_HOSTNAME` | Hostname resolving to every job in the job's [network group](#network-groups). Only set when the job declares one. |
+| `HF_NETWORK_GROUP_PREFIX` | Prefix to prepend to an alias to get the hostname of the group members claiming it (e.g., `${HF_NETWORK_GROUP_PREFIX}master`). Only set when the job declares a network group. |
 
 You can use these variables to track outputs, adapt your code to available resources, or reference the current job programmatically:
 
@@ -103,7 +146,10 @@ You can pass environment variables to your job using
 
 ## Volumes
 
-Mount Hugging Face repositories (models, datasets) or [Storage Buckets](./storage-buckets) as volumes in your job container using `-v` or `--volume`. The syntax uses the `hf://` URL scheme: `hf://[TYPE/]SOURCE:/MOUNT_PATH[:ro]`.
+Mount Hugging Face repositories (models, datasets), [Storage Buckets](./storage-buckets), or local directories as volumes in your job container using `-v` or `--volume`. Hub sources use the `hf://` URL scheme: `hf://[TYPE/]SOURCE:/MOUNT_PATH[:ro]`; a local directory is passed directly as the source.
+
+> [!TIP]
+> Because mounted files are fetched lazily, mounting lets a Job work with datasets far larger than its local disk. See [Process Large Datasets](./jobs-large-datasets) for mounting, streaming, and processing big data on Jobs.
 
 Volume types:
 
@@ -113,6 +159,7 @@ Volume types:
 | Dataset repo | `-v hf://datasets/stanfordnlp/imdb:/data` |
 | Storage bucket | `-v hf://buckets/username/my-bucket:/mnt` |
 | Subfolder | `-v hf://datasets/org/my-dataset/train:/data` |
+| Local directory | `-v ./training-data:/data` |
 
 Then use the mounted volume as a local directory inside the container:
 
@@ -138,6 +185,16 @@ Models and datasets are always mounted **read-only**. Storage buckets are **read
 ```bash
 >>> hf jobs run -v hf://buckets/username/my-bucket:/mnt:ro python:3.12 ls /mnt
 ```
+
+### Local directories
+
+Passing a local directory as the source syncs it to your private `jobs-artifacts` [Storage Bucket](./storage-buckets) (created automatically) before the Job starts, then mounts it in the container. Local directories are mounted **read-only** by default; use `:rw` to write outputs:
+
+```bash
+>>> hf jobs uv run -v ./pdfs:/input -v ./md-out:/output:rw ocr.py
+```
+
+Re-syncing the same directory only uploads new or modified files. To retrieve files a Job wrote to a read-write volume, sync its bucket folder back once the Job is over — the CLI prints the exact `hf buckets sync` command when the Job starts. Scheduled jobs work too: the directory is synced once when the schedule is created, and every trigger mounts the same folder. In Python, use [`sync_job_volume`](https://huggingface.co/docs/huggingface_hub/guides/jobs#mount-local-data).
 
 In Python, use the [`Volume`](https://huggingface.co/docs/huggingface_hub/package_reference/jobs#huggingface_hub.Volume) class:
 
@@ -184,25 +241,185 @@ See the list of available `--flavor` options using the `hf jobs hardware` comman
 
 ```bash
 >>> hf jobs hardware
-NAME         PRETTY NAME            CPU      RAM     ACCELERATOR      COST/MIN COST/HOUR 
------------- ---------------------- -------- ------- ---------------- -------- --------- 
-cpu-basic    CPU Basic              2 vCPU   16 GB   N/A              $0.0002  $0.01     
-cpu-upgrade  CPU Upgrade            8 vCPU   32 GB   N/A              $0.0005  $0.03     
-t4-small     Nvidia T4 - small      4 vCPU   15 GB   1x T4 (16 GB)    $0.0067  $0.40     
-t4-medium    Nvidia T4 - medium     8 vCPU   30 GB   1x T4 (16 GB)    $0.0100  $0.60     
-a10g-small   Nvidia A10G - small    4 vCPU   15 GB   1x A10G (24 GB)  $0.0167  $1.00     
-a10g-large   Nvidia A10G - large    12 vCPU  46 GB   1x A10G (24 GB)  $0.0250  $1.50     
-a10g-largex2 2x Nvidia A10G - large 24 vCPU  92 GB   2x A10G (48 GB)  $0.0500  $3.00     
-a10g-largex4 4x Nvidia A10G - large 48 vCPU  184 GB  4x A10G (96 GB)  $0.0833  $5.00     
-a100-large   Nvidia A100 - large    12 vCPU  142 GB  1x A100 (80 GB)  $0.0417  $2.50     
-a100x4       4x Nvidia A100         48 vCPU  568 GB  4x A100 (320 GB) $0.1667  $10.00    
-a100x8       8x Nvidia A100         96 vCPU  1136 GB 8x A100 (640 GB) $0.3333  $20.00    
-l4x1         1x Nvidia L4           8 vCPU   30 GB   1x L4 (24 GB)    $0.0133  $0.80     
-l4x4         4x Nvidia L4           48 vCPU  186 GB  4x L4 (96 GB)    $0.0633  $3.80     
-l40sx1       1x Nvidia L40S         8 vCPU   62 GB   1x L40S (48 GB)  $0.0300  $1.80     
-l40sx4       4x Nvidia L40S         48 vCPU  382 GB  4x L40S (192 GB) $0.1383  $8.30     
-l40sx8       8x Nvidia L40S         192 vCPU 1534 GB 8x L40S (384 GB) $0.3917  $23.50
+name             pretty name             cpu       ram      storage   accelerator               cost/min  cost/hour
+cpu-basic        CPU Basic               2 vCPU    16 GB    50 GB                               $0.0002   $0.01
+cpu-upgrade      CPU Upgrade             8 vCPU    32 GB    50 GB                               $0.0005   $0.03
+cpu-performance  CPU Performance         32 vCPU   256 GB   1024 GB                             $0.0317   $1.90
+cpu-xl           CPU XL                  16 vCPU   124 GB   1000 GB                             $0.0167   $1.00
+t4-small         Nvidia T4 - small       4 vCPU    15 GB    50 GB     1x T4 (16 GB)             $0.0067   $0.40
+t4-medium        Nvidia T4 - medium      8 vCPU    30 GB    100 GB    1x T4 (16 GB)             $0.0100   $0.60
+a10g-small       Nvidia A10G - small     4 vCPU    15 GB    110 GB    1x A10G (24 GB)           $0.0167   $1.00
+a10g-large       Nvidia A10G - large     12 vCPU   46 GB    200 GB    1x A10G (24 GB)           $0.0250   $1.50
+a10g-largex2     2x Nvidia A10G - large  24 vCPU   92 GB    1000 GB   2x A10G (48 GB)           $0.0500   $3.00
+a10g-largex4     4x Nvidia A10G - large  48 vCPU   184 GB   2000 GB   4x A10G (96 GB)           $0.0833   $5.00
+a100-large       Nvidia A100 - large     12 vCPU   142 GB   1000 GB   1x A100 (80 GB)           $0.0417   $2.50
+a100x4           4x Nvidia A100          48 vCPU   568 GB   4000 GB   4x A100 (320 GB)          $0.1667   $10.00
+a100x8           8x Nvidia A100          96 vCPU   1136 GB  8000 GB   8x A100 (640 GB)          $0.3333   $20.00
+h200             Nvidia H200             23 vCPU   256 GB   3000 GB   1x H200 (141 GB)          $0.0833   $5.00
+h200x2           Nvidia H200             46 vCPU   512 GB   6000 GB   2x H200 (282 GB)          $0.1667   $10.00
+h200x4           Nvidia H200             92 vCPU   1024 GB  12000 GB  4x H200 (564 GB)          $0.3333   $20.00
+h200x8           Nvidia H200             184 vCPU  2048 GB  24000 GB  8x H200 (1128 GB)         $0.6667   $40.00
+rtx-pro-6000     Nvidia RTX PRO 6000     23 vCPU   256 GB   475 GB    1x RTX PRO 6000 (96 GB)   $0.0458   $2.75
+rtx-pro-6000x2   Nvidia RTX PRO 6000     46 vCPU   512 GB   950 GB    2x RTX PRO 6000 (192 GB)  $0.0917   $5.50
+rtx-pro-6000x4   Nvidia RTX PRO 6000     92 vCPU   1024 GB  1900 GB   4x RTX PRO 6000 (384 GB)  $0.1833   $11.00
+rtx-pro-6000x8   Nvidia RTX PRO 6000     184 vCPU  2048 GB  3800 GB   8x RTX PRO 6000 (768 GB)  $0.3667   $22.00
+l4x1             1x Nvidia L4            8 vCPU    30 GB    400 GB    1x L4 (24 GB)             $0.0133   $0.80
+l4x4             4x Nvidia L4            48 vCPU   186 GB   3200 GB   4x L4 (96 GB)             $0.0633   $3.80
+l40sx1           1x Nvidia L40S          8 vCPU    62 GB    380 GB    1x L40S (48 GB)           $0.0300   $1.80
+l40sx4           4x Nvidia L40S          48 vCPU   382 GB   3200 GB   4x L40S (192 GB)          $0.1383   $8.30
+l40sx8           8x Nvidia L40S          192 vCPU  1534 GB  6500 GB   8x L40S (384 GB)          $0.3917   $23.50
 ```
+
+## Expose Ports
+
+Jobs can expose container ports through the public jobs proxy using `--expose <port>` (CLI) or `expose=[<port>]` (Python API). Each exposed port is reachable at `https://<job_id>--<port>.hf.jobs` and requires an HF token with `read` access to the job's namespace:
+
+```bash
+curl -H "Authorization: Bearer $HF_TOKEN" https://<job_id>--<port>.hf.jobs/
+```
+
+This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants. Repeat the flag to expose multiple ports (`--expose 8000 --expose 8001`), or pass several ports in the list (`expose=[8000, 8001]`).
+
+To make a port reachable without an HF token, use `--expose-public <port>` (CLI) or `expose_public=[<port>]` (Python API) instead. Anyone who has the URL can then reach the port, so use it only for a service that is safe to share. You can combine both options: some ports then require an HF token and others are public.
+
+> [!NOTE]
+> Exposed ports are billed at a small flat hourly rate on top of the job's hardware price, only while the job is running. See the [pricing page](./jobs-pricing) for details.
+
+### CLI
+
+```bash
+# Expose a web server running on port 8000
+>>> hf jobs run --expose 8000 python:3.12 python -m http.server 8000
+✓ Job started
+  id: 6a2aa7cec4f53f9fc5aa4cff
+  url: https://huggingface.co/jobs/Wauplin/6a2aa7cec4f53f9fc5aa4cff
+Hint: Exposed ports are reachable at (requires an HF token with read access to the job):
+  https://6a2aa7cec4f53f9fc5aa4cff--8000.hf.jobs
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> job = run_job(image="python:3.12", command=["python", "-m", "http.server", "8000"], expose=[8000])
+>>> job.status.expose_urls
+['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
+```
+
+### Change the ports of a running Job
+
+Use `hf jobs expose` to change which ports are exposed, without restarting the Job:
+
+```bash
+# Expose port 8000 (requires an HF token)
+>>> hf jobs expose <job_id> 8000
+
+# Expose port 8000 (requires an HF token) and port 9000 publicly
+>>> hf jobs expose <job_id> 8000 --public 9000
+
+# Close all exposed ports
+>>> hf jobs expose <job_id> --clear
+```
+
+The command replaces the full list of exposed ports, so a port that you leave out is closed. In Python, use `update_job_expose`.
+
+## SSH
+
+You can open an interactive SSH session into a running Job to debug, inspect, or work directly inside the container. Enable it at job creation with `--ssh` (CLI) or `ssh=True` (Python API), then connect with `hf jobs ssh <job_id>`.
+
+Only users with Write access to the Job's namespace are allowed (i.e. the Job creator, or members of the owner organization with Write permissions). Authentication is performed via SSH public keys registered at [https://huggingface.co/settings/keys](https://huggingface.co/settings/keys).
+
+SSH is available on `hf jobs run` and `hf jobs uv run`. It is not supported for scheduled jobs.
+
+### CLI
+
+```bash
+# Start a job with SSH enabled
+>>> hf jobs run --ssh --detach --timeout 10m python:3.12 sleep infinity
+✓ Job started
+  id: 6a2bd1f1871c005b5352ad31
+  url: https://huggingface.co/jobs/Wauplin/6a2bd1f1871c005b5352ad31
+Hint: Use `hf jobs ssh 6a2bd1f1871c005b5352ad31` to open an SSH session into the job.
+
+# Open an SSH session into the job
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31
+```
+
+You can also print the SSH command without running it (`--dry-run`), or pass a specific identity file (`-i`/`--identity-file`):
+
+```bash
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31 --dry-run
+ssh 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+
+>>> hf jobs ssh 6a2bd1f1871c005b5352ad31 -i ~/.ssh/id_ed25519
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> job = run_job(image="python:3.12", command=["sleep", "infinity"], ssh=True)
+>>> job.status.ssh_url
+'ssh://6a2bd1f1871c005b5352ad31@ssh.hf.jobs'
+```
+
+Then connect from a terminal with `hf jobs ssh <job_id>`, or directly with `ssh <job_id>@ssh.hf.jobs`.
+
+### Port forwarding
+
+Since this is a regular SSH connection, you can use SSH's `-L` and `-R` flags to forward ports between your machine and the Job. Connect directly with `ssh` (use `hf jobs ssh <job_id> --dry-run` to get the exact destination) and add the forwarding flags.
+
+Use `-L` (local forwarding) to access a service running inside the Job from your machine. For example, to reach a TensorBoard started in a training Job:
+
+```bash
+# Forward local port 6006 to the Job's TensorBoard on port 6006
+>>> ssh -L 6006:localhost:6006 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+```
+
+Then open [http://localhost:6006](http://localhost:6006) in your browser.
+
+Use `-R` (remote forwarding) to let the Job access a service running on your machine. For example, to expose a local database or API to the Job:
+
+```bash
+# Make your local port 8080 reachable from inside the Job on port 8080
+>>> ssh -R 8080:localhost:8080 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
+```
+
+## Network groups
+
+Jobs can join a network group using `--network-group <name>` (CLI) or `network_group="<name>"` (Python API). Jobs in the same namespace and resource group sharing a group can reach each other on every port: `HF_NETWORK_GROUP_HOSTNAME` resolves to every member, and `${HF_NETWORK_GROUP_PREFIX}<alias>` to the members that claimed an alias with `--network-alias <alias>` (CLI) or `network_aliases=[<alias>]` (Python API).
+
+This works on `hf jobs run` and `hf jobs uv run`. Members are resolvable before they are ready, so connect with retries. Group names and aliases are lowercase alphanumerics and dashes, 46 and 34 characters max; a job's aliases must be unique.
+
+### CLI
+
+```bash
+# Start a server, reachable by the other members of the group as "master"
+>>> hf jobs run --detach --network-group train --network-alias master python:3.12 python -m http.server 8000
+
+# Start a client in the same group
+>>> hf jobs run --detach --network-group train python:3.12 sh -c 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> server = run_job(
+...     image="python:3.12",
+...     command=["python", "-m", "http.server", "8000"],
+...     network_group="train",
+...     network_aliases=["master"],
+... )
+>>> client = run_job(
+...     image="python:3.12",
+...     command=["sh", "-c", 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'],
+...     network_group="train",
+... )
+```
+
+Multi-node training frameworks can use an alias as the rendezvous host, e.g. `torchrun --master_addr "${HF_NETWORK_GROUP_PREFIX}master"`.
 
 ## Timeout
 
@@ -244,6 +461,18 @@ Supported time units:
 > [!WARNING]
 > If you don't specify a timeout, a default timeout will be applied to your job. For long-running tasks like model training that may take hours, make sure to set an appropriate timeout to avoid unexpected job terminations.
 
+## Retries
+
+By default, a Job runs once. Use `--attempts <n>` (CLI) or `attempts=<n>` (Python API) to retry a Job that fails. The number includes the first run, so `--attempts 3` allows up to two retries:
+
+```bash
+>>> hf jobs uv run --attempts 3 --flavor a10g-large train.py
+```
+
+This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+
+A retry runs the command again from the start, under the same Job ID. To let a retry resume where the previous attempt stopped, write checkpoints to a mounted bucket and have your script resume from them. See [After it ends](./jobs-training#after-it-ends) in Train Models on Jobs.
+
 ## Namespace
 
 Run Jobs under your organization account using the `--namespace` argument. Make sure you are logged in with a token that has the permission to start and manage Jobs under your orgzanization account.
@@ -260,14 +489,39 @@ Note that you can pass a token with the right permission manually:
 
 ## Labels
 
-Add one or more labels to a Job to add some metadata with `-l` or `-label`.
+Add one or more labels to a Job to add some metadata with `-l` or `--label`.
 You can use such metadata later to filter Jobs on the website or in the CLI.
 
-Add labels with `--label my-label` or key-value labels with `--label key=value`.
+Add labels with `--label my-label` or key-value labels with `--label key=value`. Keys and values can contain letters, digits, `-` and `_`.
 For example:
 
 ```bash
-hf jobs uv run --label fine-tuning --label model=Qwen3-0.6B --label dataset=Capybara ...
+hf jobs uv run --label fine-tuning --label model=Qwen3-06B --label dataset=Capybara ...
 ```
 
 Note that using the same `key` multiple times causes the last `key=value` to overwrite and discard any previous label with `key`.
+
+### Name a Job
+
+Give a Job a name to make it easier to find and identify in the UI. The name is stored as the `name` label and does not have to be unique. In the UI Jobs will be grouped by name.
+
+```bash
+hf jobs run --name daily-report python:3.12 python report.py
+```
+
+If you don't pass `--name`, the Job is named after its Docker image or script plus a short hash of the command, so reruns of the same command share a name while different commands get different names (e.g. `python-3-12-6b9d662c` for a Job running on `python:3.12`).
+
+### Update labels
+
+Update labels on an existing Job with `hf jobs labels`. Passing `--label` replaces all existing labels; passing `--name` alone keeps them:
+
+```bash
+# Replace the labels on a Job
+hf jobs labels <job_id> --label env=prod --label team=ml
+
+# Name an existing Job (keeps its other labels)
+hf jobs labels <job_id> --name daily-report
+
+# Remove all labels from a Job
+hf jobs labels <job_id> --clear
+```

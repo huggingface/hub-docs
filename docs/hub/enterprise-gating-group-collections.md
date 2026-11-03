@@ -134,12 +134,38 @@ You can download access reports for the Gated Group Collection through the setti
 
 Visit our [gated models](https://huggingface.co/docs/hub/models-gated#download-access-report) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#download-access-report) documentation to know more about it.
 
+#### Choose which profile data to collect
+
+By default, Hugging Face shares the requester's username and primary email address with the organization. In the gating group settings, you can control that and change what information Hugging Face shares with you. These settings apply to all the repos in the collection and only affect new requests.
+
+Visit our [gated models](https://huggingface.co/docs/hub/models-gated#choose-which-profile-data-hugging-face-shares-with-you) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#choose-which-profile-data-hugging-face-shares-with-you) documentation to know more about it.
+
 #### Customize requested information
 
 Organizations can customize the gating parameters as well as the user information that is collected per gated repo. Please, visit our [gated models](https://huggingface.co/docs/hub/models-gated#customize-requested-information) or [gated datasets](https://huggingface.co/docs/hub/datasets-gated#customize-requested-information) documentation for more details.
 
 > [!WARNING]
-> There is currently no way to customize the gate parameters and requested information in a centralized way. If you want to collect the same data no matter which collection's repository a user requests access throughout, you need to add the same gate parameters in the metadata of all the models and datasets of the collection, and keep it synced.
+> Apart from the profile data settings above, there is currently no way to customize the gate parameters and requested information in a centralized way. If you want to collect the same data no matter which collection's repository a user requests access throughout, you need to add the same gate parameters in the metadata of all the models and datasets of the collection, and keep it synced.
+
+## Advanced settings
+
+Enterprise Plus organizations can automatically reject or block visitors from specific locations across all of their models and datasets. These settings live in the **Publisher Analytics** settings, under the **Advanced Gating** tab.
+
+### Enforcement
+
+The **Enforcement** setting controls what blocked visitors are denied:
+
+- **Gated repositories**: access requests to the organization's gated repositories are auto-rejected.
+- **All repositories**: in addition to auto-rejecting access requests, downloads are denied on every repository of the organization, including public ones. Blocked visitors see a "not available in your region" notice on the repository page, and the dataset viewer is disabled for them.
+
+Enforcement applies to visitors from the blocked countries and regions, whether or not they are signed in. Members of the organization are not exempt.
+
+### Blocked locations
+
+Two lists define the blocked locations:
+
+- **Blocked countries**: countries, identified by their [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code.
+- **Blocked regions**: specific territories to block in addition to the countries above, for territories that are not distinct countries and therefore cannot be selected in the list above.
 
 ## Access gated repos in a Gating Group Collection as a user
 

@@ -10,6 +10,9 @@ In the following sections, you'll learn the basics of creating a Space, configur
 
 **To make a new Space**, visit the [Spaces main page](https://huggingface.co/spaces) and click on **Create new Space**. Along with choosing a name for your Space, selecting an optional license, and setting your Space's [visibility](#space-visibility) (public, protected, or private), you'll be prompted to choose the **SDK** for your Space. The Hub offers three SDK options: Gradio, Docker and static HTML. If you select "Gradio" as your SDK, you'll be navigated to a new repo showing the following page:
 
+> [!WARNING]
+> Static Spaces are free for everyone. Gradio and Docker Spaces run on compute and require a paid plan to create: <a href="https://huggingface.co/pro">PRO</a> for personal accounts, <a href="https://huggingface.co/enterprise">Team or Enterprise</a> for organizations. Free personal accounts in good standing can still host up to 2 Gradio Spaces running on [ZeroGPU](./spaces-zerogpu).
+
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/spaces-blank-space-dark.png"/>
@@ -43,7 +46,7 @@ You can set a Space's visibility from the **Settings** tab using the visibility 
 
 ## Hardware resources
 
-Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default, which you can use free of charge. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
+Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not persistent) disk space by default. The default CPU Basic hardware has no hourly cost, but creating a Space that runs on compute (Gradio or Docker) requires a paid plan, while Static Spaces are free for everyone. You can upgrade to better hardware, including a variety of GPU accelerators, for a [competitive price](https://huggingface.co/pricing#spaces). To request an upgrade, please click the _Settings_ button in your Space and select your preferred hardware environment.
 
 | **Hardware**           | **CPU**       | **Memory**   | **GPU Memory**  | **Hourly Price**  |
 |----------------------- |-------------- |------------- |---------------- | ----------------- |
@@ -56,6 +59,10 @@ Each Spaces environment is limited to 16GB RAM, 2 CPU cores and 50GB of (not per
 | 1x Nvidia L40S         | 8 vCPU        | 62 GB        | 48 GB           | $1.80             |
 | 4x Nvidia L40S         | 48 vCPU       | 382 GB       | 192 GB          | $8.30             |
 | 8x Nvidia L40S         | 192 vCPU      | 1534 GB      | 384 GB          | $23.50            |
+| 1x Nvidia RTX PRO 6000 | 23 vCPU       | 256 GB       | 96 GB           | $2.75             |
+| 2x Nvidia RTX PRO 6000 | 46 vCPU       | 512 GB       | 192 GB          | $5.50             |
+| 4x Nvidia RTX PRO 6000 | 92 vCPU       | 1024 GB      | 384 GB          | $11.00            |
+| 8x Nvidia RTX PRO 6000 | 184 vCPU      | 2048 GB      | 768 GB          | $22.00            |
 | Nvidia A10G - small    | 4 vCPU        | 15 GB        | 24 GB           | $1.00             |
 | Nvidia A10G - large    | 12 vCPU       | 46 GB        | 24 GB           | $1.50             |
 | 2x Nvidia A10G - large | 24 vCPU       | 92 GB        | 48 GB           | $3.00             |
@@ -117,7 +124,7 @@ If you want to duplicate a Space, you can click the three dots at the top right 
 * Storage: If the original repo uses a storage bucket, you will be prompted to configure storage. Read more about disk usage and storage [here](./spaces-storage).
 * Secrets and variables: If the original repo has set some secrets and variables, you'll be able to set them while duplicating the repo.
 
-Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use a free CPU hardware by default, but you can later upgrade if needed.
+Some Spaces might have environment variables that you may need to set up. In these cases, the duplicate workflow will auto-populate the public Variables from the source Space, and give you a warning about setting up the Secrets. The duplicated Space will use CPU Basic hardware by default, but you can later upgrade if needed. Duplicating follows the same rules as creating a new Space: duplicating a Gradio or Docker Space requires a paid plan for the target account or organization (with the same [ZeroGPU free tier](./spaces-zerogpu) exception for personal accounts).
 
 ## Networking
 
@@ -125,7 +132,7 @@ If your Space needs to make any network requests, you can make requests through 
 
 ## Lifecycle management
 
-On free hardware, your Space will "go to sleep" and stop executing after a period of time if unused. If you wish for your Space to run indefinitely, consider [upgrading to paid hardware](./spaces-gpus). You can also manually pause your Space from the **Settings** tab. A paused Space stops executing until manually restarted by its owner.
+On free hardware, your Space will "go to sleep" and stop executing after a period of time if unused. If you wish for your Space to run indefinitely, consider [upgrading to paid hardware](./spaces-gpus). You can also manually pause your Space from the **Settings** tab. A paused Space stops executing until someone with write access restarts it.
 Paused time is not billed.
 
 ## Built-in environment variables
@@ -141,6 +148,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_ID`: `osanseviero/i-like-flan`
 * `SPACE_HOST`: `osanseviero-i-like-flan.hf.space`
 * `SPACE_CREATOR_USER_ID`: `6032802e1f993496bc14d9e3` - This is the ID of the user that originally created the Space. It's useful if the Space is under an organization. You can get the user information with an API call to `https://huggingface.co/api/users/{SPACE_CREATOR_USER_ID}/overview`.
+* `SPACE_SIGNING_SECRET`: a random secret unique to your Space, exposed as a secret. It stays the same across restarts, rebuilds, and replicas, so you can use it to sign things like cookies, OAuth state, or CSRF tokens. To use your own value instead, add a secret named `SPACE_SIGNING_SECRET` in your Space settings.
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 

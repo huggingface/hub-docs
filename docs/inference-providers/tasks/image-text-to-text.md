@@ -23,15 +23,20 @@ Image-text-to-text models take in an image and text prompt and output text. Thes
 ### Recommended models
 
 - [zai-org/GLM-4.5V](https://huggingface.co/zai-org/GLM-4.5V): Cutting-edge reasoning vision language model.
+- [Qwen/Qwen2.5-VL-3B-Instruct](https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct): Small yet powerful model.
 
-Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending).
+Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending), or from the terminal with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
+
+```bash
+hf models ls --warm --pipeline-tag image-text-to-text --sort trending_score
+```
 
 ### Using the API
 
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"cohere":{"modelId":"CohereLabs/aya-vision-32b","providerModelId":"c4ai-aya-vision-32b"},"featherless-ai":{"modelId":"Qwen/Qwen3.5-397B-A17B","providerModelId":"Qwen/Qwen3.5-397B-A17B"},"fireworks-ai":{"modelId":"moonshotai/Kimi-K2.5","providerModelId":"accounts/fireworks/models/kimi-k2p5"},"groq":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"},"hyperbolic":{"modelId":"Qwen/Qwen2.5-VL-7B-Instruct","providerModelId":"Qwen/Qwen2.5-VL-7B-Instruct"},"novita":{"modelId":"google/gemma-4-31B-it","providerModelId":"google/gemma-4-31b-it"},"nscale":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"},"ovhcloud":{"modelId":"Qwen/Qwen2.5-VL-72B-Instruct","providerModelId":"Qwen2.5-VL-72B-Instruct"},"sambanova":{"modelId":"meta-llama/Llama-4-Maverick-17B-128E-Instruct","providerModelId":"Llama-4-Maverick-17B-128E-Instruct"},"scaleway":{"modelId":"Qwen/Qwen3.5-397B-A17B","providerModelId":"qwen3.5-397b-a17b"},"together":{"modelId":"Qwen/Qwen3.5-9B","providerModelId":"Qwen/Qwen3.5-9B"},"zai-org":{"modelId":"zai-org/GLM-4.5V","providerModelId":"glm-4.5v"}} }
+    providersMapping={ {"baseten":{"modelId":"meta-models/Muse-Spark-Open-816B-A42B","providerModelId":"meta-models/muse-spark-open"},"cerebras":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"qwen-3.8-27b"},"cohere":{"modelId":"CohereLabs/aya-vision-32b","providerModelId":"c4ai-aya-vision-32b"},"deepinfra":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen/Qwen3.8-27B"},"featherless-ai":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen/Qwen3.8-27B"},"fireworks-ai":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash","providerModelId":"accounts/fireworks/models/deepseek-v4p1-flash"},"novita":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek/deepseek-v4.1-flash-1017"},"nscale":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen/Qwen3.8-27B"},"ovhcloud":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen3.8-27B"},"publicai":{"modelId":"swiss-ai/Apertus-v1.5-70B","providerModelId":"swiss-ai/apertus-v1.5-70b"},"scaleway":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek-v4.1-flash-1017"},"together":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017"},"zai-org":{"modelId":"zai-org/GLM-5.3-Flash","providerModelId":"glm-5.3-flash"}} }
 conversational />
 
 

@@ -14,7 +14,33 @@ After clicking this button your users will be presented with a permissions modal
 
 You can create your application in your [settings](https://huggingface.co/settings/applications/new):
 
-![](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application.png)
+<div class="flex justify-center">
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-create-application-dark.png"/>
+</div>
+
+### Organization-owned OAuth apps
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Team & Enterprise</a> plans.
+
+OAuth apps can also be owned by an organization instead of an individual account. This is useful for apps that your team maintains together, as they stay with the organization rather than depending on a single member's account.
+
+Organization admins can create and manage organization-owned apps from the **OAuth Apps** section of the organization settings (`https://huggingface.co/organizations/<your-org>/settings/applications`). All admins of the organization can edit the app, rotate its client secret, or delete it. The app list shows which member created each app, and changes to the apps are recorded in the organization's [audit logs](./audit-logs#oauth-apps).
+
+<div class="flex justify-center">
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-org-applications.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-org-applications-dark.png"/>
+</div>
+
+The same page also lists the organization's [Token Exchange app](#token-exchange-for-organizations-rfc-8693), if one has been set up.
+
+You can also transfer an existing OAuth app that you own to an organization you're an admin of, from the **Transfer to an organization** section of the app's settings page. The organization must be on a Team or Enterprise plan. After the transfer, the app is managed by all admins of the organization. Its client ID, client secret, and existing authorizations and tokens stay the same, so your website or app keeps working without changes. The transfer can't be undone from the settings page.
+
+<div class="flex justify-center">
+	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-transfer-to-organization.png"/>
+	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/oauth-transfer-to-organization-dark.png"/>
+</div>
 
 ### Public OAuth apps (no secret)
 
@@ -24,6 +50,18 @@ You can create or use OAuth apps without a client secret. This is useful for nat
 - **After creation**: For an existing app, you can delete the client secret in the app settings. The app will then work as a public app.
 
 Public apps authenticate using only the client ID (e.g. in device code or authorization code flows with PKCE). Apps that have a secret can still use the secret when needed (e.g. `Authorization: Basic` for token requests).
+
+### Redirect URIs
+
+The `redirect_uri` sent in an authorization request must exactly match one of the redirect URIs registered on your app.
+
+Loopback redirect URIs are the one exception: for URIs using the `http` scheme on a loopback host (`localhost`, `127.0.0.1` or `[::1]`), any port is accepted at request time, as long as every other component matches a registered URI. This follows [RFC 8252 §7.3](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3) / OAuth 2.1, and lets native apps, CLIs and MCP clients register a port-less URI such as `http://localhost/callback` and then listen on whatever ephemeral port the operating system assigns them (e.g. `http://localhost:49282/callback`).
+
+A few things to keep in mind:
+
+- The exception only applies to the `http` scheme. `https` and custom-scheme (e.g. `myapp://callback`) redirect URIs always require an exact match, port included.
+- Loopback hosts are matched individually: a request for `http://localhost:49282/callback` does not match a registered `http://127.0.0.1/callback`. Register both if your app may use either.
+- Only the port may differ. Path, query and userinfo must still match exactly.
 
 ### If you are hosting in Spaces
 
@@ -48,6 +86,8 @@ Hugging Face supports CIMD aka [Client ID Metadata Documents](https://datatracke
 ```
 
 - Use `"[your website url]/.well-known/oauth-cimd"` as client ID, and PCKE as auth mechanism
+
+Native apps and MCP clients that receive the authorization code on a local port can list port-less loopback URIs in `redirect_uris`, e.g. `["http://localhost/callback", "http://127.0.0.1/callback"]` — see [Redirect URIs](#redirect-uris).
 
 This is particularly useful for ephemeral environments or MCP clients. See an [implementation example](https://github.com/huggingface/chat-ui/pull/1978) in Hugging Chat.
 
@@ -97,19 +137,22 @@ curl -X POST https://huggingface.co/oauth/token \
 
 The currently supported scopes are:
 
-- `openid`: Get the ID token in addition to the access token.
-- `profile`: Get the user's profile information (username, avatar, etc.)
-- `email`: Get the user's email address.
+- `openid`: Receive an ID token in addition to the access token.
+- `profile`: Read the user's profile information (username, avatar, etc.)
+- `email`: Read the user's email address.
 - `read-billing`: Know whether the user has a payment method set up.
-- `read-repos`: Get read access to the user's personal repos.
-- `gated-repos`: Get read access to the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
-- `contribute-repos`: Can create repositories and access those created by this app. Cannot access any other repositories unless additional permissions are granted.
-- `write-repos`: Get write/read access to the user's personal repos.
-- `manage-repos`: Get full access to the user's personal repos. Also grants repo creation and deletion.
-- `read-collections`: Get read access to the user's personal collections.
-- `write-collections`: Get write/read access to the user's personal collections. Also grants collection creation and deletion.
-- `inference-api`: Get access to the [Inference Providers](https://huggingface.co/docs/inference-providers/index), you will be able to make inference requests on behalf of the user.
-- `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs) 
+- `read-memberships`: Read which organizations the user belongs to, and their role in each of them. This does not grant access to the organizations' settings or resources.
+- `read-repos`: Read the user's personal repos.
+- `gated-repos`: Read the content of public gated repos the user has been granted access to. Unlike `read-repos`, this does not grant access to private repos.
+- `contribute-repos`: Create repositories and access those created by this app. Cannot access any other repositories unless additional permissions are granted.
+- `write-repos`: Read and write the user's personal repos.
+- `manage-repos`: Fully manage the user's personal repos, including creating and deleting them.
+- `read-collections`: Read the user's personal collections.
+- `write-collections`: Read and write the user's personal collections, including creating and deleting them.
+- `inference-api`: Make inference requests to [Inference Providers](https://huggingface.co/docs/inference-providers/index) on behalf of the user.
+- `read-endpoints`: View the user's [Inference Endpoints](https://huggingface.co/docs/inference-endpoints/index) and make inference requests to them on behalf of the user.
+- `write-endpoints`: Manage the user's Inference Endpoints, including creating and deleting them. Includes `read-endpoints` access.
+- `jobs`: Run [jobs](https://huggingface.co/docs/huggingface_hub/main/en/guides/jobs)
 - `webhooks`: Manage [webhooks](https://huggingface.co/docs/huggingface_hub/main/en/guides/webhooks)
 - `write-discussions`: Open discussions and Pull Requests on behalf of the user as well as interact with discussions (including reactions, posting/editing comments, closing discussions, ...). To open Pull Requests on private repos, you need to request the `read-repos` scope as well.
 
@@ -124,7 +167,28 @@ By default, the oauth app does not need to access organization resources.
 
 But some scopes like `read-repos` or `read-billing` apply to organizations as well.
 
-The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. You have to replace `ORG_ID` with the organization ID, which is available in the `organizations.sub` field of the userinfo response.
+The user can select which organizations to grant access to when authorizing the app. If you require access to a specific organization, you can add `orgIds=ORG_ID` as a query parameter to the OAuth authorization URL. The organization ID is available in the `orgs[].sub` field of the userinfo response.
+
+## Syncing organization membership as groups
+
+The userinfo response (`https://huggingface.co/oauth/userinfo`) includes a `groups` claim: the names of the organizations the user belongs to, as an array of strings.
+
+```json
+{
+  "sub": "...",
+  "preferred_username": "my-username",
+  "groups": ["my-org", "another-org"],
+  "orgs": [ ... ]
+}
+```
+
+Many OIDC clients (e.g. Discourse, Grafana, Argo CD, Vault, Kubernetes) can sync group membership from a claim containing an array of strings, and are often configured with a `groups` claim. You can use it to map Hugging Face organizations to roles or groups in your app. For more details about each organization (ID, role, etc.), use the `orgs` field instead.
+
+A few things to keep in mind:
+
+- The `groups` claim is only returned by the userinfo endpoint, not in the ID token.
+- It contains organization names, not IDs. If an organization is renamed, mappings that use its old name will stop matching.
+- Resource groups are not included. For organizations on a paid plan, the user's resource groups and roles are listed in `orgs[].resourceGroups`.
 
 ## Branding
 
@@ -150,6 +214,9 @@ Check out [our badges](https://huggingface.co/datasets/huggingface/badges#sign-i
 > This feature is part of the <a href="https://huggingface.co/enterprise" target="_blank">Enterprise</a> plan.
 
 Token Exchange allows organizations to programmatically issue access tokens for their members without requiring interactive user consent. This is particularly useful for building internal tools, automation pipelines, and enterprise integrations that need to access Hugging Face resources on behalf of organization members.
+
+> [!TIP]
+> If you only need keyless authentication from a CI/CD workflow (GitHub Actions, GitLab CI, CircleCI, …) — without per-member token issuance — see [Trusted Publishers](./trusted-publishers), which also uses `/oauth/token` but takes an OIDC `id_token` minted by your CI provider as the subject token (no Enterprise plan required, no client credentials).
 
 This feature implements [RFC 8693 - OAuth 2.0 Token Exchange](https://www.rfc-editor.org/rfc/rfc8693.html), a standard protocol for token exchange scenarios.
 
@@ -179,7 +246,7 @@ Once configured, you will receive:
 - A **Client Secret** (keep this secure!)
 
 > [!WARNING]
-> Organization administrators can manage the OAuth app after creation, including refreshing the client secret and configuring the token duration.
+> Organization administrators can manage the OAuth app after creation, including refreshing the client secret and configuring the token duration. The app is listed in the **OAuth Apps** section of your organization settings, and changes to it are recorded in the organization's [audit logs](./audit-logs#oauth-apps).
 
 ### Authentication
 

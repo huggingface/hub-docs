@@ -13,6 +13,9 @@ There are also other APIs available for running DuckDB, including Python, C++, G
 > [!TIP]
 > For installation details, visit the [installation page](https://duckdb.org/docs/installation).
 
+> [!TIP]
+> If you use the `hf` CLI, you can run DuckDB queries directly with [`hf datasets sql`](/docs/huggingface_hub/package_reference/cli#hf-datasets-sql), e.g. `hf datasets sql "FROM 'hf://datasets/ibm/duorc/ParaphraseRC/*.parquet' LIMIT 3"`. Authentication for gated and private datasets is configured automatically from your logged-in token, and `--format json` returns machine-readable output.
+
 Starting from version `v0.10.3`, the DuckDB CLI includes native support for accessing datasets on the Hugging Face Hub via URLs with the `hf://` scheme. Here are some features you can leverage with this powerful tool:
 
 - Query public datasets and your own gated and private datasets
@@ -39,7 +42,7 @@ hf://datasets/{my-username}/{my-dataset}/{path_to_file}
 
 - **my-username**, the user or organization of the dataset, e.g. `ibm`
 - **my-dataset**, the dataset name, e.g: `duorc`
-- **path_to_parquet_file**, the parquet file path which supports glob patterns, e.g `**/*.parquet`, to query all parquet files
+- **path_to_parquet_file**, the parquet file path which supports glob patterns, e.g. `**/*.parquet`, to query all parquet files
 
 
 > [!TIP]
@@ -57,6 +60,8 @@ hf://datasets/{my-username}/{my-dataset}/{path_to_file}
 > hf://datasets/ibm/duorc@~parquet/ParaphraseRC/test/0000.parquet
 > ```
 
+## Query a dataset
+
 Let's start with a quick demo to query all the rows of a dataset:
 
 ```sql
@@ -71,11 +76,61 @@ SELECT * FROM 'hf://datasets/ibm/duorc/ParaphraseRC/*.parquet' LIMIT 3;
 In the following sections, we will cover more complex operations you can perform with DuckDB on Hugging Face datasets.
 
 > [!TIP]
-> **Querying Storage Buckets**: When using the DuckDB Python client, you can query data stored in [Storage Buckets](./storage-buckets) by registering the Hugging Face filesystem:
-> ```python
-> import duckdb
-> from huggingface_hub import HfFileSystem
-> duckdb.register_filesystem(HfFileSystem())
-> duckdb.sql("SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10")
+> **Querying Storage Buckets**: DuckDB 2.0 and later also read [Storage Buckets](./storage-buckets) natively, from the CLI and every client:
+> ```sql
+> SELECT * FROM 'hf://buckets/username/my-bucket/data.parquet' LIMIT 10;
 > ```
-Native `hf://buckets/` support in DuckDB is expected in a future release.
+> Buckets are not versioned, so the `@revision` syntax does not apply to bucket paths. On DuckDB 1.x, register the Hugging Face filesystem from Python instead: `duckdb.register_filesystem(HfFileSystem())`. See [Query with DuckDB](./storage-buckets-access#query-with-duckdb) for details.
+
+## Save a dataset
+
+Use the `COPY ... TO` syntax to save a dataset to Hugging Face.
+
+1. Install the [extension](https://huggingface.co/duckdb-extensions) for DuckDB >=2.0:
+
+```sql
+SET allow_extension_repositories = 'allowed';
+CREATE OR REPLACE EXTENSION REPOSITORY hf_repo
+  WITH PREFIX 'https://hf.co/buckets/duckdb-extensions/builds/resolve';
+INSTALL hf FROM hf_repo;
+LOAD hf FROM hf_repo;
+```
+
+2. Authenticate using the `hf` CLI or in DuckDB directly:
+
+* In the CLI:
+
+  ```bash
+  hf auth login
+  ```
+
+* In DuckDB:
+
+  ```sql
+  CREATE SECRET (TYPE HUGGINGFACE, TOKEN 'hf_...');
+  ```
+
+3. Create your dataset repository if it doesn't exist already:
+
+* In the CLI:
+
+  ```bash
+  hf repos create username/my-dataset --repo-type dataset --private
+  ```
+
+* In DuckDB:
+
+  ```sql
+  FROM hf_create_repo('hf://datasets/username/my-dataset', private := true);
+  ```
+
+4. Export your table to Hugging Face, e.g. in Parquet format:
+
+```sql
+COPY tbl TO 'hf://datasets/username/my-dataset/out.parquet';
+```
+
+> [!TIP]
+> Use `PARTITION_BY` to split the table into multiple files based on a partition key: `COPY tbl TO 'hf://datasets/username/my-dataset/out-directory' (FORMAT parquet, PARTITION_BY (year, month));`. File are placed be in the right subdirectory based on partition key values, e.g. `'hf://datasets/username/my-dataset/out-directory/year=2026/month=1/data_1.parquet'`.
+
+Since datasets are git repositories, every new file is a commit in the dataset history.

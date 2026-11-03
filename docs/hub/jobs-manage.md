@@ -36,60 +36,45 @@ Specify your organization `namespace` to list Jobs under your organization:
 
 ## Filter Jobs
 
-Click on a Job's label to filter Jobs by label:
+Your most-used labels are shown above the Jobs list with the number of Jobs using each; click one to filter by it, or type any `key=value` label:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-labels-page.png"/>
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/jobs-labels-page-dark.png"/>
 </div>
 
-In the CLI, you can filter Jobs based on conditions provided, using the format key=value:
-
-Filter by labels:
+In the CLI, filter by status with `--status` and by label with `--label key=value`. Repeat `--label` to require several labels at once:
 
 ```bash
->>> hf jobs ps --filter label=fine-tuning --filter label=model=Qwen3-06B -a
-JOB ID       IMAGE/SPACE  COMMAND          CREATED             STATUS 
------------- ------------ ---------------- ------------------- ---------
-6978b1254... ghcr.io/a... uv run --with... 2026-01-27 12:35:49 COMPLETED  
-6978b11d4... ghcr.io/a... uv run --with... 2026-01-27 12:33:53 COMPLETED
+# Jobs that ended in error
+>>> hf jobs ps --status error
+
+# Running or scheduling Jobs with a given label
+>>> hf jobs ps --status running,scheduling --label env=prod
+
+# All Jobs (any status) that have both labels
+>>> hf jobs ps -a --label model=Qwen3-06B --label dataset=Capybara
+
+# A label added without a value (`--label fine-tuning`) is matched with a trailing "="
+>>> hf jobs ps -a --label fine-tuning=
 ```
 
-Filter on any condition:
+Filter by name with `--name`, a shortcut for `--label name=<name>`, for example to list every run of a named Job:
 
 ```bash
->>> hf jobs ps --filter status=error -a
-JOB ID       IMAGE/SPACE COMMAND            CREATED            STATUS 
------------- ---------- ------------------ ------------------- ------ 
-693b069fc... ghcr.io... uv run python -... 2025-12-11 17:59:59 ERROR  
-693996dec... ghcr.io... bash -c python ... 2025-12-10 15:50:54 ERROR  
-69399695c... ghcr.io... uv run --with t... 2025-12-10 15:49:41 ERROR  
-693994bdc... ghcr.io... uv run --with t... 2025-12-10 15:41:49 ERROR  
-68d3c1af3... ghcr.io... uv run bash -c ... 2025-09-24 10:02:23 ERROR
+>>> hf jobs ps -a --name daily-report
+JOB_ID      NAME         IMAGE/SPACE COMMAND      CREATED      STATUS    RUNTIME
+----------- ------------ ----------- ------------ ------------ --------- -------
+6a9042c2... daily-report python:3.12 python -c... 2026-08-2... COMPLETED 0s     
+6a904162... daily-report python:3.12 python -c... 2026-08-2... CANCELED  --     
 ```
 
-Filtering supports negation `!=` and glob patterns (including `*` and `?`):
-
-```bash
-# Show Jobs that are not completed
->>> hf jobs ps -a --filter status!=completed
-
-# Show Jobs with a command that ends with "train.py"
->>> hf jobs ps -a --filter "command=*train.py"
-
-# Show Jobs with a "fine-tuning" label
->>> hf jobs ps -a --filter label=fine-tuning
-
-# Show Jobs that don't have the "prod" label and have a label that starts with "data-"
->>> hf jobs ps -a --filter label!=prod --filter "label=data-*"
-
-# Show Jobs based on key=value labels
->>> hf jobs ps -a --filter label=model=Qwen3-06B --filter label=dataset!=Capybara
-```
+> [!TIP]
+> By default `hf jobs ps` shows running and scheduling Jobs. Use `-a` to show all statuses; `-a` cannot be combined with `--status`.
 
 ## Monitor resource usage
 
-Use `hf jobs stats` to get the usage statistics for CPU, memory, network and GPU (if any) of running Jobs:
+Use `hf jobs stats` to get a snapshot of the CPU, memory, network and GPU (if any) usage of running Jobs:
 
 ```bash
 >>> hf jobs stats
@@ -102,6 +87,12 @@ Specify one or several Job ids to only show the statistics of certain Jobs:
 
 ```bash
 >>> hf jobs stats [job-ids]...
+```
+
+Use `-f` to follow the stats live until the Jobs complete:
+
+```bash
+>>> hf jobs stats -f [job-ids]...
 ```
 
 ## Inspect a Job
@@ -158,6 +149,45 @@ hf jobs inspect --namespace <my-org-name> <job_id>
 hf jobs logs --namespace <my-org-name> <job_id>
 ```
 
+## Wait for Jobs to finish
+
+Use `hf jobs wait` to block until one or more Jobs reach a terminal state (`COMPLETED`, `CANCELED`, `ERROR` or `DELETED`). It exits with code `0` only if every Job completed successfully, and a non-zero code otherwise — handy for chaining steps in shell scripts or CI:
+
+```bash
+# Wait for a single Job
+>>> hf jobs wait 693994e21a39f67af5a41ad0
+
+# Wait for several Jobs at once (all must be in the same namespace)
+>>> hf jobs wait <job_id_1> <job_id_2>
+
+# Wait for every currently running Job
+>>> hf jobs ps -q | xargs hf jobs wait
+```
+
+Set a maximum wait with `--timeout` (accepts `s`, `m`, `h` or `d`):
+
+```bash
+>>> hf jobs wait --timeout 30m 693994e21a39f67af5a41ad0
+```
+
+Because `hf jobs wait` returns a non-zero exit code when a Job fails, you can chain it with `&&`. A non-detached `hf jobs run` (or `hf jobs uv run`) already blocks and exits non-zero on failure, so an explicit wait is only needed for detached Jobs (`-d`) or when waiting on a batch:
+
+```bash
+>>> hf jobs wait 693994e21a39f67af5a41ad0 && echo "job completed successfully"
+```
+
+## Persist your results
+
+A Job's filesystem is deleted when the Job ends. Write anything you want to keep somewhere durable before the Job exits:
+
+- **Intermediate artifacts, checkpoints, and logs → a Storage Bucket volume.** Mount a bucket and write outputs under the mount path — see [Volumes](./jobs-configuration#volumes) for examples. Volume mounts are authorized with your Hugging Face identity when the Job is created, so your script doesn't need a token to write to them.
+
+- **Final models and datasets → push to a Hub repo.** Jobs have no Hugging Face token unless you pass one, e.g. `--secrets HF_TOKEN` (the bare form resolves to your logged-in token automatically). If your script calls `push_to_hub()` or `create_repo()`, make sure the token has write access (fine-grained tokens need repo write and create permissions). A common failure mode is a Job that completes hours of compute and then errors on the final upload because the token can't write — the compute is done, but the results aren't saved.
+
+- **Print key results to the logs.** Job logs are retained after the Job ends and can be fetched anytime with `hf jobs logs <job-id>`. Printing final metrics to stdout keeps them recoverable even if an upload step fails.
+
+After a Job completes, check that your outputs actually landed (for example with `hf buckets list`) — a `COMPLETED` status means the command exited successfully, not that files were persisted where you expected.
+
 ## Debug a Job
 
 If a Job has an error, you can see it in on the Job page
@@ -196,6 +226,16 @@ In this case you need to specify a higher timeout, using `--timeout` in the CLI,
 ```bash
 hf jobs uv run --timeout 3h ...
 ```
+
+## Rerun a Job
+
+Use `hf jobs rerun` to start a new Job with the saved configuration of an existing Job, including its secrets and hardware flavor:
+
+```bash
+>>> hf jobs rerun <job_id>
+```
+
+The new Job has its own ID. In Python, use `rerun_job`.
 
 ## Cancel Jobs
 

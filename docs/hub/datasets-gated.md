@@ -1,6 +1,6 @@
 # Gated datasets
 
-To give more control over how datasets are used, the Hub allows datasets authors to enable **access requests** for their datasets. Users must agree to share their contact information (username and email address) with the datasets authors to access the datasets files when enabled. Datasets authors can configure this request with additional fields. A dataset with access requests enabled is called a **gated dataset**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated datasets is to provide access to early research datasets before the wider release.
+To give more control over how datasets are used, the Hub allows datasets authors to enable **access requests** for their datasets. When enabled, users must submit a request to access the dataset files, which shares their Hugging Face information (username and email address) with the dataset authors unless the authors opted out of collecting it. Datasets authors can also add custom fields. A dataset with access requests enabled is called a **gated dataset**. Access requests are always granted to individual users rather than to entire organizations. A common use case of gated datasets is to provide access to early research datasets before the wider release.
 
 ## Manage gated datasets as a dataset author
 
@@ -54,30 +54,46 @@ You can automate the approval of access requests by using the API. You must pass
 
 | Method | URI | Description | Headers | Payload
 | ------ | --- | ----------- | -------  | -------  |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/pending` | Retrieve the list of pending requests. | `{"authorization": "Bearer $token"}` | |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/accepted` | Retrieve the list of accepted requests. | `{"authorization": "Bearer $token"}` | |
-| `GET` | `/api/datasets/{repo_id}/user-access-request/rejected` | Retrieve the list of rejected requests. | `{"authorization": "Bearer $token"}` | |
-| `POST` | `/api/datasets/{repo_id}/user-access-request/handle` | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending", "user": "username", "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters)."}}` |
-| `POST` | `/api/datasets/{repo_id}/user-access-request/grant` | Allow a specific user to access your repo. | `{"authorization":  "Bearer $token"}` | `{"user": "username"} ` |
+| `GET` | [`/api/datasets/{repo_id}/user-access-request/{status}`](https://huggingface.co/spaces/huggingface/openapi#tag/datasets/GET/api/datasets/{namespace}/{repo}/user-access-request/{status}) | List the requests with the given `status`: `pending`, `accepted`, `rejected` or `reset`. Each request has a `requestId`, and a `user` if the username was collected. | `{"authorization": "Bearer $token"}` | |
+| `POST` | [`/api/datasets/{repo_id}/user-access-request/handle`](https://huggingface.co/spaces/huggingface/openapi#tag/datasets/POST/api/datasets/{namespace}/{repo}/user-access-request/handle) | Change the status of a given access request to `status`. | `{"authorization": "Bearer $token"}` | `{"status": "accepted"/"rejected"/"pending"/"reset", "user": "username" (or "requestId": "request id"), "rejectionReason": "Optional rejection reason that will be visible to the user (max 200 characters).", "resetReason": "Optional reset reason that will be included in the email sent to the user (max 200 characters)."}` |
+| `POST` | [`/api/datasets/{repo_id}/user-access-request/grant`](https://huggingface.co/spaces/huggingface/openapi#tag/datasets/POST/api/datasets/{namespace}/{repo}/user-access-request/grant) | Allow a specific user to access your repo. | `{"authorization":  "Bearer $token"}` | `{"user": "username"} ` |
 
 The base URL for the HTTP endpoints above is `https://huggingface.co`.
+
+Setting a request to `reset` revokes the previous decision and asks the user to start over: they lose access to the dataset, receive an email notifying them that their request has been reset (including the optional `resetReason`), and are prompted to agree to the gating terms and submit a new request the next time they visit the dataset page. This differs from `pending`, which keeps the existing request as-is and simply puts it back in the review queue, and from `rejected`, which blocks the user from requesting access again.
 
 **NEW!** Those endpoints are now officially supported in our Python client `huggingface_hub`. List the access requests to your dataset with [`list_pending_access_requests`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_pending_access_requests), [`list_accepted_access_requests`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_accepted_access_requests) and [`list_rejected_access_requests`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.list_rejected_access_requests). You can also accept, cancel and reject access requests with [`accept_access_request`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.accept_access_request), [`cancel_access_request`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.cancel_access_request), [`reject_access_request`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.reject_access_request). Finally, you can grant access to a user with [`grant_access`](/docs/huggingface_hub/main/en/package_reference/hf_api#huggingface_hub.HfApi.grant_access).
 
 ### Download access report
 
 You can download a report of all access requests for a gated datasets with the **download user access report** button. Click on it to download a json file with a list of users. For each entry, you have:
+- **requestId**: the id of the request.
 - **user**: the user id. Example: *julien-c*.
 - **fullname**: name of the user on the Hub. Example: *Julien Chaumond*.
-- **status**: status of the request. Either `"pending"`, `"accepted"` or `"rejected"`.
+- **status**: status of the request. Either `"pending"`, `"accepted"`, `"rejected"` or `"reset"`.
 - **email**: email of the user.
 - **time**: datetime when the user initially made the request.
+- **reviewedAt**: datetime when the request was accepted or rejected. Not set for pending requests.
+
+> [!TIP]
+> `user`, `fullname` and `email` are only present if you opted to [collect them](#choose-which-profile-data-hugging-face-shares-with-you) when the request was made. Requests can always be identified by their `requestId`.
+
+### Choose which profile data Hugging Face shares with you
+
+By default, Hugging Face shares the requester's username and primary email address with you. You are responsible for handling any personally identifiable information (PII) and disclosing how you handle it in accordance with applicable laws (for instance by linking to your own Privacy Policy). You can change this in the gating options on the dataset settings page:
+
+- **Collect username**: when unchecked, you won't receive the Hugging Face username, full name, and avatar of the requester. Requests are listed with a request id and can be accepted or rejected like any other request.
+- **Collect email**: collect the Hugging Face's profile email of the requester. Requires **Collect username**.
+
+You still receive the answers to your [custom form fields](#customize-requested-information), so you can ask for any contact details you need there. These settings apply to new requests only: existing requests keep the settings that were in place when they were made.
+
+For datasets in a [Gating Group Collection](./enterprise-gating-group-collections), these options are configured on the collection instead.
 
 <a id="modifying-the-prompt"></a> <!-- backward compatible anchor -->
 
 ### Customize requested information
 
-By default, users landing on your gated dataset will be asked to share their contact information (email and username) by clicking the **Agree and send request to access repo** button.
+By default, users landing on your gated dataset will be asked to share their Hugging Face information (email and username, unless you [disabled their collection](#choose-which-profile-data-hugging-face-shares-with-you)) by clicking the **Agree and send request to access repo** button.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated-user-side.png"/>
@@ -125,6 +141,18 @@ extra_gated_button_content: "Acknowledge license"
 ---
 ```
 
+### Gate access for organization members
+
+For gated datasets hosted under an organization, you can also require the organization's **own members** to submit an access request. On the dataset settings page, under the gating options, enable **Also gate access for members of `{org}`**.
+
+When this option is enabled, organization members must request access to the dataset like any other user. The following roles bypass the request and keep direct access:
+
+- Organization admins
+- The user who created the repo
+- [Resource Group](./security-resource-groups) admins, when the dataset belongs to a Resource Group
+
+All other members must go through the access request flow. This includes members with the read, contributor, or write org role, and Resource Group members without the admin role.
+
 ## Manage gated datasets as an organization (Team & Enterprise)
 
 [Team & Enterprise](https://huggingface.co/docs/hub/en/enterprise) subscribers can create a Gating Group Collection to grant (or reject) access to all the models and datasets in a collection at once.
@@ -143,7 +171,7 @@ Requesting access can only be done from your browser. Go to the dataset on the H
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-gated-user-side-dark.png"/>
 </div>
 
-By clicking on **Agree**, you agree to share your username and email address with the dataset authors. In some cases, additional fields might be requested. To help the dataset authors decide whether to grant you access, try to fill out the form as completely as possible.
+By clicking on **Agree**, you agree to share the information you enter in the request form (when applicable) with the dataset authors, as well as your Hugging Face username and email address if the authors opted to collect them. To help the dataset authors decide whether to grant you access, try to fill out any form fields as completely as possible.
 
 Once the access request is sent, there are two possibilities. If the approval mechanism is automatic, you immediately get access to the dataset files. Otherwise, the requests have to be approved manually by the authors, which can take more time.
 

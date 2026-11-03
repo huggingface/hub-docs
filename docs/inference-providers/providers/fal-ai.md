@@ -36,6 +36,8 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
     </a>
 </div>
 
+[fal](https://fal.ai/) is the generative media inference platform: call 1,000+ models by API, or deploy your own models, pipelines and apps on fal's autoscaling GPUs with [fal Serverless](https://fal.ai/docs/documentation/serverless). Serverless deployments scale from zero to thousands of runners and back, are billed per second of runner lifetime ([pricing](https://fal.ai/docs/documentation/serverless/pricing)), and can be deployed from a Python `fal.App`, a custom Docker container, or an existing HTTP server.
+
 Founded in 2021 by [Burkay Gur](https://huggingface.co/burkaygur) and [Gorkem Yurtseven](https://huggingface.co/gorkemyurt), fal.ai was born out of a shared passion for AI and a desire to address the challenges in AI infrastructure observed during their tenures at Coinbase and Amazon.
 
 ## Supported tasks
@@ -67,7 +69,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"fal-ai/flux-2/edit"} } }
+    providersMapping={ {"fal-ai":{"modelId":"black-forest-labs/FLUX.2-klein-9B","providerModelId":"fal-ai/flux-2/klein/9b/edit"} } }
 />
 
 
@@ -77,7 +79,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"fal-ai":{"modelId":"baidu/ERNIE-Image","providerModelId":"fal-ai/ernie-image"} } }
+    providersMapping={ {"fal-ai":{"modelId":"krea/Krea-2-Turbo","providerModelId":"fal-ai/krea-2/turbo"} } }
 />
 
 
@@ -87,6 +89,6 @@ Find out more about Text To Video [here](../tasks/text-to-video).
 
 <InferenceSnippet
     pipeline=text-to-video
-    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"fal-ai/wan/v2.2-a14b/text-to-video"} } }
+    providersMapping={ {"fal-ai":{"modelId":"Wan-AI/Wan2.2-TI2V-5B","providerModelId":"fal-ai/wan/v2.2-5b/text-to-video"} } }
 />
 
