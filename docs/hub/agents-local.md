@@ -52,6 +52,11 @@ llama serve \
   -c 32768
 ```
 
+The flag `-ngl all` offloads all layers to the GPU, while `-c 32768` sets the context size in tokens.
+
+> [!NOTE]
+> Use `-c 0` for the model's full context window,
+
 ### 4. Connect Your Agent
 
 Pick one of the agents below and follow the setup instructions.
