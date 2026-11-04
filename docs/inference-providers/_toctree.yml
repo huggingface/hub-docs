@@ -124,6 +124,8 @@
     title: Groq
   - local: providers/hf-inference
     title: HF Inference
+  - local: providers/infraxsky
+    title: InfraXsky
   - local: providers/novita
     title: Novita
   - local: providers/nscale
