@@ -110,7 +110,8 @@ Xet tokens can have either a `read` or a `write` scope.
 `write` scope supersedes `read` scope and all `read` scope API's can be invoked when using a `write` scope token.
 The type of token issued is determined on the `token_type` URI path component when requesting the token from the Hugging Face Hub (see above).
 
-Check API specification for what scope level is necessary to invoke each API (briefly, only `POST /shard` and `POST /xorb/*` API's require `write` scope).
+Check API specification for what scope level is necessary to invoke each API (briefly, only the upload APIs require `write` scope: `POST /v1/xorbs/*`, `POST /v1/xorb-grants/*`, `POST /v1/xorb-commits/*`, `POST /v1/shards`, and `POST /v2/shards`).
+A token without the required scope is rejected with `401 Unauthorized`.
 
 The scope of the Xet tokens is limited to the repository and ref for which they were issued. To upload or download from different repositories or refs (different branches) clients MUST be issued different tokens.
 
