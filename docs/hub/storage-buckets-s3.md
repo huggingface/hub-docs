@@ -194,7 +194,7 @@ SELECT * FROM read_parquet('s3://my-bucket/data.parquet');
 ```
 
 > [!NOTE]
-> `URL_STYLE 'path'` is required. Without it, DuckDB uses virtual-hosted-style addressing (`my-bucket.s3.hf.co`), which the gateway does not serve, and requests fail.
+> `URL_STYLE 'path'` is required. Without it, DuckDB uses virtual-hosted-style addressing (`my-bucket.s3.hf.co`), which the gateway reads as a namespace named `my-bucket`, so requests fail.
 
 ### Import data using `rclone`
 
