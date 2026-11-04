@@ -7,13 +7,13 @@ You can run a coding agent locally, entirely on your own hardware. Several open-
 The setup has two components running locally:
 
 1. **llama.cpp server** — Serves the model as an OpenAI-compatible API on `localhost`.
-2. **Your agent** — The agent process that sends prompts to the local server, reasons about tasks, and executes actions.
+2. **Your agent** — Sends prompts to the local server, reasons about tasks, and executes actions.
 
 ```shell
-┌─────────┐     API calls     ┌──────────────────┐
+┌─────────┐     API calls     ┌───────────────────┐
 │  Agent  │ ───────────────▶  │  llama.cpp server │
 │         │ ◀───────────────  │  (local model)    │
-└─────────┘    responses      └──────────────────┘
+└─────────┘    responses      └───────────────────┘
      │
      ▼
   Your files,
@@ -48,8 +48,6 @@ Launch the llama.cpp server in the router mode.
 ```bash
 llama serve \
   --no-models-autoload \
-  --host 127.0.0.1 \
-  --port 8080 \
   -ngl all \
   -c 32768
 ```
