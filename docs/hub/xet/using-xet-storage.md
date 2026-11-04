@@ -133,6 +133,21 @@ When uploading or downloading in Git or Python:
 - **Be Specific in .gitattributes**: When defining patterns for Xet or LFS, use precise file extensions (e.g., `*.safetensors`, `*.bin`) to avoid unnecessarily routing smaller files through large-file storage.
 - **Prioritize community access**: Xet substantially increases the efficiency and scale of large file transfers. Instead of structuring your repository to reduce its total size (or the size of individual files), organize it for collaborators and community users so they may easily navigate and retrieve the content they need.
 
+## Uploading behind a proxy or firewall
+
+Starting with `hf_xet` 1.8.0, uploads can send data directly to Amazon S3 instead of only through the Xet storage service. The Hub decides for each upload whether to use direct upload, and is turning it on gradually. Downloads don't change.
+
+If your network restricts outbound traffic, allow these hostnames (HTTPS, port 443) in addition to the ones listed in [Downloading behind a proxy or firewall](../models-downloading#downloading-behind-a-proxy-or-firewall):
+
+| Hostname                     | Purpose                                          |
+|------------------------------|--------------------------------------------------|
+| `s3.us-east-1.amazonaws.com` | Direct uploads (US)                              |
+| `s3.eu-west-3.amazonaws.com` | Direct uploads for repositories stored in the EU |
+
+These hostnames are not under `hf.co` or `huggingface.co`, so allowlisting those suffixes does not cover them.
+
+If `hf_xet` can't reach S3, it retries the direct upload and then sends that data through the Xet storage service instead. The upload still completes, but it can be much slower, because each block waits through the retries first. The `hf_xet` [log](#logging) shows `Upload grant URL unreachable, falling back to legacy xorb upload path (may be slower)` when this happens. If you can't allow the S3 hostnames, set `HF_XET_CLIENT_LEGACY_DIRECT_XORB_UPLOAD=1` to turn off direct uploads.
+
 ## Environment Variables
 
 Both `hf_xet` and Git Xet are powered by `xet-core`, which can be configured via environment variables. The tables below list the individual variables for fine-grained control. Most users will not need to change any of these — the defaults are tuned to saturate most network paths automatically.
@@ -192,6 +207,7 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 | `HF_XET_DATA_INGESTION_BLOCK_SIZE` | `8mb` | Size of blocks read during file ingestion. |
 | `HF_XET_DATA_PROGRESS_UPDATE_INTERVAL` | `200ms` | How often progress bars are updated. |
 | `HF_XET_DATA_PROGRESS_UPDATE_SPEED_SAMPLING_WINDOW` | `10s` | Time window used for aggregating transfer speed measurements in progress reporting. |
+| `HF_XET_CLIENT_LEGACY_DIRECT_XORB_UPLOAD` | `false` | Set to `1` to send all upload data through the Xet storage service instead of directly to S3 (`hf_xet` 1.8.0+). See [Uploading behind a proxy or firewall](#uploading-behind-a-proxy-or-firewall). |
 
 ### Download Buffers
 
