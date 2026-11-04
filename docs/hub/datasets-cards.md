@@ -103,7 +103,7 @@ The supported environment framework tags are:
 | --- | --- |
 | `harbor` | [Harbor](https://github.com/harbor-framework/harbor) |
 | `verifiers` | [Verifiers](https://github.com/PrimeIntellect-ai/verifiers) |
-| `openenv` | [OpenEnv](https://github.com/huggingface/OpenEnv) |
+| `openenv` | [OpenEnv](https://github.com/openenv/OpenEnv) |
 | `nemo-gym` | [NeMo Gym](https://github.com/NVIDIA-NeMo/Gym) |
 | `agentenv` | [AgentEnv](https://github.com/scaleapi/agentenv-framework) |
 
