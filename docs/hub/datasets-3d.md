@@ -1,15 +1,20 @@
 # 3D Dataset
 
-This guide shows how 3D files are previewed on the Hub, and how to structure a dataset of [OpenUSD](https://openusd.org) assets, such as [SimReady](https://github.com/NVIDIA/simready-foundation) packages for robotics simulation. 3D files aren't shown in the [Dataset Viewer](./data-studio), but you can preview each file on its page, and SimReady datasets get a gallery of their assets on the dataset page.
+This guide shows how 3D files are previewed on the Hub, and how to structure a dataset of [OpenUSD](https://openusd.org) assets, such as [SimReady](https://github.com/NVIDIA/simready-foundation) packages for robotics simulation. You can preview each 3D file on its page. In the [Dataset Viewer](./data-studio), `.glb`, `.ply`, `.stl` and `.obj` files show a thumbnail that opens in 3D. SimReady datasets get a gallery of their assets on the dataset page.
 
 ## Previewing 3D files
 
 Click a 3D file in the **Files and versions** tab of a dataset or [Storage Bucket](./storage-buckets) to open it in an interactive 3D viewer. You can rotate, zoom and open the viewer in full screen.
 
-| Format  | Extensions                         |
-| ------- | ---------------------------------- |
-| OpenUSD | `.usd`, `.usda`, `.usdc`, `.usdz`  |
-| glTF    | `.glb`, `.gltf`                    |
+| Format         | Extensions                        |
+| -------------- | --------------------------------- |
+| OpenUSD        | `.usd`, `.usda`, `.usdc`, `.usdz` |
+| glTF           | `.glb`, `.gltf`                   |
+| Mesh           | `.obj`, `.stl`, `.ply`            |
+| Point cloud    | `.ply`                            |
+| Gaussian splat | `.ply`, `.splat`                  |
+
+glTF, mesh, point cloud and Gaussian splat files over 100 MB load when you click **Load 3D preview**, and files over 1 GB aren't previewed.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-usd-viewer.png"/>
@@ -30,6 +35,8 @@ A USD asset is often split across several files: a root file that references sub
 </div>
 
 For example, see [nvidia/simready-assets](https://huggingface.co/datasets/nvidia/simready-assets) or [nvidia/PhysicalAI-SimReady-Warehouse-01](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01).
+
+These datasets also get the `simready` tag, so they show up when [filtering datasets](https://huggingface.co/datasets?other=simready).
 
 ### Package structure
 
