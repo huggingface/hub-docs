@@ -21,6 +21,7 @@ The table below summarizes the supported libraries and their level of integratio
 | [PyArrow](./datasets-pyarrow)       | Apache Arrow is a columnar format and a toolbox for fast data interchange and in-memory analytics.                             | ✅                | ✅              | ✅          | ✅            | ✅*                     |
 | [Spark](./datasets-spark)           | Real-time, large-scale data processing tool in a distributed environment.                                                      | ✅                | ✅              | ✅          | ✅            | ✅                      |
 | [WebDataset](./datasets-webdataset) | Library to write I/O pipelines for large datasets.                                                                             | ✅                | ✅              | ❌          | ❌            | ❌                      |
+| [Zephon](./datasets-zephon)         | Deterministic data loader for foundation model training, with online tokenization, packing and mixing.                         | ✅                | ✅              | ❌          | ❌            | ❌                      |
 
 _ * Requires passing extra arguments to write optimized Parquet files_
 
