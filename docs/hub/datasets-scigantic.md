@@ -4,7 +4,7 @@
 
 ## Open a dataset in the browser
 
-Every public dataset has a landing page at `https://scigantic.com/hf/<owner>/<repo>`. The page needs no account. Running the notebook needs a free account.
+Public datasets with a permissive licence have a landing page at `https://scigantic.com/hf/<owner>/<repo>`. The page needs no account. Running the notebook needs a free account. A dataset that cannot be served gets the same page with the reason and a link back to the Hub.
 
 To open a dataset from the command line:
 
