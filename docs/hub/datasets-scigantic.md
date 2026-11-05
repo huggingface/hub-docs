@@ -82,7 +82,7 @@ scigantic files hf:scikit-learn/iris
 
 ## Which datasets are served
 
-The hosted notebook serves datasets that are public, not gated, not disabled, and whose card carries one of these licence ids: `mit`, `apache-2.0`, `cc-by-4.0`, `cc-by-sa-4.0`, `cc-by-3.0`, `cc-by-sa-3.0`, `cc0-1.0`, `bsd-3-clause`, `bsd-2-clause`, `openrail`, `openrail++`, `odc-by`, `odc-odbl`, `pddl`, `lgpl-3.0`, `artistic-2.0`, `ecl-2.0`. Repositories with an `other` or missing licence are refused, because serving the files from a hosted notebook is redistribution.
+The hosted notebook serves datasets that are public, not gated, not disabled, and whose card names a licence that permits redistribution: MIT, Apache-2.0, BSD, CC BY, CC BY-SA, CC0, ODC-By, ODbL, PDDL, OpenRAIL, LGPL-3.0, Artistic-2.0 or ECL-2.0. Repositories with an `other`, non-commercial or missing licence are refused, because serving the files from a hosted notebook is redistribution.
 
 The first request for a dataset registers it, and later requests reuse that entry. Registration is limited to repositories under 2 TiB and 50,000 files, and to 30 new datasets per address per day. Opening a dataset that is already registered is not limited.
 
