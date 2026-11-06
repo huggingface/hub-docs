@@ -20,7 +20,7 @@ Click a 3D file in the **Files and versions** tab of a dataset or [Storage Bucke
 | -------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | glTF           | `.glb`, `.gltf`                   | [DamagedHelmet.glb](https://huggingface.co/datasets/cfahlgren1/3d-model-samples/blob/main/DamagedHelmet.glb) |
 | Mesh           | `.obj`, `.stl`, `.ply`            | [cone.stl](https://huggingface.co/datasets/cfahlgren1/mesh-doc-test-formats/blob/main/meshes/cone.stl)   |
-| Point cloud    | `.ply`                            | —                                                                                                        |
+| Point cloud    | `.ply`                            | [birmingham_block_13.ply](https://huggingface.co/datasets/WhiteFlamesCN/sensaturban-citynav-ply/blob/main/birmingham_block_13.ply) |
 | Gaussian splat | `.ply`, `.splat`                  | [a_monarch_butterfly.ply](https://huggingface.co/datasets/cfahlgren1/3d-splat-samples/blob/main/a_monarch_butterfly.ply) |
 | OpenUSD        | `.usd`, `.usda`, `.usdc`, `.usdz` | [sm_box_corrugated_brown_b08_01.usd](https://huggingface.co/datasets/nvidia/simready-assets/blob/main/box_corrugated_brown_b08/simready_usd/sm_box_corrugated_brown_b08_01.usd) |
 
@@ -36,9 +36,18 @@ glTF files are rendered with their materials and textures. Use the buttons in th
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-gltf-viewer-dark.png"/>
 </div>
 
-### Point clouds and Gaussian splats
+### Point clouds
 
-Point clouds and Gaussian splats open in the same viewer. This Gaussian splat is stored as a `.ply` file:
+A `.ply` file with only vertices, such as a LiDAR or photogrammetry scan, is shown as a point cloud with its vertex colors:
+
+<div class="flex justify-center">
+<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-point-cloud-viewer.png"/>
+<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-point-cloud-viewer-dark.png"/>
+</div>
+
+### Gaussian splats
+
+Gaussian splats can be stored as `.splat` or `.ply` files:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-splat-viewer.png"/>
