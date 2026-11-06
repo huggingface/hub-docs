@@ -37,7 +37,7 @@ If your dataset only contains `.glb`, `.ply` or `.stl` files, you don't need to 
 
 ### Parquet dataset with 3D files
 
-Mixing raw 3D files and Parquet files as subsets or splits isn't supported. To show 3D files next to your other columns, keep the files in the repository and add a `Mesh` column that references them:
+If your dataset is stored as Parquet, the Dataset Viewer reads the Parquet files and doesn't add the 3D files in the repository as a column. To show 3D files next to your other columns, keep the files in the repository and add a `Mesh` column that references them:
 
 ```python
 import json
@@ -45,7 +45,6 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 from datasets import Features, Mesh, Value
 
-repo_id = "username/my-dataset"
 table = pq.read_table("train.parquet")
 
 cells = [
@@ -62,7 +61,7 @@ table = table.replace_schema_metadata(
 pq.write_table(table, "train.parquet")
 ```
 
-- Paths must be relative to the directory containing the Parquet file
+- Paths must be relative to the directory containing the Parquet file.
 - Use `None` for rows without a 3D file.
 - A folder can contain up to 10,000 files, so group larger sets of files into subfolders.
 
