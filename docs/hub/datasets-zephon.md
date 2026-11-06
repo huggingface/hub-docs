@@ -1,7 +1,7 @@
 # Zephon
 
 [Zephon](https://github.com/datologyai/zephon) is a data loader for foundation model training, built by [DatologyAI](https://www.datologyai.com).
-It tokenizes, packs and mixes data while training runs, and it gives the same batches when you change the number of GPUs.
+It tokenizes, packs and mixes data while training runs, and it gives the same batches when you change the number of GPUs (elastic determinism).
 Zephon reads datasets directly from the Hugging Face Hub with `hf://` paths.
 
 ## Installation
@@ -15,7 +15,7 @@ pip install "zephon[hf]" transformers
 ## Load a dataset from the Hub
 
 Pass an `hf://` path to `Dataset.from_path`. The path names a dataset, a configuration and a split, for example the `train` split of the `sample-10BT` configuration of [HuggingFaceFW/fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu).
-Zephon reads remote datasets through its [shard cache](https://datologyai.github.io/zephon/datasets/storage_backends_and_shard_cache.html), so you must enable the cache:
+Zephon reads Hub datasets through its [shard cache](https://datologyai.github.io/zephon/datasets/storage_backends_and_shard_cache.html), so you must enable the cache. Put the cache on fast local disk and set a size limit:
 
 ```python
 from zephon import Pipeline
@@ -28,12 +28,13 @@ work_source = StaticMixtureWorkSource(
     mixture=MixtureSpec({"fineweb_edu": 1.0}),
     seed=42,
 )
+cache = CacheOptions(enabled=True, root="/tmp/zephon-cache", limit_bytes=50 << 30)  # 50 GiB
 
 pipeline = (
     Pipeline(work_source)
-    .options(io_options=StoreOptions(cache=CacheOptions(enabled=True)))
+    .options(io_options=StoreOptions(cache=cache))
     .tokenize(tokenizer_id="gpt2", field="text")
-    .pack_flat(max_length=2049, algorithm="wrap", pad_token_id=0)
+    .pack_flat(max_length=2049, algorithm="wrap")
     .batch(microbatch_size=8)
 )
 
@@ -51,7 +52,7 @@ To read private or gated datasets, log in with your Hugging Face account first, 
 
 ## Path format
 
-Zephon paths have this format:
+Zephon's `hf://` paths for Hub datasets have this format:
 
 ```
 hf://{org}/{name}[@[{revision}][~{source}]]/[{config}/]{split}
@@ -72,12 +73,12 @@ hf://{org}/{name}[@[{revision}][~{source}]]/[{config}/]{split}
 
 ## Mix datasets
 
-To train on several Hub datasets, add them to the work source with the proportion of each one. This example mixes FineWeb-Edu with English Wikipedia:
+To train on several Hub datasets, add them to the work source with the proportion of each one. This example mixes FineWeb-Edu with English Wikipedia, targeting a 70/30 mixture by tokens:
 
 ```python
 from zephon import Pipeline
 from zephon.io import CacheOptions, Dataset, StoreOptions
-from zephon.work import MixtureSpec, StaticMixtureWorkSource
+from zephon.work import MixtureSpec, StaticMixtureWorkSource, TokenEstimation
 
 work_source = StaticMixtureWorkSource(
     datasets=[
@@ -86,16 +87,20 @@ work_source = StaticMixtureWorkSource(
     ],
     mixture=MixtureSpec({"fineweb_edu": 0.7, "wikipedia": 0.3}),
     seed=42,
+    token_estimation=TokenEstimation(primer="measure", calibration_samples=2048, calibration_shards_max=4),
 )
+cache = CacheOptions(enabled=True, root="/tmp/zephon-cache", limit_bytes=50 << 30)  # 50 GiB
 
 pipeline = (
     Pipeline(work_source)
-    .options(io_options=StoreOptions(cache=CacheOptions(enabled=True)))
+    .options(io_options=StoreOptions(cache=cache))
     .tokenize(tokenizer_id="gpt2", field="text")
-    .pack_flat(max_length=2049, algorithm="wrap", pad_token_id=0)
+    .pack_flat(max_length=2049, algorithm="wrap")
     .batch(microbatch_size=8)
 )
 ```
+
+To mix by samples instead, leave out `token_estimation`.
 
 ## Learn more
 
