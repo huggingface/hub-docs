@@ -15,7 +15,7 @@ pip install "zephon[hf]" transformers
 ## Load a dataset from the Hub
 
 Pass an `hf://` path to `Dataset.from_path`. The path names a dataset, a configuration and a split, for example the `train` split of the `sample-10BT` configuration of [HuggingFaceFW/fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu).
-Zephon reads remote datasets through its shard cache, so you must enable the cache:
+Zephon reads remote datasets through its [shard cache](https://datologyai.github.io/zephon/datasets/storage_backends_and_shard_cache.html), so you must enable the cache:
 
 ```python
 from zephon import Pipeline
@@ -96,20 +96,6 @@ pipeline = (
     .batch(microbatch_size=8)
 )
 ```
-
-## Configure the shard cache
-
-Zephon downloads each shard (file) completely into a local cache. When the cache reaches its size limit, Zephon removes the shards it used least recently. All ranks on a node share the same cache.
-For training runs, put the cache on fast local storage and set a size limit:
-
-```python
-from zephon.io import CacheOptions, StoreOptions
-
-cache = CacheOptions(enabled=True, root="/mnt/nvme/zephon-cache", limit_bytes=512 << 30)
-io_options = StoreOptions(cache=cache)
-```
-
-Pass `io_options` to `Pipeline(...).options(io_options=io_options)`. For more information, see [Storage backends and shard cache](https://datologyai.github.io/zephon/datasets/storage_backends_and_shard_cache.html) in the Zephon documentation.
 
 ## Learn more
 
