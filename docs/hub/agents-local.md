@@ -30,7 +30,7 @@ Go to [huggingface.co/settings/hardware](https://huggingface.co/settings/hardwar
 
 ### 2. Find a Compatible Model
 
-Browse for [Llama.cpp-compatible models](https://huggingface.co/models?apps=llama.cpp&sort=trending). Once selected, download the model on your hardware.
+Browse for [GGUF models compatible with Llama](https://huggingface.co/models?apps=llama-app&sort=trending). Once selected, download the model on your hardware.
 
 ### 3. Install and Launch the llama.cpp Server
 
