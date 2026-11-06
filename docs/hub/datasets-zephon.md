@@ -97,21 +97,6 @@ pipeline = (
 )
 ```
 
-## Small datasets
-
-Zephon reads each dataset in chunks of `chunk_size` samples. The default is 16,384, which suits large pretraining datasets.
-Each dataset needs about `chunk_size` multiplied by its mixture weight samples, or more. If a dataset is smaller, Zephon raises a `ValueError` when it sets up the pipeline.
-For small datasets, set a smaller `chunk_size` on the work source:
-
-```python
-work_source = StaticMixtureWorkSource(
-    datasets=[dataset],
-    mixture=MixtureSpec({"my_dataset": 1.0}),
-    chunk_size=512,
-    seed=42,
-)
-```
-
 ## Configure the shard cache
 
 Zephon downloads each shard (file) completely into a local cache. When the cache reaches its size limit, Zephon removes the shards it used least recently. All ranks on a node share the same cache.
