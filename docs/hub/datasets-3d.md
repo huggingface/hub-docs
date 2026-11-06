@@ -1,15 +1,20 @@
 # 3D Dataset
 
-This guide shows how 3D files are previewed on the Hub, and how to structure a dataset of [OpenUSD](https://openusd.org) assets, such as [SimReady](https://github.com/NVIDIA/simready-foundation) packages for robotics simulation. 3D files aren't shown in the [Dataset Viewer](./data-studio), but you can preview each file on its page, and SimReady datasets get a gallery of their assets on the dataset page.
+This guide shows how 3D files are previewed on the Hub, and how to structure a dataset of [OpenUSD](https://openusd.org) assets, such as [SimReady](https://github.com/NVIDIA/simready-foundation) packages for robotics simulation. You can preview each 3D file on its page. In the [Dataset Viewer](./data-studio), `Mesh` columns show a thumbnail that opens in 3D, and the dataset page shows a gallery of the assets. Repositories of `.glb`, `.ply` or `.stl` files get a `Mesh` column automatically. SimReady datasets also get a gallery of their assets.
 
 ## Previewing 3D files
 
 Click a 3D file in the **Files and versions** tab of a dataset or [Storage Bucket](./storage-buckets) to open it in an interactive 3D viewer. You can rotate, zoom and open the viewer in full screen.
 
-| Format  | Extensions                         |
-| ------- | ---------------------------------- |
-| OpenUSD | `.usd`, `.usda`, `.usdc`, `.usdz`  |
-| glTF    | `.glb`, `.gltf`                    |
+| Format         | Extensions                        |
+| -------------- | --------------------------------- |
+| OpenUSD        | `.usd`, `.usda`, `.usdc`, `.usdz` |
+| glTF           | `.glb`, `.gltf`                   |
+| Mesh           | `.obj`, `.stl`, `.ply`            |
+| Point cloud    | `.ply`                            |
+| Gaussian splat | `.ply`, `.splat`                  |
+
+glTF, mesh, point cloud and Gaussian splat files over 100 MB load when you click **Load 3D preview**, and files over 1 GB aren't previewed.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-usd-viewer.png"/>
@@ -19,6 +24,46 @@ Click a 3D file in the **Files and versions** tab of a dataset or [Storage Bucke
 ### OpenUSD layers and textures
 
 A USD asset is often split across several files: a root file that references sublayers, payloads, materials and textures. The viewer loads these referenced files from the same repository, so keep the folder structure you authored the asset with, and use relative paths for references. References to absolute paths, or to files outside the repository, can't be loaded.
+
+## 3D files in the Dataset Viewer
+
+The Dataset Viewer shows a thumbnail for each cell of a [`Mesh`](https://huggingface.co/docs/datasets/main/en/package_reference/main_classes#datasets.Mesh) column. Clicking a thumbnail opens the file in 3D. Thumbnails can be rendered for `.glb`, `.ply`, `.stl` and `.obj` files.
+
+The dataset page also shows a **3D Assets** card with up to 15 thumbnails from the first rows of the selected subset and split. Make sure the first rows have a mesh, otherwise the card doesn't appear.
+
+### Repository of 3D files
+
+If your dataset only contains `.glb`, `.ply` or `.stl` files, you don't need to do anything: they get a `mesh` column automatically. See [Create a mesh dataset](https://huggingface.co/docs/datasets/main/en/mesh_dataset) to add metadata.
+
+### Parquet dataset with 3D files
+
+If your dataset is stored as Parquet, the Dataset Viewer reads the Parquet files and doesn't add the 3D files in the repository as a column. To show 3D files next to your other columns, keep the files in the repository and add a `Mesh` column that references them:
+
+```python
+import json
+import pyarrow as pa
+import pyarrow.parquet as pq
+from datasets import Features, Mesh, Value
+
+table = pq.read_table("train.parquet")
+
+cells = [
+    {"bytes": None, "path": f"meshes/{row_id}.glb"}  # relative path from parquet directory to meshes
+    for row_id in table["id"].to_pylist()
+]
+table = table.append_column("mesh", pa.array(cells, type=Mesh().pa_type))
+
+# List all the columns of your dataset
+features = Features({"id": Value("string"), "prompt": Value("string"), "mesh": Mesh()})
+table = table.replace_schema_metadata(
+    {"huggingface": json.dumps({"info": {"features": features.to_dict()}})}
+)
+pq.write_table(table, "train.parquet")
+```
+
+- Paths must be relative to the directory containing the Parquet file.
+- Use `None` for rows without a 3D file.
+- A folder can contain up to 10,000 files, so group larger sets of files into subfolders.
 
 ## SimReady datasets
 
@@ -30,6 +75,8 @@ A USD asset is often split across several files: a root file that references sub
 </div>
 
 For example, see [nvidia/simready-assets](https://huggingface.co/datasets/nvidia/simready-assets) or [nvidia/PhysicalAI-SimReady-Warehouse-01](https://huggingface.co/datasets/nvidia/PhysicalAI-SimReady-Warehouse-01).
+
+These datasets also get the `simready` tag, so they show up when [filtering datasets](https://huggingface.co/datasets?other=simready).
 
 ### Package structure
 
