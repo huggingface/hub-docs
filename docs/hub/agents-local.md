@@ -32,9 +32,15 @@ Go to [huggingface.co/settings/hardware](https://huggingface.co/settings/hardwar
 
 Browse for [GGUF models compatible with Llama](https://huggingface.co/models?apps=llama-app&sort=trending). Once selected, download the model on your hardware.
 
-### 3. Install and Launch the llama.cpp Server
+### 3. Install and Launch the Llama App
 
-You can install the llama.cpp CLI using the following command.
+Downloading and launching the Llama App is as simple as it gets. You can visit the [Llama App](https://llama.app/) website and install the application.
+
+After the application is installed follow the steps to start using your favourite model, recommended for your system.
+
+![llama app](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/decision/llama-app.png)
+
+You can also install the llama.cpp CLI and serve the models you like. Install it with the following command.
 
 ```bash
 curl -LsSf https://llama.app/install.sh | sh
