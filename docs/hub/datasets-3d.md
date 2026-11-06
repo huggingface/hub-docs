@@ -49,7 +49,7 @@ repo_id = "username/my-dataset"
 table = pq.read_table("train.parquet")
 
 cells = [
-    {"bytes": None, "path": f"hf://datasets/{repo_id}@main/meshes/{row_id}.glb"}
+    {"bytes": None, "path": f"meshes/{row_id}.glb"}  # relative path from parquet directory to meshes
     for row_id in table["id"].to_pylist()
 ]
 table = table.append_column("mesh", pa.array(cells, type=Mesh().pa_type))
