@@ -62,7 +62,7 @@ table = table.replace_schema_metadata(
 pq.write_table(table, "train.parquet")
 ```
 
-- Paths must point to the same dataset repository, so a duplicated dataset needs its paths updated.
+- Paths must be relative to the directory containing the Parquet file
 - Use `None` for rows without a 3D file.
 - A folder can contain up to 10,000 files, so group larger sets of files into subfolders.
 
