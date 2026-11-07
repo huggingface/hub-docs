@@ -152,7 +152,7 @@ Key points to remember:
 ### Deleting individual LFS files
 
 1. Navigate to your repository's Settings page
-2. Click on "List LFS files" in the "Storage" section
+2. Click on "List Large Files" in the "Storage" section
 3. Use the actions menu to delete specific files
 
 ### Deleting Pull request refs
@@ -176,7 +176,7 @@ The effects from the squash operation on your storage quota are not immediate an
 
 ### Advanced: Track LFS file references
 
-When you find an LFS file in your repository's "List LFS files" but don't know where it came from, you can trace its history using its SHA-256 OID by using the git log command: 
+When you find an LFS file in your repository's "List Large Files" but don't know where it came from, you can trace its history using its SHA-256 OID by using the git log command: 
 
 ```bash
 git log --all -p -S <SHA-256-OID>
