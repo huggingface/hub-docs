@@ -10,7 +10,7 @@ If you committed a secret, private data, or any file you don't want on the Hub, 
 | Action | Removes | Leaves |
 |---|---|---|
 | Delete the file in a new commit | The file from the latest revision | All previous commits |
-| [List LFS files](#lfs-and-xet-files) → delete with "rewrite history" | LFS/Xet file content, and its pointer from all branches, tags and PR refs | File path, sha256 and size at old commit URLs until they are cleaned up |
+| [List Large Files](#lfs-and-xet-files) → delete with "rewrite history" | LFS/Xet file content, and its pointer from all branches, tags and PR refs | File path, sha256 and size at old commit URLs until they are cleaned up |
 | [`git filter-repo`](#regular-git-files) + force-push | The file from every branch and tag you push | Refs you don't push, PR refs |
 | [`super_squash_history`](#regular-git-files) | The history of one branch | Other branches, tags, PR refs |
 | [Delete a PR ref](#pull-requests) | The PR's commits from the repository | An archived copy so the PR diff stays viewable |
@@ -30,10 +30,10 @@ All of these operations are irreversible and change commit SHAs, so collaborator
 
 ## LFS and Xet files
 
-If the file appears in your repository's "List LFS files" (this includes Xet-backed files):
+If the file appears in your repository's "List Large Files" (this includes Xet-backed files):
 
 1. Go to your repository's Settings page.
-2. Click on "List LFS files" in the "Storage" section.
+2. Click on "List Large Files" in the "Storage" section.
 3. Delete the file, keeping "rewrite history" checked (the default).
 
 This strips the file's pointer from every branch, tag and PR ref, which changes the SHA of every commit after the first one containing the file, and deletes the stored file. See [Storage Limits](./storage-limits#deleting-individual-lfs-files) for more details.
