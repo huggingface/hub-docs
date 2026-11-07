@@ -189,8 +189,13 @@ def update_toctree_yaml():
         grouped_entries = {}
         for file_path in files:
             with open(file_path, "r") as f:
-                category = parse_metadata(f.read()).get("category", "other")
+                metadata = parse_metadata(f.read())
             example_content = process_example_metadata(file_path, dirname)
+            # Advanced tutorials have a manually curated top-level navigation
+            # section and should not also appear in the generated Examples list.
+            if metadata.get("navigation") == "advanced":
+                continue
+            category = metadata.get("category", "other")
             title_match = re.search(r"^# (.+)", example_content, re.MULTILINE)
             if title_match:
                 title = title_match.group(1).strip()
