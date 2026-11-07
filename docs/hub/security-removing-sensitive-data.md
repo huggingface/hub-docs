@@ -80,7 +80,6 @@ Any pull request opened after the file was committed keeps that history reachabl
 
 ## When to contact us
 
-Email privacy@huggingface.co for personal data, or website@huggingface.co for leaked secrets and anything else, if:
 - the file is a regular git file and any pull request was opened after it was committed
 - you need old commit URLs guaranteed to return 404
 - you need cached downloads invalidated
