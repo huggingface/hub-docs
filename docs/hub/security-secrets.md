@@ -29,3 +29,5 @@ You can opt-out from those email notifications from [your settings](https://hugg
 
 If the leaked secret is a Hugging Face access token, you can invalidate it right away — including a token that is not yours — see [Revoking a leaked token](./security-tokens#revoking-a-leaked-token).
 
+To remove the secret from your repository and its history, see [Removing Sensitive Data](./security-removing-sensitive-data).
+
