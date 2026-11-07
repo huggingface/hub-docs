@@ -1,7 +1,7 @@
 # Removing Sensitive Data from a Repository
 
 > [!NOTE]
-> This page only applies to git-backed repositories (models, datasets, and Spaces). It does not apply to [Storage Buckets](./storage-buckets), which aren't git-backed.
+> This page only applies to git-backed repositories (models, datasets, and Spaces).
 
 If you committed a secret, private data, or any file you don't want on the Hub, deleting it in a new commit is not enough: older commits still contain it, and URLs such as `/resolve/<old_sha>/<path>`, `/blob/<old_sha>/<path>` or `/commit/<old_sha>` keep serving it. To fully remove a file, remove it from every ref that can reach it: branches, tags, and pull requests.
 
@@ -20,7 +20,7 @@ If you committed a secret, private data, or any file you don't want on the Hub, 
 
 Old commits stay reachable by their SHA (in the web UI, the API, and with `git fetch <sha>`) until they're cleaned up. That's usually within the hour after a force-push or squash, but isn't guaranteed after deleting a large file with "rewrite history", and never happens for history pinned by a pull request.
 
-All of these operations are irreversible and change commit SHAs, so collaborators need to re-clone the repository.
+All of these operations are irreversible and change commit SHAs, so collaborators using git need to re-clone the repository.
 
 ## Recommended order
 
