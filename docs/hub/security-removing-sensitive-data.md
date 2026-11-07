@@ -1,5 +1,8 @@
 # Removing Sensitive Data from a Repository
 
+> [!NOTE]
+> This page only applies to git-backed repositories (models, datasets, and Spaces). It does not apply to [Storage Buckets](./storage-buckets), which aren't git-backed.
+
 If you committed a secret, private data, or any file you don't want on the Hub, deleting it in a new commit is not enough: older commits still contain it, and URLs such as `/resolve/<old_sha>/<path>`, `/blob/<old_sha>/<path>` or `/commit/<old_sha>` keep serving it. To fully remove a file, remove it from every ref that can reach it: branches, tags, and pull requests.
 
 > [!WARNING]
