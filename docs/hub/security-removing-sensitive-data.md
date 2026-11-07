@@ -18,7 +18,7 @@ If you committed a secret, private data, or any file you don't want on the Hub, 
 | [`super_squash_history`](#regular-git-files) | The history of one branch | Other branches, tags, history pinned by pull requests |
 | [Delete a PR ref](#pull-requests) | The PR ref | The PR's commits, archived for the PR page, including the file |
 
-Old commits stay reachable by their SHA (in the web UI, the API, and with `git fetch <sha>`) until they're cleaned up. That's usually within the hour after a force-push or squash, but isn't guaranteed after deleting a large file with "rewrite history", and never happens for history pinned by a pull request. Deleted content may take up to 30 days to be fully purged from storage.
+Old commits stay reachable by their SHA (in the web UI, the API, and with `git fetch <sha>`) until they're cleaned up. That's usually within the hour after a force-push or squash, but isn't guaranteed after deleting a large file with "rewrite history", and never happens for history pinned by a pull request.
 
 All of these operations are irreversible and change commit SHAs, so collaborators need to re-clone the repository.
 
