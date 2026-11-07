@@ -41,6 +41,8 @@ If the file appears in your repository's "List Large Files" (this includes Xet-b
 
 This deletes the file content immediately and strips its pointer from every branch, tag and PR ref. This changes the SHA of the first commit containing the file and all its descendants, and drops commits left empty (e.g. one that only added the file). See [Storage Limits](./storage-limits#deleting-individual-lfs-files) for more details.
 
+If the file's path or name is itself sensitive, remove it with the [regular git files](#regular-git-files) steps instead of, or before, "List Large Files". "List Large Files" with "rewrite history" removes the bytes and the pointer from every ref, including pull requests, but old commits can still show the path, sha256 and size. After a force-push or squash, old commits usually become unreachable within about an hour, and the LFS/Xet bytes stop being served shortly after. [Pull requests](#pull-requests) opened after the file was committed keep it reachable, so [contact us](#when-to-contact-us).
+
 ## Regular git files
 
 **Option 1: rewrite history with [`git filter-repo`](https://github.com/newren/git-filter-repo)** and force-push every branch and tag that contains the file. Force-pushing is allowed for users with write access.
