@@ -2,7 +2,7 @@
 
 With [exposed ports](./jobs-configuration#expose-ports), a Job can act as a temporary inference server: start vLLM on a GPU flavor, point any OpenAI-compatible client at the job's URL, and cancel the job when you are done. You pay per minute while the job runs, and the endpoint disappears with the job.
 
-This is a good fit when the endpoint is a means rather than the product: an evaluation run, a data labelling session, iterating on prompts against a hot model, or a demo that only needs to live for an afternoon.
+This is a good fit when the endpoint is a means rather than the product: an evaluation run, a data labelling session, iterating on prompts against a hot model, or a demo that only needs to live for an afternoon. For a run that generates and exits instead of answering requests, see [Run LLM Inference on Jobs](./jobs-inference).
 
 > [!TIP]
 > If you want a more permanent endpoint that won't disappear, you want [Inference Endpoints](https://huggingface.co/docs/inference-endpoints), which provides managed infrastructure with autoscaling, monitoring, and stable URLs.
