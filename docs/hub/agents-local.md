@@ -52,10 +52,7 @@ curl -LsSf https://llama.app/install.sh | sh
 Launch the llama.cpp server in the router mode.
 
 ```bash
-llama serve \
-  --no-models-autoload \
-  -ngl all \
-  -c 32768
+llama serve
 ```
 
 The flag `-ngl all` offloads all layers to the GPU, while `-c 32768` sets the context size in tokens.
