@@ -1,7 +1,7 @@
 # S3 Compatibility
 
 Storage Buckets can be accessed through an **S3-compatible API**, letting you use existing S3 tooling — the AWS CLI, `boto3`, `s5cmd`, and most other S3 SDKs — against your buckets without changing your code. 
-Requests go through a gateway service at `https://s3.hf.co`.
+Requests go through a gateway service at `https://s3.hf.co`, which also serves each namespace at its own hostname, `https://<namespace>.s3.hf.co`.
 
 The S3 API is one of several ways to reach bucket data — for Hugging Face-native access (the `hf` CLI, `hf://` paths, and filesystem mounts) without separate S3 credentials, see [Access Patterns](./storage-buckets-access).
 
@@ -33,7 +33,7 @@ Point your S3 client at the gateway endpoint and set a few required options. Use
 
 | Setting                        | Value                          | Why                                                           |
 |--------------------------------|--------------------------------|---------------------------------------------------------------|
-| `endpoint_url`                 | `https://s3.hf.co/<namespace>` | The gateway, scoped to your namespace                         |
+| `endpoint_url`                 | `https://<namespace>.s3.hf.co` | The gateway, scoped to your namespace                         |
 | `region`                       | `us-east-1`                    | Required; the gateway is currently single-region              |
 | `s3.addressing_style`          | `path`                         | Buckets are addressed as path segments, not subdomains        |
 | `request_checksum_calculation` | `when_required`                | Prevents recent clients from sending trailing checksums       |
@@ -56,7 +56,7 @@ Add a profile to `~/.aws/config`:
 ```ini
 [profile hf]
 region = us-east-1
-endpoint_url = https://s3.hf.co/<namespace>
+endpoint_url = https://<namespace>.s3.hf.co
 s3 =
     addressing_style = path
     multipart_threshold = 256MB
@@ -88,10 +88,17 @@ AWS S3 uses a single flat, globally-unique space of bucket names, and SDKs expec
 
 **1. Put the namespace in the endpoint URL** (recommended for most cases). This scopes every operation to that namespace, so the bucket name passed to the client is just the HF bucket name. It works well for your own buckets or buckets in a single org, but breaks down across namespaces — e.g. a server-side copy from a personal bucket into an org bucket.
 
+Each namespace has its own endpoint hostname, `https://<namespace>.s3.hf.co`:
+
 ```bash
-aws --endpoint-url https://s3.hf.co/my-org s3api get-object \
+aws --endpoint-url https://my-org.s3.hf.co s3api get-object \
   --bucket my-bucket --key some/object.txt ./object.txt
 ```
+
+The namespace can also go in the endpoint's path instead, as `https://s3.hf.co/<namespace>`. Both forms behave the same, but we recommend the hostname: some clients reject an endpoint URL that contains a path. These include tools built on the [MinIO Go client](https://github.com/minio/minio-go), such as restic, Milvus, and Weaviate. Namespace hostnames are not case-sensitive, so `https://my-org.s3.hf.co` also reaches an organization named `My-Org`.
+
+> [!NOTE]
+> Even with a namespace hostname, clients must use path-style addressing (see [Configuring a Client](#configuring-a-client)). Buckets are not served as their own subdomain (`my-bucket.my-org.s3.hf.co`).
 
 **2. Treat the namespace as the bucket** and prepend the HF bucket name to the object key. This works for object-level operations (uploads, downloads) but has issues with bucket-level operations such as creating or deleting buckets.
 
@@ -149,7 +156,7 @@ from botocore.config import Config
 
 s3 = boto3.client(
     "s3",
-    endpoint_url="https://s3.hf.co/<namespace>",
+    endpoint_url="https://<namespace>.s3.hf.co",
     aws_access_key_id="HFAK...",
     aws_secret_access_key="...",
     config=Config(
@@ -187,7 +194,7 @@ SELECT * FROM read_parquet('s3://my-bucket/data.parquet');
 ```
 
 > [!NOTE]
-> `URL_STYLE 'path'` is required. Without it, DuckDB uses virtual-hosted-style addressing (`my-bucket.s3.hf.co`), which the gateway does not serve — you will see a "Could not resolve hostname" error.
+> `URL_STYLE 'path'` is required. Without it, DuckDB uses virtual-hosted-style addressing (`my-bucket.s3.hf.co`), which the gateway reads as a namespace named `my-bucket`, so requests fail.
 
 ### Import data using `rclone`
 
@@ -213,7 +220,7 @@ The second points at the Hugging Face gateway. As with any other client, scope t
 [hf]
 type = s3
 provider = Other
-endpoint = https://s3.hf.co/<namespace>
+endpoint = https://<namespace>.s3.hf.co
 access_key_id = HFAK...
 secret_access_key = ...
 region = us-east-1
@@ -246,7 +253,7 @@ rclone sync aws:my-source-bucket hf:my-bucket --progress
 
 ```bash
 dvc remote add -d hf-bucket s3://my-bucket/dvc-store
-dvc remote modify hf-bucket endpointurl https://s3.hf.co/<namespace>
+dvc remote modify hf-bucket endpointurl https://<namespace>.s3.hf.co
 dvc remote modify hf-bucket region us-east-1
 ```
 
