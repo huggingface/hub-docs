@@ -1,5 +1,10 @@
 # Inference Providers
 
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/Inference-providers-banner-light.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/Inference-providers-banner-dark.png"/>
+</div>
+
 Inference Providers offers the best open models for text, image, video and audio, ready to call from your app or your coding agent, at the provider's price with no markup. Language models are powered by [OpenRouter](https://openrouter.ai), the unified interface for LLMs trusted by millions: each request goes to a provider serving the model, and switches to another one automatically if it's down or rate limited.
 
 One Hugging Face token gives you the whole stack: [storage](https://huggingface.co/storage), compute with [Jobs](https://huggingface.co/docs/hub/jobs-overview), dedicated inference with [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) and serverless inference with Inference Providers. PRO, Team and Enterprise include monthly credits to spend on compute and inference.
