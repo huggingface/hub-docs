@@ -297,6 +297,8 @@
         title: Spark
       - local: datasets-webdataset
         title: WebDataset
+      - local: datasets-zephon
+        title: Zephon
   - local: data-studio
     title: Data Studio
     sections:
@@ -453,6 +455,10 @@
 - local: container-images
   title: Container Images
   new: true
+  isExpanded: true
+  sections:
+  - local: container-images-access
+    title: Access Control
 
 - local: jobs
   title: Jobs

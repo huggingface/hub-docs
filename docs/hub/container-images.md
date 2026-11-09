@@ -16,7 +16,7 @@ curl -X POST https://huggingface.co/api/containers/my-org/my-app \
   -d '{"private": true}'
 ```
 
-Create the repository before pushing: a push to a missing one fails with `NAME_UNKNOWN`. Its page, `https://huggingface.co/containers/my-org/my-app`, lists its tags. Who can pull and push follows the repository's visibility and each member's role in the organization.
+Create the repository before pushing: a push to a missing one fails with `NAME_UNKNOWN`. Its page, `https://huggingface.co/containers/my-org/my-app`, lists its tags. Who can pull and push follows the repository's visibility and each member's role in the organization, or in its Resource Group: see [Access Control](./container-images-access).
 
 ## Pushing and Pulling with `hf image`
 
