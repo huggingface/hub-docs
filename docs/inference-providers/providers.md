@@ -146,4 +146,4 @@ Other tasks go to these providers through the [Hugging Face SDKs](./tasks/index)
 
 ## Which providers serve a model
 
-A model's page on the Hub lists its providers. To compare their price, speed and context length, use the [models page](https://huggingface.co/inference/models) or `GET https://router.huggingface.co/v1/models` (see [Models](./models)).
+A model's page on the Hub lists its providers. To compare their price, speed and context length, use the [models page](https://huggingface.co/inference/models) or `GET https://router.huggingface.co/v1/models` (see [Hub API](./hub-api#list-openai-compatible-models)).

@@ -7,8 +7,6 @@
 
 - title: Concepts
   sections:
-  - local: models
-    title: Models
   - local: routing
     title: Routing and Providers
   - local: hub-integration

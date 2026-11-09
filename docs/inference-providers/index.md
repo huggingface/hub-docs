@@ -25,7 +25,7 @@ Pick a task, then browse every model served for it on the Hub.
 
 ### Compare providers for a model
 
-A model is often served by several providers, each with its own price, speed and context length. Compare them on the [models page](https://huggingface.co/inference/models), or get the same data from code with `GET https://router.huggingface.co/v1/models` (see [Models](./models)).
+A model is often served by several providers, each with its own price, speed and context length. Compare them on the [models page](https://huggingface.co/inference/models), or get the same data from code with `GET https://router.huggingface.co/v1/models` (see [Hub API](./hub-api#list-openai-compatible-models)).
 
 ## Why Choose Inference Providers?
 
