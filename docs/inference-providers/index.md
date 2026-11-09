@@ -9,7 +9,15 @@ Inference Providers offers the best open models for text, image, video and audio
 
 One Hugging Face token gives you the whole stack: [storage](https://huggingface.co/storage), compute with [Jobs](https://huggingface.co/docs/hub/jobs-overview), dedicated inference with [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) and serverless inference with Inference Providers. PRO, Team and Enterprise include monthly credits to spend on compute and inference.
 
-<QuickstartSnippet />
+<QuickstartSnippet
+    models={[
+        {"id": "deepseek-ai/DeepSeek-V4.1-Flash", "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png"},
+        {"id": "moonshotai/Kimi-K2.5", "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/641c1e77c3983aa9490f8121/X1yT2rsaIbR9cdYGEVu0X.jpeg"},
+        {"id": "zai-org/GLM-5.1", "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/62dc173789b4cf157d36ebee/i_pxzM2ZDo3Ub-BEgIkE9.png"},
+        {"id": "Qwen/Qwen3.8-27B", "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/6215ca5692c0ecfba9186921/hrRM50-6XcdWgg2AKpENG.jpeg"},
+        {"id": "MiniMaxAI/MiniMax-M2.5", "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/676e38ad04af5bec20bc9faf/dUd-LsZEX0H_d4qefO_g6.jpeg"}
+    ]}
+/>
 
 ## Why Choose Inference Providers?
 
