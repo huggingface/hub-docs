@@ -10,9 +10,6 @@ Create a [fine-grained token](https://huggingface.co/settings/tokens/new?ownUser
 
 <QuickstartSnippet />
 
-> [!TIP]
-> Building with an AI agent? Give it [llms.txt](https://huggingface.co/docs/inference-providers/llms.txt), the index of these docs, or add `.md` to any page URL to get it as Markdown.
-
 ## What you can run
 
 Pick a task, then browse every model served for it on the Hub.
