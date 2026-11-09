@@ -2,8 +2,6 @@
 
 Every request goes through the Hugging Face router, which handles authentication and billing. For language models, OpenRouter picks a provider serving the model and retries on another one if it fails.
 
-<RoutingSnippet />
-
 ## Default routing
 
 Without a suffix, chat requests use [OpenRouter's default routing](https://openrouter.ai/blog/announcements/how-we-rebuilt-provider-routing/). For each request, it compares what a good answer costs at each provider serving the model:
