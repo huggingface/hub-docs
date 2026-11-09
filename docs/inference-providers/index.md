@@ -68,7 +68,7 @@ Here's what you can build:
 
 Inference Providers works with your existing development workflow. Whether you prefer Python, JavaScript, or direct HTTP calls, we provide native SDKs and OpenAI-compatible APIs to get you up and running quickly.
 
-We'll walk through a practical example using [openai/gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b), a state-of-the-art open-weights conversational model.
+We'll walk through a practical example using [deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash), a state-of-the-art open-weights conversational model.
 
 ### Inference Playground
 
@@ -111,9 +111,9 @@ You can now use the client with a Python interpreter.
 
 By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:cerebras"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"deepseek-ai/DeepSeek-V4.1-Flash:novita"`).
 
 ```python
 import os
@@ -122,7 +122,7 @@ from huggingface_hub import InferenceClient
 client = InferenceClient()
 
 completion = client.chat.completions.create(
-    model="openai/gpt-oss-120b",
+    model="deepseek-ai/DeepSeek-V4.1-Flash",
     messages=[
         {
             "role": "user",
@@ -142,9 +142,9 @@ If you're already using OpenAI's Python client, then you need a **drop-in OpenAI
 
 By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:cerebras"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"deepseek-ai/DeepSeek-V4.1-Flash:novita"`).
 
 ```python
 import os
@@ -156,7 +156,7 @@ client = OpenAI(
 )
 
 completion = client.chat.completions.create(
-    model="openai/gpt-oss-120b:fastest",
+    model="deepseek-ai/DeepSeek-V4.1-Flash:fastest",
     messages=[
         {
             "role": "user",
@@ -174,9 +174,9 @@ For maximum control and interoperability with custom frameworks, use our OpenAI-
 
 By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:cerebras"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"deepseek-ai/DeepSeek-V4.1-Flash:novita"`).
 
 ```python
 import os
@@ -191,7 +191,7 @@ payload = {
             "content": "How many 'G's in 'huggingface'?"
         }
     ],
-    "model": "openai/gpt-oss-120b:fastest",
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash:fastest",
 }
 
 response = requests.post(API_URL, headers=headers, json=payload)
@@ -222,9 +222,9 @@ Then use the client with JavaScript.
 
 By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:cerebras"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"deepseek-ai/DeepSeek-V4.1-Flash:novita"`).
 
 ```js
 import { InferenceClient } from "@huggingface/inference";
@@ -232,7 +232,7 @@ import { InferenceClient } from "@huggingface/inference";
 const client = new InferenceClient(process.env.HF_TOKEN);
 
 const chatCompletion = await client.chatCompletion({
-  model: "openai/gpt-oss-120b:fastest",
+  model: "deepseek-ai/DeepSeek-V4.1-Flash:fastest",
   messages: [
     {
       role: "user",
@@ -252,9 +252,9 @@ If you're already using OpenAI's JavaScript client, then you need a **drop-in Op
 
 By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:cerebras"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"deepseek-ai/DeepSeek-V4.1-Flash:novita"`).
 
 ```javascript
 import OpenAI from "openai";
@@ -265,7 +265,7 @@ const client = new OpenAI({
 });
 
 const completion = await client.chat.completions.create({
-  model: "openai/gpt-oss-120b:fastest",
+  model: "deepseek-ai/DeepSeek-V4.1-Flash:fastest",
   messages: [
     {
       role: "user",
@@ -285,9 +285,9 @@ For lightweight applications or custom implementations, use our REST API directl
 
 By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:cerebras"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"deepseek-ai/DeepSeek-V4.1-Flash:novita"`).
 
 ```js
 import fetch from "node-fetch";
@@ -301,7 +301,7 @@ const response = await fetch(
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: "openai/gpt-oss-120b:fastest",
+      model: "deepseek-ai/DeepSeek-V4.1-Flash:fastest",
       messages: [
         {
           role: "user",
@@ -324,9 +324,9 @@ For testing, debugging, or integrating with any HTTP client, here's the raw REST
 
 By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
 
-You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `openai/gpt-oss-120b:cheapest`.
+You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
-You can also select the provider of your choice by appending the provider name to the model id (e.g. `"openai/gpt-oss-120b:cerebras"`).
+You can also select the provider of your choice by appending the provider name to the model id (e.g. `"deepseek-ai/DeepSeek-V4.1-Flash:novita"`).
 
 ```bash
 curl https://router.huggingface.co/v1/chat/completions \
@@ -339,7 +339,7 @@ curl https://router.huggingface.co/v1/chat/completions \
                 "content": "How many G in huggingface?"
             }
         ],
-        "model": "openai/gpt-oss-120b:fastest",
+        "model": "deepseek-ai/DeepSeek-V4.1-Flash:fastest",
         "stream": false
     }'
 ```
