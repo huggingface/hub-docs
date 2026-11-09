@@ -13,8 +13,6 @@ One Hugging Face token gives you the whole stack: [storage](https://huggingface.
 
 Create a [fine-grained token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) with the **Make calls to Inference Providers** permission and export it as `HF_TOKEN`, then pick your client or coding agent. To try models first, open the [Inference Playground](https://huggingface.co/playground).
 
-<QuickstartSnippet />
-
 <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-4 my-6">
     <a href="./integrations/opencode" class="flex flex-col items-center justify-center gap-2 sm:gap-3 px-3 py-4 sm:px-4 sm:py-6 rounded-xl border border-gray-200 dark:border-gray-800 no-underline transition-none hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-inner">
         <svg class="h-8 w-8 sm:h-10 sm:w-10" width="40" height="40" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"><rect width="512" height="512" rx="96" fill="#131010"/><path d="M320 224V352H192V224H320Z" fill="#5A5858"/><path fill-rule="evenodd" clip-rule="evenodd" d="M384 416H128V96H384V416ZM320 160H192V352H320V160Z" fill="white"/></svg>
