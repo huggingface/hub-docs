@@ -50,7 +50,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3-turbo","providerModelId":"openai/whisper-large-v3-turbo"} } }
+    providersMapping={ {"hf-inference":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
 />
 
 
@@ -80,7 +80,7 @@ Find out more about Image Classification [here](../tasks/image-classification).
 
 <InferenceSnippet
     pipeline=image-classification
-    providersMapping={ {"hf-inference":{"modelId":"google/vit-base-patch16-224","providerModelId":"google/vit-base-patch16-224"} } }
+    providersMapping={ {"hf-inference":{"modelId":"Falconsai/nsfw_image_detection","providerModelId":"Falconsai/nsfw_image_detection"} } }
 />
 
 
@@ -90,7 +90,7 @@ Find out more about Image Segmentation [here](../tasks/image-segmentation).
 
 <InferenceSnippet
     pipeline=image-segmentation
-    providersMapping={ {"hf-inference":{"modelId":"jonathandinu/face-parsing","providerModelId":"jonathandinu/face-parsing"} } }
+    providersMapping={ {"hf-inference":{"modelId":"mattmdjaga/segformer_b2_clothes","providerModelId":"mattmdjaga/segformer_b2_clothes"} } }
 />
 
 
@@ -160,7 +160,7 @@ Find out more about Token Classification [here](../tasks/token-classification).
 
 <InferenceSnippet
     pipeline=token-classification
-    providersMapping={ {"hf-inference":{"modelId":"redmadrobot-rnd/rubert-base-pii-ner","providerModelId":"redmadrobot-rnd/rubert-base-pii-ner"} } }
+    providersMapping={ {"hf-inference":{"modelId":"OpenMed/privacy-filter-nemotron-v2","providerModelId":"OpenMed/privacy-filter-nemotron-v2"} } }
 />
 
 
