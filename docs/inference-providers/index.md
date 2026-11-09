@@ -9,6 +9,8 @@ Inference Providers offers the best open models for text, image, video and audio
 
 One Hugging Face token gives you the whole stack: [storage](https://huggingface.co/storage), compute with [Jobs](https://huggingface.co/docs/hub/jobs-overview), dedicated inference with [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) and serverless inference with Inference Providers. PRO, Team and Enterprise include monthly credits to spend on compute and inference.
 
+<QuickstartSnippet />
+
 ## Quick Setup for Agents
 
 Using a coding agent? Point it at Inference Providers to run [the latest open models available](https://huggingface.co/models?inference_provider=all) with a single Hugging Face token. Pick your tool below to jump straight to its setup guide.
