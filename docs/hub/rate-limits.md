@@ -105,6 +105,7 @@ In addition to those main classes of rate limits, we enforce limits on certain s
 - repo commits
 - discussions and comments
 - moderation actions
+- [Storage Bucket](./storage-buckets) write batches (applied per bucket and shared by everyone writing to it, with higher limits for Enterprise organizations)
 - etc.
 
 We don't currently document the rate limits for those specific actions, given they tend to change over time more often. If you get quota errors, we encourage you to upgrade your account to PRO, Team, or Enterprise.
