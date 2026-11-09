@@ -19,3 +19,5 @@ jobs:
       package_name: inference-providers
       path_to_docs: hub-docs/docs/inference-providers/
       additional_args: --not_python_module
+      # Temporary: preview the QuickstartSnippet and RoutingSnippet components of huggingface/doc-builder#910
+      doc_builder_revision: inference-providers-quickstart-snippet
