@@ -89,7 +89,7 @@ curl https://router.huggingface.co/v1/responses \
 
 
 > [!TIP]
-> If you plan to use a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2-Instruct-0905:novita`). Otherwise, omit the suffix to use the [default routing](../routing#default-routing). You can also use `:fastest` or `:cheapest`.
+> If you plan to use a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2.5:novita`). Otherwise, omit the suffix to use the [default routing](../routing#default-routing). You can also use `:fastest` or `:cheapest`.
 
 ## Core Response patterns
 
@@ -111,7 +111,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2-Instruct-0905:groq",
+    model="moonshotai/Kimi-K2.5",
     instructions="You are a helpful assistant.",
     input="Tell me a three sentence bedtime story about a unicorn.",
 )
@@ -132,7 +132,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2-Instruct-0905:groq",
+  model: "moonshotai/Kimi-K2.5",
   instructions: "You are a helpful assistant.",
   input: "Tell me a three sentence bedtime story about a unicorn.",
 });
@@ -149,7 +149,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2-Instruct-0905:groq",
+    "model": "moonshotai/Kimi-K2.5",
     "instructions": "You are a helpful assistant.",
     "input": "Tell me a three sentence bedtime story about a unicorn."
   }'
@@ -177,7 +177,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="Qwen/Qwen2.5-VL-7B-Instruct",
+    model="moonshotai/Kimi-K2.5",
     input=[
         {
             "role": "user",
@@ -185,7 +185,7 @@ response = client.responses.create(
                 {"type": "input_text", "text": "what is in this image?"},
                 {
                     "type": "input_image",
-                    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg",
+                    "image_url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/p-blog/candy.JPG",
                 },
             ],
         }
@@ -208,7 +208,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "Qwen/Qwen2.5-VL-7B-Instruct",
+  model: "moonshotai/Kimi-K2.5",
   input: [
     {
       role: "user",
@@ -217,7 +217,7 @@ const response = await client.responses.create({
         {
           type: "input_image",
           image_url:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg",
+            "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/p-blog/candy.JPG",
         },
       ],
     },
@@ -236,7 +236,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "model": "moonshotai/Kimi-K2.5",
     "input": [
       {
         "role": "user",
@@ -244,7 +244,7 @@ curl https://router.huggingface.co/v1/responses \
           {"type": "input_text", "text": "what is in this image?"},
           {
             "type": "input_image",
-            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg"
+            "image_url": "https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/p-blog/candy.JPG"
           }
         ]
       }
@@ -274,7 +274,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2-Instruct-0905:groq",
+    model="moonshotai/Kimi-K2.5",
     input=[
         {"role": "developer", "content": "Talk like a pirate."},
         {"role": "user", "content": "Are semicolons optional in JavaScript?"},
@@ -297,7 +297,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2-Instruct-0905:groq",
+  model: "moonshotai/Kimi-K2.5",
   input: [
     { role: "developer", content: "Talk like a pirate." },
     { role: "user", content: "Are semicolons optional in JavaScript?" },
@@ -316,7 +316,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2-Instruct-0905:groq",
+    "model": "moonshotai/Kimi-K2.5",
     "input": [
       {"role": "developer", "content": "Talk like a pirate."},
       {"role": "user", "content": "Are semicolons optional in JavaScript?"}
@@ -350,7 +350,7 @@ client = OpenAI(
 )
 
 stream = client.responses.create(
-    model="moonshotai/Kimi-K2-Instruct-0905:groq",
+    model="moonshotai/Kimi-K2.5",
     input=[{"role": "user", "content": "Say 'double bubble bath' ten times fast."}],
     stream=True,
 )
@@ -372,7 +372,7 @@ const client = new OpenAI({
 });
 
 const stream = await client.responses.create({
-  model: "moonshotai/Kimi-K2-Instruct-0905:groq",
+  model: "moonshotai/Kimi-K2.5",
   input: [{ role: "user", content: "Say 'double bubble bath' ten times fast." }],
   stream: true,
 });
@@ -391,7 +391,7 @@ curl -N https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2-Instruct-0905:groq",
+    "model": "moonshotai/Kimi-K2.5",
     "input": [
       {"role": "user", "content": "Say \"double bubble bath\" ten times fast."}
     ],
@@ -437,7 +437,7 @@ tools = [
 ]
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2-Instruct-0905:groq",
+    model="moonshotai/Kimi-K2.5",
     tools=tools,
     input="What is the weather like in Boston today?",
     tool_choice="auto",
@@ -475,7 +475,7 @@ const tools = [
 ];
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2-Instruct-0905:groq",
+  model: "moonshotai/Kimi-K2.5",
   tools,
   input: "What is the weather like in Boston today?",
   tool_choice: "auto",
@@ -493,7 +493,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2-Instruct-0905:groq",
+    "model": "moonshotai/Kimi-K2.5",
     "input": "What is the weather like in Boston today?",
     "tool_choice": "auto",
     "tools": [
@@ -661,7 +661,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2-Instruct-0905:groq",
+    model="moonshotai/Kimi-K2.5",
     input="how does tiktoken work?",
     tools=[
         {
@@ -691,7 +691,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2-Instruct-0905:groq",
+  model: "moonshotai/Kimi-K2.5",
   input: "how does tiktoken work?",
   tools: [
     {
@@ -718,7 +718,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2-Instruct-0905:groq",
+    "model": "moonshotai/Kimi-K2.5",
     "input": "how does tiktoken work?",
     "tools": [
       {

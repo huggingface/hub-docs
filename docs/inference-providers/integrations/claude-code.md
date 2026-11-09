@@ -4,7 +4,7 @@
 
 ## Overview
 
-Claude Code supports custom API endpoints via environment variables. By setting `ANTHROPIC_BASE_URL` to the Hugging Face router and providing your HF token, all Claude Code requests are routed through Inference Providers, giving you access to a wide range of open models. The router accepts Claude Code's Anthropic-format requests for every chat model, whatever the provider serving it, so any open model can back Claude Code.
+Claude Code supports custom API endpoints via environment variables. By setting `ANTHROPIC_BASE_URL` to the Hugging Face router and providing your HF token, all Claude Code requests are routed through Inference Providers, giving you access to a wide range of open models. The router accepts Claude Code's [Anthropic-format requests](../guides/messages-api) for every chat model, whatever the provider serving it, so any open model can back Claude Code.
 
 ## Prerequisites
 

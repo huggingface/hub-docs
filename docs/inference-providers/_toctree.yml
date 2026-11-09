@@ -20,6 +20,8 @@
     title: Chat Completion
   - local: guides/responses-api
     title: Responses API (beta)
+  - local: guides/messages-api
+    title: Messages API
   - local: guides/function-calling
     title: Tool Calling
   - local: guides/structured-output
