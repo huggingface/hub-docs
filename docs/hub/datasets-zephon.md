@@ -107,3 +107,4 @@ To mix by samples instead, leave out `token_estimation`.
 - [Zephon documentation](https://datologyai.github.io/zephon/)
 - [Launch blog post](https://www.datologyai.com/blog/zephon)
 - [Zephon paper](https://arxiv.org/abs/2610.03087)
+- [DatologyAI on the Hub](https://huggingface.co/DatologyAI)
