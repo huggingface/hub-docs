@@ -1,6 +1,6 @@
 # Zephon
 
-[Zephon](https://github.com/datologyai/zephon) is a data loader for foundation model training, built by [DatologyAI](https://www.datologyai.com).
+[Zephon](https://github.com/datologyai/zephon) is a data loader for foundation model training, built by [DatologyAI](https://huggingface.co/DatologyAI).
 It tokenizes, packs and mixes data while training runs, and it gives the same batches when you change the number of GPUs (elastic determinism).
 Zephon reads datasets directly from the Hugging Face Hub with `hf://` paths.
 
