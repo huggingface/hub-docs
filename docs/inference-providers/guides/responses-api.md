@@ -39,7 +39,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="openai/gpt-oss-120b:groq",
+    model="deepseek-ai/DeepSeek-V4.1-Flash",
     instructions="You are a helpful assistant.",
     input="Tell me a three-sentence bedtime story about a unicorn.",
 )
@@ -60,7 +60,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "openai/gpt-oss-120b:groq",
+  model: "deepseek-ai/DeepSeek-V4.1-Flash",
   instructions: "You are a helpful assistant.",
   input: "Tell me a three-sentence bedtime story about a unicorn.",
 });
@@ -77,7 +77,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "openai/gpt-oss-120b:groq",
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
     "instructions": "You are a helpful assistant.",
     "input": "Tell me a three-sentence bedtime story about a unicorn."
   }'
@@ -522,9 +522,6 @@ curl https://router.huggingface.co/v1/responses \
 
 Force the model to return JSON matching a schema by supplying a `response_format`. The Python SDK exposes a `.parse` helper that converts the response directly into your target type.
 
-> [!NOTE]
-> When calling `openai/gpt-oss-120b:groq` from JavaScript or raw HTTP, include a brief instruction to return JSON. Without it the model may emit markdown even when a schema is provided.
-
 <hfoptions id="responses-structured">
 
 <hfoption id="python">
@@ -545,7 +542,7 @@ class CalendarEvent(BaseModel):
     participants: list[str]
 
 response = client.responses.parse(
-    model="openai/gpt-oss-120b:groq",
+    model="deepseek-ai/DeepSeek-V4.1-Flash",
     input=[
         {"role": "system", "content": "Extract the event information."},
         {"role": "user", "content": "Alice and Bob are going to a science fair on Friday."},
@@ -569,7 +566,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "openai/gpt-oss-120b:groq",
+  model: "deepseek-ai/DeepSeek-V4.1-Flash",
   instructions: "Return JSON that matches the CalendarEvent schema (fields name, date, participants).",
   input: [
     { role: "system", content: "Extract the event information." },
@@ -610,7 +607,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "openai/gpt-oss-120b:groq",
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
     "instructions": "Return JSON that matches the CalendarEvent schema (fields name, date, participants).",
     "input": [
       {"role": "system", "content": "Extract the event information."},
@@ -754,7 +751,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="openai/gpt-oss-120b:groq",
+    model="deepseek-ai/DeepSeek-V4.1-Flash",
     instructions="You are a helpful assistant.",
     input="Say hello to the world.",
     reasoning={"effort": "low"},
@@ -777,7 +774,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "openai/gpt-oss-120b:groq",
+  model: "deepseek-ai/DeepSeek-V4.1-Flash",
   instructions: "You are a helpful assistant.",
   input: "Say hello to the world.",
   reasoning: { effort: "low" },
@@ -797,7 +794,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "openai/gpt-oss-120b:groq",
+    "model": "deepseek-ai/DeepSeek-V4.1-Flash",
     "instructions": "You are a helpful assistant.",
     "input": "Say hello to the world.",
     "reasoning": {"effort": "low"}
