@@ -111,7 +111,7 @@ To maximize reach and usability:
    License information is crucial for users to understand how they can use the model.
 
 3. **Research Papers**:
-   If your model has associated papers, link them in the model card with a URL or citation that contains their arXiv ID, so they are [cross-linked automatically](https://huggingface.co/docs/hub/paper-pages#linking-a-paper-to-a-model-dataset-or-space).
+   If your model has associated papers, cite them in the model card. They will be [cross-linked automatically](https://huggingface.co/docs/hub/model-cards#linking-a-paper).
 
    ```markdown
    ## References

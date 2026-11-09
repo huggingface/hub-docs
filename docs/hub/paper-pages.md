@@ -9,14 +9,9 @@ Paper pages allow people to find artifacts related to a paper such as models, da
 
 ## Linking a Paper to a model, dataset or Space
 
-If the repository card (`README.md`) mentions a paper's arXiv ID, the Hugging Face Hub links the paper to the repository. The ID must appear in one of these forms:
+If the repository card (`README.md`) includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hugging Face Hub will extract the arXiv ID and link the paper to the repository.
 
-* A link to its Paper page: `https://huggingface.co/papers/1706.03762`
-* A link to its arXiv abstract or PDF: `https://arxiv.org/abs/1706.03762` or `https://arxiv.org/pdf/1706.03762`
-* An `arXiv:` prefix in the text: `arXiv:1706.03762`
-* A BibTeX field, in braces: `eprint={1706.03762}`
-
-On model and dataset pages, up to five linked papers that have a Paper page on the Hub are listed in the right sidebar:
+On model and dataset pages, up to five linked papers are listed in the right sidebar:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers.png"/>

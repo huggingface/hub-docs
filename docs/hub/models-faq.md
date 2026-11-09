@@ -36,14 +36,14 @@ By convention, each model repo should contain a single checkpoint. You should up
 
 ## Can I link my model to a paper on arXiv?
 
-Yes. Reference the paper's arXiv ID in the model card in one of the supported formats, for example a link to `https://huggingface.co/papers/<PAPER ID>` or an `eprint={<PAPER ID>}` field in your BibTeX citation. The Hugging Face Hub then lists the paper in the right sidebar of the model page and adds an `arxiv:<PAPER ID>` tag to the model. Clicking on the tag will let you:
+If the model card includes a link to a paper on arXiv, the Hugging Face Hub will extract the arXiv ID and include it in the model tags with the format `arxiv:<PAPER ID>`. The Hub also lists the paper in the right sidebar of the model page. Clicking on the tag will let you:
 
 * Visit the Paper page.
 * Filter for other models on the Hub that cite the same paper.
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers.png"/>
-<img class="hidden dark:block" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers-dark.png"/>
+<img class="block dark:hidden" width="260" alt="arxiv:2609.19969 tag on a model page, expanded to show the paper title, View paper page and List models citing this paper" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-tag.png"/>
+<img class="hidden dark:block" width="260" alt="arxiv:2609.19969 tag on a model page, expanded to show the paper title, View paper page and List models citing this paper" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-tag-dark.png"/>
 </div>
 
-See [all the supported formats](./paper-pages#linking-a-paper-to-a-model-dataset-or-space).
+Read more about paper pages [here](./paper-pages).
