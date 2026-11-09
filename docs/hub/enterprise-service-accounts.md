@@ -46,6 +46,8 @@ From the service account's page, administrators can:
 - **Rotate** a token to replace it with a new value. The previous token stops working immediately, which is useful if a credential may have been exposed.
 - **Delete** a token to permanently revoke its access.
 
+Service account tokens don't need approval under the ["Require administrator approval"](./enterprise-tokens-management#token-policy) token policy. They can access your organization's resources as soon as they're created.
+
 > [!WARNING]
 > An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.
 

@@ -10,24 +10,21 @@ The table below summarizes the supported libraries and their level of integratio
 
 | Library                             | Description                                                                                                                    | Download from Hub | Stream from Hub | Push to Hub | Stream to Hub | Optimized Parquet files |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------- | ----------- | ------------- | ----------------------- |
-| [Argilla](./datasets-argilla)       | Collaboration tool for AI engineers and domain experts that value high quality data.                                           | ✅                | ❌              | ✅          | ❌            | ❌                      |
 | [Daft](./datasets-daft)             | Data engine for large scale, multimodal data processing with a Python-native interface.                                        | ✅                | ✅              | ✅          | ✅            | ✅                      |
 | [Dask](./datasets-dask)             | Parallel and distributed computing library that scales the existing Python and PyData ecosystem.                               | ✅                | ✅              | ✅          | ✅            | ✅*                     |
 | [Data Designer](./datasets-data-designer) | NVIDIA NeMo framework for generating synthetic datasets using LLMs.                                                      | ✅                | ❌              | ✅          | ❌            | ❌                      |
 | [Datasets](./datasets-usage)        | 🤗 Datasets is a library for accessing and sharing datasets for Audio, Computer Vision, and Natural Language Processing (NLP). | ✅                | ✅              | ✅          | ✅            | ✅                      |
-| [Distilabel](./datasets-distilabel) | The framework for synthetic data generation and AI feedback.                                                                   | ✅                | ❌              | ✅          | ❌            | ❌                      |
-| [DuckDB](./datasets-duckdb)         | In-process SQL OLAP database management system.                                                                                | ✅                | ✅              | ❌          | ❌            | ❌                      |
-| [Embedding Atlas](./datasets-embedding-atlas) | Interactive visualization and exploration tool for large embeddings.                                                 | ✅                | ✅              | ❌          | ❌            | ❌                      |
-| [Fenic](./datasets-fenic)           | PySpark-inspired DataFrame framework for building production AI and agentic applications.                                      | ✅                | ✅              | ❌          | ❌            | ❌                      |
-| [FiftyOne](./datasets-fiftyone)     | FiftyOne is a library for curation and visualization of image, video, and 3D data.                                             | ✅                | ✅              | ✅          | ❌            | ❌                      |
+| [DuckDB](./datasets-duckdb)         | In-process SQL OLAP database management system.                                                                                | ✅                | ✅              | ✅          | ✅            | ❌                      |
 | [Lance](./datasets-lance)           | An open lakehouse format for multimodal AI.                                                                                    | ✅                | ✅              | ❌          | ❌            | ❌                      |
 | [Pandas](./datasets-pandas)         | Python data analysis toolkit.                                                                                                  | ✅                | ❌              | ✅          | ❌            | ✅*                     |
 | [Polars](./datasets-polars)         | A DataFrame library on top of an OLAP query engine.                                                                            | ✅                | ✅              | ✅          | ❌            | ❌                      |
-| [PyArrow](./datasets-pyarrow)       | Apache Arrow is a columnar format and a toolbox for fast data interchange and in-memory analytics.                             | ✅                | ✅              | ✅          | ❌            | ✅*                     |
+| [PyArrow](./datasets-pyarrow)       | Apache Arrow is a columnar format and a toolbox for fast data interchange and in-memory analytics.                             | ✅                | ✅              | ✅          | ✅            | ✅*                     |
 | [Spark](./datasets-spark)           | Real-time, large-scale data processing tool in a distributed environment.                                                      | ✅                | ✅              | ✅          | ✅            | ✅                      |
 | [WebDataset](./datasets-webdataset) | Library to write I/O pipelines for large datasets.                                                                             | ✅                | ✅              | ❌          | ❌            | ❌                      |
 
 _ * Requires passing extra arguments to write optimized Parquet files_
+
+Other libraries have integrations for curating datasets: [Embedding Atlas](./datasets-embedding-atlas) (embeddings visualization), [Fenic](./datasets-fenic) (semantic processing), [FiftyOne](./datasets-fiftyone) (image visualization and curation).
 
 ## Data Processing Libraries
 
@@ -69,10 +66,9 @@ Training libraries that integrate with Hub datasets for model training. The tabl
 | [LlamaFactory](https://github.com/hiyouga/LLaMA-Factory) | Unified fine-tuning for 100+ LLMs | ✅ |
 | [Sentence Transformers](https://sbert.net/docs/sentence_transformer/training_overview.html) | Text embeddings and semantic similarity | ✅ |
 | [Transformers](https://huggingface.co/docs/transformers/trainer) | 🤗 Transformers Trainer for fine-tuning models | ✅ |
-| [TRL](https://huggingface.co/docs/trl) | Training LLMs with reinforcement learning (SFT, DPO, GRPO) | ⚠️* |
+| [TRL](https://huggingface.co/docs/trl) | Training LLMs with reinforcement learning (SFT, DPO, GRPO) | ✅ |
 | [Unsloth](https://docs.unsloth.ai) | Fast LLM fine-tuning (2x speedup, 70% less memory) | ✅ |
-
-_* SFTTrainer and DPOTrainer support streaming; GRPOTrainer does not yet support streaming input_
+| [LeRobot](https://huggingface.co/docs/lerobot/main/en/training_dataset_streaming) | Training robotics policies | ✅ |
 
 ### Streaming from Hub
 

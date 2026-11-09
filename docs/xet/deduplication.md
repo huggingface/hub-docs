@@ -162,7 +162,7 @@ Not all chunks are eligible for global deduplication queries to manage system lo
 
 #### HMAC Security Mechanism
 
-Global deduplication uses HMAC (Hash-based Message Authentication Code) to protect chunk hashes while enabling deduplication.
+Global deduplication uses HMAC (Hash-based Message Authentication Code) to protect chunk hashes while enabling deduplication. Here HMAC is the BLAKE3 keyed hash of the chunk hash, not the RFC 2104 construction; see [HMAC Key Protection](./shard#hmac-key-protection).
 
 **Security Properties**:
 
