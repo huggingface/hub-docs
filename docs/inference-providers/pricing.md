@@ -2,13 +2,13 @@
 
 Access 200+ models from leading AI inference providers with centralized, transparent, pay-as-you-go pricing. No infrastructure management required—just pay for what you use, with no markup from Hugging Face.
 
-## Free Credits to Get Started
+## Included Monthly Credits
 
-Every Hugging Face user receives monthly credits to experiment with Inference Providers:
+PRO users and Team or Enterprise organizations receive monthly credits to use with Inference Providers. Free users can use Inference Providers by purchasing credits, or by upgrading to [PRO](https://huggingface.co/subscribe/pro):
 
 | Account Type                     | Monthly Credits          | Can be spent on                   | Extra usage (pay-as-you-go)     |
 | -------------------------------- | ------------------------ | --------------------------------- | ------------------------------- |
-| Free Users                       | $0.10, subject to change | Inference Providers               | yes (credits purchase required) |
+| Free Users                       | None                     | -                                 | yes (credits purchase required) |
 | PRO Users                        | $2.00                    | All Hugging Face compute services | yes                             |
 | Team or Enterprise Organizations | $2.00 per seat           | All Hugging Face compute services | yes                             |
 
@@ -40,7 +40,7 @@ Inference Providers offers flexibility in how you're billed. Understanding these
 To benefit from Team or Enterprise included credits, you need to explicitly specify the organization to be billed when performing the inference requests.
 See the [Organization Billing section](#billing-for-team-and-enterprise-organizations) below for more details.
 
-**All users** can continue using the API after exhausting their monthly credits by purchasing additional credits. This ensures uninterrupted access to models for production workloads.
+**All users** can use the API beyond their included monthly credits (if any) by purchasing additional credits. This ensures uninterrupted access to models for production workloads.
 
 
 > [!TIP]
@@ -59,6 +59,22 @@ The same detailed view is available for organizations subscribed to a paid plan 
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/ip-billing-dark.png"/>
 </div>
 
+### Retrieve organization usage via the API
+
+> [!WARNING]
+> This feature is part of the <a href="https://huggingface.co/enterprise">Enterprise</a> plan and above.
+
+Organizations can also retrieve their Inference Providers usage programmatically using the <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/&#123;name&#125;/billing/usage/inference">dedicated API endpoint</a>. It returns a daily time series of usage broken down by member, model, and provider, including the number of requests, the cost (in cents), and input, output, and cached input token counts (token counts are only reported for chat completions). Costs are rounded to the nearest cent for each row, so very small amounts may show as 0 and the sum of rows may differ slightly from your invoice. Requests appear in the results up to 2 hours after they are made.
+
+Use a token with permission to read the organization's billing to call it:
+
+```bash
+curl "https://huggingface.co/api/organizations/my-org-name/billing/usage/inference?startDate=2026-09-01T00:00:00Z&endDate=2026-09-30T00:00:00Z&limit=31" \
+  -H "Authorization: Bearer $HF_TOKEN"
+```
+
+The `startDate` and `endDate` query parameters set the time window: it defaults to the current month and must fall within the last 12 months. Results are paginated by day: use the `limit` query parameter to set how many days are returned per page (7 by default, up to 31), and follow the `rel="next"` URL in the `Link` response header to fetch the next page.
+
 ## Hugging Face Billing vs Custom Provider Key (Detailed Comparison)
 
 The documentation above assumes you are making routed requests to external providers. In practice, there are 2 different ways to run inference, each with unique billing implications:
@@ -69,17 +85,17 @@ The documentation above assumes you are making routed requests to external provi
 
 Here is a table that sums up what we've seen so far:
 
-|                                    | HF routing | Billed by    | Free-tier included | Pay-as-you-go                                   | Integration                               |
-| ---------------------------------- | ---------- | ------------ | ------------------ | ----------------------------------------------- | ----------------------------------------- |
-| **Routed Requests**                 | Yes        | Hugging Face | Yes                | Yes (credits purchase required)                 | SDKs, Playground, widgets, Data AI Studio |
-| **Custom Provider Key** | Yes        | Provider     | No                 | Yes                                             | SDKs, Playground, widgets, Data AI Studio |
+|                                    | HF routing | Billed by    | Included credits apply | Pay-as-you-go                                   | Integration                               |
+| ---------------------------------- | ---------- | ------------ | ---------------------- | ----------------------------------------------- | ----------------------------------------- |
+| **Routed Requests**                 | Yes        | Hugging Face | Yes                    | Yes (credits purchase required)                 | SDKs, Playground, widgets, Data AI Studio |
+| **Custom Provider Key** | Yes        | Provider     | No                     | Yes                                             | SDKs, Playground, widgets, Data AI Studio |
 
 > [!TIP]
 > You can set your custom provider key in the [settings page](https://huggingface.co/settings/inference-providers) on the Hub, or in the `InferenceClient` when using the JavaScript or Python SDKs. When making a routed request with a custom key, your code remains unchanged—you can still pass your Hugging Face User Access Token. Hugging Face will automatically swap the authentication when routing the request.
 
 ## HF-Inference cost
 
-As you may have noticed, you can select to work with `"hf-inference"` provider. This service used to be called "Inference API (serverless)" prior to Inference Providers. From a user point of view, working with HF Inference is the same as with any other provider. Past the free-tier credits, you get charged for every inference request based on the compute time x price of the underlying hardware.
+As you may have noticed, you can select to work with `"hf-inference"` provider. This service used to be called "Inference API (serverless)" prior to Inference Providers. From a user point of view, working with HF Inference is the same as with any other provider. Past your included credits (if any), you get charged for every inference request based on the compute time x price of the underlying hardware.
 
 For instance, a request to [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) that takes 10 seconds to complete on a GPU machine that costs $0.00012 per second to run, will be billed $0.0012.
 

@@ -72,7 +72,7 @@ tags:
 
 ### Associate a library to the dataset
 
-The dataset page automatically shows libraries and tools that are able to natively load the dataset, but if you want to show another specific library, you can add a tag to the dataset card metadata. Supported tags include `argilla`, `dask`, `datasets`, `distilabel`, `fiftyone`, `harbor`, `mlcroissant`, `nemo-gym`, `openenv`, `pandas`, `verifiers`, and `webdataset`. See the [list of supported libraries](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/dataset-libraries.ts) for the complete list, or to propose a new library.
+The dataset page automatically shows libraries and tools that are able to natively load the dataset, but if you want to show another specific library, you can add a tag to the dataset card metadata. Supported tags include `agentenv`, `argilla`, `dask`, `datasets`, `distilabel`, `fiftyone`, `harbor`, `mlcroissant`, `nemo-gym`, `openenv`, `pandas`, `verifiers`, and `webdataset`. See the [list of supported libraries](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/dataset-libraries.ts) for the complete list, or to propose a new library.
 
 For example, to associate the `argilla` library to the dataset card, add the following to the dataset card metadata:
 
@@ -105,5 +105,6 @@ The supported environment framework tags are:
 | `verifiers` | [Verifiers](https://github.com/PrimeIntellect-ai/verifiers) |
 | `openenv` | [OpenEnv](https://github.com/huggingface/OpenEnv) |
 | `nemo-gym` | [NeMo Gym](https://github.com/NVIDIA-NeMo/Gym) |
+| `agentenv` | [AgentEnv](https://github.com/scaleapi/agentenv-framework) |
 
 These tags describe compatibility and generate loading commands. They do not create a new repository type or cause the Hub to execute the environment.

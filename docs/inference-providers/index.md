@@ -50,7 +50,7 @@ Our platform integrates with leading AI infrastructure providers, giving you acc
 | [Groq](./providers/groq)                     |          ✅           |          ✅           |                    |               |               |                |
 | [HF Inference](./providers/hf-inference)     |          ✅           |          ✅           |         ✅         |      ✅       |               |       ✅       |
 | [Novita](./providers/novita)                 |          ✅           |          ✅           |                    |               |      ✅       |                |
-| [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |      ✅       |               |                |
+| [Nscale](./providers/nscale)                 |          ✅           |          ✅           |                    |               |               |                |
 | [OVHcloud AI Endpoints](./providers/ovhcloud)|          ✅           |          ✅           |                    |               |               |                |
 | [Public AI](./providers/publicai)            |          ✅           |                       |                    |               |               |                |
 | [Replicate](./providers/replicate)           |                       |                       |                    |      ✅       |      ✅       |       ✅       |
@@ -76,7 +76,7 @@ Here's what you can build:
 - **Search & Retrieval**: State-of-the-art embeddings for semantic search, RAG systems, and recommendation engines
 - **Traditional ML Tasks**: Ready-to-use models for classification, NER, summarization, and speech recognition
 
-⚡ **Get Started for Free**: Inference Providers includes a generous free tier, with additional credits for [PRO users](https://hf.co/subscribe/pro) and [Team & Enterprise organizations](https://huggingface.co/enterprise).
+⚡ **Get Started**: Inference Providers is pay-as-you-go, with monthly included credits for [PRO users](https://hf.co/subscribe/pro) and [Team & Enterprise organizations](https://huggingface.co/enterprise).
 
 ## Key Features
 
@@ -595,6 +595,5 @@ Now that you understand the basics, explore these resources to make the most of 
 - **[Announcement Blog Post](https://huggingface.co/blog/inference-providers)**: Learn more about the launch of Inference Providers
 - **[Pricing and Billing](./pricing)**: Understand costs and billing of Inference Providers
 - **[Hub Integration](./hub-integration)**: Learn how Inference Providers are integrated with the Hugging Face Hub
-- **[Register as a Provider](./register-as-a-provider)**: Requirements to join our partner network as a provider
 - **[Hub API](./hub-api)**: Advanced API features and configuration
 - **[API Reference](./tasks/index)**: Complete parameter documentation for all supported tasks

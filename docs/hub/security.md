@@ -14,6 +14,7 @@ For any other security questions, please feel free to send us an email at securi
 
 - [User Access Tokens](./security-tokens)
 - [Two-Factor Authentication (2FA)](./security-2fa)
+- [Passkeys](./security-passkeys)
 - [Git over SSH](./security-git-ssh)
 - [Signing commits with GPG](./security-gpg)
 - [Single Sign-On (SSO)](./security-sso)

@@ -28,7 +28,7 @@ Xorbs are created by grouping sequences of chunks from files and are referenced 
 
 Xorbs have an associated hash computed according to the instructions for the [xorb hashing process](./hashing#xorb-hashes).
 
-Xorbs are always less than or equal to 64MiB in length and on average contain 1024 chunks, but this number is variable.
+Xorbs contain at most 8192 chunks and roughly 64MiB of chunk data, and on average contain 1024 chunks, but this number is variable.
 
 ### File Reconstruction
 
@@ -85,6 +85,8 @@ Given the xorb hash chunks in the xorb can be referred in file reconstructions.
 
 Each xorb is serialized into its binary representation as defined by the xorb format. See: [xorb](./xorb).
 The client uploads each new xorb via the [Xorb upload API](./api#3-upload-xorb).
+Alternatively, a client MAY request an [upload grant](./api#11-request-xorb-upload-grant), upload the serialized xorb directly to the URL it returns, and then [commit](./api#12-commit-xorb-upload) it.
+If the grant request returns `404`, or the grant URL cannot be reached, the client uses the Xorb upload API instead.
 
 The serialization and upload steps are separated from collecting chunks and hashing as these steps can be done independently while still referencing the xorb in creating file reconstructions.
 However a xorb MUST be uploaded before a file reconstruction that references it is uploaded in a shard.
@@ -117,7 +119,7 @@ For this to succeed, all xorbs referenced by the shard MUST have already complet
 This API registers files as uploaded.
 
 > [!TIP]
-> A [streaming variant](./api#5-streaming-shard-upload) (`POST /v2/shards`) runs the same validation and registration but streams finalization progress back as newline-delimited JSON, so clients can show real progress while the server verifies a large shard. Clients SHOULD fall back to `/v1/shards` on a `404`.
+> A [streaming variant](./api#5-streaming-shard-upload) (`POST /v2/shards`) runs the same validation and registration but streams finalization progress back as newline-delimited JSON, so clients can show real progress while the server verifies a large shard. Clients SHOULD fall back to `/v1/shards` on a `404` or `501`.
 
 > [!NOTE]
 > For a large batch of files or a batch of large files if the serialized shard will be greater than 64 MiB you MUST break up the content into multiple shards.

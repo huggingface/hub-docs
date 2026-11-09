@@ -10,24 +10,22 @@ The table below summarizes the supported libraries and their level of integratio
 
 | Library                             | Description                                                                                                                    | Download from Hub | Stream from Hub | Push to Hub | Stream to Hub | Optimized Parquet files |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------- | ----------- | ------------- | ----------------------- |
-| [Argilla](./datasets-argilla)       | Collaboration tool for AI engineers and domain experts that value high quality data.                                           | ✅                | ❌              | ✅          | ❌            | ❌                      |
 | [Daft](./datasets-daft)             | Data engine for large scale, multimodal data processing with a Python-native interface.                                        | ✅                | ✅              | ✅          | ✅            | ✅                      |
 | [Dask](./datasets-dask)             | Parallel and distributed computing library that scales the existing Python and PyData ecosystem.                               | ✅                | ✅              | ✅          | ✅            | ✅*                     |
 | [Data Designer](./datasets-data-designer) | NVIDIA NeMo framework for generating synthetic datasets using LLMs.                                                      | ✅                | ❌              | ✅          | ❌            | ❌                      |
 | [Datasets](./datasets-usage)        | 🤗 Datasets is a library for accessing and sharing datasets for Audio, Computer Vision, and Natural Language Processing (NLP). | ✅                | ✅              | ✅          | ✅            | ✅                      |
-| [Distilabel](./datasets-distilabel) | The framework for synthetic data generation and AI feedback.                                                                   | ✅                | ❌              | ✅          | ❌            | ❌                      |
-| [DuckDB](./datasets-duckdb)         | In-process SQL OLAP database management system.                                                                                | ✅                | ✅              | ❌          | ❌            | ❌                      |
-| [Embedding Atlas](./datasets-embedding-atlas) | Interactive visualization and exploration tool for large embeddings.                                                 | ✅                | ✅              | ❌          | ❌            | ❌                      |
-| [Fenic](./datasets-fenic)           | PySpark-inspired DataFrame framework for building production AI and agentic applications.                                      | ✅                | ✅              | ❌          | ❌            | ❌                      |
-| [FiftyOne](./datasets-fiftyone)     | FiftyOne is a library for curation and visualization of image, video, and 3D data.                                             | ✅                | ✅              | ✅          | ❌            | ❌                      |
+| [DuckDB](./datasets-duckdb)         | In-process SQL OLAP database management system.                                                                                | ✅                | ✅              | ✅          | ✅            | ❌                      |
 | [Lance](./datasets-lance)           | An open lakehouse format for multimodal AI.                                                                                    | ✅                | ✅              | ❌          | ❌            | ❌                      |
 | [Pandas](./datasets-pandas)         | Python data analysis toolkit.                                                                                                  | ✅                | ❌              | ✅          | ❌            | ✅*                     |
 | [Polars](./datasets-polars)         | A DataFrame library on top of an OLAP query engine.                                                                            | ✅                | ✅              | ✅          | ❌            | ❌                      |
-| [PyArrow](./datasets-pyarrow)       | Apache Arrow is a columnar format and a toolbox for fast data interchange and in-memory analytics.                             | ✅                | ✅              | ✅          | ❌            | ✅*                     |
+| [PyArrow](./datasets-pyarrow)       | Apache Arrow is a columnar format and a toolbox for fast data interchange and in-memory analytics.                             | ✅                | ✅              | ✅          | ✅            | ✅*                     |
 | [Spark](./datasets-spark)           | Real-time, large-scale data processing tool in a distributed environment.                                                      | ✅                | ✅              | ✅          | ✅            | ✅                      |
 | [WebDataset](./datasets-webdataset) | Library to write I/O pipelines for large datasets.                                                                             | ✅                | ✅              | ❌          | ❌            | ❌                      |
+| [Zephon](./datasets-zephon)         | Deterministic data loader for foundation model training, with online tokenization, packing and token-aware mixing.             | ✅                | ✅              | ❌          | ❌            | ❌                      |
 
 _ * Requires passing extra arguments to write optimized Parquet files_
+
+Other libraries have integrations for curating datasets: [Embedding Atlas](./datasets-embedding-atlas) (embeddings visualization), [Fenic](./datasets-fenic) (semantic processing), [FiftyOne](./datasets-fiftyone) (image visualization and curation).
 
 ## Data Processing Libraries
 
@@ -69,10 +67,9 @@ Training libraries that integrate with Hub datasets for model training. The tabl
 | [LlamaFactory](https://github.com/hiyouga/LLaMA-Factory) | Unified fine-tuning for 100+ LLMs | ✅ |
 | [Sentence Transformers](https://sbert.net/docs/sentence_transformer/training_overview.html) | Text embeddings and semantic similarity | ✅ |
 | [Transformers](https://huggingface.co/docs/transformers/trainer) | 🤗 Transformers Trainer for fine-tuning models | ✅ |
-| [TRL](https://huggingface.co/docs/trl) | Training LLMs with reinforcement learning (SFT, DPO, GRPO) | ⚠️* |
+| [TRL](https://huggingface.co/docs/trl) | Training LLMs with reinforcement learning (SFT, DPO, GRPO) | ✅ |
 | [Unsloth](https://docs.unsloth.ai) | Fast LLM fine-tuning (2x speedup, 70% less memory) | ✅ |
-
-_* SFTTrainer and DPOTrainer support streaming; GRPOTrainer does not yet support streaming input_
+| [LeRobot](https://huggingface.co/docs/lerobot/main/en/training_dataset_streaming) | Training robotics policies | ✅ |
 
 ### Streaming from Hub
 
@@ -129,8 +126,7 @@ This guide will cover three primary ways to upload data to the Hub:
 
 - using the `datasets` library and the `push_to_hub` method
 - using `pandas` to write to the Hub
-- using the `huggingface_hub` library and the `hf_hub_download` method
-- directly using the API or Git with git-xet
+- using the `huggingface_hub` library and the `upload_folder` method
 
 #### Use the `datasets` library
 
@@ -157,7 +153,7 @@ Examples of this kind of integration:
 
 #### Rely on an existing libraries integration with the Hub
 
-Polars, Pandas, Dask, Spark, DuckDB, and Daft can all write to a Hugging Face Hub repository. See [datasets libraries](https://huggingface.co/docs/hub/datasets-libraries) for more details.
+Polars, Pandas, Dask, Spark, DuckDB, and Daft can all write to a Hugging Face Hub repository. See the [Libraries table](#libraries-table) above for more details.
 
 If you are already using one of these libraries in your code, adding the ability to push to the Hub is straightforward. For example, if you have a synthetic data generation library that can return a Pandas DataFrame, here is the code you would need to write to the Hub:
 
@@ -165,10 +161,10 @@ If you are already using one of these libraries in your code, adding the ability
 from huggingface_hub import HfApi
 
 # Initialize the Hub API
-hf_api = HfApi(token=os.getenv("HF_TOKEN"))
+hf_api = HfApi()
 
 # Create a repository (if it doesn't exist)
-hf_api.create_repo(repo_id="username/my-dataset", repo_type="dataset")
+hf_api.create_repo(repo_id="username/my-dataset", repo_type="dataset", exist_ok=True)
 
 # Convert your data to a DataFrame and save directly to the Hub
 df.to_parquet("hf://datasets/username/my-dataset/data.parquet")
@@ -182,20 +178,20 @@ Depending on your use case, you can upload a file or folder at a specific point 
 
 ```python
 from huggingface_hub import HfApi
-api = HfApi(token=HF_TOKEN)
+api = HfApi()
 
 api.upload_folder(
     folder_path="/my-cool-library/data-folder",
-    repo_id="username/my-cool-space",
+    repo_id="username/my-dataset",
     repo_type="dataset",
-    commit_message="Push annotations to Hub"
+    commit_message="Push annotations to Hub",
     allow_patterns="*.jsonl",
 )
 ```
 
 You can find more information about ways to upload data to the Hub [here](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload).
 
-Alternatively, there are situations where you may want to upload data in the background, for example, synthetic data being generated every 10 minutes. In this case you can use the `scheduled_uploads` feature of the `huggingface_hub` library. For more details, see the [scheduled uploads documentation](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload#scheduled-uploads).
+Alternatively, there are situations where you may want to upload data in the background, for example, synthetic data being generated every 10 minutes. In this case you can use the `CommitScheduler` class of the `huggingface_hub` library. For more details, see the [scheduled uploads documentation](https://huggingface.co/docs/huggingface_hub/main/en/guides/upload#scheduled-uploads).
 
 You can see an example of using this approach to upload data to the Hub in
 

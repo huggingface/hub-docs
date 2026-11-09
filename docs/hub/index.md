@@ -1,6 +1,6 @@
 # Hugging Face Hub documentation
 
-The Hugging Face Hub is the reference AI platform for open ML. It hosts over 2M models, 1.5M datasets, and 1.5M AI apps (Spaces), all open and publicly available. Beyond open AI, the Hub is also a great collaboration platform for internal and private teams. Explore, experiment, collaborate, and build, all in one place! 🤗
+The Hugging Face Hub is the reference AI platform for open ML. It hosts over 3M models, 1M datasets, and 2M AI apps (Spaces), all open and publicly available. Beyond open AI, the Hub is also a great collaboration platform for internal and private teams. Explore, experiment, collaborate, and build, all in one place! 🤗
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-10 not-prose">
 
@@ -171,13 +171,13 @@ You can learn more about the features that all repositories share in the [**Repo
 
 ## Models
 
-You can discover and use dozens of thousands of open-source ML models shared by the community. To promote responsible model usage and development, model repos are equipped with [Model Cards](./model-cards) to inform users of each model's limitations and biases. Additional [metadata](./model-cards#model-card-metadata) about info such as their tasks, languages, and evaluation results can be included, with training metrics charts even added if the repository contains [TensorBoard traces](./tensorboard). It's also easy to add an [**inference widget**](./models-widgets) to your model, allowing anyone to play with the model directly in the browser! For programmatic access, a serverless API is provided by [**Inference Providers**](./models-inference).
+You can discover and use millions of open-source ML models shared by the community. To promote responsible model usage and development, model repos are equipped with [Model Cards](./model-cards) to inform users of each model's limitations and biases. Additional [metadata](./model-cards#model-card-metadata) about info such as their tasks, languages, and evaluation results can be included, with training metrics charts even added if the repository contains [TensorBoard traces](./tensorboard). It's also easy to add an [**inference widget**](./models-widgets) to your model, allowing anyone to play with the model directly in the browser! For programmatic access, a serverless API is provided by [**Inference Providers**](./models-inference).
 
 To upload models to the Hub, or download models and integrate them into your work, explore the [**Models documentation**](./models). You can also choose from [**over a dozen libraries**](./models-libraries) such as 🤗 Transformers, Asteroid, and ESPnet that support the Hub.
 
 ## Datasets
 
-The Hub is home to over 500k public datasets in more than 8k languages that can be used for a broad range of tasks across NLP, Computer Vision, and Audio. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of [**Dataset Cards**](./datasets-cards) and [**Data Studio**](./datasets-viewer) to let you explore the data directly in your browser. While many datasets are public, [**organizations**](./organizations) and individuals can create private datasets to comply with licensing or privacy issues. You can learn more about [**Datasets here on the Hugging Face Hub documentation**](./datasets-overview).
+The Hub is home to over 1M public datasets in more than 8k languages that can be used for a broad range of tasks across NLP, Computer Vision, and Audio. The Hub makes it simple to find, download, and upload datasets. Datasets are accompanied by extensive documentation in the form of [**Dataset Cards**](./datasets-cards) and [**Data Studio**](./data-studio) to let you explore the data directly in your browser. While many datasets are public, [**organizations**](./organizations) and individuals can create private datasets to comply with licensing or privacy issues. You can learn more about [**Datasets here on the Hugging Face Hub documentation**](./datasets-overview).
 
 The [🤗 `datasets`](https://huggingface.co/docs/datasets/index) library allows you to programmatically interact with the datasets, so you can easily use datasets from the Hub in your projects. With a single line of code, you can access the datasets; even if they are so large they don't fit in your computer, you can use streaming to efficiently access the data.
 

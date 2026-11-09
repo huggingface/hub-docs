@@ -334,7 +334,7 @@ The file info section begins right after the header and ends when the bookend is
 
 ## 3. CAS Info Section
 
-**Location**: `footer.cas_info_offset` to `footer.footer_offset` or directly after the file info section bookend
+**Location**: `footer.cas_info_offset` (or directly after the file info section bookend) to the CAS Info bookend
 
 This section contains CAS (Content Addressable Storage) block information. Each CAS Info block represents a xorb by first having a `CASChunkSequenceHeader` which contains the number of `CASChunkSequenceEntries` to follow that make up this block. The CAS Info section ends when reaching the bookend entry.
 
@@ -399,23 +399,28 @@ This number is the number of `CASChunkSequenceEntry` items that should be deseri
 ```rust
 struct CASChunkSequenceEntry {
     chunk_hash: Hash,             // 32-byte chunk hash
-    chunk_byte_range_start: u32,  // Start position in CAS block
+    chunk_byte_range_start: u32,  // Start offset of the chunk in the xorb's uncompressed data
     unpacked_segment_bytes: u32,  // Size when unpacked
-    _unused: [u8; 8],             // Reserved space 8 bytes
+    chunk_flags: u32,             // Chunk flags (set to 0 when uploading)
+    _unused: u32,                 // Reserved (4 bytes)
 }
 ```
+
+`chunk_byte_range_start` is the sum of `unpacked_segment_bytes` over all earlier chunks of the xorb; the server rejects shards that use compressed offsets.
+
+Bit 31 (`0x80000000`) of `chunk_flags` marks a chunk that the server indexes for global deduplication. Shards returned by the server may have it set; readers SHOULD ignore it.
 
 **Memory Layout**:
 
 ```txt
-┌────────────────────────────────────────────────────────────────┬─────────┬─────────┬─────────────────┐
-│                     chunk_hash (32 bytes)                      │chunk_   │unpacked │    _unused      │
-│                        Chunk Hash                              │byte_    │segment_ │   (8 bytes)     │
-│                                                                │range_   │bytes    │                 │
-│                                                                │start    │(4 bytes)│                 │
-│                                                                │(4 bytes)│         │                 │
-└────────────────────────────────────────────────────────────────┴─────────┴─────────┴─────────────────┘
-0                                                               32        36        40               48
+┌────────────────────────────────────────────────────────────────┬─────────┬─────────┬─────────┬─────────┐
+│                     chunk_hash (32 bytes)                      │chunk_   │unpacked │chunk_   │_unused  │
+│                        Chunk Hash                              │byte_    │segment_ │flags    │(4 bytes)│
+│                                                                │range_   │bytes    │(4 bytes)│         │
+│                                                                │start    │(4 bytes)│         │         │
+│                                                                │(4 bytes)│         │         │         │
+└────────────────────────────────────────────────────────────────┴─────────┴─────────┴─────────┴─────────┘
+0                                                               32        36        40        44        48
 ```
 
 ### CAS Info Bookend
@@ -441,14 +446,24 @@ struct MDBShardFileFooter {
     version: u64,                    // Footer version (must be 1)
     file_info_offset: u64,           // Offset to file info section
     cas_info_offset: u64,            // Offset to CAS info section
-    _buffer: [u8; 48],               // Reserved space (48 bytes)
+    file_lookup_offset: u64,         // Offset to file lookup table
+    file_lookup_num_entry: u64,      // Number of file lookup entries
+    cas_lookup_offset: u64,          // Offset to CAS lookup table
+    cas_lookup_num_entry: u64,       // Number of CAS lookup entries
+    chunk_lookup_offset: u64,        // Offset to chunk lookup table
+    chunk_lookup_num_entry: u64,     // Number of chunk lookup entries
     chunk_hash_hmac_key: Hash,       // HMAC key for chunk hashes (32 bytes)
     shard_creation_timestamp: u64,   // Creation time (seconds since epoch)
     shard_key_expiry: u64,           // Expiry time (seconds since epoch)
-    _buffer2: [u8; 72],              // Reserved space (72 bytes)
+    _buffer: [u8; 48],               // Reserved space (48 bytes)
+    stored_bytes_on_disk: u64,       // Sum of num_bytes_on_disk over CAS Info blocks
+    materialized_bytes: u64,         // Sum of unpacked_segment_bytes over File Info terms
+    stored_bytes: u64,               // Sum of num_bytes_in_cas over CAS Info blocks
     footer_offset: u64,              // Offset where footer starts
 }
 ```
+
+Lookup tables are an optional local index placed between the CAS Info bookend and the footer. Shards returned by the API contain none: every `*_num_entry` is 0, and each `*_lookup_offset` equals `footer_offset`. Readers MAY ignore the lookup and byte-count fields, but MUST NOT expect them to be zero.
 
 **Memory Layout**:
 
@@ -456,19 +471,19 @@ struct MDBShardFileFooter {
 > Fields are not exactly to scale
 
 ```txt
-┌─────────┬─────────┬─────────┬─────────────────────────────────────────────────────────────┬─────────────────────────────────────┐
-│ version │file_info│cas_info │                    _buffer (reserved)                       │        chunk_hash_hmac_key          │
-│(8 bytes)│offset   │offset   │                      (48 bytes)                             │             (32 bytes)              │
-│         │(8 bytes)│(8 bytes)│                                                             │                                     │
-└─────────┴─────────┴─────────┴─────────────────────────────────────────────────────────────┴─────────────────────────────────────┘
-0         8        16        24                                                           72                                    104
+┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────┬─────────────────────────────────────┐
+│ version │file_info│cas_info │file_    │file_    │cas_     │cas_     │chunk_   │chunk_   │        chunk_hash_hmac_key          │
+│(8 bytes)│offset   │offset   │lookup_  │lookup_  │lookup_  │lookup_  │lookup_  │lookup_  │             (32 bytes)              │
+│         │(8 bytes)│(8 bytes)│offset   │num_entry│offset   │num_entry│offset   │num_entry│                                     │
+└─────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────┴─────────────────────────────────────┘
+0         8        16        24        32        40        48        56        64        72                                    104
 
-┌─────────┬──────────┬─────────────────────────────────────────────────────────────────────────────┬─────────┐
-│creation │shard_    │                           _buffer (reserved)                                │footer_  │
-│timestamp│key_expiry│                             (72 bytes)                                      │offset   │
-│(8 bytes)│ (8 bytes)│                                                                             │(8 bytes)│
-└─────────┴──────────┴─────────────────────────────────────────────────────────────────────────────┴─────────┘
-104       112       120                                                                          192       200
+┌─────────┬──────────┬───────────────────────────────────────┬─────────┬─────────┬─────────┬─────────┐
+│creation │shard_    │          _buffer (reserved)           │stored_  │material-│stored_  │footer_  │
+│timestamp│key_expiry│              (48 bytes)               │bytes_on_│ized_    │bytes    │offset   │
+│(8 bytes)│ (8 bytes)│                                       │disk     │bytes    │(8 bytes)│(8 bytes)│
+└─────────┴──────────┴───────────────────────────────────────┴─────────┴─────────┴─────────┴─────────┘
+104       112       120                                     168       176       184       192       200
 ```
 
 **Deserialization steps**:
@@ -485,7 +500,7 @@ These offsets allow you to seek into the shard data buffer to reach these sectio
 
 #### HMAC Key Protection
 
-If `footer.chunk_hash_hmac_key` is non-zero (as a response shard from the global dedupe API), chunk hashes in the CAS Info section are protected with [HMAC](https://en.wikipedia.org/wiki/HMAC):
+If `footer.chunk_hash_hmac_key` is non-zero (as a response shard from the global dedupe API), chunk hashes in the CAS Info section are protected with a keyed hash. In this spec, `HMAC(hash, key)` means the [BLAKE3](https://github.com/BLAKE3-team/BLAKE3) keyed hash of the raw 32-byte `hash` with the 32-byte `key`, NOT the RFC 2104 HMAC construction:
 
 - The stored chunk hashes are `HMAC(original_hash, footer.chunk_hash_hmac_key)`
 - To check if a chunk of data that you have matches a chunk listed in the shard, compute `HMAC(chunk_hash, footer.chunk_hash_hmac_key)` for your chunk hash and search through the shard results.
@@ -534,7 +549,7 @@ file_info = read_file_info_section(shard) // until footer.cas_info_offset
 
 // 4. Read CAS info section
 seek(footer.cas_info_offset)
-cas_info = read_cas_info_section(shard) // until footer.footer_offset
+cas_info = read_cas_info_section(shard) // until the CAS Info bookend
 ```
 
 ## Version Compatibility

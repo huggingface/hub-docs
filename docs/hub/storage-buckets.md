@@ -8,7 +8,7 @@ You can interact with buckets using the Hub web interface, the [`hf` CLI](https:
 > Buckets are available to all users and organizations. See [hf.co/storage](https://huggingface.co/storage) for pricing details.
 
 > [!TIP]
-> See [Access Patterns](./storage-buckets-access) for how to reach bucket data from your tools (mount as a filesystem, `hf://` paths, volume mounts in Jobs/Spaces), the [S3-Compatible API](./storage-buckets-s3) for using existing S3 tooling (AWS CLI, boto3, s5cmd), and [Bucket Integrations](./storage-buckets-integrations) for ready-to-use snippets in popular data libraries like pandas, Dask, and Spark.
+> See the [Migration Guide](./storage-buckets-migration) for moving existing data into a bucket from local disk, another cloud, or the Hub, [Access Patterns](./storage-buckets-access) for how to reach bucket data from your tools (mount as a filesystem, `hf://` paths, volume mounts in Jobs/Spaces), the [S3-Compatible API](./storage-buckets-s3) for using existing S3 tooling (AWS CLI, boto3, s5cmd), and [Bucket Integrations](./storage-buckets-integrations) for libraries with built-in bucket support (such as datatrove, LeRobot and Trackio) and snippets for data libraries like pandas, Dask, and Spark.
 
 ## Buckets vs Repositories
 
@@ -347,6 +347,18 @@ curl -N -H "Accept: text/event-stream" \
   "https://huggingface.co/api/buckets/username/my-bucket/events"
 ```
 
+> [!TIP]
+> In Python, you don't need to consume the stream yourself. [`HfFileSystem`](/docs/huggingface_hub/guides/hf_file_system#keep-listings-fresh) follows it for you with `live_follow=True`, so its cached listings stay current when another process changes the bucket:
+>
+> ```python
+> from huggingface_hub import HfFileSystem
+>
+> hffs = HfFileSystem(live_follow=True)
+> hffs.ls("buckets/username/my-bucket/data")  # starts following the bucket
+> ```
+>
+> Libraries that take fsspec `storage_options` (pandas, PyArrow, ...) accept it too.
+
 The stream emits four event types:
 
 | Event       | Data                                                  | Meaning                                                                                       |
@@ -399,9 +411,11 @@ hf sync ./checkpoints hf://buckets/my-org/training-run-42/checkpoints
 
 Because buckets are built on [Xet](./xet/index), successive checkpoints where large parts of the model are frozen benefit from chunk-level deduplication. Only the changed chunks are uploaded.
 
+On Jobs, you can also mount the bucket and write checkpoints to it directly. See [Train models on Jobs](./jobs-training#after-it-ends).
+
 ### Data processing pipelines
 
-Buckets serve as staging areas for data processing workflows. Process raw data, write intermediate outputs to a bucket, then promote the final artifact to a versioned [Dataset](./datasets) repository when the pipeline completes. This keeps your versioned repo clean while giving your pipeline fast mutable storage.
+Buckets serve as staging areas for data processing workflows. Process raw data, write intermediate outputs to a bucket, then promote the final artifact to a versioned [Dataset](./datasets) repository when the pipeline completes. This keeps your versioned repo clean while giving your pipeline fast mutable storage. [datatrove](./storage-buckets-integrations#datatrove) supports this pattern directly.
 
 Note that transferring data from a Bucket to a repository without reuploading is not yet available, but is on the roadmap.
 

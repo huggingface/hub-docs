@@ -124,6 +124,7 @@ When uploading or downloading with Python:
 
 - **Make sure `hf_xet` is installed**: While Xet remains backward compatible with legacy clients optimized for Git LFS, the `hf_xet` integration with `huggingface_hub` delivers optimal chunk-based performance and faster iteration on large files.
 - **Adaptive concurrency is on by default**: `hf_xet` automatically adjusts the number of parallel transfer streams based on real-time network conditions — no configuration required. The default settings will saturate most network paths without any tuning.
+- **Download buffers scale with system memory**: Starting with `hf_xet` 1.7.0, download buffers are sized from the memory available to `hf_xet`, including container memory limits. Small containers use less memory for downloads and large machines use more, with no settings needed. See [Download Buffers](#download-buffers).
 - **Advanced tuning**: For fine-grained control, `HF_XET_FIXED_DOWNLOAD_CONCURRENCY` and `HF_XET_FIXED_UPLOAD_CONCURRENCY` let you pin concurrency to a fixed value, bypassing the adaptive controller. See `hf_xet`'s [environment variables](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#xet) for the full list of options.
 
 When uploading or downloading in Git or Python: 
@@ -132,12 +133,27 @@ When uploading or downloading in Git or Python:
 - **Be Specific in .gitattributes**: When defining patterns for Xet or LFS, use precise file extensions (e.g., `*.safetensors`, `*.bin`) to avoid unnecessarily routing smaller files through large-file storage.
 - **Prioritize community access**: Xet substantially increases the efficiency and scale of large file transfers. Instead of structuring your repository to reduce its total size (or the size of individual files), organize it for collaborators and community users so they may easily navigate and retrieve the content they need.
 
+## Uploading behind a proxy or firewall
+
+Starting with `hf_xet` 1.8.0, uploads can send data directly to Amazon S3 instead of only through the Xet storage service. The Hub decides for each upload whether to use direct upload, and is turning it on gradually. Downloads don't change.
+
+If your network restricts outbound traffic, allow these hostnames (HTTPS, port 443) in addition to the ones listed in [Downloading behind a proxy or firewall](../models-downloading#downloading-behind-a-proxy-or-firewall):
+
+| Hostname                     | Purpose                                          |
+|------------------------------|--------------------------------------------------|
+| `s3.us-east-1.amazonaws.com` | Direct uploads (US)                              |
+| `s3.eu-west-3.amazonaws.com` | Direct uploads for repositories stored in the EU |
+
+These hostnames are not under `hf.co` or `huggingface.co`, so allowlisting those suffixes does not cover them.
+
+If `hf_xet` can't reach S3, it retries the direct upload and then sends that data through the Xet storage service instead. The upload still completes, but it can be much slower, because each block waits through the retries first. The `hf_xet` [log](#logging) shows `Upload grant URL unreachable, falling back to legacy xorb upload path (may be slower)` when this happens. If you can't allow the S3 hostnames, set `HF_XET_CLIENT_LEGACY_DIRECT_XORB_UPLOAD=1` to turn off direct uploads.
+
 ## Environment Variables
 
 Both `hf_xet` and Git Xet are powered by `xet-core`, which can be configured via environment variables. The tables below list the individual variables for fine-grained control. Most users will not need to change any of these — the defaults are tuned to saturate most network paths automatically.
 
 > [!NOTE]
-> `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth **and at least 64 GB of RAM** for buffering. On machines with less memory, it may degrade performance.
+> `HF_XET_HIGH_PERFORMANCE=1` is a convenience flag that adjusts several settings at once (concurrency bounds, buffer sizes, and parallel file limits). It is intended for machines with high bandwidth and fast disk. Starting with `hf_xet` 1.7.0, the buffer sizes it sets are based on the memory available to `hf_xet` (see [Download Buffers](#download-buffers)), so it no longer needs 64 GB of RAM, and any variable you set yourself takes precedence over this flag. With earlier versions, only use it on machines with at least 64 GB of RAM.
 
 ### General
 
@@ -145,7 +161,7 @@ High-level flags that most users reach for first.
 
 | Environment Variable | Default | Description |
 |---|---|---|
-| `HF_XET_HIGH_PERFORMANCE` (alias `HF_XET_HP`) | off | Convenience flag that maximizes network and CPU usage by raising concurrency, buffer sizes, and parallel file limits at once. See the note above — best on machines with high bandwidth and at least 64 GB of RAM. |
+| `HF_XET_HIGH_PERFORMANCE` (alias `HF_XET_HP`) | off | Convenience flag that maximizes network and CPU usage by raising concurrency, buffer sizes, and parallel file limits at once. See the note above. |
 | `HF_XET_CACHE` | `$HF_HOME/xet` | Directory where Xet caches data locally (downloaded chunks and deduplication shards). Takes precedence over `HF_HOME`. |
 
 ### Adaptive Concurrency
@@ -154,9 +170,8 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 
 | Environment Variable | Default | Description |
 |---|---|---|
-| `HF_XET_CLIENT_ENABLE_ADAPTIVE_CONCURRENCY` | `true` | Enable or disable adaptive concurrency control. When disabled, concurrency stays at the initial value. |
-| `HF_XET_CLIENT_AC_INITIAL_UPLOAD_CONCURRENCY` | `1` | Starting number of concurrent upload streams. HP mode: `16`. |
-| `HF_XET_CLIENT_AC_INITIAL_DOWNLOAD_CONCURRENCY` | `1` | Starting number of concurrent download streams. HP mode: `16`. |
+| `HF_XET_CLIENT_AC_INITIAL_UPLOAD_CONCURRENCY` | `2` | Starting number of concurrent upload streams. HP mode: `16`. |
+| `HF_XET_CLIENT_AC_INITIAL_DOWNLOAD_CONCURRENCY` | `4` | Starting number of concurrent download streams. HP mode: `16`. |
 | `HF_XET_CLIENT_AC_MIN_UPLOAD_CONCURRENCY` | `1` | Lower bound for upload concurrency. HP mode: `4`. |
 | `HF_XET_CLIENT_AC_MIN_DOWNLOAD_CONCURRENCY` | `1` | Lower bound for download concurrency. HP mode: `4`. |
 | `HF_XET_CLIENT_AC_MAX_UPLOAD_CONCURRENCY` | `64` | Upper bound for upload concurrency. HP mode: `124`. |
@@ -176,11 +191,13 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 |---|---|---|
 | `HF_XET_CLIENT_RETRY_MAX_ATTEMPTS` | `5` | Maximum number of retry attempts for failed requests. |
 | `HF_XET_CLIENT_RETRY_BASE_DELAY` | `3000ms` | Base delay between retries (with exponential backoff). |
-| `HF_XET_CLIENT_RETRY_MAX_DURATION` | `360s` | Maximum total time to spend retrying a request. |
+| `HF_XET_CLIENT_RETRY_MAX_DURATION` | `360s` | Maximum wait before any single retry. Retrying stops after `HF_XET_CLIENT_RETRY_MAX_ATTEMPTS`, so the total retry time can exceed this value. |
 | `HF_XET_CLIENT_CONNECT_TIMEOUT` | `60s` | TCP connection timeout. |
-| `HF_XET_CLIENT_READ_TIMEOUT` | `120s` | Read timeout for HTTP responses. |
+| `HF_XET_CLIENT_READ_TIMEOUT` | `300s` | Read timeout for HTTP responses. |
 | `HF_XET_CLIENT_IDLE_CONNECTION_TIMEOUT` | `60s` | Timeout before idle connections are closed. |
 | `HF_XET_CLIENT_MAX_IDLE_CONNECTIONS` | `16` | Maximum number of idle connections in the pool. |
+| `HF_XET_CLIENT_RECONSTRUCTION_API_VERSION` | (unset) | Force the download (reconstruction) API version to `1` or `2`, with no fallback. When unset, `hf_xet` tries version 2 and falls back to version 1 if the server doesn't support it. |
+| `HF_XET_CLIENT_SHARD_API_VERSION` | (unset) | Force the upload (shard) API version to `1` or `2`, with no fallback. When unset, `hf_xet` tries version 2 and falls back to version 1 if the server doesn't support it. |
 
 ### Data Transfer
 
@@ -191,18 +208,24 @@ By default, `xet-core` uses adaptive concurrency — dynamically adjusting paral
 | `HF_XET_DATA_INGESTION_BLOCK_SIZE` | `8mb` | Size of blocks read during file ingestion. |
 | `HF_XET_DATA_PROGRESS_UPDATE_INTERVAL` | `200ms` | How often progress bars are updated. |
 | `HF_XET_DATA_PROGRESS_UPDATE_SPEED_SAMPLING_WINDOW` | `10s` | Time window used for aggregating transfer speed measurements in progress reporting. |
+| `HF_XET_CLIENT_LEGACY_DIRECT_XORB_UPLOAD` | `false` | Set to `1` to send all upload data through the Xet storage service instead of directly to S3 (`hf_xet` 1.8.0+). See [Uploading behind a proxy or firewall](#uploading-behind-a-proxy-or-firewall). |
 
 ### Download Buffers
 
-These control memory usage during downloads. `HF_XET_HIGH_PERFORMANCE=1` raises these significantly.
+These control memory usage during downloads.
+
+Starting with `hf_xet` 1.7.0, the defaults for the three `DOWNLOAD_BUFFER` variables are based on how much memory `hf_xet` can use. This is the machine's RAM, or the container's memory limit if that is lower. Each default is a fraction of that memory, kept between the minimum and maximum shown in the table. HP mode uses twice the fraction, with the same minimum and maximum. For example, a container limited to 4 GB gets a buffer of about 256 MB with a 1 GB limit, and a machine with 32 GB gets about the same 2 GB buffer and 8 GB limit as earlier versions.
+
+Earlier versions, or any version that can't tell how much memory is available, use fixed defaults of `2gb`, `512mb`, and `8gb` (`16gb`, `2gb`, and `64gb` in HP mode). The values in use are written to the `hf_xet` log file when it starts (see [Logging](#logging)).
 
 | Environment Variable | Default | HP Mode | Description |
 |---|---|---|---|
 | `HF_XET_RECONSTRUCTION_MIN_RECONSTRUCTION_FETCH_SIZE` | `256mb` | `1gb` | Minimum fetch size for reconstruction requests. |
 | `HF_XET_RECONSTRUCTION_MAX_RECONSTRUCTION_FETCH_SIZE` | `8gb` | `16gb` | Maximum fetch size for reconstruction requests. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | `2gb` | `16gb` | Total download buffer size. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | `512mb` | `2gb` | Per-file download buffer size. |
-| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | `8gb` | `64gb` | Hard limit on total download buffer memory. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` | 1/16 of memory, `64mb` to `16gb` | 1/8 of memory | Base shared buffer budget. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_PERFILE_SIZE` | 1/64 of memory, `16mb` to `2gb` | 1/32 of memory | Additional buffer budget per active file. |
+| `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_LIMIT` | 1/4 of memory, `264mb` to `64gb` | 1/2 of memory | Hard limit on total download buffer memory. If `HF_XET_RECONSTRUCTION_DOWNLOAD_BUFFER_SIZE` is set higher than this, the limit is raised to match. |
+| `HF_XET_DISABLE_MEMORY_DERIVED_DOWNLOAD_BUFFERS` | unset | — | Set to `1` to use the fixed defaults instead of sizing buffers from available memory. |
 | `HF_XET_RECONSTRUCTION_TARGET_BLOCK_COMPLETION_TIME` | `15m` | — | Target time for completing a prefetch block. Used to determine how much data to prefetch ahead during downloads. |
 | `HF_XET_RECONSTRUCTION_MIN_PREFETCH_BUFFER` | `1gb` | — | Minimum amount of data to keep prefetched during downloads, regardless of estimated completion time. |
 
@@ -213,16 +236,16 @@ The **shard cache** holds the deduplication index (the "shards" describing chunk
 | Environment Variable | Default | Description |
 |---|---|---|
 | `HF_XET_SHARD_CACHE_SIZE_LIMIT` | `16gb` | Soft cap on the on-disk shard cache. The cache is pruned to this size at the **start** of a run, but may grow past it within a single long-running session. As a rough guide, a cache of size *X* deduplicates against roughly 1000 × *X* of data (16 GB → ~16 TB). Raise it for better dedup on very large repos; lower it if the growing cache risks filling your disk. Accepts a human-readable size (e.g. `32gb`) or a raw byte count. |
-| `HF_XET_SHARD_CHUNK_INDEX_TABLE_MAX_SIZE` | `64mb` | Maximum size of the in-memory chunk index. Once reached, no further chunks are loaded for deduplication. |
+| `HF_XET_SHARD_CHUNK_INDEX_TABLE_MAX_SIZE` | `67108864` | Maximum number of chunk entries in the in-memory deduplication index. Set a whole number, not a size such as `128mb`. Starting with `hf_xet` 1.7.1, when the index is full the oldest shards are removed from it to make room for new ones; earlier versions stop adding chunks once it is full. |
 | `HF_XET_SHARD_CACHE_SUBDIR` | `shard-cache` | Subdirectory for the shard cache within the Xet cache directory. |
 
 ### Chunk Cache
 
-The **chunk cache** stores downloaded byte ranges (chunks) on disk so overlapping data isn't re-fetched from storage. It is most useful when repeatedly downloading, or generating new revisions of, related models or datasets.
+`hf_xet` no longer uses a local chunk cache for downloads. Downloaded files are still stored in the `huggingface_hub` file-based cache.
 
 | Environment Variable | Default | Description |
 |---|---|---|
-| `HF_XET_CHUNK_CACHE_SIZE_BYTES` | `0` (disabled) | Size of the local chunk cache. The `hf_xet` Python package ships with the cache **disabled by default**; set a byte count (e.g. `10000000000` for 10 GB) to enable it, or `0` to disable it. This variable has no effect in Git Xet v0. |
+| `HF_XET_CHUNK_CACHE_SIZE_BYTES` | — | No longer used by `hf_xet`. Setting it does not enable a download chunk cache. |
 
 ### Logging
 
@@ -235,6 +258,10 @@ The **chunk cache** stores downloaded byte ranges (chunks) on disk so overlappin
 | `HF_XET_LOG_DIR_MAX_SIZE` | `250mb` | Maximum total size of log files in the log directory. Old files are pruned to stay under this limit. |
 | `HF_XET_LOG_DIR_MIN_DELETION_AGE` | `1d` | Minimum age before a log file can be deleted during cleanup. |
 | `HF_XET_LOG_DIR_MAX_RETENTION_AGE` | `14d` | Maximum age for log files. Files older than this are always deleted during cleanup. |
+
+### Telemetry
+
+`hf_xet` sends a short report after each upload and download. See [Telemetry](./telemetry) for what it contains. To turn it off set `HF_HUB_DISABLE_TELEMETRY=1`.
 
 ## Current Limitations
 

@@ -71,8 +71,8 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
   - **Event:** `org.rotate_token`
   - Token approval system — Enabling or disabling the policy, authorization requests, approvals, denials, and revocations.
   - **Events:** `org.token_approval.enabled`, `org.token_approval.disabled`, `org.token_approval.authorization_request`, `org.token_approval.authorization_request.authorized`, `org.token_approval.authorization_request.revoked`, `org.token_approval.authorization_request.denied`
-  - SSO — Logins and joins via SSO.
-  - **Events:** `org.sso_login`, `org.sso_join`
+  - SSO — Logins and joins via SSO, and members authorizing or deauthorizing their access tokens and SSH keys.
+  - **Events:** `org.sso_login`, `org.sso_join`, `org.sso_credential.authorize`, `org.sso_credential.deauthorize`
 - **Join settings** — Domain-based access and automatic join configuration.
   - **Event:** `org.update_join_settings`
 
@@ -80,10 +80,28 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 
 - **Member lifecycle** — Adding and removing members, role changes, and members leaving the organization.
   - **Events:** `org.add_user`, `org.remove_user`, `org.change_role`, `org.leave`
+- **Account type** — Converting a member into an [external collaborator](./security-sso-user-management#external-collaborators), or back into a member.
+  - **Event:** `org.change_account_type`
 - **Invitations** — Sending invites, invitation links by email, and users accepting invites.
   - **Events:** `org.invite_user`, `org.invite.accept`, `org.invite.email`
 - **Automatic joins** — Joins via verified email domain or “request access”.
   - **Events:** `org.join.from_domain`, `org.join.automatic`
+
+### Service Accounts
+
+- **Service account lifecycle**: Creation and deletion of service accounts.
+  - **Events:** `org.service_account.create`, `org.service_account.delete`
+- **Service account tokens**: Token creation, deletion, rotation, and updates (name, permissions, network security exemption), plus generation and revocation of the S3 credentials paired with a token.
+  - **Events:** `org.service_account.token.create`, `org.service_account.token.delete`, `org.service_account.token.rotate`, `org.service_account.token.update`, `org.service_account.token.s3_credential.create`, `org.service_account.token.s3_credential.delete`
+
+### OAuth Apps
+
+- **OAuth app management** — Creation, updates (name, URLs, scopes, or token expiration), and deletion of [OAuth apps](./oauth#organization-owned-oauth-apps) owned by the organization, including its [Token Exchange app](./oauth#token-exchange-for-organizations-rfc-8693), and transfers of a member's personal app to the organization. Logo changes are not recorded.
+  - **Events:** `oauth.app.create`, `oauth.app.update`, `oauth.app.delete`, `oauth.app.move`
+- **Client secret** — Rotating the client secret (or adding one to a public app), removing it, and expiration of the secret by Hugging Face.
+  - **Events:** `oauth.app.secret.rotate`, `oauth.app.secret.delete`, `oauth.app.secret.expire`
+- **Token issuance** — Tokens issued to members through the organization's [Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693) app.
+  - **Event:** `oauth.token`
 
 ### Content and Resource Management
 
@@ -103,6 +121,8 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
   - **Events:** `resource_group.create`, `resource_group.delete`, `resource_group.settings`
 - **Resource group members** — Adding and removing users, and role changes.
   - **Events:** `resource_group.add_users`, `resource_group.remove_users`, `resource_group.change_role`
+- **Resource group invitations** — Inviting users from outside the organization into a resource group, and revoking those invitations.
+  - **Events:** `resource_group.invite_user`, `resource_group.invite.revoke`
 
 ### Jobs and Scheduled Jobs
 
@@ -122,4 +142,4 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 
 ## Event reference
 
-The list above covers every event type shown in the audit log UI and export. Event names follow the `scope.action` pattern; scopes include `org`, `repo`, `collection`, `spaces`, `resource_group`, `jobs`, `scheduled_job`, and `billing`. The export action itself is recorded as `org.audit_log.export` but that event is not included in the default audit log view.
+The list above covers every event type shown in the audit log UI and export. Event names follow the `scope.action` pattern; scopes include `org`, `repo`, `collection`, `spaces`, `resource_group`, `jobs`, `scheduled_job`, `oauth`, and `billing`. The export action itself is recorded as `org.audit_log.export` but that event is not included in the default audit log view.

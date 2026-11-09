@@ -47,7 +47,7 @@ Find out more about Image To Image [here](../tasks/image-to-image).
 
 <InferenceSnippet
     pipeline=image-to-image
-    providersMapping={ {"wavespeed":{"modelId":"ScottzillaSystems/qwen-image-edit-plus-nsfw-lora","providerModelId":"wavespeed-ai/qwen-image/edit-2511-lora"} } }
+    providersMapping={ {"wavespeed":{"modelId":"briaai/Fibo-2.0-edit-turbo","providerModelId":"bria/fibo-2.0/edit"} } }
 />
 
 
@@ -57,7 +57,7 @@ Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"wavespeed":{"modelId":"krea/Krea-2-Turbo","providerModelId":"wavespeed-ai/krea-v2-medium-turbo/text-to-image"} } }
+    providersMapping={ {"wavespeed":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"wavespeed-ai/flux-dev"} } }
 />
 
 

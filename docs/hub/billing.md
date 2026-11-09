@@ -99,6 +99,8 @@ In both cases, you start from the marketplace listing, then pick which of your H
 
 A cloud marketplace subscription must be approved by the Hugging Face team before paid usage starts being billed through it. Until the subscription is active and approved, the organization's billing settings show it as pending, and usage keeps being billed to the organization's existing payment method. You will receive an email notification once the subscription is validated.
 
+Once the subscription is approved, organizations that already have a credit card on file switch to cloud marketplace billing at the start of their next billing period. Organizations on the free tier with no credit card on file usually switch immediately, so their paid usage is billed through the cloud marketplace right away.
+
 Cloud marketplace billing is available for organizations only, and replaces the credit card as the organization's payment method. Adding credits is not available while an organization is billed through a cloud marketplace: usage is metered and reported to your cloud provider instead. Linking and unlinking a cloud marketplace account is recorded in your organization's [audit logs](./audit-logs).
 
 ## Support FAQ 
@@ -141,6 +143,10 @@ A. View and download all invoices here: https://huggingface.co/settings/billing/
 **Q. I need to update my credit card in my account. What to do?**
 
 A. Head to https://huggingface.co/settings/billing/payment and update your payment method at anytime. 
+
+**Q. What happens if I delete my payment method?**
+
+A. Deleting your payment method cancels your paid subscription (such as PRO or Team) and any public storage subscription. They stay active until the end of the current billing period. Before the payment method is deleted, a confirmation dialog shows which subscriptions will be canceled and when they end. Adding a new card afterwards does not restore your subscription on its own: once a new card is on file, you can click **Resubscribe** on the payment page at https://huggingface.co/settings/billing/payment before the end of the billing period.
 
 
 **Subscriptions**

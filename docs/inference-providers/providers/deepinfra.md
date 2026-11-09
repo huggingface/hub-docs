@@ -51,7 +51,7 @@ Find out more about Automatic Speech Recognition [here](../tasks/automatic-speec
 
 <InferenceSnippet
     pipeline=automatic-speech-recognition
-    providersMapping={ {"deepinfra":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper-large-v3"} } }
+    providersMapping={ {"deepinfra":{"modelId":"nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B","providerModelId":"nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B"} } }
 />
 
 
@@ -71,7 +71,7 @@ Find out more about Chat Completion (VLM) [here](../tasks/chat-completion).
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash","providerModelId":"deepseek-ai/DeepSeek-V4.1-Flash"} } }
+    providersMapping={ {"deepinfra":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen/Qwen3.8-27B"} } }
 conversational />
 
 
