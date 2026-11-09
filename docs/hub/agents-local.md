@@ -55,10 +55,13 @@ Launch the llama.cpp server in the router mode.
 llama serve
 ```
 
-The flag `-ngl all` offloads all layers to the GPU, while `-c 32768` sets the context size in tokens.
+While the above command should be all that you need, but here are some common flags to use with `llama serve`:
 
-> [!NOTE]
-> Use `-c 0` for the model's full context window,
+| Flag | What it does |
+| :--: | :--: |
+| -c, --ctx-size N | Context size in tokens; -c 0 uses the model’s full context window |
+| -ngl, --gpu-layers N | Layers to offload to GPU (auto, all, or a number) |
+| --host, --port | Bind address and port (default 127.0.0.1:9931) |
 
 ### 4. Connect Your Agent
 
