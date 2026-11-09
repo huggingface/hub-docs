@@ -66,7 +66,7 @@ Install the Hugging Face Hub python package:
 pip install huggingface_hub
 ```
 
-Initialize the `InferenceClient` with an Inference Provider (check this [list](https://huggingface.co/docs/inference-providers/index#partners) for all available providers) and your Hugging Face token.
+Initialize the `InferenceClient` with an Inference Provider (check this [list](https://huggingface.co/docs/inference-providers/providers) for all available providers) and your Hugging Face token.
 
 ```python
 import os
