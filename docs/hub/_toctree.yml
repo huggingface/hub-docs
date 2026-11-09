@@ -297,6 +297,8 @@
         title: Spark
       - local: datasets-webdataset
         title: WebDataset
+      - local: datasets-zephon
+        title: Zephon
   - local: data-studio
     title: Data Studio
     sections:
