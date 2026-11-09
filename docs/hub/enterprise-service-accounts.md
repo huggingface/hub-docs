@@ -34,6 +34,11 @@ Permissions can be granted at two levels:
 
 This lets you issue narrowly scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
 
+Tokens can also be allowed to work with [gated repositories](./models-gated) outside of your organization, under the **Gated repositories** section of the token form:
+
+- **Read contents of gated repos the service account has access to** — read gated repos once the service account has been granted access.
+- **Request access to gated repos** — let the token submit access requests to gated repos on behalf of the service account.
+
 <div class="flex justify-center">
   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
   <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
