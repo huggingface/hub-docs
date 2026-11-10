@@ -149,7 +149,7 @@ Add the gateway as a remote in `~/.config/rclone/rclone.conf`, next to the remot
 [hf]
 type = s3
 provider = Other
-endpoint = https://s3.hf.co/<namespace>
+endpoint = https://<namespace>.s3.hf.co
 access_key_id = HFAK...
 secret_access_key = ...
 region = us-east-1
