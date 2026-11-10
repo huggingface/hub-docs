@@ -130,8 +130,6 @@ trainer.fit(model, train_dataloader)
 trainer.fit(model, train_dataloader, ckpt_path="hf://buckets/username/my-bucket/checkpoints/last.ckpt")
 ```
 
-Keep logs on local disk: Lightning's default logger appends to files, which `hf://` paths do not support.
-
 ## PyIceberg
 
 [PyIceberg](https://py.iceberg.apache.org/) can store Iceberg tables in a bucket. Set the catalog's `warehouse` to an `hf://buckets/` path:
