@@ -13,12 +13,12 @@ If you committed a secret, private data, or any file you don't want on the Hub, 
 | Action | Removes | Leaves |
 |---|---|---|
 | Delete the file in a new commit | The file from the latest revision | All previous commits |
-| [List Large Files](#lfs-and-xet-files) → delete with "rewrite history" | The file content (immediately), and its pointer from all branches, tags and PR refs | Old commits with the file's path, sha256 and size |
+| [List Large Files](#lfs-and-xet-files) → delete with "rewrite history" | The file content (immediately), and its pointer from all branches, tags and PR refs | Old commits with the file's path, sha256 and size, until cleanup |
 | [`git filter-repo`](#regular-git-files) + force-push | The file from every branch and tag you push | Refs you don't push, history pinned by pull requests |
 | [`super_squash_history`](#regular-git-files) | The history of one branch | Other branches, tags, history pinned by pull requests |
-| [Delete a PR ref](#pull-requests) | The PR ref | The PR's commits, archived for the PR page, including the file |
+| [Delete the pull request](#pull-requests) | The PR ref, releasing history only it kept | That history, until cleanup |
 
-Old commits stay reachable by their SHA (in the web UI, the API, and with `git fetch <sha>`) until they're cleaned up. That's usually within the hour after a force-push or squash, but isn't guaranteed after deleting a large file with "rewrite history", and never happens for history pinned by a pull request.
+Old commits stay reachable by their SHA (in the web UI, the API, and with `git fetch <sha>`) until they're cleaned up. That's usually within the hour after a force-push, a squash, or deleting a large file with "rewrite history". Deleting a pull request releases history that was only reachable through it, and that history is cleaned up the same way.
 
 All of these operations are irreversible and change commit SHAs, so collaborators using git need to re-clone the repository.
 
@@ -27,7 +27,7 @@ All of these operations are irreversible and change commit SHAs, so collaborator
 1. Revoke or rotate any leaked secret.
 2. Remove [LFS and Xet files](#lfs-and-xet-files) with "rewrite history".
 3. Remove [regular git files](#regular-git-files) from every branch and tag.
-4. For regular git files, check for [pull requests](#pull-requests) opened after the file was committed.
+4. For regular git files, delete [pull requests](#pull-requests) opened after the file was committed.
 5. Clean up [duplicated repositories](#duplicated-repositories) you own.
 6. [Contact us](#when-to-contact-us) if needed.
 
@@ -39,10 +39,10 @@ If the file appears in your repository's "List Large Files" (this includes Xet-b
 2. Click on "List Large Files" in the "Storage" section.
 3. Delete the file, keeping "rewrite history" checked (the default).
 
-This deletes the file content immediately and strips its pointer from every branch, tag and PR ref. This changes the SHA of the first commit containing the file and all its descendants, and drops commits left empty (e.g. one that only added the file). See [Storage Limits](./storage-limits#deleting-individual-lfs-files) for more details.
+Deleting a large file with "rewrite history" removes its content right away and strips its pointer from every branch, tag and PR ref. This changes the SHA of the first commit containing the file and all its descendants, and drops commits left empty (e.g. one that only added the file). The old commits, which show the file's path, sha256 and size, usually become unreachable within about an hour. See [Storage Limits](./storage-limits#deleting-individual-lfs-files) for more details.
 
 > [!NOTE]
-> If the file's path or name is itself sensitive, remove it with the [regular git files](#regular-git-files) steps instead of, or before, "List Large Files". "List Large Files" with "rewrite history" removes the bytes and the pointer from every ref, including pull requests, but old commits can still show the path, sha256 and size. After a force-push or squash, old commits usually become unreachable within about an hour, and the LFS/Xet bytes stop being served shortly after. [Pull requests](#pull-requests) opened after the file was committed keep it reachable, so [contact us](#when-to-contact-us).
+> If the file's path or name is itself sensitive, it stays in those old commits until that cleanup. "Rewrite history" removes it with them.
 
 ## Regular git files
 
@@ -72,7 +72,7 @@ api.delete_tag(repo_id="<namespace>/<repo>", tag="v1.0")
 
 This only applies to regular git files: deleting a large file with "rewrite history" already rewrites pull requests.
 
-Any pull request opened after the file was committed keeps that history reachable by SHA, even once you rewrite or squash `main`, and even if the PR was merged or closed. [Deleting the PR ref](./storage-limits#deleting-pull-request-refs) yourself doesn't remove that history, so [contact us](#when-to-contact-us).
+Any pull request opened after the file was committed keeps that history reachable by SHA, even once you rewrite or squash `main`, and even if the PR was merged or closed. [Deleting the pull request](./storage-limits#deleting-pull-request-refs) releases that history, which is then cleaned up like other unreachable history.
 
 ## Duplicated repositories
 
@@ -80,7 +80,6 @@ Any pull request opened after the file was committed keeps that history reachabl
 
 ## When to contact us
 
-- the file is a regular git file and any pull request was opened after it was committed
 - you need old commit URLs guaranteed to return 404
 - you need cached downloads invalidated
 - you need derived copies reset, such as Data Studio Parquet conversions (`refs/convert/*`) or Space builds
