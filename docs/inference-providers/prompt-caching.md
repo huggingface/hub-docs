@@ -16,12 +16,12 @@ Caching is automatic: there is nothing to turn on. The response tells you how ma
 
 ## Keep a conversation on one provider
 
-A provider's cache only helps if the next turn goes to the same provider. Send a stable id per conversation, and the router keeps it on the same provider:
+A provider's cache only helps if the next turn goes to the same provider. Send a stable UUID per conversation in the `X-HF-Session-Id` header, and the router keeps it on the same provider. Other values are ignored.
 
 ```bash
 curl https://router.huggingface.co/v1/chat/completions \
     -H "Authorization: Bearer $HF_TOKEN" \
-    -H "X-HF-Session-Id: conversation-8f2c" \
+    -H "X-HF-Session-Id: 3f8c2a1e-6b4d-4e2a-9c1f-7d5b0e8a4c21" \
     -H "Content-Type: application/json" \
     -d '{ "model": "deepseek-ai/DeepSeek-V4.1-Flash", "messages": [...] }'
 ```
