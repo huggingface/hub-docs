@@ -17,6 +17,24 @@ Credits included with a PRO, Team, or Enterprise subscription are general-purpos
 > [!TIP]
 > Your monthly credits automatically apply when you route requests through Hugging Face. For Team or Enterprise organizations, credits are shared among all members.
 
+## How Billing Works: Choose Your Approach
+
+Inference Providers offers flexibility in how you're billed. Understanding these options upfront helps you choose the best approach for your needs:
+
+| Feature | **Routed by Hugging Face** | **Custom Provider Key** |
+| :--- | :--- | :--- |
+| **How it Works** | Your request routes through HF to the provider | You set a custom provider key in HF settings |
+| **Billing** | Pay-as-you-go on your HF account | Billed directly by the provider |
+| **Monthly Credits** | **✅ Yes** - Credits apply to eligible providers | **❌ No** - Credits don't apply |
+| **Provider Account Needed** | **❌ No** - We handle everything | **✅ Yes** - You need provider accounts |
+| **Best For** | Simplicity, experimentation, consolidated billing | More billing control, using non-integrated providers |
+| **Integration** | SDKs, Playground, widgets, Data AI Studio | SDKs, Playground, widgets, Data AI Studio |
+
+### Which Option Should I Choose?
+
+- **Start with Routed by Hugging Face** if you want simplicity and to use your monthly credits
+- **Use Custom Provider Key** if you need specific provider features or you're consistently using the same provider
+
 ## Pay-as-you-Go Details
 
 To benefit from Team or Enterprise included credits, you need to explicitly specify the organization to be billed when performing the inference requests.
@@ -56,6 +74,24 @@ curl "https://huggingface.co/api/organizations/my-org-name/billing/usage/inferen
 ```
 
 The `startDate` and `endDate` query parameters set the time window: it defaults to the current month and must fall within the last 12 months. Results are paginated by day: use the `limit` query parameter to set how many days are returned per page (7 by default, up to 31), and follow the `rel="next"` URL in the `Link` response header to fetch the next page.
+
+## Hugging Face Billing vs Custom Provider Key (Detailed Comparison)
+
+The documentation above assumes you are making routed requests to external providers. In practice, there are 2 different ways to run inference, each with unique billing implications:
+
+- **Hugging Face Routed Requests**: This is the default method for using Inference Providers. Simply use the JavaScript or Python `InferenceClient`, or make raw HTTP requests with your Hugging Face User Access Token. Your request is automatically routed through Hugging Face to the provider's platform. No separate provider account is required, and billing is managed directly by Hugging Face. This approach lets you seamlessly switch between providers without additional setup.
+
+- **Custom Provider Key**: You can bring your own provider key to use with the Inference Providers. This is useful if you already have an account with a provider and you want to use it with the Inference Providers. Hugging Face won't charge you for the call. 
+
+Here is a table that sums up what we've seen so far:
+
+|                                    | HF routing | Billed by    | Included credits apply | Pay-as-you-go                                   | Integration                               |
+| ---------------------------------- | ---------- | ------------ | ---------------------- | ----------------------------------------------- | ----------------------------------------- |
+| **Routed Requests**                 | Yes        | Hugging Face | Yes                    | Yes (credits purchase required)                 | SDKs, Playground, widgets, Data AI Studio |
+| **Custom Provider Key** | Yes        | Provider     | No                     | Yes                                             | SDKs, Playground, widgets, Data AI Studio |
+
+> [!TIP]
+> You can set your custom provider key in the [settings page](https://huggingface.co/settings/inference-providers) on the Hub, or in the `InferenceClient` when using the JavaScript or Python SDKs. When making a routed request with a custom key, your code remains unchanged—you can still pass your Hugging Face User Access Token. Hugging Face will automatically swap the authentication when routing the request.
 
 ## HF-Inference cost
 
