@@ -3,22 +3,6 @@
 Generate a response given a list of messages in a conversational context, supporting both conversational Language Models (LLMs) and conversational Vision-Language Models (VLMs).
 This is a subtask of [`text-generation`](https://huggingface.co/docs/inference-providers/tasks/text-generation) and [`image-text-to-text`](https://huggingface.co/docs/inference-providers/tasks/image-text-to-text).
 
-### Recommended models
-
-#### Conversational Large Language Models (LLMs)
-
-{{#each recommendedModels.chat-completion}}
-- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
-{{/each}}
-
-#### Conversational Vision-Language Models (VLMs)
-
-{{#each recommendedModels.conversational-image-text-to-text}}
-- [{{this.id}}](https://huggingface.co/{{this.id}}): {{this.description}}
-{{/each}}
-
-{{{tips.listModelsLink.image-text-to-text}}}
-
 ### API Playground
 
 For Chat Completion models, we provide an interactive UI Playground for easier testing:
