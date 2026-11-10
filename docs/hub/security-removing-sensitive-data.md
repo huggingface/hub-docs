@@ -12,13 +12,13 @@ If you committed a secret, private data, or any file you don't want on the Hub, 
 
 | Action | Removes | Leaves |
 |---|---|---|
-| Delete the file in a new commit | The file from the latest revision | All previous commits |
+| Delete the file in a new commit | The file from the latest revision | All previous commits, so not enough on its own |
 | [List Large Files](#lfs-and-xet-files) → delete with "rewrite history" | The file content (immediately), and its pointer from all branches, tags and PR refs | Old commits with the file's path, sha256 and size, [until cleanup](#when-old-commits-disappear) |
 | [`git filter-repo`](#regular-git-files) + force-push | The file from every branch and tag you push | Refs you don't push, history pinned by pull requests |
 | [`super_squash_history`](#regular-git-files) | The history of one branch | Other branches, tags, history pinned by pull requests |
 | [Delete the pull request](#pull-requests) | The PR ref, releasing history only it kept | That history, [until cleanup](#when-old-commits-disappear) |
 
-All of these operations are irreversible and change commit SHAs, so collaborators using git need to re-clone the repository.
+Rewriting history (every option except a new commit) is irreversible and changes commit SHAs. Collaborators should re-clone, or reset their branches onto the rewritten ones, and must not push their old history back, which would reintroduce the file.
 
 ## Recommended order
 
