@@ -89,7 +89,7 @@ curl https://router.huggingface.co/v1/responses \
 
 
 > [!TIP]
-> If you plan to use a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K2.5:novita`). Otherwise, omit the suffix to use the [default routing](../routing#default-routing). You can also use `:fastest` or `:cheapest`.
+> If you plan to use a specific provider, append it to the model id as `<repo>:<provider>` (for example `moonshotai/Kimi-K3.1-Pro:together`). Otherwise, omit the suffix to use the [default routing](../routing#default-routing). You can also use `:fastest` or `:cheapest`.
 
 ## Core Response patterns
 
@@ -111,7 +111,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2.5",
+    model="moonshotai/Kimi-K3.1-Pro",
     instructions="You are a helpful assistant.",
     input="Tell me a three sentence bedtime story about a unicorn.",
 )
@@ -132,7 +132,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2.5",
+  model: "moonshotai/Kimi-K3.1-Pro",
   instructions: "You are a helpful assistant.",
   input: "Tell me a three sentence bedtime story about a unicorn.",
 });
@@ -149,7 +149,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2.5",
+    "model": "moonshotai/Kimi-K3.1-Pro",
     "instructions": "You are a helpful assistant.",
     "input": "Tell me a three sentence bedtime story about a unicorn."
   }'
@@ -177,7 +177,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2.5",
+    model="moonshotai/Kimi-K3.1-Pro",
     input=[
         {
             "role": "user",
@@ -208,7 +208,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2.5",
+  model: "moonshotai/Kimi-K3.1-Pro",
   input: [
     {
       role: "user",
@@ -236,7 +236,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2.5",
+    "model": "moonshotai/Kimi-K3.1-Pro",
     "input": [
       {
         "role": "user",
@@ -274,7 +274,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2.5",
+    model="moonshotai/Kimi-K3.1-Pro",
     input=[
         {"role": "developer", "content": "Talk like a pirate."},
         {"role": "user", "content": "Are semicolons optional in JavaScript?"},
@@ -297,7 +297,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2.5",
+  model: "moonshotai/Kimi-K3.1-Pro",
   input: [
     { role: "developer", content: "Talk like a pirate." },
     { role: "user", content: "Are semicolons optional in JavaScript?" },
@@ -316,7 +316,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2.5",
+    "model": "moonshotai/Kimi-K3.1-Pro",
     "input": [
       {"role": "developer", "content": "Talk like a pirate."},
       {"role": "user", "content": "Are semicolons optional in JavaScript?"}
@@ -350,7 +350,7 @@ client = OpenAI(
 )
 
 stream = client.responses.create(
-    model="moonshotai/Kimi-K2.5",
+    model="moonshotai/Kimi-K3.1-Pro",
     input=[{"role": "user", "content": "Say 'double bubble bath' ten times fast."}],
     stream=True,
 )
@@ -372,7 +372,7 @@ const client = new OpenAI({
 });
 
 const stream = await client.responses.create({
-  model: "moonshotai/Kimi-K2.5",
+  model: "moonshotai/Kimi-K3.1-Pro",
   input: [{ role: "user", content: "Say 'double bubble bath' ten times fast." }],
   stream: true,
 });
@@ -391,7 +391,7 @@ curl -N https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2.5",
+    "model": "moonshotai/Kimi-K3.1-Pro",
     "input": [
       {"role": "user", "content": "Say \"double bubble bath\" ten times fast."}
     ],
@@ -437,7 +437,7 @@ tools = [
 ]
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2.5",
+    model="moonshotai/Kimi-K3.1-Pro",
     tools=tools,
     input="What is the weather like in Boston today?",
     tool_choice="auto",
@@ -475,7 +475,7 @@ const tools = [
 ];
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2.5",
+  model: "moonshotai/Kimi-K3.1-Pro",
   tools,
   input: "What is the weather like in Boston today?",
   tool_choice: "auto",
@@ -493,7 +493,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2.5",
+    "model": "moonshotai/Kimi-K3.1-Pro",
     "input": "What is the weather like in Boston today?",
     "tool_choice": "auto",
     "tools": [
@@ -658,7 +658,7 @@ client = OpenAI(
 )
 
 response = client.responses.create(
-    model="moonshotai/Kimi-K2.5",
+    model="moonshotai/Kimi-K3.1-Pro",
     input="how does tiktoken work?",
     tools=[
         {
@@ -688,7 +688,7 @@ const client = new OpenAI({
 });
 
 const response = await client.responses.create({
-  model: "moonshotai/Kimi-K2.5",
+  model: "moonshotai/Kimi-K3.1-Pro",
   input: "how does tiktoken work?",
   tools: [
     {
@@ -715,7 +715,7 @@ curl https://router.huggingface.co/v1/responses \
   -H "Authorization: Bearer $HF_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "moonshotai/Kimi-K2.5",
+    "model": "moonshotai/Kimi-K3.1-Pro",
     "input": "how does tiktoken work?",
     "tools": [
       {
