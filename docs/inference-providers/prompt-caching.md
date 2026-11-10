@@ -1,8 +1,5 @@
 # Prompt Caching
 
-> [!WARNING]
-> Draft page for the prototype: the session header below isn't documented or forwarded to every provider yet.
-
 Agents resend the same long prompt on every turn: the system prompt, the tools and the conversation so far. Many providers cache that repeated prefix, so cached input tokens are faster and usually cheaper.
 
 ## How it works
