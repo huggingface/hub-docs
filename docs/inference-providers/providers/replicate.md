@@ -41,42 +41,12 @@ Replicate is building tools so all software engineers can use AI as if it were n
 ## Supported tasks
 
 
-### Automatic Speech Recognition
-
-Find out more about Automatic Speech Recognition [here](../tasks/automatic-speech-recognition).
-
-<InferenceSnippet
-    pipeline=automatic-speech-recognition
-    providersMapping={ {"replicate":{"modelId":"openai/whisper-large-v3","providerModelId":"openai/whisper:8099696689d249cf8b122d833c36ac3f75505c666a395ca40ef26f68e7d3d16e"} } }
-/>
-
-
-### Image To Image
-
-Find out more about Image To Image [here](../tasks/image-to-image).
-
-<InferenceSnippet
-    pipeline=image-to-image
-    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.2-dev","providerModelId":"black-forest-labs/flux-2-dev"} } }
-/>
-
-
 ### Text To Image
 
 Find out more about Text To Image [here](../tasks/text-to-image).
 
 <InferenceSnippet
     pipeline=text-to-image
-    providersMapping={ {"replicate":{"modelId":"black-forest-labs/FLUX.1-dev","providerModelId":"black-forest-labs/flux-dev"} } }
-/>
-
-
-### Text To Video
-
-Find out more about Text To Video [here](../tasks/text-to-video).
-
-<InferenceSnippet
-    pipeline=text-to-video
-    providersMapping={ {"replicate":{"modelId":"Wan-AI/Wan2.2-T2V-A14B","providerModelId":"wan-video/wan-2.2-t2v-fast"} } }
+    providersMapping={ {"replicate":{"modelId":"stabilityai/stable-diffusion-3.5-medium","providerModelId":"stability-ai/stable-diffusion-3.5-medium"} } }
 />
 
