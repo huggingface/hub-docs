@@ -121,7 +121,7 @@ Chat, vision and agent requests go through [OpenRouter](https://openrouter.ai), 
 </div>
 </div>
 
-## Image, video and speech
+## Image, video, audio, embeddings and more
 
 Other tasks go to these providers through the [Hugging Face SDKs](./tasks/index). Each link lists the models a provider serves on the Hub.
 
