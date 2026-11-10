@@ -110,6 +110,24 @@ diffusers-cli run --model black-forest-labs/FLUX.1-dev --dtype bf16 \
 
 See the [Diffusers CLI guide](https://huggingface.co/docs/diffusers/using-diffusers/cli) for more.
 
+## PyTorch Lightning
+
+[PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/reference/common/remote_fs) can save checkpoints to a bucket and resume from them. Set the `ModelCheckpoint` directory to an `hf://buckets/` path:
+
+```python
+import lightning as L
+from lightning.pytorch.callbacks import ModelCheckpoint
+
+checkpoints = ModelCheckpoint(dirpath="hf://buckets/username/my-bucket/checkpoints", save_last=True)
+trainer = L.Trainer(callbacks=[checkpoints])
+trainer.fit(model, train_dataloader)
+
+# Resume from the bucket
+trainer.fit(model, train_dataloader, ckpt_path="hf://buckets/username/my-bucket/checkpoints/last.ckpt")
+```
+
+Keep logs on local disk: Lightning's default logger appends to files, which `hf://` paths do not support.
+
 ## Trackio
 
 When [Trackio](https://huggingface.co/docs/trackio) logs to a Space, it stores run data in a bucket created from the Space ID. Pass `bucket_id` to `trackio.init()` to use a bucket you choose.
