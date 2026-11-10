@@ -13,12 +13,10 @@ If you committed a secret, private data, or any file you don't want on the Hub, 
 | Action | Removes | Leaves |
 |---|---|---|
 | Delete the file in a new commit | The file from the latest revision | All previous commits |
-| [List Large Files](#lfs-and-xet-files) → delete with "rewrite history" | The file content (immediately), and its pointer from all branches, tags and PR refs | Old commits with the file's path, sha256 and size, until cleanup |
+| [List Large Files](#lfs-and-xet-files) → delete with "rewrite history" | The file content (immediately), and its pointer from all branches, tags and PR refs | Old commits with the file's path, sha256 and size, [until cleanup](#when-old-commits-disappear) |
 | [`git filter-repo`](#regular-git-files) + force-push | The file from every branch and tag you push | Refs you don't push, history pinned by pull requests |
 | [`super_squash_history`](#regular-git-files) | The history of one branch | Other branches, tags, history pinned by pull requests |
-| [Delete the pull request](#pull-requests) | The PR ref, releasing history only it kept | That history, until cleanup |
-
-Old commits stay reachable by their SHA (in the web UI, the API, and with `git fetch <sha>`) until they're cleaned up. That's usually within the hour after a force-push, a squash, or deleting a large file with "rewrite history". Deleting a pull request releases history that was only reachable through it, and that history is cleaned up the same way.
+| [Delete the pull request](#pull-requests) | The PR ref, releasing history only it kept | That history, [until cleanup](#when-old-commits-disappear) |
 
 All of these operations are irreversible and change commit SHAs, so collaborators using git need to re-clone the repository.
 
@@ -39,10 +37,10 @@ If the file appears in your repository's "List Large Files" (this includes Xet-b
 2. Click on "List Large Files" in the "Storage" section.
 3. Delete the file, keeping "rewrite history" checked (the default).
 
-Deleting a large file with "rewrite history" removes its content right away and strips its pointer from every branch, tag and PR ref. This changes the SHA of the first commit containing the file and all its descendants, and drops commits left empty (e.g. one that only added the file). The old commits, which show the file's path, sha256 and size, usually become unreachable within about an hour. See [Storage Limits](./storage-limits#deleting-individual-lfs-files) for more details.
+Deleting a large file with "rewrite history" removes its content right away and strips its pointer from every branch, tag and PR ref. This changes the SHA of the first commit containing the file and all its descendants, and drops commits left empty (e.g. one that only added the file). The old commits still show the file's path, sha256 and size [until they're cleaned up](#when-old-commits-disappear). See [Storage Limits](./storage-limits#deleting-individual-lfs-files) for more details.
 
 > [!NOTE]
-> If the file's path or name is itself sensitive, it stays in those old commits until that cleanup. "Rewrite history" removes it with them.
+> If the file's path or name is itself sensitive, it stays in those old commits [until they're cleaned up](#when-old-commits-disappear). "Rewrite history" removes it with them.
 
 ## Regular git files
 
@@ -72,11 +70,15 @@ api.delete_tag(repo_id="<namespace>/<repo>", tag="v1.0")
 
 This only applies to regular git files: deleting a large file with "rewrite history" already rewrites pull requests.
 
-Any pull request opened after the file was committed keeps that history reachable by SHA, even once you rewrite or squash `main`, and even if the PR was merged or closed. [Deleting the pull request](./storage-limits#deleting-pull-request-refs) releases that history, which is then cleaned up like other unreachable history.
+Any pull request opened after the file was committed keeps that history reachable by SHA, even once you rewrite or squash `main`, and even if the PR was merged or closed. [Deleting the pull request](./storage-limits#deleting-pull-request-refs) releases that history, which is then [cleaned up](#when-old-commits-disappear).
 
 ## Duplicated repositories
 
 [Duplicated repositories](./repositories-next-steps#how-to-duplicate-a-repo) are independent, so clean up the ones you own the same way. Model and dataset duplicates only contain the files of `main` at the time of duplication (as a single commit), while Space duplicates keep `main`'s full history. Other branches and tags are not copied.
+
+## When old commits disappear
+
+Old commits stay reachable by their SHA (in the web UI, the API, and with `git fetch <sha>`) until they're cleaned up, which usually happens within about an hour after a force-push, a `super_squash_history`, a "rewrite history" delete, or deleting the pull request that kept them.
 
 ## When to contact us
 
