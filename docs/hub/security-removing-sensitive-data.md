@@ -18,7 +18,7 @@ If you committed a secret, private data, or any file you don't want on the Hub, 
 | [`super_squash_history`](#regular-git-files) | The history of one branch | Other branches, tags, history pinned by pull requests |
 | [Delete the pull request](#pull-requests) | The PR ref, releasing history only it kept | That history, [until cleanup](#when-old-commits-disappear) |
 
-Rewriting history (every option except a new commit) is irreversible and changes commit SHAs. Collaborators should re-clone, or reset their branches onto the rewritten ones, and must not push their old history back, which would reintroduce the file.
+Rewriting history (every option except a new commit) is irreversible and changes commit SHAs. Collaborators using git should re-clone, or reset their branches onto the rewritten ones, and must not push their old history back, which would reintroduce the file.
 
 ## Recommended order
 
@@ -82,6 +82,6 @@ Old commits stay reachable by their SHA (in the web UI, the API, and with `git f
 
 ## When to contact us
 
-- you need old commit URLs guaranteed to return 404
-- you need cached downloads invalidated
-- you need derived copies reset, such as Data Studio Parquet conversions (`refs/convert/*`) or Space builds
+- You need old commit URLs guaranteed to return 404
+- You need cached downloads invalidated
+- You need derived copies reset, such as Data Studio Parquet conversions (`refs/convert/*`) or Space builds
