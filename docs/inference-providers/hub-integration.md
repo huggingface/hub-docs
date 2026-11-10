@@ -51,15 +51,7 @@ Converts text to SQL queries on dataset pages (e.g. [open-r1/codeforces-cots](ht
 
 ## User Settings
 
-In your user account settings, you are able to:
-- set your own API keys for the providers you’ve signed up with. If you don't, your requests will be billed on your HF account. More details in the [billing section](./pricing#hugging-face-billing-vs-custom-provider-key-detailed-comparison).
-
-<div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/set-custom-key-light.png"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/set-custom-key-dark.png"/>
-</div>
-
-- turn off any provider you don't want to use. The router never sends your requests to a provider you turned off, and pinning it with a suffix returns an error.
+In your [Inference Providers settings](https://huggingface.co/settings/inference-providers), turn off any provider you don't want to use. The router never sends your requests to a provider you turned off, and pinning it with a suffix returns an error.
 
 ## Organization Settings
 
