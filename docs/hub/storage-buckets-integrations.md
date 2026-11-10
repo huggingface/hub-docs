@@ -130,8 +130,6 @@ trainer.fit(model, train_dataloader)
 trainer.fit(model, train_dataloader, ckpt_path="hf://buckets/username/my-bucket/checkpoints/last.ckpt")
 ```
 
-Keep logs on local disk: Lightning's default logger appends to files, which `hf://` paths do not support.
-
 ## Inspect AI
 
 [Inspect AI](https://inspect.aisi.org.uk/) can write evaluation logs directly to a bucket — point its log directory at an `hf://buckets/` path (requires `huggingface_hub>=1.6.0`). Create the bucket and authenticate first (Inspect won't create it for you):
