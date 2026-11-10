@@ -25,7 +25,7 @@ Append a suffix to the model id. It works in every client, including tools that 
 
 ## Turn providers on and off
 
-In your [Inference Providers settings](https://hf.co/settings/inference-providers), turn off the providers you don't want. The router never sends your requests to them, and pinning one with a suffix returns an error.
+In your [Inference Providers settings](https://hf.co/settings/inference-providers), turn off the providers you don't want. The router never sends your requests to them, and pinning one with a suffix returns an error. Requests [billed to an organization](./pricing#billing-for-team-and-enterprise-organizations) follow the organization's settings instead of yours.
 
 ## Failover
 

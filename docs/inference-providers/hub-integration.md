@@ -55,4 +55,4 @@ In your [Inference Providers settings](https://huggingface.co/settings/inference
 
 ## Organization Settings
 
-Similar settings can be found in your Organization settings. Additionally, you can see a graph of your team member's usage over time, helpful to centralize usage billing at the team level.
+Similar settings can be found in your Organization settings. They apply to every request [billed to the organization](./pricing#billing-for-team-and-enterprise-organizations), instead of the member's own settings. Additionally, you can see a graph of your team member's usage over time, helpful to centralize usage billing at the team level.
