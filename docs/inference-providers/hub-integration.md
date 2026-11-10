@@ -27,8 +27,8 @@ Several Hugging Face features utilize Inference Providers and count towards your
 Interactive widgets available on model pages (e.g. [deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)). This is the entry point to quickly test a model on the Hub.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden max-w-md" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/widget-openrouter-light.png"/>
-    <img class="hidden dark:block max-w-md" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/widget-openrouter-dark.png"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/widget-select-provider-light.png"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/widget-select-provider-dark.png"/>
 </div>
 
 ### Inference Playground

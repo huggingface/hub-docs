@@ -60,7 +60,7 @@ Replace `deepseek-ai/DeepSeek-V4.1-Flash` with any model available on [Inference
 To override the model for a single run without editing your config, pass `-m`:
 
 ```bash
-codex exec --profile huggingface -m "zai-org/GLM-5.1" "Return OK."
+codex exec --profile huggingface -m "zai-org/GLM-5.3" "Return OK."
 ```
 
 > [!TIP]

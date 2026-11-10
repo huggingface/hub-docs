@@ -10,7 +10,7 @@ Without a suffix, chat requests use [OpenRouter's default routing](https://openr
 - **Speed**: throughput and time to first token, so a faster provider can win the request even at a higher price.
 - **Reliability**: how often the provider fails, returns malformed tool calls, or turns requests away because it's out of capacity.
 
-The measures come from recent traffic, so requests move away from a provider within minutes when it slows down or fails, and come back when it recovers.
+The measures are updated in real time: when a provider slows down or fails, requests move away from it until it recovers.
 
 ## Pick a policy with a suffix
 

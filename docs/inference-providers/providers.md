@@ -1,10 +1,10 @@
 # Providers
 
-Inference Providers sends each request to a provider serving the model. You pay that provider's price with no markup, and you can turn any provider off in your [settings](https://huggingface.co/settings/inference-providers).
+Inference Providers sends each request to a provider serving the model. You pay that provider's price with no markup, and you can turn off the providers listed on this page in your [settings](https://huggingface.co/settings/inference-providers).
 
 ## Language models
 
-Chat, vision and agent requests go through [OpenRouter](https://openrouter.ai), which routes them to these 28 providers. See [Routing and Providers](./routing) to choose how a provider is picked.
+Chat, vision and agent requests go through [OpenRouter](https://openrouter.ai), which routes each one to a provider serving the model, including the ones below. See [Routing and Providers](./routing) to choose how a provider is picked.
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-6">
 <div id="alibaba" class="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-800 px-4 py-3">

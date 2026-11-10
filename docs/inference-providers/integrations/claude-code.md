@@ -51,10 +51,10 @@ Set the following environment variables before launching Claude Code:
 export ANTHROPIC_BASE_URL="https://router.huggingface.co"
 export ANTHROPIC_AUTH_TOKEN="${HF_TOKEN}"
 export ANTHROPIC_API_KEY="${HF_TOKEN}"
-export ANTHROPIC_DEFAULT_OPUS_MODEL="zai-org/GLM-5.1"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="zai-org/GLM-5.1"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="zai-org/GLM-5.1"
-export CLAUDE_CODE_SUBAGENT_MODEL="zai-org/GLM-5.1"
+export ANTHROPIC_DEFAULT_OPUS_MODEL="zai-org/GLM-5.3"
+export ANTHROPIC_DEFAULT_SONNET_MODEL="zai-org/GLM-5.3"
+export ANTHROPIC_DEFAULT_HAIKU_MODEL="zai-org/GLM-5.3"
+export CLAUDE_CODE_SUBAGENT_MODEL="zai-org/GLM-5.3"
 ```
 
 Then start Claude Code:
@@ -63,12 +63,12 @@ Then start Claude Code:
 claude
 ```
 
-Replace `zai-org/GLM-5.1` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `MiniMaxAI/MiniMax-M2.7:fireworks-ai`). Setting an explicit provider gives you deterministic routing, while omitting it (e.g. `MiniMaxAI/MiniMax-M2.7`) uses the [default routing](../routing#default-routing), which balances price, speed and reliability, and automatically fails over if a provider becomes unavailable.
+Replace `zai-org/GLM-5.3` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `zai-org/GLM-5.3:novita`). Setting an explicit provider gives you deterministic routing, while omitting it (e.g. `zai-org/GLM-5.3`) uses the [default routing](../routing#default-routing), which balances price, speed and reliability, and automatically fails over if a provider becomes unavailable.
 
-Available policies are `:cheapest` or `:fastest`; use one of these suffixes to prefer cheaper or faster providers (e.g. `MiniMaxAI/MiniMax-M2.7:cheapest`).
+Available policies are `:cheapest` or `:fastest`; use one of these suffixes to prefer cheaper or faster providers (e.g. `zai-org/GLM-5.3:cheapest`).
 
 > [!TIP]
-> The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed e.g. `zai-org/GLM-5.1` for Opus, `google/gemma-4-31B-it:together` for Sonnet, and `deepseek-ai/DeepSeek-V4.1-Flash:novita` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
+> The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed e.g. `zai-org/GLM-5.3` for Opus, `google/gemma-4-31B-it:deepinfra` for Sonnet, and `deepseek-ai/DeepSeek-V4.1-Flash:novita` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
 
 ### Billing to an Organization
 
