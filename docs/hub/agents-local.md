@@ -32,38 +32,55 @@ Go to [huggingface.co/settings/hardware](https://huggingface.co/settings/hardwar
 
 Browse for [GGUF models compatible with Llama](https://huggingface.co/models?apps=llama-app&sort=trending). Once selected, download the model on your hardware.
 
-### 3. Install and Launch the Llama App
+### 3. Install the Llama App
 
-Downloading and launching the Llama App is as simple as it gets. You can visit the [Llama App](https://llama.app/) website and install the application.
+You can easily install llama.cpp on your machine:
 
-After the application is installed follow the steps to start using your favourite model, recommended for your system.
+- **Mac and Windows**: install the [Llama app](https://llama.app), a minimalist desktop app that sits on your system tray
+     After the application is installed follow the steps to start using your favourite model, recommended for your system.
+     ![llama app](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/decision/llama-app.png)
+- **Linux (or if you only want the command line)**: one-line install command:
+     ```bash
+     curl -LsSf https://llama.app/install.sh | sh
+     ```
 
-![llama app](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/decision/llama-app.png)
-
-You can also install the llama.cpp CLI and serve the models you like. Install it with the following command.
+Verify the installation:
 
 ```bash
-curl -LsSf https://llama.app/install.sh | sh
+llama --version
 ```
 
-> [!NOTE]
-> See the [llama.cpp guide](./gguf-llamacpp) for more installation instructions.
+### 4. Start the router
 
-Launch the llama.cpp server in the router mode.
+If you installed the desktop app, `llama serve` is already running. You can check by browsing the model list on [localhost:9931](http://localhost:9931/#/models).
+
+If not, start `llama serve`. Passing a model starts single-model mode instead of router mode. See the [llama.cpp server guide](https://llama.app/docs/serve#serving-multiple-models-router-mode) for router configuration.
+
+You have two options:
+- Automatic loading: by default, models load on demand.
+- Manual loading: add `--no-models-autoload`, then use `/llama` to load models before selecting them.
+
+For automatic loading, just launch:
 
 ```bash
 llama serve
 ```
 
+In most cases you do not need any extra flags as the defaults should be reasonable. For advanced usage, here are a sample of possible flags you might be interested in:
+
+- `-ngl all` offloads all layers to the GPU. Omit it to use automatic GPU offloading.
+- `-c 32768` sets the context size in tokens. Use `-c 0` for the model's full context window, which may require substantially more memory. Context is shared across parallel server slots.
+- `--models-dir ~/models` discovers local GGUF files from a custom local directory.
+
 While the above command should be all that you need, but here are some common flags to use with `llama serve`:
 
 | Flag | What it does |
 | :--: | :--: |
-| -c, --ctx-size N | Context size in tokens; -c 0 uses the model’s full context window |
-| -ngl, --gpu-layers N | Layers to offload to GPU (auto, all, or a number) |
-| --host, --port | Bind address and port (default 127.0.0.1:9931) |
+| `-ngl all` | offloads all layers to the GPU |
+| `-c 32768` | sets the context size in tokens |
+| `--models-dir ~/models` | discovers local GGUF files from a custom local directory |
 
-### 4. Connect Your Agent
+### 5. Connect Your Agent
 
 Pick one of the agents below and follow the setup instructions.
 
