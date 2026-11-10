@@ -108,21 +108,6 @@ Configure llama.cpp:
 
 Run `/llama` to load a model, then `/model` to select the loaded model for the current session.
 
-### Enabling vision support
-
-For vision-capable models, add `"input": ["text", "image"]` to the model entry in `~/.pi/agent/models.json`:
-
-```json
-"models": [
-  {
-    "id": "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
-    "input": ["text", "image"]
-  }
-]
-```
-
-Browse [vision-language models compatible with Pi](https://huggingface.co/models?pipeline_tag=image-text-to-text&apps=pi).
-
 ## OpenClaw
 
 [OpenClaw](https://github.com/openclaw) works locally with llama.cpp. You can set your model via the onboard command:
