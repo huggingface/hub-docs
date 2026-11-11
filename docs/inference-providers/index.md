@@ -5,7 +5,7 @@
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/Inference-providers-banner-dark.png"/>
 </div>
 
-Inference Providers offers the best open models for text, image, video and audio, ready to call from your app or your coding agent, at the provider's price with no markup. Language models are powered by [OpenRouter](https://openrouter.ai), the unified interface for LLMs trusted by millions: each request goes to a provider serving the model, and switches to another one automatically if it's down or rate limited.
+Inference Providers offers the best open models for text, image, video and audio, ready to call from your app or your coding agent, at the provider's price with no markup. Routing is powered by [OpenRouter](https://openrouter.ai), the unified interface for LLMs trusted by millions: each request goes to a provider serving the model, and switches to another one automatically if it's down or rate limited.
 
 One Hugging Face token gives you the whole stack: [storage](https://huggingface.co/storage), compute with [Jobs](https://huggingface.co/docs/hub/jobs-overview), dedicated inference with [Inference Endpoints](https://huggingface.co/docs/inference-endpoints) and serverless inference with Inference Providers. PRO, Team and Enterprise include monthly credits to spend on compute and inference.
 
@@ -109,7 +109,7 @@ hf auth login # get a read token from hf.co/settings/tokens
 
 You can now use the client with a Python interpreter.
 
-By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
+The [default routing](./routing#default-routing) balances price, speed and reliability across the providers serving the model.
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
@@ -140,7 +140,7 @@ print(completion.choices[0].message)
 
 If you're already using OpenAI's Python client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
+The [default routing](./routing#default-routing) balances price, speed and reliability across the providers serving the model.
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
@@ -172,7 +172,7 @@ completion = client.chat.completions.create(
 
 For maximum control and interoperability with custom frameworks, use our OpenAI-compatible REST API directly.
 
-By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
+The [default routing](./routing#default-routing) balances price, speed and reliability across the providers serving the model.
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
@@ -220,7 +220,7 @@ npm install @huggingface/inference
 
 Then use the client with JavaScript.
 
-By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
+The [default routing](./routing#default-routing) balances price, speed and reliability across the providers serving the model.
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
@@ -250,7 +250,7 @@ console.log(chatCompletion.choices[0].message);
 
 If you're already using OpenAI's JavaScript client, then you need a **drop-in OpenAI replacement**. Just swap-out the base URL to instantly access hundreds of additional open-weights models through our provider network.
 
-By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
+The [default routing](./routing#default-routing) balances price, speed and reliability across the providers serving the model.
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
@@ -283,7 +283,7 @@ console.log(completion.choices[0].message.content);
 
 For lightweight applications or custom implementations, use our REST API directly with standard fetch.
 
-By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
+The [default routing](./routing#default-routing) balances price, speed and reliability across the providers serving the model.
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
@@ -322,7 +322,7 @@ console.log(await response.json());
 
 For testing, debugging, or integrating with any HTTP client, here's the raw REST API format.
 
-By default, requests use the [default routing](./routing#default-routing), which balances price, speed and reliability across the providers serving the model.
+The [default routing](./routing#default-routing) balances price, speed and reliability across the providers serving the model.
 
 You can change the provider selection policy by appending a policy suffix to the model id: `:fastest` for the highest throughput, or `:cheapest` for the lowest price. For example, `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`.
 
@@ -463,7 +463,7 @@ result = client.chat_completion(
 
 **Provider Selection Policy:**
 
-- `provider: "auto"` (default): Uses the [default routing](./routing#default-routing), which balances price, speed and reliability.
+- `provider: "auto"` (default): [Default routing](./routing#default-routing), which balances price, speed and reliability.
 - `provider: "specific-provider"`: Forces use of a specific provider (e.g., "together", "replicate", "fal-ai", ...).
 
 ### Alternative: OpenAI-Compatible Chat Completions Endpoint (Chat Only)

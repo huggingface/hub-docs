@@ -51,7 +51,7 @@ Converts text to SQL queries on dataset pages (e.g. [open-r1/codeforces-cots](ht
 
 ## User Settings
 
-In your [Inference Providers settings](https://huggingface.co/settings/inference-providers), turn off any provider you don't want to use. The router never sends your requests to a provider you turned off, and pinning it with a suffix returns an error.
+In your [Inference Providers settings](https://huggingface.co/settings/inference-providers), you can turn off any provider you don't want to use. The router never sends your requests to a provider you turned off, and pinning it with a suffix returns an error.
 
 ## Organization Settings
 

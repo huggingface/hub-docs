@@ -26,6 +26,8 @@ curl https://router.huggingface.co/v1/chat/completions \
     -d '{ "model": "deepseek-ai/DeepSeek-V4.1-Flash", "messages": [...] }'
 ```
 
+The Hugging Face [Python](https://huggingface.co/docs/huggingface_hub/guides/inference) and [JS](https://huggingface.co/docs/huggingface.js/inference/README) clients handle caching for you automatically, no action or configuration needed.
+
 ## Tips
 
 - Put what doesn't change first (system prompt, tools), and what changes last.

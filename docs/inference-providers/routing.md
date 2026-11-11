@@ -4,7 +4,7 @@ Every request goes through the Hugging Face router, which handles authentication
 
 ## Default routing
 
-Without a suffix, chat requests use [OpenRouter's default routing](https://openrouter.ai/blog/announcements/how-we-rebuilt-provider-routing/). For each request, it compares what a good answer costs at each provider serving the model:
+Without a suffix, chat requests use [OpenRouter's default routing](https://openrouter.ai/blog/announcements/how-we-rebuilt-provider-routing/). For each request, it compares the cost of a good answer from each provider serving the model:
 
 - **Effective price**: what the provider actually charges, with its real cache hit rate and the model's usual mix of input and output tokens, not just the list price.
 - **Speed**: throughput and time to first token, so a faster provider can win the request even at a higher price.
@@ -25,7 +25,7 @@ Append a suffix to the model id. It works in every client, including tools that 
 
 ## Turn providers on and off
 
-In your [Inference Providers settings](https://hf.co/settings/inference-providers), turn off the providers you don't want. The router never sends your requests to them, and pinning one with a suffix returns an error. Requests [billed to an organization](./pricing#billing-for-team-and-enterprise-organizations) follow the organization's settings instead of yours.
+In your [Inference Providers settings](https://hf.co/settings/inference-providers), you can turn off the providers you don't want. The router never sends your requests to them, and pinning one with a suffix returns an error. Requests [billed to an organization](./pricing#billing-for-team-and-enterprise-organizations) follow the organization's settings instead of yours.
 
 ## Failover
 

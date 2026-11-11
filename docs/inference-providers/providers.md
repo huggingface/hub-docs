@@ -85,9 +85,14 @@ Chat, vision and agent requests go through [OpenRouter](https://openrouter.ai), 
 </div>
 </div>
 
+
+### Which providers serve a language model
+
+A model's page on the Hub lists its providers. To compare their price, speed and context length, use the [models page](https://huggingface.co/inference/models) or `GET https://router.huggingface.co/v1/models` (see [Hub API](./hub-api#list-openai-compatible-models)).
+
 ## Image, video, audio, embeddings and more
 
-Other tasks go to these providers through the [Hugging Face SDKs](./tasks/index). Each link lists the models a provider serves on the Hub.
+Other tasks go to the following providers through the [Hugging Face SDKs](./tasks/index). Each link lists the models a provider serves on the Hub. The list of providers is also available on each model's page.
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-6">
 <div id="fal-ai" class="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-gray-800 px-4 py-3">
@@ -107,7 +112,3 @@ Other tasks go to these providers through the [Hugging Face SDKs](./tasks/index)
 <div class="min-w-0"><h3 class="!m-0 !text-base font-semibold">WaveSpeed</h3><div class="text-sm text-gray-500"><a href="https://huggingface.co/models?inference_provider=wavespeed&sort=trending">Image and video</a> · <a href="https://huggingface.co/wavespeed">On the Hub</a></div></div>
 </div>
 </div>
-
-## Which providers serve a model
-
-A model's page on the Hub lists its providers. To compare their price, speed and context length, use the [models page](https://huggingface.co/inference/models) or `GET https://router.huggingface.co/v1/models` (see [Hub API](./hub-api#list-openai-compatible-models)).

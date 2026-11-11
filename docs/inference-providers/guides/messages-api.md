@@ -4,7 +4,7 @@ The Messages API (from Anthropic) lets you call Inference Providers with the Ant
 
 ## Prerequisites
 
-- A Hugging Face account with remaining Inference Providers credits (purchased, or included with PRO, Team, or Enterprise).
+- A Hugging Face account with compute credits (purchased, or included with PRO, Team, or Enterprise).
 - A fine-grained [Hugging Face token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) with the "Make calls to Inference Providers" permission, stored in `HF_TOKEN`.
 
 ## Configure your client
