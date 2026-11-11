@@ -32,6 +32,8 @@ Go to [huggingface.co/settings/hardware](https://huggingface.co/settings/hardwar
 
 Browse for [GGUF models compatible with Llama](https://huggingface.co/models?apps=llama-app&sort=trending). Once selected, download the model on your hardware.
 
+If you need inspiration, the Llama app will suggest a few models adapted to your hardware device (see Step 3).
+
 ### 3. Install the Llama App
 
 You can easily install llama.cpp on your machine:
