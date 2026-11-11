@@ -336,7 +336,7 @@ model_trainer = ModelTrainer(
 
 ## Git repository
 
-The v2 `git_config` parameter is not available in `ModelTrainer`. To run a training script that lives in a GitHub repository (such as the [🤗 Transformers example scripts](https://github.com/huggingface/transformers/tree/main/examples)), clone the repository locally first and point `source_dir`/`entry_script` at the checked-out files. Choose a branch that matches the Transformers version of your training image.
+The v2 `git_config` parameter is not available in `ModelTrainer`. To run a training script that lives in a GitHub repository (such as the [🤗 Transformers example scripts](https://github.com/huggingface/transformers/tree/v5.10.0/examples/pytorch)), clone the repository locally first and point `source_dir`/`entry_script` at the checked-out files. Choose a branch that matches the Transformers version of your training image.
 
 > [!TIP]
 > Save your model to S3 by setting `output_dir=/opt/ml/model` in the hyperparameters of your training script.
