@@ -109,6 +109,8 @@ Enterprise organizations with [Resource Groups](/docs/hub/security-resource-grou
 
 Team & Enterprise organizations receive a pool of free usage credits based on the number of seats in the subscription. Inference Providers usage can be tracked on the organization's billing page. Team & Enterprise organization administrators can also set a spending limit and disable a set of Inference Providers from the organization's settings.
 
+When a request is billed to an organization, the providers enabled or disabled in the organization's settings apply instead of the requesting user's personal settings. For example, if an organization disables a provider, requests billed to that organization will not be routed to it, even if the user has it enabled in their own settings. Explicitly requesting a provider that is disabled by the organization returns an error.
+
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-light.png"/>
     <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/enterprise-org-settings-dark.png"/>
