@@ -7,6 +7,73 @@ The Messages API (from Anthropic) lets you call Inference Providers with the Ant
 - A Hugging Face account with compute credits (purchased, or included with PRO, Team, or Enterprise).
 - A fine-grained [Hugging Face token](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained) with the "Make calls to Inference Providers" permission, stored in `HF_TOKEN`.
 
+## Use it with Claude Code
+
+Claude Code talks to the Messages API, so any chat model on Inference Providers can back it. See [Claude Code](../integrations/claude-code) for the setup.
+
+## Use it with the Claude Agent SDK
+
+The Claude Agent SDK ([Python](https://github.com/anthropics/claude-agent-sdk-python), [TypeScript](https://github.com/anthropics/claude-agent-sdk-typescript)) lets you build agents with Claude Code's agent loop and tools, such as reading files and running commands. Unlike the Anthropic SDK below, which sends one request at a time, it runs the whole loop for you. Install it (`pip install claude-agent-sdk` or `npm install @anthropic-ai/claude-agent-sdk`), then point it at the router in `env` and pick a model:
+
+<hfoptions id="messages-agent-sdk">
+
+<hfoption id="python">
+
+```python
+import asyncio
+import os
+
+from claude_agent_sdk import ClaudeAgentOptions, ResultMessage, query
+
+options = ClaudeAgentOptions(
+    model="deepseek-ai/DeepSeek-V4.1-Flash",
+    env={
+        "ANTHROPIC_BASE_URL": "https://router.huggingface.co",
+        "ANTHROPIC_AUTH_TOKEN": os.environ["HF_TOKEN"],
+    },
+    allowed_tools=["Read", "Glob", "Grep"],
+)
+
+
+async def main():
+    async for message in query(prompt="What does this project do? Answer in two sentences.", options=options):
+        if isinstance(message, ResultMessage):
+            print(message.result)
+
+
+asyncio.run(main())
+```
+
+</hfoption>
+
+<hfoption id="typescript">
+
+```ts
+import { query } from "@anthropic-ai/claude-agent-sdk";
+
+for await (const message of query({
+  prompt: "What does this project do? Answer in two sentences.",
+  options: {
+    model: "deepseek-ai/DeepSeek-V4.1-Flash",
+    // `env` replaces the whole environment, so keep `process.env`
+    env: {
+      ...process.env,
+      ANTHROPIC_BASE_URL: "https://router.huggingface.co",
+      ANTHROPIC_AUTH_TOKEN: process.env.HF_TOKEN,
+    },
+    allowedTools: ["Read", "Glob", "Grep"],
+  },
+})) {
+  if (message.type === "result" && message.subtype === "success") {
+    console.log(message.result);
+  }
+}
+```
+
+</hfoption>
+
+</hfoptions>
+
 ## Configure your client
 
 Install the Anthropic SDK (`pip install anthropic` for Python or `npm install @anthropic-ai/sdk` for Node.js), then point it at `https://router.huggingface.co`. Pass your token as `auth_token` (`authToken` in TypeScript): the router expects an `Authorization: Bearer` header and doesn't accept `x-api-key`.
@@ -154,7 +221,3 @@ response = client.messages.create(
 )
 print(next(block.text for block in response.content if block.type == "text"))
 ```
-
-## Use it with Claude Code
-
-Claude Code talks to the Messages API, so any chat model on Inference Providers can back it. See [Claude Code](../integrations/claude-code) for the setup.
