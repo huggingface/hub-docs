@@ -4,7 +4,7 @@
 
 ## Overview
 
-Claude Code supports custom API endpoints via environment variables. By setting `ANTHROPIC_BASE_URL` to the Hugging Face router and providing your HF token, all Claude Code requests are routed through Inference Providers, giving you access to a wide range of open models. The router accepts Claude Code's [Anthropic-format requests](../guides/messages-api) for every chat model, whatever the provider serving it, so any open model can back Claude Code.
+Claude Code supports custom API endpoints via environment variables. By setting `ANTHROPIC_BASE_URL` to the Hugging Face router and providing your HF token, all Claude Code requests are routed through Inference Providers, giving you access to a wide range of open models. The router accepts Claude Code's [Anthropic-format requests](../guides/messages-api) for every chat model so any open model can back Claude Code.
 
 ## Prerequisites
 
@@ -51,6 +51,7 @@ Set the following environment variables before launching Claude Code:
 export ANTHROPIC_BASE_URL="https://router.huggingface.co"
 export ANTHROPIC_AUTH_TOKEN="${HF_TOKEN}"
 export ANTHROPIC_API_KEY="${HF_TOKEN}"
+export ANTHROPIC_DEFAULT_FABLE_MODEL="zai-org/GLM-5.3"
 export ANTHROPIC_DEFAULT_OPUS_MODEL="zai-org/GLM-5.3"
 export ANTHROPIC_DEFAULT_SONNET_MODEL="zai-org/GLM-5.3"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="zai-org/GLM-5.3"
@@ -68,7 +69,7 @@ Replace `zai-org/GLM-5.3` with any model available on [Inference Providers](http
 Available policies are `:cheapest` or `:fastest`; use one of these suffixes to prefer cheaper or faster providers (e.g. `zai-org/GLM-5.3:cheapest`).
 
 > [!TIP]
-> The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed e.g. `zai-org/GLM-5.3` for Opus, `google/gemma-4-31B-it:deepinfra` for Sonnet, and `deepseek-ai/DeepSeek-V4.1-Flash:novita` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
+> The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Fable, Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed e.g. `zai-org/GLM-5.3` for Opus, `google/gemma-4-31B-it:deepinfra` for Sonnet, and `deepseek-ai/DeepSeek-V4.1-Flash:novita` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
 
 ### Billing to an Organization
 
