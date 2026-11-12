@@ -21,7 +21,7 @@ Append a suffix to the model id. It works in every client, including tools that 
 | `deepseek-ai/DeepSeek-V4.1-Flash` | [Default routing](#default-routing): the best mix of price, speed and reliability |
 | `deepseek-ai/DeepSeek-V4.1-Flash:fastest` | Highest throughput, in tokens per second |
 | `deepseek-ai/DeepSeek-V4.1-Flash:cheapest` | Lowest price |
-| `deepseek-ai/DeepSeek-V4.1-Flash:novita` | Only Novita, or an error if it doesn't serve the model |
+| `deepseek-ai/DeepSeek-V4.1-Flash:novita` | Only Novita, or an error if it doesn't serve the model. Each provider's suffix is listed in [Providers](./providers) |
 
 ## Turn providers on and off
 
