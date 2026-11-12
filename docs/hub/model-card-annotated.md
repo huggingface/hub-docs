@@ -174,6 +174,13 @@ _Write 1-2 sentences on what the training data is. Ideally this links to a Datas
 
 _Detail tokenization, resizing/rewriting (depending on the modality), etc._
 
+### Training Hyperparameters
+
+
+`training_regime`
+
+_The training regime, i.e. the numerical precision the model was actually trained with: `fp32`, `fp16` mixed precision, `bf16` mixed precision, `bf16` non-mixed precision, `fp16` non-mixed precision, or `fp8` mixed precision. This affects training speed and memory footprint, and in some cases the numerical stability of results, so it's useful for anyone trying to reproduce training or understand its resource requirements._
+
 ### Speeds, Sizes, Times
 
 
