@@ -30,9 +30,16 @@ A service account's access to your organization is defined entirely by the fine-
 Permissions can be granted at two levels:
 
 - **Organization-wide** — apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
-- **Per-repository** — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. Selected repositories must be owned by the organization or be public.
+- **Per-repository** — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. You can select repositories owned by the organization, and gated repositories outside the organization that the service account has been granted access to.
 
 This lets you issue narrowly scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
+
+Tokens can also be allowed to work with [gated repositories](./models-gated) outside of your organization, under the **Gated repositories** section of the token form:
+
+- **Read contents of gated repos the service account has access to** — read gated repos once the service account has been granted access.
+- **Request access to gated repos** — let the token submit access requests to gated repos on behalf of the service account.
+
+To give a token access to only some of those gated repositories, leave **Read contents of gated repos the service account has access to** unchecked and select them individually under the per-repository permissions instead.
 
 <div class="flex justify-center">
   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
