@@ -80,6 +80,14 @@ If you only need access from a CI/CD workflow (GitHub Actions, GitLab CI, Circle
 
 If your organization needs to programmatically issue tokens for members without requiring each user to create their own token, see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature is ideal for building internal platforms, CI/CD pipelines, or custom integrations that need to access Hugging Face resources on behalf of organization members.
 
+## Expiration of unused tokens
+
+To limit the risk posed by forgotten credentials, access tokens are automatically expired after not being used for a year. The one-year period starts from the token's creation or last refresh, whichever is more recent, and restarts every time the token is used.
+
+About a month before a token expires, you receive an email listing the affected tokens and their expiration dates, and the token is shown with an **Expires** badge in the [Access Tokens tab](https://huggingface.co/settings/tokens) of your settings. Using or refreshing the token before that date keeps it active.
+
+Once expired, the token is shown with an **Invalidated** badge and stops working. Refresh it to start using it again.
+
 ## Revoking a leaked token
 
 If one of your own tokens has leaked, delete or refresh it from the [Access Tokens tab](https://huggingface.co/settings/tokens) of your settings.

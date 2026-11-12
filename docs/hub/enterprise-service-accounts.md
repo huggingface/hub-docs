@@ -55,6 +55,8 @@ From the service account's page, administrators can:
 
 Service account tokens don't need approval under the ["Require administrator approval"](./enterprise-tokens-management#token-policy) token policy. They can access your organization's resources as soon as they're created.
 
+Like personal access tokens, service account tokens [expire after not being used for a year](./security-tokens#expiration-of-unused-tokens). Organization admins are notified by email about a month before a service account token expires, and the token is shown with an **Expires** badge on the service account's page. Using or rotating the token before that date keeps it active. Expired tokens are shown with an **Invalidated** badge and must be rotated to work again.
+
 > [!WARNING]
 > An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.
 
