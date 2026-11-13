@@ -22,6 +22,7 @@ Here is a partial list of libraries and applications that use this cache layout.
 | [`Llama-macOS`](https://github.com/ggml-org/Llama-macOS) | Swift | macOS app, built on `llama.cpp` |
 | [`HuggingFaceModelDownloader`](https://github.com/bodaay/HuggingFaceModelDownloader) | Go | |
 | [`oMLX`](https://github.com/jundot/omlx) | Python | macOS MLX inference server, Since [v0.4.0](https://github.com/jundot/omlx/commit/341aebbeaba1ca3452f83dedf03a0d102cef9fd4) |
+| [`Rapid-MLX`](https://github.com/raullenchai/Rapid-MLX) | Python | Local LLM inference server for Apple Silicon, built on MLX; uses the Hub cache via `huggingface_hub` |
 
 ## Cache location
 
