@@ -13,17 +13,19 @@ Throughout this guide, we use `my-org` as an example organization name.
 
 [SSO](./security-sso-basic) must already be configured, tested and enabled on your organization. The migration reuses your existing OIDC or SAML application.
 
+SSO must be **enforced**, not optional. The conversion doesn't change this setting, so switch SSO to enforced before requesting the conversion.
+
 ## Migration steps
 
 1. **Prepare your members.** Go through the [pre-migration checklist](#before-you-migrate) with your members.
 2. **Contact Hugging Face.** Get in touch with the Hugging Face team and confirm the switch. We convert the organization and send you the credentials for the `my-org:owner` break-glass account.
-3. **Have members free up their work emails.** See [Freeing up work email addresses](#freeing-up-work-email-addresses). Do this before enabling provisioning: users already assigned to your SSO application are provisioned as soon as SCIM is turned on. The Hugging Face team can send you the list of members whose personal accounts still hold a work email address, so you can follow up with them.
+3. **Have members free up their work emails.** See [Freeing up work email addresses](#freeing-up-work-email-addresses). Do this before enabling provisioning: users already assigned to your SSO application are provisioned as soon as SCIM is turned on. The Hugging Face team can send you the list of members whose personal accounts still hold a work email address, so you can follow up with them. Once every member has freed their email, enable provisioning so everyone is provisioned in a single pass.
 4. **Set up SCIM in your IdP.** Use the SCIM Tenant URL and token from your organization's **SSO → SCIM** settings, in your existing OIDC or SAML application, then follow the guide for your IdP.
-   - **Okta**: follow the [Okta guide](./security-sso-okta-scim), including [Step 3](./security-sso-okta-scim#step-3-check-your-saml-settings). The Name ID must be the Okta user ID.
+   - **Okta**: follow the [Okta guide](./security-sso-okta-scim). If your application uses SAML, also check [Step 3](./security-sso-okta-scim#step-3-check-your-saml-settings): the Name ID must be the Okta user ID.
    - **Microsoft Entra ID**: follow the [Entra ID guide](./security-sso-entra-id-scim). The `userName` must follow the [username rules](./security-sso-entra-id-scim#step-4-configure-attribute-mappings), so email-style values such as `jdoe@example.com` are rejected.
    - **Other IdPs**: see [User Provisioning (SCIM)](./enterprise-scim), with the same username rules.
 5. **Assign users and groups in your IdP.** Managed accounts are created as users are provisioned.
-6. **Remove leftover personal accounts from the organization** as soon as each member's managed account is provisioned. This step is required for security, since [personal accounts keep access](#existing-personal-accounts-in-the-organization) until they are removed. Removing them also removes them from the organization's Resource Groups.
+6. **Remove leftover personal accounts from the organization** as soon as each member's managed account is provisioned. This step is required for security, since [personal accounts keep access through tokens, OAuth apps and SSH](#existing-personal-accounts-in-the-organization) until they are removed. Removing them also removes them from the organization's Resource Groups.
 7. **(Optional) Map groups to Resource Groups and roles.** [Link your SCIM groups to Resource Groups](./enterprise-scim#linking-a-scim-group-to-a-resource-group), and set up [Role Mapping](./security-sso-user-management#role-mapping) to assign organization roles from your IdP. A Resource Group can only be linked to a SCIM group if it has no members and auto-join is turned off. If auto-join is on, newly provisioned managed accounts are added to the group too, so turn it off before provisioning users, or remove any remaining members before linking.
 
 ## What changes
@@ -52,11 +54,13 @@ Throughout this guide, we use `my-org` as an example organization name.
 
 ### Existing personal accounts in the organization
 
-Personal accounts that are still members of the organization after the conversion keep their role. Their access tokens, OAuth apps they already authorized, and git over SSH keep working, because these aren't checked against SSO. They can't start a new SSO login to the organization anymore:
+Personal accounts that are still members of the organization after the conversion keep their role, but lose browser access to the organization. They can't start a new SSO login to the organization anymore:
 
 - If the user is signed in with their personal account, or that account was already linked to your IdP, they see:
   `You cannot login with SSO with this account because it's not managed by this organization. Contact your organization administrators.`
 - Otherwise, they see `User not found`.
+
+Existing SSO sessions last until they expire (7 days by default). Access tokens, OAuth apps they already authorized, and git over SSH keep working until the account is removed from the organization, because these aren't checked against SSO.
 
 ## Before you migrate
 
@@ -65,7 +69,8 @@ Go through this checklist with your members before requesting the conversion:
 - **Personal repositories**: members who have repositories in their personal namespace that they want to keep accessing with their new managed account should [transfer them](./repositories-settings#renaming-or-transferring-a-repo) to the organization before the switch. Managed accounts can't own content in a personal namespace. Members will still be able to access any repositories under their personal namespace through their personal (non-managed) account.
 - **Tokens and automation**: tokens from personal accounts keep their access to the organization until the account is removed from it. Migrate scripts, CI jobs and pipelines to [service accounts](./enterprise-service-accounts), or to tokens created from the managed accounts after the switch, then remove the old accounts.
 - **Other organizations**: managed accounts can't join other organizations. Members who need to keep working in other organizations should keep a separate personal account (see [option 2](#option-2-keep-the-personal-account) below).
-- **Work email addresses**: every member must free up their work email before they are provisioned. See [Freeing up work email addresses](#freeing-up-work-email-addresses).
+- **SSO sign-in**: every member signs in to the organization through SSO once before the conversion. This links their personal account to your IdP, so that removing their work email later doesn't remove them from the organization before their managed account exists.
+- **Work email addresses**: members [free up their work email](#freeing-up-work-email-addresses) after the conversion, once you're ready to set up SCIM. For now, have each member choose whether they'll delete or keep their personal account.
 
 ## Freeing up work email addresses
 
@@ -79,10 +84,11 @@ The email address (jdoe@example.com) is already associated with another Hugging 
 
 Your IdP shows this as a provisioning error for that user.
 
-To avoid this, each member must free up their work email address **before** they are provisioned, using one of the two options below.
+To avoid this, each member must free up their work email address **before** they are provisioned, using one of the two options below. Members do this after the conversion, when the admin asks them to ([step 3](#migration-steps)), not before.
 
 > [!TIP]
 > **Which option should I choose?**
+>
 > - If you only use your Hugging Face account for work in this organization, choose **option 1**: delete the personal account.
 > - If you also use it for open-source work, personal projects or other organizations, choose **option 2**: keep the personal account and remove the work email from it.
 
@@ -99,6 +105,10 @@ Deletion is blocked if you are the only admin of another organization. Add anoth
 
 1. In your [account settings](https://huggingface.co/settings/account), add a personal email address and verify it.
 2. Make the personal email address your primary email.
+
+> [!WARNING]
+> Removing your work email removes your personal account from the organization right away, including access through access tokens, unless your personal account was linked to your organization's SSO before the conversion. It's linked if you signed in to the organization through SSO at least once. After the conversion, personal accounts can't sign in through SSO anymore, so they can't link. If you didn't sign in through SSO before the conversion, expect to lose access to the organization as soon as you remove the work email, until your managed account is provisioned.
+
 3. **Remove the work email address completely.** Making it a secondary email is not enough.
 
 Keep your personal account in the organization until your managed account is provisioned. Your admin removes it then.
@@ -106,7 +116,7 @@ Keep your personal account in the organization until your managed account is pro
 > [!NOTE]
 > If your organization already has Managed SSO enabled and has a [verified email domain](./organizations-managing#organization-domain-name), logging in with an email address on that domain redirects you to the organization's SSO page. To log in to your personal account, use your username instead.
 
-Once the work email is free, the admin can retry provisioning for that user in the IdP, or wait for the next sync to pick it up.
+For any member who freed their work email after provisioning was enabled, retry provisioning for that user in your IdP.
 
 ## After the migration
 
