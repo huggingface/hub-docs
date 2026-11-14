@@ -122,6 +122,14 @@ If you have a PRO, Team, or Enterprise subscription, the credits included with y
 
 A. We recommend enabling automatic recharge to avoid service disruptions after credits are exhausted.
 
+**Q. Do my credits expire?**
+
+A. Yes. Purchased and granted credits have an expiry date, and any unused amount is removed from your balance when they expire. The credits included monthly with your PRO, Team, or Enterprise subscription are credited again each month instead.
+
+The **Credits** card in your billing dashboard (in your user's or organization's settings) shows when your next balance is about to expire. If you have several balances, hover over the info icon next to the expiry date to see each purchased and granted balance along with its expiry date.
+
+You'll also receive an email reminder (sent to organization admins for organizations) before your credits expire. If automatic recharge is enabled, keep in mind that expiring credits lower your balance and can trigger a recharge on your payment method.
+
 **Q. I'm having issues adding my card. What’s up?**
 
 A. Please ensure the card supports 3D-secure authentication and is properly configured for recurring online payments. We do not yet support credit cards issued in India as we’re working on adding system compliance with the latest RBI directives. Until we add support for Indian credit cards, you can:
