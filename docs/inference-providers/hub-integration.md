@@ -24,11 +24,11 @@ Several Hugging Face features utilize Inference Providers and count towards your
 
 ### Inference Widgets
 
-Interactive widgets available on model pages (e.g. [deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)). This is the entry point to quickly test a model on the Hub.
+Interactive widgets available on model pages (e.g. [deepseek-ai/DeepSeek-V4.1-Flash-1017](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)). This is the entry point to quickly test a model on the Hub: chat with it, compare the providers serving it in the **Providers** tab, and see the best price, speed and uptime in the **Metrics** tab.
 
 <div class="flex justify-center">
-    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/widget-select-provider-light.png"/>
-    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/inference-providers/widget-select-provider-dark.png"/>
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/inference-providers-openrouter/widget-playground@2x.gif" alt="Chatting with a model in the model page widget, then opening its Providers and Metrics tabs"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/inference-providers-openrouter/widget-playground-dark@2x.gif" alt="Chatting with a model in the model page widget, then opening its Providers and Metrics tabs"/>
 </div>
 
 ### Inference Playground
