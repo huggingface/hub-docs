@@ -71,7 +71,7 @@ curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
 
 ### Response Structure
 
-Each row of the CSV holds the traffic of one blog post on one day:
+Each row of the CSV holds the traffic of one blog post on one day. Days without any traffic are omitted, so a post with no views at all does not appear in the export:
 
 ```csv
 blogTitle,blogUrl,publishedAt,date,humanViews,humanVisitors,agentViews
@@ -85,7 +85,7 @@ blogTitle,blogUrl,publishedAt,date,humanViews,humanVisitors,agentViews
 - `date`: Day the traffic was recorded (`YYYY-MM-DD`)
 - `humanViews`: Number of page views from people on that day
 - `humanVisitors`: Number of unique visitors on that day
-- `agentViews`: Number of page views from AI agents on that day. Agent views are only counted since June 2026, so this column is empty for earlier days.
+- `agentViews`: Number of page views from AI agents on that day. `0` means no agent viewed the post that day, while an empty value means no agent data is available: agent views are only counted since June 6, 2026.
 
 > [!NOTE]
 > Unique visitors are counted per day, so they should not be summed across days to get a total number of unique visitors.
