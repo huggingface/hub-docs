@@ -23,6 +23,8 @@ When creating a service account, you provide:
 
 Service accounts do not have a password and cannot sign in interactively — they are accessed exclusively through the access tokens you issue for them. Unlike regular users, they also don't have an HF profile page, aren't part of the organization's member list, and are managed only through the **Service Accounts** settings.
 
+Service accounts cannot be added to [Resource Groups](./security-resource-groups), including through auto-join. To limit which repositories a service account can reach, scope its access tokens instead (see below).
+
 ## Managing Access Tokens
 
 A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
