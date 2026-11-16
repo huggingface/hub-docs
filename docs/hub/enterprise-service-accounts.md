@@ -23,6 +23,8 @@ When creating a service account, you provide:
 
 Service accounts do not have a password and cannot sign in interactively — they are accessed exclusively through the access tokens you issue for them. Unlike regular users, they also don't have an HF profile page, aren't part of the organization's member list, and are managed only through the **Service Accounts** settings.
 
+Service accounts cannot be added to [Resource Groups](./security-resource-groups), including through auto-join. To limit which repositories a service account can reach, scope its access tokens instead (see below).
+
 ## Managing Access Tokens
 
 A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
@@ -30,9 +32,16 @@ A service account's access to your organization is defined entirely by the fine-
 Permissions can be granted at two levels:
 
 - **Organization-wide** — apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
-- **Per-repository** — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. Selected repositories must be owned by the organization or be public.
+- **Per-repository** — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. You can select repositories owned by the organization, and gated repositories outside the organization that the service account has been granted access to.
 
 This lets you issue narrowly scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
+
+Tokens can also be allowed to work with [gated repositories](./models-gated) outside of your organization, under the **Gated repositories** section of the token form:
+
+- **Read contents of gated repos the service account has access to** — read gated repos once the service account has been granted access.
+- **Request access to gated repos** — let the token submit access requests to gated repos on behalf of the service account.
+
+To give a token access to only some of those gated repositories, leave **Read contents of gated repos the service account has access to** unchecked and select them individually under the per-repository permissions instead.
 
 <div class="flex justify-center">
   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
@@ -47,6 +56,8 @@ From the service account's page, administrators can:
 - **Delete** a token to permanently revoke its access.
 
 Service account tokens don't need approval under the ["Require administrator approval"](./enterprise-tokens-management#token-policy) token policy. They can access your organization's resources as soon as they're created.
+
+Like personal access tokens, service account tokens [expire after a year without use](./security-tokens#expiration-of-unused-tokens). Organization admins get an email 30 days before, and the token shows an **Expires** badge on the service account's page. To keep the token, use it before that date. Expired tokens show an **Invalidated** badge and stop working. Rotate them to get a new value, which you'll then need to update wherever the token is used.
 
 > [!WARNING]
 > An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.

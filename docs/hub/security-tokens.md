@@ -11,7 +11,7 @@ User Access Tokens are the preferred way to authenticate an application or noteb
 
 Access tokens allow applications and notebooks to perform specific actions specified by the scope of the roles shown in the following:
 
-- `fine-grained`: tokens with this role can be used to provide fine-grained access to specific resources, such as a specific model or models in a specific organization. This type of token is useful in production environments, as you can use your own token without sharing access to all your resources.
+- `fine-grained`: tokens with this role can be used to provide fine-grained access to specific resources, such as a specific model or models in a specific organization. This type of token is useful in production environments, as you can use your own token without sharing access to all your resources. To request access to [gated repositories](./models-gated) through the API, use a fine-grained token with the **Request access to gated repos** permission. `read` tokens can't be used to submit access requests.
 
 - `read`: tokens with this role can only be used to provide read access to repositories you could read. That includes public and private repositories that you, or an organization you're a member of, own. Use this role if you only need to read content from the Hugging Face Hub (e.g. when downloading private models or doing inference).
 
@@ -79,6 +79,14 @@ If you only need access from a CI/CD workflow (GitHub Actions, GitLab CI, Circle
 ### For Enterprise organizations
 
 If your organization needs to programmatically issue tokens for members without requiring each user to create their own token, see [OAuth Token Exchange](./oauth#token-exchange-for-organizations-rfc-8693). This Enterprise plan feature is ideal for building internal platforms, CI/CD pipelines, or custom integrations that need to access Hugging Face resources on behalf of organization members.
+
+## Expiration of unused tokens
+
+Access tokens that haven't been used for a year expire automatically, to limit the risk of forgotten tokens. Each use of a token resets this one-year countdown.
+
+You'll get an email 30 days before a token expires, and the token will show an **Expires** badge in your [Access Tokens settings](https://huggingface.co/settings/tokens). To keep it, use it before that date.
+
+Expired tokens show an **Invalidated** badge and stop working. You can refresh them at any time to get a new value, which you'll then need to update wherever the token is used.
 
 ## Revoking a leaked token
 

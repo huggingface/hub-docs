@@ -1,8 +1,26 @@
 # Local Agents with llama.cpp
 
-You can run a coding agent entirely on your own hardware. Several open-source agents can connect to a local [llama.cpp](https://github.com/ggerganov/llama.cpp) server to give you an experience similar to Claude Code or Codex — but everything runs on your machine.
+You can run a coding agent locally, entirely on your own hardware. Several open-source agents can connect to a local [llama.cpp](https://llama.app/) server to give you an experience similar to Claude Code or Codex — but everything runs on your machine.
 
-## Getting Started
+## How It Works
+
+The setup has two components running locally:
+
+1. **llama.cpp server** — Serves the model as an OpenAI-compatible API on `localhost`.
+2. **Your agent** — Sends prompts to the local server, reasons about tasks, and executes actions.
+
+```shell
+┌─────────┐     API calls     ┌───────────────────┐
+│  Agent  │ ───────────────▶  │  llama.cpp server │
+│         │ ◀───────────────  │  (local model)    │
+└─────────┘    responses      └───────────────────┘
+     │
+     ▼
+  Your files,
+  terminal, etc.
+```
+
+## Set up llama.cpp server
 
 ### 1. Set Your Local Hardware
 
@@ -12,20 +30,59 @@ Go to [huggingface.co/settings/hardware](https://huggingface.co/settings/hardwar
 
 ### 2. Find a Compatible Model
 
-Browse for [Llama.cpp-compatible models](https://huggingface.co/models?apps=llama.cpp&sort=trending).
+Browse for [GGUF models compatible with Llama](https://huggingface.co/models?apps=llama-app&sort=trending). Once selected, download the model on your hardware.
 
+If you need inspiration, the Llama app will suggest a few models adapted to your hardware device (see Step 3).
 
-### 3. Launch the llama.cpp Server
+### 3. Install the Llama App
 
-On the model page, click the **"Use this model"** button and select `llama.cpp`. It will show you the exact commands for your setup. The first step is to start a llama.cpp server, e.g.
+You can easily install llama.cpp on your machine:
+
+- **Mac and Windows**: install the [Llama app](https://llama.app), a minimalist desktop app that sits on your system tray
+     After the application is installed follow the steps to start using your favourite model, recommended for your system.
+     ![llama app](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/decision/llama-app.png)
+- **Linux (or if you only want the command line)**: one-line install command:
+     ```bash
+     curl -LsSf https://llama.app/install.sh | sh
+     ```
+
+Verify the installation:
 
 ```bash
-llama-server -hf ggml-org/gemma-4-26b-a4b-it-GGUF:Q4_K_M
+llama --version
 ```
 
-This downloads the model and starts an OpenAI-compatible API server on your machine. See the [llama.cpp guide](./gguf-llamacpp) for installation instructions.
+### 4. Start the router
 
-### 4. Connect Your Agent
+If you installed the desktop app, `llama serve` is already running. You can check by browsing the model list on [localhost:9931](http://localhost:9931/#/models).
+
+If not, start `llama serve`. Passing a model starts single-model mode instead of router mode. See the [llama.cpp server guide](https://llama.app/docs/serve#serving-multiple-models-router-mode) for router configuration.
+
+You have two options:
+- Automatic loading: by default, models load on demand.
+- Manual loading: add `--no-models-autoload`, then use `/llama` to load models before selecting them.
+
+For automatic loading, just launch:
+
+```bash
+llama serve
+```
+
+In most cases you do not need any extra flags as the defaults should be reasonable. For advanced usage, here are a sample of possible flags you might be interested in:
+
+- `-ngl all` offloads all layers to the GPU. Omit it to use automatic GPU offloading.
+- `-c 32768` sets the context size in tokens. Use `-c 0` for the model's full context window, which may require substantially more memory. Context is shared across parallel server slots.
+- `--models-dir ~/models` discovers local GGUF files from a custom local directory.
+
+While the above command should be all that you need, but here are some common flags to use with `llama serve`:
+
+| Flag | What it does |
+| :--: | :--: |
+| `-ngl all` | offloads all layers to the GPU |
+| `-c 32768` | sets the context size in tokens |
+| `--models-dir ~/models` | discovers local GGUF files from a custom local directory |
+
+### 5. Connect Your Agent
 
 Pick one of the agents below and follow the setup instructions.
 
@@ -39,70 +96,32 @@ Install Pi:
 npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 ```
 
-Then add your local model to Pi's configuration file at `~/.pi/agent/models.json`:
-
-```json
-{
-  "providers": {
-    "llama-cpp": {
-      "baseUrl": "http://localhost:8080/v1",
-      "api": "openai-completions",
-      "apiKey": "none",
-      "models": [
-        {
-          "id": "ggml-org-gemma-4-26b-4b-gguf"
-        }
-      ]
-    }
-  }
-}
-```
-
 Start Pi in your project directory:
 
 ```bash
 pi
 ```
 
-Pi connects to your local llama.cpp server and gives you an interactive agent session.
+Configure llama.cpp:
 
-![Demo](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pi-llama-cpp-demo.gif)
-
-### Enabling vision support
-
-For vision-capable models, add `"input": ["text", "image"]` to the model entry in `~/.pi/agent/models.json`:
-
-```json
-"models": [
-  {
-    "id": "unsloth/Qwen3.6-35B-A3B-GGUF:Q4_K_XL",
-    "input": ["text", "image"]
-  }
-]
+```bash
+/login llama.cpp
 ```
 
-Browse [vision-language models compatible with Pi](https://huggingface.co/models?pipeline_tag=image-text-to-text&apps=pi).
+Run `/llama` to load a model, then `/model` to select the loaded model for the current session.
 
 ## OpenClaw
 
 [OpenClaw](https://github.com/openclaw) works locally with llama.cpp. You can set your model via the onboard command:
 
 ```bash
-openclaw onboard --non-interactive \
-  --auth-choice custom-api-key \
-  --custom-base-url "http://127.0.0.1:8080/v1" \
-  --custom-model-id "ggml-org-gemma-4-26b-a4b-gguf" \
-  --custom-api-key "llama.cpp" \
-  --secret-input-mode plaintext \
-  --custom-compatibility openai \
-  --accept-risk
+openclaw plugins install @openclaw/llama-cpp-provider
+openclaw onboard
 ```
-
-You can also run `openclaw onboard` interactively, select `custom-compatibility` with `openai`, and pass the same configuration.
 
 ### Local Memory Search for OpenClaw
 
-You can run local embedding models with Llama.cpp for your agent's memory search. To do so, make sure to have node-llama-cpp. 
+You can run local embedding models with Llama.cpp for your agent's memory search. To do so, make sure to have node-llama-cpp.
 
 ```bash
 npm i node-llama-cpp 
@@ -127,23 +146,15 @@ openclaw memory status
 
 ## Hermes Agent
 
-[Hermes Agent](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. Define a default config as:
+[Hermes Agent](https://hermes-agent.nousresearch.com/) works locally with llama.cpp. In `~/.hermes/config.yaml` add the following.
 
 ```yaml
-model:
-  provider: custom
-  default: ggml-org/gemma-4-26B-A4B-it-GGUF:Q4_K_M
-  base_url: http://127.0.0.1:8080/v1
-  api_key: llama.cpp
-
 custom_providers:
-  - name: Local (127.0.0.1:8080)
+  - name: llama cpp (127.0.0.1:8080)
     base_url: http://127.0.0.1:8080/v1
-    api_key: llama.cpp
-    model: ggml-org/gemma-4-26B-A4B-it-GGUF:Q4_K_M
 ```
 
-### Local Memory Search for Hermes Agent
+### Local Memory Search for Hermes Agent
 
 Hermes Agent consumes semantic search models through endpoints. Once you get your preferred embedding model up on endpoint 8080 with llama.cpp or the inference engine of your choice, add the following to `~/.hermes/config.yaml`.
 
@@ -193,24 +204,6 @@ $ hermes memory status
     }
   }
 }
-```
-
-## How It Works
-
-The setup has two components running locally:
-
-1. **llama.cpp server** — Serves the model as an OpenAI-compatible API on `localhost`.
-2. **Your agent** — The agent process that sends prompts to the local server, reasons about tasks, and executes actions.
-
-```
-┌─────────┐     API calls     ┌──────────────────┐
-│  Agent  │ ───────────────▶  │  llama.cpp server │
-│         │ ◀───────────────  │  (local model)    │
-└─────────┘    responses      └──────────────────┘
-     │
-     ▼
-  Your files,
-  terminal, etc.
 ```
 
 ## Alternative: llama-agent
