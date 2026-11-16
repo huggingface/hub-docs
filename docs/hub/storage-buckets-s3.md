@@ -277,21 +277,11 @@ dvc push
 
 ### Back up with restic or kopia
 
-Backup tools built on the [MinIO Go client](https://github.com/minio/minio-go) can use a bucket as their storage. They need the [namespace hostname](#addressing-buckets) as the endpoint. Pass the [S3 credentials](#generating-s3-credentials) as `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for restic, or as flags for kopia.
-
-[restic](https://restic.net/):
+Backup tools built on the [MinIO Go client](https://github.com/minio/minio-go) need the [namespace hostname](#addressing-buckets) as the endpoint. For example, with [restic](https://restic.net/) and the [S3 credentials](#generating-s3-credentials) in `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`:
 
 ```bash
 restic -r s3:https://<namespace>.s3.hf.co/my-bucket/restic init
 restic -r s3:https://<namespace>.s3.hf.co/my-bucket/restic backup ~/data
 ```
 
-[kopia](https://kopia.io/):
-
-```bash
-kopia repository create s3 --endpoint <namespace>.s3.hf.co --bucket my-bucket --prefix kopia/ \
-  --access-key HFAK... --secret-access-key ...
-kopia snapshot create ~/data
-```
-
-[Weaviate's `backup-s3` module](https://docs.weaviate.io/deploy/configuration/backups) works the same way, with `BACKUP_S3_ENDPOINT=<namespace>.s3.hf.co`.
+[kopia](https://kopia.io/) (`--endpoint <namespace>.s3.hf.co`) and [Weaviate's `backup-s3` module](https://docs.weaviate.io/deploy/configuration/backups) (`BACKUP_S3_ENDPOINT=<namespace>.s3.hf.co`) work the same way.
