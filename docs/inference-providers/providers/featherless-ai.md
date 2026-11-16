@@ -36,9 +36,7 @@ For more details, check out the `generate.ts` script: https://github.com/hugging
     </a>
 </div>
 
-[Featherless AI](https://featherless.ai) is a serverless AI inference platform that offers access to thousands of open-source models. 
-
-Our goal is to make all AI models available for serverless inference. We provide inference via API to a continually expanding library of open-weight models.
+[Featherless](https://featherless.ai) is a serverless AI inference platform that makes tens of thousands of open-source AI models instantly available through a single API.
 
 ## Supported tasks
 
