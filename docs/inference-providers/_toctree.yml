@@ -4,77 +4,43 @@
     title: Inference Providers
   - local: pricing
     title: Pricing and Billing
+
+- title: Concepts
+  sections:
+  - local: routing
+    title: Routing and Providers
   - local: hub-integration
-    title: Hub integration
+    title: Hub Integration and Settings
   - local: security
     title: Security
 
-- title: Guides
-  sections:
-  - local: guides/first-api-call
-    title: Your First API Call
-  - local: guides/building-first-app
-    title: Building Your First AI App
-  - local: guides/structured-output
-    title: Structured Outputs with LLMs
-  - local: guides/function-calling
-    title: Function Calling
-  - local: guides/responses-api
-    title: Responses API (beta)
-  - local: guides/gpt-oss
-    title: How to use OpenAI gpt-oss
-  - local: guides/image-editor
-    title: Build an Image Editor
-  - local: guides/github-actions-code-review
-    title: Automating Code Review with GitHub Actions
-  - local: guides/coding-environment
-    title: Agentic Coding Environments with OpenEnv
-  - local: guides/evaluation-inspect-ai
-    title: Evaluating Models with Inspect
-
-- title: Integrations
-  sections:
-  - local: integrations/index
-    title: Overview
-  - local: integrations/pi
-    title: Pi
-  - local: integrations/opencode
-    title: OpenCode
-  - local: integrations/codex
-    title: Codex
-  - local: integrations/claude-code
-    title: Claude Code
-  - local: integrations/hermes-agent
-    title: Hermes Agent
-  - local: integrations/datadesigner
-    title: NeMo Data Designer
-  - local: integrations/macwhisper
-    title: MacWhisper
-  - local: integrations/visionagents
-    title: Vision Agents
-  - local: integrations/vscode
-    title: VS Code with GitHub Copilot
-  - local: integrations/adding-integration
-    title: Add Your Integration
-
-- local: tasks/index
-  title: Inference Tasks
+- title: Capabilities
   sections:
   - local: tasks/chat-completion
     title: Chat Completion
+  - local: guides/responses-api
+    title: Responses API (beta)
+  - local: guides/messages-api
+    title: Messages API
+  - local: guides/function-calling
+    title: Tool Calling
+  - local: guides/structured-output
+    title: Structured Outputs
+  - local: prompt-caching
+    title: Prompt Caching
   - local: tasks/feature-extraction
-    title: Feature Extraction
+    title: Embeddings
   - local: tasks/text-to-image
     title: Text to Image
   - local: tasks/text-to-video
     title: Text to Video
+  - local: tasks/automatic-speech-recognition
+    title: Speech to Text
   - title: Other Tasks
-    isExpanded: False
+    isExpanded: false
     sections:
     - local: tasks/audio-classification
       title: Audio Classification
-    - local: tasks/automatic-speech-recognition
-      title: Automatic Speech Recognition
     - local: tasks/fill-mask
       title: Fill Mask
     - local: tasks/image-classification
@@ -103,45 +69,60 @@
       title: Translation
     - local: tasks/zero-shot-classification
       title: Zero Shot Classification
-          
-- title: Providers
-  sections:
-  - local: providers/baseten
-    title: Baseten
-  - local: providers/cerebras
-    title: Cerebras
-  - local: providers/cohere
-    title: Cohere
-  - local: providers/deepinfra
-    title: DeepInfra
-  - local: providers/fal-ai
-    title: Fal AI
-  - local: providers/featherless-ai
-    title: Featherless AI
-  - local: providers/fireworks-ai
-    title: Fireworks
-  - local: providers/groq
-    title: Groq
-  - local: providers/hf-inference
-    title: HF Inference
-  - local: providers/novita
-    title: Novita
-  - local: providers/nscale
-    title: Nscale
-  - local: providers/ovhcloud
-    title: OVHcloud AI Endpoints
-  - local: providers/publicai
-    title: Public AI
-  - local: providers/replicate
-    title: Replicate
-  - local: providers/scaleway
-    title: Scaleway
-  - local: providers/together
-    title: Together
-  - local: providers/wavespeed
-    title: WaveSpeedAI
-  - local: providers/zai-org
-    title: Z.ai
 
-- local: hub-api
-  title: Hub API
+- title: Integrations
+  sections:
+  - local: integrations/index
+    title: Overview
+  - title: Coding Agents
+    sections:
+    - local: integrations/claude-code
+      title: Claude Code
+    - local: integrations/codex
+      title: Codex
+    - local: integrations/opencode
+      title: OpenCode
+    - local: integrations/pi
+      title: Pi
+    - local: integrations/hermes-agent
+      title: Hermes Agent
+    - local: integrations/vscode
+      title: VS Code with GitHub Copilot
+  - title: Apps and Libraries
+    isExpanded: false
+    sections:
+    - local: integrations/datadesigner
+      title: NeMo Data Designer
+    - local: integrations/macwhisper
+      title: MacWhisper
+    - local: integrations/visionagents
+      title: Vision Agents
+  - local: integrations/adding-integration
+    title: Add Your Integration
+
+- title: Tutorials
+  isExpanded: false
+  sections:
+  - local: guides/first-api-call
+    title: Your First API Call
+  - local: guides/building-first-app
+    title: Building Your First AI App
+  - local: guides/gpt-oss
+    title: How to use OpenAI gpt-oss
+  - local: guides/image-editor
+    title: Build an Image Editor
+  - local: guides/github-actions-code-review
+    title: Automating Code Review with GitHub Actions
+  - local: guides/coding-environment
+    title: Agentic Coding Environments with OpenEnv
+  - local: guides/evaluation-inspect-ai
+    title: Evaluating Models with Inspect
+
+- title: Reference
+  sections:
+  - local: tasks/index
+    title: API Reference
+  - local: hub-api
+    title: Hub API
+  - local: providers
+    title: Providers

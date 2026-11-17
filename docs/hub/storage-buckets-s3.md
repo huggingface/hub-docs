@@ -95,7 +95,7 @@ aws --endpoint-url https://my-org.s3.hf.co s3api get-object \
   --bucket my-bucket --key some/object.txt ./object.txt
 ```
 
-The namespace can also go in the endpoint's path instead, as `https://s3.hf.co/<namespace>`. Both forms behave the same, but we recommend the hostname: some clients reject an endpoint URL that contains a path. These include tools built on the [MinIO Go client](https://github.com/minio/minio-go), such as restic, Milvus, and Weaviate. Namespace hostnames are not case-sensitive, so `https://my-org.s3.hf.co` also reaches an organization named `My-Org`.
+The namespace can also go in the endpoint's path instead, as `https://s3.hf.co/<namespace>`. Both forms behave the same, but we recommend the hostname: some clients reject an endpoint URL that contains a path. These include tools built on the [MinIO Go client](https://github.com/minio/minio-go), such as [restic](#back-up-with-restic-or-kopia), Milvus, and Weaviate. Namespace hostnames are not case-sensitive, so `https://my-org.s3.hf.co` also reaches an organization named `My-Org`.
 
 > [!NOTE]
 > Even with a namespace hostname, clients must use path-style addressing (see [Configuring a Client](#configuring-a-client)). Buckets are not served as their own subdomain (`my-bucket.my-org.s3.hf.co`).
@@ -274,3 +274,14 @@ dvc push
 
 > [!NOTE]
 > Use your [namespace](#addressing-buckets) in `endpointurl` and the bare bucket name in the `s3://` URL.
+
+### Back up with restic or kopia
+
+Backup tools built on the [MinIO Go client](https://github.com/minio/minio-go) need the [namespace hostname](#addressing-buckets) as the endpoint. For example, with [restic](https://restic.net/) and the [S3 credentials](#generating-s3-credentials) in `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`:
+
+```bash
+restic -r s3:https://<namespace>.s3.hf.co/my-bucket/restic init
+restic -r s3:https://<namespace>.s3.hf.co/my-bucket/restic backup ~/data
+```
+
+[kopia](https://kopia.io/) (`--endpoint <namespace>.s3.hf.co`) and [Weaviate's `backup-s3` module](https://docs.weaviate.io/deploy/configuration/backups) (`BACKUP_S3_ENDPOINT=<namespace>.s3.hf.co`) work the same way.

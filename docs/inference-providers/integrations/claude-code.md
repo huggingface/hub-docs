@@ -4,7 +4,7 @@
 
 ## Overview
 
-Claude Code supports custom API endpoints via environment variables. By setting `ANTHROPIC_BASE_URL` to the Hugging Face router and providing your HF token, all Claude Code requests are routed through Inference Providers, giving you access to a wide range of open models.
+Claude Code supports custom API endpoints via environment variables. By setting `ANTHROPIC_BASE_URL` to the Hugging Face router and providing your HF token, all Claude Code requests are routed through Inference Providers, giving you access to a wide range of open models. The router accepts Claude Code's [Anthropic-format requests](../guides/messages-api) for every chat model so any open model can back Claude Code.
 
 ## Prerequisites
 
@@ -74,10 +74,12 @@ claude --settings ~/.claude/huggingface.json
 
 `apiKeyHelper` reads your token from the environment, so the token is not written to the file. `ANTHROPIC_MODEL` is the model Claude Code works with, sub-agents included, and `ANTHROPIC_DEFAULT_HAIKU_MODEL` is the one it uses for its small background requests.
 
-Replace `deepseek-ai/DeepSeek-V4.1-Flash` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:novita`), or a `:cheapest` or `:fastest` suffix to prefer cheaper or faster providers.
+Replace `deepseek-ai/DeepSeek-V4.1-Flash` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:novita`). Setting an explicit provider gives you deterministic routing, while omitting it (e.g. `deepseek-ai/DeepSeek-V4.1-Flash`) uses the [default routing](../routing#default-routing), which balances price, speed and reliability, and automatically fails over if a provider becomes unavailable.
+
+Available policies are `:cheapest` or `:fastest`; use one of these suffixes to prefer cheaper or faster providers (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`).
 
 > [!TIP]
-> You can assign different models to Claude Code's model slots to balance capability and speed: add `ANTHROPIC_DEFAULT_OPUS_MODEL` and `ANTHROPIC_DEFAULT_SONNET_MODEL` to the `env` block for the `opus` and `sonnet` aliases of the `/model` command, and `CLAUDE_CODE_SUBAGENT_MODEL` to give sub-agents a model of their own.
+> You can assign different models to Claude Code's model slots (Fable, Opus, Sonnet, Haiku) to balance capability and speed: add `ANTHROPIC_DEFAULT_FABLE_MODEL`, `ANTHROPIC_DEFAULT_OPUS_MODEL` and `ANTHROPIC_DEFAULT_SONNET_MODEL` to the `env` block for the `fable`, `opus` and `sonnet` aliases of the `/model` command, and `CLAUDE_CODE_SUBAGENT_MODEL` to give sub-agents a model of their own.
 
 For a one-off run without a settings file, set the two variables on the command line instead. The router reads the token from the `Authorization` header, which is what `ANTHROPIC_AUTH_TOKEN` sets (`ANTHROPIC_API_KEY` alone is not enough):
 
