@@ -23,6 +23,8 @@ When creating a service account, you provide:
 
 Service accounts do not have a password and cannot sign in interactively — they are accessed exclusively through the access tokens you issue for them. Unlike regular users, they also don't have an HF profile page, aren't part of the organization's member list, and are managed only through the **Service Accounts** settings.
 
+Service accounts cannot be added to [Resource Groups](./security-resource-groups), including through auto-join. To limit which repositories a service account can reach, scope its access tokens instead (see below).
+
 ## Managing Access Tokens
 
 A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
@@ -54,6 +56,8 @@ From the service account's page, administrators can:
 - **Delete** a token to permanently revoke its access.
 
 Service account tokens don't need approval under the ["Require administrator approval"](./enterprise-tokens-management#token-policy) token policy. They can access your organization's resources as soon as they're created.
+
+Like personal access tokens, service account tokens [expire after a year without use](./security-tokens#expiration-of-unused-tokens). Organization admins get an email 30 days before, and the token shows an **Expires** badge on the service account's page. To keep the token, use it before that date. Expired tokens show an **Invalidated** badge and stop working. Rotate them to get a new value, which you'll then need to update wherever the token is used.
 
 > [!WARNING]
 > An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.

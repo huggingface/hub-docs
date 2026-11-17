@@ -57,7 +57,7 @@ Records are ordered chronologically and provide a daily granular view of downloa
 > [!NOTE]
 > Download figures are **not** deduplicated by user. If you need unique download counts, refer to the next section.
 
-## Unique downloaders and more granular logs
+## Advanced Publisher Analytics: unique downloaders and more granular logs
 
 > [!WARNING]
 > This feature is an add-on for the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
@@ -78,6 +78,7 @@ Your team is responsible for ingesting these logs and running computations on th
 | `country`      | Country ISO code                                        |
 | `region`       | Region or city name                                     |
 | `userAgent`    | HTTP User-Agent header                                  |
+| `path`         | File path within the repository or bucket, derived from the request URL (may be empty for requests that don't match a file route) |
 
 
 As it requires setting up a custom data export pipeline on our side (custom Elastic index, etc), this is only available as an add-on to Enterprise Plus.

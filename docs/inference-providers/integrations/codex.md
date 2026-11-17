@@ -37,7 +37,7 @@ wire_api = "responses"
 
 ```toml
 model_provider = "huggingface"
-model = "openai/gpt-oss-120b"
+model = "deepseek-ai/DeepSeek-V4.1-Flash"
 ```
 
 > [!NOTE]
@@ -55,12 +55,12 @@ You can also run a one-off command non-interactively:
 codex exec --profile huggingface "Explain what this repository does."
 ```
 
-Replace `openai/gpt-oss-120b` with any model available on [Inference Providers](https://huggingface.co/models?other=conversational&inference_provider=all&sort=trending). You can append a provider suffix to pin a specific provider (e.g. `openai/gpt-oss-120b:groq`). Setting an explicit provider gives you deterministic routing, while omitting it lets the router fall back to alternative providers for better resilience. You can also append a `:cheapest` or `:fastest` suffix to prefer cheaper or faster providers.
+Replace `deepseek-ai/DeepSeek-V4.1-Flash` with any model available on [Inference Providers](https://huggingface.co/models?other=conversational&inference_provider=all&sort=trending). You can append a provider suffix to pin a specific provider (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:novita`). Setting an explicit provider gives you deterministic routing, while omitting it lets the router fall back to alternative providers for better resilience. You can also append a `:cheapest` or `:fastest` suffix to prefer cheaper or faster providers.
 
 To override the model for a single run without editing your config, pass `-m`:
 
 ```bash
-codex exec --profile huggingface -m "zai-org/GLM-5.1" "Return OK."
+codex exec --profile huggingface -m "zai-org/GLM-5.3" "Return OK."
 ```
 
 > [!TIP]
