@@ -578,14 +578,14 @@
       title: Advanced Access Control (Resource Groups)
     - local: programmatic-user-access-control
       title: Programmatic User Access Control Management
+    - local: security-removing-sensitive-data
+      title: Removing Sensitive Data
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle
       title: Pickle Scanning
     - local: security-secrets
       title: Secrets Scanning
-    - local: security-removing-sensitive-data
-      title: Removing Sensitive Data
     - local: security-protectai
       title: "Protect AI"
     - local: security-jfrog
