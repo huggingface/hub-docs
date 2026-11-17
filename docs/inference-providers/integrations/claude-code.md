@@ -81,7 +81,7 @@ The `:cheapest` or `:fastest` provider policies are also available; use one of t
 > [!TIP]
 > You can assign different models to Claude Code's model slots (Fable, Opus, Sonnet, Haiku) to balance capability and speed: add `ANTHROPIC_DEFAULT_FABLE_MODEL`, `ANTHROPIC_DEFAULT_OPUS_MODEL` and `ANTHROPIC_DEFAULT_SONNET_MODEL` to the `env` block for the `fable`, `opus` and `sonnet` aliases of the `/model` command, and `CLAUDE_CODE_SUBAGENT_MODEL` to give sub-agents a model of their own.
 
-For a one-off run without a settings file, set the two variables on the command line instead. The router reads the token from the `Authorization` header, which is what `ANTHROPIC_AUTH_TOKEN` sets (`ANTHROPIC_API_KEY` alone is not enough):
+For a one-off run without a settings file, set the variables on the command line instead. The router reads the token from the `Authorization` header, which is what `ANTHROPIC_AUTH_TOKEN` sets. You can also set the other variables that were discussed for the settings file above.
 
 ```bash
 ANTHROPIC_BASE_URL="https://router.huggingface.co" ANTHROPIC_AUTH_TOKEN="$HF_TOKEN" claude --model deepseek-ai/DeepSeek-V4.1-Flash
