@@ -14,7 +14,7 @@ There are also other APIs available for running DuckDB, including Python, C++, G
 > For installation details, visit the [installation page](https://duckdb.org/docs/installation).
 
 > [!TIP]
-> If you use the `hf` CLI, you can run DuckDB queries directly with [`hf datasets sql`](/docs/huggingface_hub/package_reference/cli#hf-datasets-sql), e.g. `hf datasets sql "FROM 'hf://datasets/ibm/duorc/ParaphraseRC/*.parquet' LIMIT 3"`. Authentication for gated and private datasets is configured automatically from your logged-in token, and `--format json` returns machine-readable output.
+> If you use the `hf` CLI, you can run DuckDB queries directly with [`hf datasets sql`](/docs/huggingface_hub/package_reference/cli#hf-datasets-sql), e.g. `hf datasets sql "SELECT * FROM hf_dataset('stanfordnlp/imdb') LIMIT 3"`. Authentication for gated and private datasets is configured automatically from your logged-in token, and `--format json` returns machine-readable output.
 
 Starting from version `v0.10.3`, the DuckDB CLI includes native support for accessing datasets on the Hugging Face Hub via URLs with the `hf://` scheme. Here are some features you can leverage with this powerful tool:
 
@@ -40,8 +40,8 @@ To access Hugging Face datasets, use the following URL format:
 hf://datasets/{my-username}/{my-dataset}/{path_to_file} 
 ```
 
-- **my-username**, the user or organization of the dataset, e.g. `ibm`
-- **my-dataset**, the dataset name, e.g: `duorc`
+- **my-username**, the user or organization of the dataset, e.g. `stanfordnlp`
+- **my-dataset**, the dataset name, e.g: `imdb`
 - **path_to_parquet_file**, the parquet file path which supports glob patterns, e.g. `**/*.parquet`, to query all parquet files
 
 
@@ -65,14 +65,15 @@ hf://datasets/{my-username}/{my-dataset}/{path_to_file}
 Let's start with a quick demo to query all the rows of a dataset:
 
 ```sql
-FROM 'hf://datasets/ibm/duorc/ParaphraseRC/*.parquet' LIMIT 3;
+SELECT * FROM 'hf://datasets/stanfordnlp/imdb/plain_text/*.parquet' LIMIT 3;
 ```
 
-Or using traditional SQL syntax:
+Or using the `hf_dataset()` function from the `hf` extension, which automatically loads the right files:
 
 ```sql
-SELECT * FROM 'hf://datasets/ibm/duorc/ParaphraseRC/*.parquet' LIMIT 3;
+SELECT * FROM hf_dataset('stanfordnlp/imdb') LIMIT 3;
 ```
+
 In the following sections, we will cover more complex operations you can perform with DuckDB on Hugging Face datasets.
 
 > [!TIP]
