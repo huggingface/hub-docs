@@ -76,7 +76,7 @@ claude --settings ~/.claude/huggingface.json
 
 Replace `deepseek-ai/DeepSeek-V4.1-Flash` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:novita`). Setting an explicit provider gives you deterministic routing, while omitting it (e.g. `deepseek-ai/DeepSeek-V4.1-Flash`) uses the [default routing](../routing#default-routing), which balances price, speed and reliability, and automatically fails over if a provider becomes unavailable.
 
-Available policies are `:cheapest` or `:fastest`; use one of these suffixes to prefer cheaper or faster providers (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`).
+The `:cheapest` or `:fastest` provider policies are also available; use one of these suffixes to prefer cheaper or faster providers (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`).
 
 > [!TIP]
 > You can assign different models to Claude Code's model slots (Fable, Opus, Sonnet, Haiku) to balance capability and speed: add `ANTHROPIC_DEFAULT_FABLE_MODEL`, `ANTHROPIC_DEFAULT_OPUS_MODEL` and `ANTHROPIC_DEFAULT_SONNET_MODEL` to the `env` block for the `fable`, `opus` and `sonnet` aliases of the `/model` command, and `CLAUDE_CODE_SUBAGENT_MODEL` to give sub-agents a model of their own.
