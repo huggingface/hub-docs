@@ -68,7 +68,7 @@ Let's start with a quick demo to query all the rows of a dataset:
 SELECT * FROM 'hf://datasets/stanfordnlp/imdb/plain_text/*.parquet' LIMIT 3;
 ```
 
-Or using the `hf_dataset()` function from the `hf` extension, which automatically loads the right files:
+Or using the `hf_dataset()` function from the `hf` [extension](https://huggingface.co/duckdb-extensions), which automatically loads the right files:
 
 ```sql
 SELECT * FROM hf_dataset('stanfordnlp/imdb') LIMIT 3;
