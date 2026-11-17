@@ -114,6 +114,22 @@ See the [Diffusers CLI guide](https://huggingface.co/docs/diffusers/using-diffus
 
 When [Trackio](https://huggingface.co/docs/trackio) logs to a Space, it stores run data in a bucket created from the Space ID. Pass `bucket_id` to `trackio.init()` to use a bucket you choose.
 
+## PyTorch Lightning
+
+[PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/reference/common/remote_fs) can save checkpoints to a bucket and resume from them. Set the `ModelCheckpoint` directory to an `hf://buckets/` path:
+
+```python
+import lightning as L
+from lightning.pytorch.callbacks import ModelCheckpoint
+
+checkpoints = ModelCheckpoint(dirpath="hf://buckets/username/my-bucket/checkpoints", save_last=True)
+trainer = L.Trainer(callbacks=[checkpoints])
+trainer.fit(model, train_dataloader)
+
+# Resume from the bucket
+trainer.fit(model, train_dataloader, ckpt_path="hf://buckets/username/my-bucket/checkpoints/last.ckpt")
+```
+
 ## Inspect AI
 
 [Inspect AI](https://inspect.aisi.org.uk/) can write evaluation logs directly to a bucket — point its log directory at an `hf://buckets/` path (requires `huggingface_hub>=1.6.0`). Create the bucket and authenticate first (Inspect won't create it for you):
