@@ -31,8 +31,6 @@ OpenCode natively supports Hugging Face Inference Providers, giving you access t
 export HF_TOKEN=hf_...
 ```
 
-OpenCode's Hugging Face provider reads it from there, so there is nothing to log in to.
-
 3. Start OpenCode on a model:
 
 ```bash
