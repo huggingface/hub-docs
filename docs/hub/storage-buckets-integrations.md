@@ -129,6 +129,10 @@ inspect view
 
 See [Inspect's eval logs guide](https://inspect.aisi.org.uk/eval-logs.html#sec-hugging-face-storage-buckets) for details.
 
+## OpenRouter
+
+[OpenRouter Broadcast](https://openrouter.ai/docs/guides/features/broadcast/hugging-face) can send traces of the requests you route through OpenRouter to a bucket, each saved as a separate JSON file, using [S3 credentials](./storage-buckets-s3#generating-s3-credentials). The traces contain full prompts and tool output, so use a private bucket. See [OpenRouter Broadcast traces](./agent-traces#openrouter-broadcast-traces) for how the Hub displays them.
+
 ## SkyPilot
 
 [SkyPilot](https://docs.skypilot.co/) runs AI workloads across 20+ clouds, Kubernetes, and on-prem, and can use Hugging Face storage as a backend — so one bucket is readable from every cloud with no per-cloud copies. Set `store: hf` on a `file_mounts` entry to mount a bucket read-write or a repo read-only:
