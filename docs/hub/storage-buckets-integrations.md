@@ -114,15 +114,32 @@ See the [Diffusers CLI guide](https://huggingface.co/docs/diffusers/using-diffus
 
 When [Trackio](https://huggingface.co/docs/trackio) logs to a Space, it stores run data in a bucket created from the Space ID. Pass `bucket_id` to `trackio.init()` to use a bucket you choose.
 
-## Iceberg
+## PyIceberg
 
-Use Buckets for your catalog's storage:
+[PyIceberg](https://py.iceberg.apache.org/) can store Iceberg tables in a bucket. Set the catalog's `warehouse` to an `hf://buckets/` path:
+
+```bash
+pip install "pyiceberg[hf,pyarrow,sql-sqlite]"
+```
 
 ```python
+import pyarrow as pa
 from pyiceberg.catalog import load_catalog
 
-catalog = load_catalog(..., warehouse="hf://buckets/username/my-bucket/warehouse")
+catalog = load_catalog(
+    "default",
+    type="sql",
+    uri="sqlite:///catalog.db",
+    warehouse="hf://buckets/username/my-bucket/warehouse",
+)
+
+df = pa.table({"id": [1, 2, 3], "text": ["a", "b", "c"]})
+catalog.create_namespace("default")
+table = catalog.create_table("default.my_table", schema=df.schema)
+table.append(df)
 ```
+
+The table data and metadata go to the bucket. The SQLite catalog stays local.
 
 ## Inspect AI
 
