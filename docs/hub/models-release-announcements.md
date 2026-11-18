@@ -64,6 +64,11 @@ While the model is private and `release_date` is set (and your organization is e
 - A sidebar showing the number of likes (as users **waiting for the release**) with the most recent likers, the expected release date, and your organization's latest models.
 - A dedicated social-share thumbnail, using the same colors as the hero.
 
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pre-release-page.png" alt="Pre-release page of a model, with a countdown to the release date and a Like and Notify on release button"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pre-release-page-dark.png" alt="Pre-release page of a model, with a countdown to the release date and a Like and Notify on release button"/>
+</div>
+
 > [!TIP]
 > The pre-release page renders your model card content — everything you write in the `README.md` body is publicly visible while the announcement is up, including the images and videos it references. The rest of the repository stays private: files, discussions, and API access remain restricted to members, and the model is not listed publicly.
 
@@ -76,6 +81,11 @@ Everyone with **read access** to the repository keeps seeing the regular model p
 - A banner on the model page indicates that the model is in pre-release. Click **Preview the page** — or append `?preview` to the model URL — to check what visitors see.
 - In model listings, the model is shown with a **Pre-release** badge.
 
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pre-release-member-banner.png" alt="Banner on the model page indicating that the model is in pre-release, with a Preview the page button"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pre-release-member-banner-dark.png" alt="Banner on the model page indicating that the model is in pre-release, with a Preview the page button"/>
+</div>
+
 ## Notify your subscribers on release
 
 When you're ready to release:
@@ -84,6 +94,11 @@ When you're ready to release:
 2. Make the model **public**. This releases the model: the pre-release page becomes a regular model page — no need to remove the `release_date` field.
 3. Repo members with write access will see a banner reading "N users are waiting to be notified about this release", with a **Send release notifications** button.
 4. Click **Send release notifications** to email each subscriber that your model is now available on Hugging Face.
+
+<div class="flex justify-center">
+    <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pre-release-notifications-banner.png" alt="Banner on the model page showing the number of users waiting to be notified, with a Send release notifications button"/>
+    <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/pre-release-notifications-banner-dark.png" alt="Banner on the model page showing the number of users waiting to be notified, with a Send release notifications button"/>
+</div>
 
 Notifications are not sent automatically when the model becomes public: you choose when to send them. A few things to know:
 
