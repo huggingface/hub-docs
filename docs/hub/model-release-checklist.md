@@ -276,6 +276,9 @@ Anyone in the community can also submit evaluation results to any model by openi
 5. **Organization Blog Posts**:
    Enterprise organizations can now [publish blog articles directly on Hugging Face](https://huggingface.co/blog/huggingface/blog-articles-for-orgs). This lets you share model releases, research updates, and announcements with the broader community, all from your organization’s profile.
 
+6. **Pre-Release Model Pages**:
+   Organizations on an Enterprise plan or above can announce a model before its weights are public with a [pre-release page](./models-release-announcements). Add a `release_date` to the model card of a private model to show visitors a countdown and a **Like and Notify on release** button, then email subscribers once you make the model public.
+
 By following these guidelines and examples, you’ll make your model release on Hugging Face clear, useful, and impactful. This helps your work reach more people, strengthens the AI community, and increases your model’s visibility.
 
 We can’t wait to see what you share next! 🤗
