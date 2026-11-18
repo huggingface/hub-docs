@@ -3,7 +3,7 @@
 Hugging Face Jobs let you run compute tasks on Hugging Face infrastructure without managing it yourself. Simply define a command, a Docker image, and a hardware flavor among various CPU and GPU options.
 
 > [!TIP]
-> Jobs are available to any user or organization with a positive [credit balance](https://huggingface.co/settings/billing).
+> Jobs are available to any user or organization with a positive [credit balance](https://huggingface.co/settings/billing). The monthly compute credits included with a [PRO](./pro), Team, or [Enterprise](./enterprise) subscription count towards that balance and can be spent on Jobs.
 
 Billing on Jobs is based on hardware usage and is computed by the minute: you get charged for every minute the Jobs runs on the requested hardware.
 
@@ -15,7 +15,9 @@ If a running Job starts to fail, it will be automatically suspended and the bill
 
 <!-- STRETCH TABLES -->
 
-Jobs are billed per minute based on the hardware used. Below are the available hardware options and their pricing.
+Jobs are billed per minute based on the hardware used. For example, 10 billable minutes on `a10g-small` costs approximately $0.17 in hardware charges.
+
+To manage spending, [set a timeout](#set-timeout-limits), [cancel a Job](#cancel-irrelevant-jobs), or [view your current usage](#view-current-compute-usage).
 
 ### CPU
 
@@ -81,6 +83,9 @@ hf jobs run --namespace my-org-name ...
 
 In this case the Job runs under the organization account, and you can see it in your organization Jobs page (organization page > settings > Jobs).
 
+> [!NOTE]
+> On Enterprise plans and above, org admins can restrict who can run and view Jobs billed to the organization — to org admins only or to members of selected Resource Groups — via [Granular feature access](./security-resource-groups#granular-feature-access) settings.
+
 ### Bill to a resource group
 
 > [!WARNING]
@@ -89,12 +94,12 @@ In this case the Job runs under the organization account, and you can see it in 
 If your organization has [Resource Groups](./security-resource-groups) set up, you can attribute job costs to a specific resource group. To do so:
 
 1. You must be a member of the resource group.
-2. Pass the resource group's ID as the `namespace` when running the job.
+2. Pass the organization that owns the resource group as the `namespace`, and the resource group's ID as `resource_group_id`. Both are required: a resource group is only taken into account for Jobs billed to its organization.
 
 You can find the resource group's ID in your organization's Resource Groups settings page.
 
 ```bash
-hf jobs run --namespace <resource-group-id> ...
+hf jobs run --namespace my-org-name --resource-group-id <resource-group-id> ...
 ```
 
 In Python:
@@ -104,13 +109,16 @@ In Python:
 >>> run_job(
 ...     image="python:3.12",
 ...     command=["python", "-c", "print('Hello!')"],
-...     namespace="<resource-group-id>",
+...     namespace="my-org-name",
+...     resource_group_id="<resource-group-id>",
 ... )
 ```
 
+Organization and Resource Group admins can set [monthly spending limits](./security-resource-groups#spend-limits) for Jobs billed to the group.
+
 ### View current compute usage
 
-You can look at your current billing information for Jobs in in your [Billing](https://huggingface.co/settings/billing) page, under the "Compute Usage" section:
+You can look at your current billing information for Jobs in your [Billing](https://huggingface.co/settings/billing) page, under the "Compute Usage" section:
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/jobs/billing.png"/>

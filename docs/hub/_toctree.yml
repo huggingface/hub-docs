@@ -29,6 +29,8 @@
     title: Gating Group Collections
   - local: enterprise-network-security
     title: Network Security
+  - local: download-analytics
+    title: Download Analytics
   - local: rate-limits
     title: Rate Limits
   - local: enterprise-blog-articles
@@ -56,6 +58,8 @@
       title: Using Xet Storage
     - local: xet/security
       title: Security
+    - local: xet/telemetry
+      title: Telemetry
     - local: xet/legacy-git-lfs
       title: Backwards Compatibility & Legacy
     - local: xet/deduplication
@@ -77,6 +81,8 @@
         title: "How-to: Build a Discussion bot with Inference Providers"
       - local: webhooks-guide-metadata-review
         title: "How-to: Create automatic metadata quality reports"
+      - local: webhooks-guide-bucket-jobs
+        title: "How-to: Process new files in a bucket with Jobs"
   - local: repositories-github-actions
     title: GitHub Actions
   - local: notebooks
@@ -293,6 +299,8 @@
         title: Spark
       - local: datasets-webdataset
         title: WebDataset
+      - local: datasets-zephon
+        title: Zephon
   - local: data-studio
     title: Data Studio
     sections:
@@ -313,6 +321,8 @@
             title: Image Dataset
           - local: datasets-video
             title: Video Dataset
+          - local: datasets-3d
+            title: 3D Dataset
           - local: datasets-viewer-embed
             title: Embed the Dataset Viewer in a webpage
           - local: datasets-viewer-sql-console
@@ -433,6 +443,8 @@
   new: true
   isExpanded: true
   sections:
+  - local: storage-buckets-migration
+    title: Migration Guide
   - local: storage-buckets-access
     title: Access Patterns
   - local: storage-buckets-s3
@@ -441,6 +453,14 @@
     title: Bucket Integrations
   - local: storage-buckets-security
     title: Bucket Security
+
+- local: container-images
+  title: Container Images
+  new: true
+  isExpanded: true
+  sections:
+  - local: container-images-access
+    title: Access Control
 
 - local: jobs
   title: Jobs
@@ -456,10 +476,12 @@
     title: Manage Jobs
   - local: jobs-configuration
     title: Configuration
-  - local: jobs-popular-images
-    title: Popular Images
+  - local: jobs-images
+    title: Using Docker images
   - local: jobs-serving
     title: Serve Models
+  - local: jobs-training
+    title: Train Models
   - local: jobs-examples
     title: Examples & Tutorials
   - local: jobs-large-datasets
@@ -516,6 +538,8 @@
       title: Trusted Publishers (CI/CD)
     - local: security-2fa
       title: Two-Factor Authentication
+    - local: security-passkeys
+      title: Passkeys
     - local: security-git-ssh
       title: Git over SSH
     - local: security-gpg
@@ -527,6 +551,8 @@
         title: Basic SSO
       - local: enterprise-advanced-sso
         title: Managed SSO
+      - local: enterprise-managed-sso-migration
+        title: Migrating to Managed SSO
       - local: security-sso-user-management
         title: User Management
       - local: enterprise-scim
@@ -554,6 +580,8 @@
       title: Advanced Access Control (Resource Groups)
     - local: programmatic-user-access-control
       title: Programmatic User Access Control Management
+    - local: security-removing-sensitive-data
+      title: Removing Sensitive Data
     - local: security-malware
       title: Malware Scanning
     - local: security-pickle

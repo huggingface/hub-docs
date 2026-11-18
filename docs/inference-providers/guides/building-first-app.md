@@ -226,7 +226,7 @@ async function transcribe(file) {
 <hfoptions id="summarization">
 <hfoption id="python">
 
-Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider. The `:fastest` policy is the default for chat completions, automatically selecting the best performing provider for this model.
+Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-V4.1-Flash` from DeepSeek via an Inference Provider. The `:fastest` suffix sends the request to the provider with the highest throughput for this model. Without a suffix, the request uses the [default routing](../routing#default-routing).
 We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```python
@@ -249,7 +249,7 @@ def generate_summary(transcript):
     """
 
     response = client.chat.completions.create(
-        model="deepseek-ai/DeepSeek-R1-0528:fastest",
+        model="deepseek-ai/DeepSeek-V4.1-Flash:fastest",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=1000
     )
@@ -260,7 +260,7 @@ def generate_summary(transcript):
 </hfoption>
 <hfoption id="javascript">
 
-Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-R1-0528` from DeepSeek via an Inference Provider. The `:fastest` policy is the default for chat completions, automatically selecting the best performing provider for this model.
+Next, we'll use a powerful language model like `deepseek-ai/DeepSeek-V4.1-Flash` from DeepSeek via an Inference Provider. The `:fastest` suffix sends the request to the provider with the highest throughput for this model. Without a suffix, the request uses the [default routing](../routing#default-routing).
 We will define a custom prompt to ensure the output is formatted as a summary with action items and decisions made:
 
 ```javascript
@@ -281,7 +281,7 @@ async function summarize(transcript) {
 
   const response = await client.chatCompletion(
     {
-      model: "deepseek-ai/DeepSeek-R1-0528:fastest",
+      model: "deepseek-ai/DeepSeek-V4.1-Flash:fastest",
       messages: [
         {
           role: "user",
@@ -352,7 +352,7 @@ def generate_summary(transcript):
     """
 
     response = client.chat.completions.create(
-        model="deepseek-ai/DeepSeek-R1-0528:fastest",
+        model="deepseek-ai/DeepSeek-V4.1-Flash:fastest",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=1000,
     )
@@ -577,7 +577,7 @@ For JavaScript deployment, create a simple static HTML file:
 
         const response = await client.chatCompletion(
           {
-            model: "deepseek-ai/DeepSeek-R1-0528:fastest",
+            model: "deepseek-ai/DeepSeek-V4.1-Flash:fastest",
             messages: [
               {
                 role: "user",
@@ -631,7 +631,7 @@ To deploy:
 
 ## Next Steps
 
-Congratulations! You've created a production-ready AI application that: handles real-world tasks, provides a professional interface, scales automatically, and costs efficiently. If you want to explore more providers, you can check out the [Inference Providers](https://huggingface.co/inference-providers) page. Or here are some ideas for next steps:
+Congratulations! You've created a production-ready AI application that: handles real-world tasks, provides a professional interface, scales automatically, and costs efficiently. If you want to explore more providers, you can check out the [Inference Providers](https://huggingface.co/docs/inference-providers) page. Or here are some ideas for next steps:
 
 - **Improve your prompt**: Try different prompts to improve the quality for your use case
 - **Try different models**: Experiment with various speech and text models

@@ -4,7 +4,7 @@ You can keep your app in sync with your GitHub repository with a **CircleCI work
 
 [CircleCI](https://circleci.com) is a continuous integration and continuous delivery (CI/CD) platform that helps automate the software development process. A [CircleCI workflow](https://circleci.com/docs/workflows/) is a set of automated tasks defined in a configuration file, orchestrated by CircleCI, to streamline the process of building, testing, and deploying software applications.
 
-*Note: For files larger than 10MB, Spaces requires Git-LFS. If you don't want to use Git-LFS, you may need to review your files and check your history. Use a tool like [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to remove any large files from your history. BFG Repo-Cleaner will keep a local copy of your repository as a backup.*
+*Note: Files larger than 10MB must be tracked with [git-xet](./xet/using-xet-storage#git-xet) (recommended) or Git LFS. If you don't want to use either, you may need to review your files and check your history. Use a tool like [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to remove any large files from your history. BFG Repo-Cleaner will keep a local copy of your repository as a backup.*
 
 First, set up your GitHub repository and Spaces app together. Add your Spaces app as an additional remote to your existing Git repository.
 

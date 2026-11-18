@@ -118,7 +118,7 @@ It relies on the [`iFrame Resizer`](https://github.com/davidjbradshaw/iframe-res
 - The `iFrame Resizer` is loaded via the `script` tag.
 - The `iFrameResize()` function is called with the ID of the target `iframe` element, so that its size changes automatically.
 
-We can pass options to the first argument of `iFrameResize()`. See [the document](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/options.md) for the details.
+We can pass options to the first argument of `iFrameResize()`. See [the document](https://github.com/davidjbradshaw/iframe-resizer/blob/v4/docs/parent_page/options.md) for the details.
 
 ```html
 <iframe

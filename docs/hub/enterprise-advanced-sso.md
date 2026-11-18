@@ -20,6 +20,8 @@ When a user is deactivated in your IdP, their Hugging Face account is deactivate
 
 Managed SSO cannot be self-configured. To enable Managed SSO for your organization, please <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">contact the Hugging Face team</a>. The setup is done in collaboration with our technical team to ensure a smooth transition for your organization.
 
+If you are converting an existing organization, read [Migrating to Managed SSO](./enterprise-managed-sso-migration) first: members' existing personal accounts are not converted, and each member must free up their work email before they can be provisioned.
+
 Both SAML 2.0 and OIDC protocols are supported and can be integrated with popular identity providers such as Okta, Microsoft Entra ID (Azure AD), and Google Workspace.
 
 ## User provisioning
@@ -47,5 +49,6 @@ To ensure organizational control and data governance, managed user accounts have
 *   **No personal content creation**: Managed users cannot create any content (models, datasets, or Spaces) in their personal user namespace. All content must be created within the organization.
 *   **Organization-bound collaboration**: Managed users are restricted to collaborating solely within their managing organization. They cannot join other organizations or contribute to repositories outside of their managing organization.
 *   **Content visibility**: Content created by managed users resides within the organization. While the managed users cannot create public content in their personal profile, they can **create public content within the organization** if the organization's settings permit it.
+*   **Organization-managed profile**: The managing organization is automatically set as the managed user's primary organization. Managed users can't edit their profile (name, avatar, primary organization, homepage, bio, social links), change their username or password, leave the organization, or delete their account. These are controlled by the organization and its identity provider.
 
 These restrictions maintain your enterprise's security boundaries. For personal projects or broader collaboration outside your organization, members should use a separate, unmanaged Hugging Face account.

@@ -59,7 +59,7 @@ Adding a Dataset card is super valuable for helping users find your dataset and 
 
 3. Write your dataset documentation in the Dataset Card to introduce your dataset to the community and help users understand what is inside: what are the use cases and limitations, where the data comes from, what are important ethical considerations, and any other relevant details.
 
-    You can click on the **Import dataset card template** link at the top of the editor to automatically create a dataset card template. For a detailed example of what a good Dataset card should look like, take a look at the [CNN DailyMail Dataset card](https://huggingface.co/datasets/cnn_dailymail).
+    You can click on the **Import dataset card template** link at the top of the editor to automatically create a dataset card template. For a detailed example of what a good Dataset card should look like, take a look at the [CNN DailyMail Dataset card](https://huggingface.co/datasets/abisee/cnn_dailymail).
 
 ## Using the `huggingface_hub` client library
 
@@ -98,7 +98,7 @@ The Hub natively supports multiple file formats:
 
 It supports files compressed using ZIP (.zip), GZIP (.gz), ZSTD (.zst), BZ2 (.bz2), LZ4 (.lz4) and LZMA (.xz).
 
-Image and audio files can also have additional metadata files. See the [Data files Configuration](./datasets-data-files-configuration#image-and-audio-datasets) on image and audio datasets, as well as the collections of [example datasets](https://huggingface.co/datasets-examples) for CSV, TSV and images.
+Image and audio files can also have additional metadata files. See the [Data files Configuration](./datasets-data-files-configuration#image-audio-and-video-datasets) on image and audio datasets, as well as the collections of [example datasets](https://huggingface.co/datasets-examples) for CSV, TSV and images.
 
 You may want to convert your files to these formats to benefit from all the Hub features.
 Other formats and structures may not be recognized by the Hub.
@@ -118,6 +118,6 @@ After uploading your dataset, make sure the Dataset Viewer correctly shows your 
 
 The Hugging Face Hub supports large scale datasets, usually uploaded in Parquet (e.g. via `push_to_hub()` using [🤗 Datasets](/docs/datasets/main/en/package_reference/main_classes#datasets.Dataset.push_to_hub)) or [WebDataset](https://github.com/webdataset/webdataset) format.
 
-You can upload large scale datasets at high speed using the `huggingface_hub` library.
+Use `upload_folder()` or `hf upload` from the `huggingface_hub` library to upload large folders: they split the upload into several commits and resume automatically if interrupted.
 
-See [how to upload a folder by chunks](/docs/huggingface_hub/guides/upload#upload-a-folder-by-chunks), the [tips and tricks for large uploads](/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository storage limits and recommendations](./storage-limits).
+See [how to upload a large folder](/docs/huggingface_hub/guides/upload#upload-a-large-folder), the [tips and tricks for large uploads](/docs/huggingface_hub/guides/upload#tips-and-tricks-for-large-uploads) and the [repository storage limits and recommendations](./storage-limits).

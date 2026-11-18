@@ -9,8 +9,12 @@ on:
       - docs/hub/model-cards.md
       - docs/hub/model-card-annotated.md
 
+permissions: {}
+
 jobs:
   comment:
+    permissions:
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: maintain-comment

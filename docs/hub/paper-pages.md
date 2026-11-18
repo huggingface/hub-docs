@@ -9,14 +9,23 @@ Paper pages allow people to find artifacts related to a paper such as models, da
 
 ## Linking a Paper to a model, dataset or Space
 
-If the repository card (`README.md`) includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hugging Face Hub will extract the arXiv ID and include it in the repository's tags. Clicking on the arxiv tag will let you:
+If the repository card (`README.md`) includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hugging Face Hub will extract the arXiv ID and link the paper to the repository.
 
-* Visit the Paper page.
-* Filter for other models or datasets on the Hub that cite the same paper.
+On model and dataset pages, up to five linked papers are listed in the right sidebar:
 
 <div class="flex justify-center">
-<img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
-<img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
+<img class="block dark:hidden" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers.png"/>
+<img class="hidden dark:block" width="450" alt="Papers for victor/Flash-8B-GGUF section in the right sidebar of a model page, listing two linked papers with their arXiv ID, publication date and upvotes" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-linked-papers-dark.png"/>
+</div>
+
+Models and datasets also get an `arxiv:<PAPER ID>` tag. Clicking on it lets you:
+
+* Visit the Paper page.
+* Filter for other repositories of the same type on the Hub that cite the same paper.
+
+<div class="flex justify-center">
+<img class="block dark:hidden" width="260" alt="arxiv:2609.19969 tag on a model page, expanded to show the paper title, View paper page and List models citing this paper" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-tag.png"/>
+<img class="hidden dark:block" width="260" alt="arxiv:2609.19969 tag on a model page, expanded to show the paper title, View paper page and List models citing this paper" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/models-arxiv-tag-dark.png"/>
 </div>
 
 ## Claiming authorship to a Paper
@@ -43,6 +52,10 @@ If you don't have any papers on Hugging Face yet, you can index your first one a
 ### Can I control which Paper pages show in my profile?
 
 Yes! You can visit your Papers in [settings](https://huggingface.co/settings/papers), where you will see a list of verified papers. There, you can click the "Show on profile" checkbox to hide/show it in your profile. 
+
+### Can I edit the media of a paper submitted to Daily Papers?
+
+Yes. If you are an author of the paper or the person who submitted it to [Daily Papers](https://huggingface.co/papers), you can click "Edit media" (or "Add media" if the paper has none yet) on the Paper page. From there, you can upload new images or videos, remove existing ones, and drag to reorder them. The first video or GIF is used as the paper's cover in the Daily Papers feed and is marked with a "Feed preview" badge. Click "Save" to apply your changes.
 
 ### Do you support ACL anthology?
 

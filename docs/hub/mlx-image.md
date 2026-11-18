@@ -16,7 +16,7 @@ pip install mlx-image
 
 ## Models
 
-Model weights are available on the [`mlx-vision`](https://huggingface.co/mlx-vision) community on HuggingFace.
+Model weights are available on the [`mlx-vision`](https://huggingface.co/mlx-vision) community on Hugging Face.
 
 To load a model with pre-trained weights:
 ```python

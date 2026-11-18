@@ -10,7 +10,7 @@ We offer advanced security and compliance features for organizations through our
 
 Team and Enterprise plans are billed like a typical subscription. They renew automatically, but you can choose to cancel at any time in the organization's billing settings.
 
-You can pay for a Team subscription with a credit card or your AWS account, or upgrade to Enterprise via an annual contract.
+You can pay for a Team subscription with a credit card or your AWS or Google Cloud account, or upgrade to Enterprise via an annual contract.
 
 Upon renewal, the number of seats in your subscription will be updated to match the number of members of your organization.
 Private repository storage above the [included storage](./storage-limits) will be billed along with your subscription renewal.
@@ -27,7 +27,7 @@ The PRO subscription unlocks essential features for serious users, including:
 
 - Higher [storage capacity](./storage-limits) for public and private repositories
 - Higher bandwidth and API [rate limits](./rate-limits)
-- Included credits for [Inference Providers](/docs/inference-providers/)
+- Included monthly compute credits, usable across all Hugging Face compute services: [Inference Providers](/docs/inference-providers/), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints), [Spaces](./spaces-overview) upgraded hardware, and [Jobs](./jobs-overview)
 - Higher tier for ZeroGPU Spaces usage, and pay-as-you-go quota extension
 - Ability to create Gradio and Docker Spaces running on compute, host up to 10 ZeroGPU Spaces, and use Dev Mode
 - Ability to publish Social Posts and Community Blogs
@@ -72,8 +72,9 @@ Invoices for compute services are edited at the beginning of each month.
 
 Hugging Face uses [Stripe](https://stripe.com) to securely process your payment information.
 
-The only payment method supported for Hugging Face compute services is credit cards.
-You can add a credit card to your account from your billing settings.
+Hugging Face compute services are paid by credit card. You can add a credit card to your account from your billing settings.
+
+Organizations can alternatively be billed through a [cloud marketplace](#cloud-providers-partnerships) subscription, so that Hugging Face usage appears on their AWS or Google Cloud bill.
 
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/billing/payment-method-light.png"/>
@@ -87,8 +88,20 @@ and [Google Cloud](https://huggingface.co/blog/llama31-on-vertex-ai) to make it 
 These solutions and usage are billed directly by the cloud provider. Ultimately, we want people to have great options for using Hugging Face wherever they
 build ML-powered products.
 
-You also have the option to link your Hugging Face organization to your AWS account via [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2).
-Hugging Face compute service usage will then be included in your AWS bill. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
+You also have the option to link your Hugging Face organization to your cloud provider account through a cloud marketplace. Hugging Face compute service usage is then included in your cloud provider bill instead of being charged to a credit card.
+
+Two marketplaces are supported:
+
+* **AWS Marketplace** — subscribe from the [Hugging Face Platform listing](https://aws.amazon.com/marketplace/pp/prodview-n6vsyhdjkfng2) to link your AWS account. Read more in our [blog post](https://huggingface.co/blog/aws-marketplace).
+* **Google Cloud Marketplace** — subscribe from the [Hugging Face Hub listing](https://console.cloud.google.com/marketplace/product/huggingface-public/hugging-face-hub) to link your Google Cloud account.
+
+In both cases, you start from the marketplace listing, then pick which of your Hugging Face organizations to link. Once linked, the organization's payment method appears in its billing settings, showing the linked cloud account and the current subscription status.
+
+A cloud marketplace subscription must be approved by the Hugging Face team before paid usage starts being billed through it. Until the subscription is active and approved, the organization's billing settings show it as pending, and usage keeps being billed to the organization's existing payment method. You will receive an email notification once the subscription is validated.
+
+Once the subscription is approved, organizations that already have a credit card on file switch to cloud marketplace billing at the start of their next billing period. Organizations on the free tier with no credit card on file usually switch immediately, so their paid usage is billed through the cloud marketplace right away.
+
+Cloud marketplace billing is available for organizations only, and replaces the credit card as the organization's payment method. Adding credits is not available while an organization is billed through a cloud marketplace: usage is metered and reported to your cloud provider instead. Linking and unlinking a cloud marketplace account is recorded in your organization's [audit logs](./audit-logs).
 
 ## Support FAQ 
 
@@ -103,14 +116,24 @@ A. Credits let you use HF pay-as-you-go services:
 - ZeroGPU: extra quota beyond daily allowance
 - Private Storage: extra storage for private repos
 
+If you have a PRO, Team, or Enterprise subscription, the credits included with your subscription are credited every month and count towards the same services. They are applied automatically before any pay-as-you-go usage is billed.
+
 **Q. What happens if I run out of credits?**
 
 A. We recommend enabling automatic recharge to avoid service disruptions after credits are exhausted.
 
+**Q. Do my credits expire?**
+
+A. Yes. Purchased and granted credits have an expiry date, and any unused amount is removed from your balance when they expire. The credits included monthly with your PRO, Team, or Enterprise subscription are credited again each month instead.
+
+The **Credits** card in your billing dashboard (in your user's or organization's settings) shows when your next balance is about to expire. If you have several balances, hover over the info icon next to the expiry date to see each purchased and granted balance along with its expiry date.
+
+You'll also receive an email reminder (sent to organization admins for organizations) before your credits expire. If automatic recharge is enabled, keep in mind that expiring credits lower your balance and can trigger a recharge on your payment method.
+
 **Q. I'm having issues adding my card. What’s up?**
 
 A. Please ensure the card supports 3D-secure authentication and is properly configured for recurring online payments. We do not yet support credit cards issued in India as we’re working on adding system compliance with the latest RBI directives. Until we add support for Indian credit cards, you can:
-* Link an organization account to an AWS account in order to access pay-as-you-go features (Endpoints, Spaces, AutoTrain): [Hugging Face Platform on the AWS Marketplace: Pay with your AWS Account](https://huggingface.co/blog/aws-marketplace)
+* Link an organization account to an AWS or Google Cloud account through a [cloud marketplace](#cloud-providers-partnerships) in order to access pay-as-you-go features (Endpoints, Spaces, AutoTrain). For AWS, see [Hugging Face Platform on the AWS Marketplace: Pay with your AWS Account](https://huggingface.co/blog/aws-marketplace)
 * Use a credit card issued in another country
 
 **Q. How can I add my tax ID or update the billing details?**
@@ -128,6 +151,10 @@ A. View and download all invoices here: https://huggingface.co/settings/billing/
 **Q. I need to update my credit card in my account. What to do?**
 
 A. Head to https://huggingface.co/settings/billing/payment and update your payment method at anytime. 
+
+**Q. What happens if I delete my payment method?**
+
+A. Deleting your payment method cancels your paid subscription (such as PRO or Team) and any public storage subscription. They stay active until the end of the current billing period. Before the payment method is deleted, a confirmation dialog shows which subscriptions will be canceled and when they end. Adding a new card afterwards does not restore your subscription on its own: once a new card is on file, you can click **Resubscribe** on the payment page at https://huggingface.co/settings/billing/payment before the end of the billing period.
 
 
 **Subscriptions**

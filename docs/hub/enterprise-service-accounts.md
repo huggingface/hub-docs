@@ -23,9 +23,25 @@ When creating a service account, you provide:
 
 Service accounts do not have a password and cannot sign in interactively — they are accessed exclusively through the access tokens you issue for them. Unlike regular users, they also don't have an HF profile page, aren't part of the organization's member list, and are managed only through the **Service Accounts** settings.
 
+Service accounts cannot be added to [Resource Groups](./security-resource-groups), including through auto-join. To limit which repositories a service account can reach, scope its access tokens instead (see below).
+
 ## Managing Access Tokens
 
 A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
+
+Permissions can be granted at two levels:
+
+- **Organization-wide** — apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
+- **Per-repository** — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. You can select repositories owned by the organization, and gated repositories outside the organization that the service account has been granted access to.
+
+This lets you issue narrowly scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
+
+Tokens can also be allowed to work with [gated repositories](./models-gated) outside of your organization, under the **Gated repositories** section of the token form:
+
+- **Read contents of gated repos the service account has access to** — read gated repos once the service account has been granted access.
+- **Request access to gated repos** — let the token submit access requests to gated repos on behalf of the service account.
+
+To give a token access to only some of those gated repositories, leave **Read contents of gated repos the service account has access to** unchecked and select them individually under the per-repository permissions instead.
 
 <div class="flex justify-center">
   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-create-token.png" alt="Creating a new access token with fine-grained permissions for a service account."/>
@@ -39,8 +55,55 @@ From the service account's page, administrators can:
 - **Rotate** a token to replace it with a new value. The previous token stops working immediately, which is useful if a credential may have been exposed.
 - **Delete** a token to permanently revoke its access.
 
+Service account tokens don't need approval under the ["Require administrator approval"](./enterprise-tokens-management#token-policy) token policy. They can access your organization's resources as soon as they're created.
+
+Like personal access tokens, service account tokens [expire after a year without use](./security-tokens#expiration-of-unused-tokens). Organization admins get an email 30 days before, and the token shows an **Expires** badge on the service account's page. To keep the token, use it before that date. Expired tokens show an **Invalidated** badge and stop working. Rotate them to get a new value, which you'll then need to update wherever the token is used.
+
 > [!WARNING]
 > An access token is only displayed once, at the time it is created or rotated. Store it securely — it cannot be retrieved later. If you lose it, rotate the token to generate a new value.
+
+### Generating S3 Credentials
+
+Service account tokens can be used to access your organization's [Storage Buckets](./storage-buckets) through the [S3-compatible API](./storage-buckets-s3). The gateway authenticates with AWS-style access keys derived from a service account token.
+
+1. Go to the service account's page. [Create a token](#managing-access-tokens) with the **Create new token** button if you don't already have one. The token's permissions become the S3 credentials' permissions.
+2. Find the token in the list, open its dropdown menu, and choose **Generate S3 credentials**.
+
+   <div class="flex justify-center">
+   <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/service-account-generate-s3-credentials.png" alt="Generate S3 credentials option in service account token's dropdown menu"/>
+   <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/dark-service-account-generate-s3-credentials.png" alt="Generate S3 credentials option in service account token's dropdown menu"/>
+   </div>
+
+3. Copy the generated **access key ID** (prefixed `HFAK…`) and **secret access key** somewhere safe — the secret is shown only once. If you lose it, use **Invalidate and refresh S3 credentials** to generate a new pair. The previous access key stops working immediately.
+
+The S3 credentials inherit the permissions of the underlying access token. Scope the token to only the buckets you intend to use.
+
+Use **Revoke S3 credentials** to disable the pair without deleting the token — deleting the token (or the service account) also revokes its S3 credentials. The service account's page shows the access key ID currently paired with each token.
+
+Use your organization name as the `<namespace>` in the endpoint URL (see [Configuring a Client](./storage-buckets-s3#configuring-a-client)). Generating and revoking S3 credentials are recorded in the organization's [Audit Logs](./audit-logs).
+
+If a token has the [Network Security exemption](#network-security-exemption) enabled, only organization admins can generate S3 credentials for it.
+
+### Network Security exemption
+
+> [!WARNING]
+> This option is part of the <a href="https://huggingface.co/contact/sales?from=enterprise" target="_blank">Enterprise Plus</a> plan.
+
+If your organization uses [Network Security](./enterprise-network-security) settings, service account tokens are subject to them like any other credential: they only work from your organization's IP ranges, and the Content Access Policy applies to what they can reach.
+
+Some automated workflows run outside your corporate network — for example, a CI job hosted by a cloud provider. For those cases, you can exempt an individual token from your organization's Network Security enforcement with the **Bypass IP restrictions and the Content Access Policy** option in the token form.
+
+When enabled:
+
+- The token works from any IP address, even when **Restrict organization access to your IP ranges only** is on.
+- The token can reach content that your organization's Content Access Policy would otherwise block.
+- The exemption only applies to your own organization's Network Security settings. It never bypasses another organization's policy.
+- The token is listed with a **No IP restrictions** badge on the service account's page.
+- Rotating the token preserves the exemption.
+
+Only organization admins can enable the exemption or rotate a token that is already exempt.
+
+Because an exempt token is no longer protected by your network perimeter, the token itself becomes the only credential guarding the resources it can reach. We recommend scoping it to the smallest possible set of repositories, granting read-only permissions where that is sufficient, and rotating it regularly.
 
 ## Billing
 

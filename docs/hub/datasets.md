@@ -12,6 +12,6 @@ This documentation focuses on the datasets functionality in the Hugging Face Hub
 - [Uploading Datasets](./datasets-adding)
 - [Downloading Datasets](./datasets-downloading)
 - [Libraries](./datasets-libraries)
-- [Dataset Viewer](./datasets-viewer)
+- [Dataset Viewer](./data-studio)
 - [Agent Traces](./agent-traces)
 - [Data files Configuration](./datasets-data-files-configuration)

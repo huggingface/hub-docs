@@ -7,8 +7,8 @@
 Vision Agents natively supports Hugging Face Inference Providers, giving you access to thousands of models through a unified API. The integration supports multiple inference providers including Together AI, Groq, Cerebras, Replicate, and Fireworks.
 
 The Hugging Face plugin offers two implementations:
-- **HuggingFace LLM**: Text-only language model with streaming responses and function calling
-- **HuggingFace VLM**: Vision language model with automatic video frame buffering for real-time video understanding
+- **Hugging Face LLM**: Text-only language model with streaming responses and function calling
+- **Hugging Face VLM**: Vision language model with automatic video frame buffering for real-time video understanding
 
 ## Prerequisites
 

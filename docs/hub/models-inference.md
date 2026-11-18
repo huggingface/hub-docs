@@ -1,6 +1,6 @@
 # Inference Providers
 
-Hugging Face's model pages have pay-as-you-go inference for thousands of models, so you can try them all out right in the browser. Service is powered by Inference Providers and includes a free-tier.
+Hugging Face's model pages have pay-as-you-go inference for thousands of models, so you can try them all out right in the browser. Service is powered by Inference Providers, with monthly included credits for PRO users and Team & Enterprise organizations.
 
 Inference Providers give developers streamlined, unified access to hundreds of machine learning models, powered by the best serverless inference partners. 👉 **For complete documentation, visit the [Inference Providers Documentation](https://huggingface.co/docs/inference-providers)**.
 

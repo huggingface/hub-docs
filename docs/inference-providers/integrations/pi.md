@@ -1,6 +1,6 @@
 # Pi
 
-[Pi](https://github.com/badlogic/pi-mono) is a minimalist, extensible terminal-based coding assistant designed to adapt to your workflows rather than the other way around.
+[Pi](https://github.com/earendil-works/pi) is a minimalist, extensible terminal-based coding assistant designed to adapt to your workflows rather than the other way around.
 
 ## Overview
 

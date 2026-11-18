@@ -17,7 +17,7 @@ export HF_TOKEN="your_token_here"
 ```
 
 > [!TIP]
-> 💡 Pro tip: The free tier gives you monthly inference credits to start building and experimenting. All users can purchase additional credits for pay‑as‑you‑go access. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) for $2 in monthly credits!
+> 💡 Pro tip: All users can purchase credits for pay‑as‑you‑go access. Upgrade to [Hugging Face PRO](https://huggingface.co/pro) for $2 in monthly credits!
 
 2. Install the official OpenAI SDK.
 

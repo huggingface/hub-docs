@@ -33,7 +33,7 @@ We now need a way to react to your Webhook events. An easy way to do this is to 
 
 You can find an example Space [here](https://huggingface.co/spaces/huggingface-projects/auto-retrain/tree/main).
 
-This Space uses Docker, Python, [FastAPI](https://fastapi.tiangolo.com/), and [uvicorn](https://www.uvicorn.org) to run a simple HTTP server. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
+This Space uses Docker, Python, [FastAPI](https://fastapi.tiangolo.com/), and [uvicorn](https://uvicorn.dev) to run a simple HTTP server. Read more about Docker Spaces [here](https://huggingface.co/docs/hub/spaces-sdks-docker).
 
 The entry point is [src/main.py](https://huggingface.co/spaces/huggingface-projects/auto-retrain/blob/main/src/main.py). Let's walk through this file and detail what it does:
 

@@ -44,7 +44,7 @@ The primary reference implementation of the protocol written in Rust 🦀 lives 
 
 ### huggingface.js
 
-There is also a second reference implementation in Huggingface.js that can be used when downloading or uploading files with the `@huggingface/hub` library.
+There is also a second reference implementation in huggingface.js that can be used when downloading or uploading files with the `@huggingface/hub` library.
 
 - Download uses the `XetBlob` that can be found in [XetBlob.ts](https://github.com/huggingface/huggingface.js/blob/main/packages/hub/src/utils/XetBlob.ts).
 - The upload implementation is more comprehensive but the root of it begins in [uploadShards](https://github.com/huggingface/huggingface.js/blob/main/packages/hub/src/utils/uploadShards.ts).

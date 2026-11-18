@@ -119,7 +119,7 @@ claude
 
 Then, to install a Skill specification:
 ```bash
-/plugin install hf-cli@huggingface/skills
+/plugin install hf-cli@huggingface-skills
 ```
 
 See the [Skills Guide](./agents-skills) for available skills and usage.

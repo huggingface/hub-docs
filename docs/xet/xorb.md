@@ -10,12 +10,12 @@ It is advantageous to collect series of chunks in Xorbs such that they can be re
 
 Suppose a file is chunked into chunks A, B, C, D in the order ABCD. Then create a Xorb X1 with chunks A, B, C, D in this order (starting at chunk index 0), let's say this Xorb's hash is X1. Then to reconstruct the file we ask for Xorb X1 chunk range `[0, 4)`.
 
-While there's no explicit limit on the number of chunks in a Xorb, there is a limit of 64MiB on the total size of the Xorb as serialized.
+A Xorb MUST NOT contain more than 8192 chunks, and SHOULD NOT contain more than 64 MiB of chunk data.
 Since some chunks will get compressed, it is generally advised to collect chunks until their total uncompressed length is near 64 MiB then serialize the struct.
 Namely, Xorbs point to roughly 64 MiB worth of data.
 (Recall that the target chunk size is 64 KiB so expect roughly ~1024 chunks per Xorb).
 
-The CAS server will reject Xorb uploads that exceed the 64 MiB serialized size limit.
+The CAS server will reject Xorb uploads that contain more than 8192 chunks or that exceed its maximum serialized Xorb size.
 
 It is RECOMMENDED to pack chunks from multiple files into a Xorb if the size requirements allow, i.e. file X and Y both produced 10 new chunks each totalling a total of ~128000 bytes, then all those chunks can fit in a new Xorb.
 
@@ -31,6 +31,9 @@ A Xorb is a series of "Chunks" that is serialized according to a specific format
 └─────────┴─────────────────────────────────┴─────────┴─────────────────────────────────┴─────────┴─────────────────────────────────┴───────────
 │                 Chunk 0                   │                 Chunk 1                   │                 Chunk 2                   │   ...
 ```
+
+A serialized Xorb ends immediately after its last chunk.
+Clients MUST NOT append a footer or any other trailing bytes when uploading; the CAS server may reject such uploads.
 
 ### Chunk Addressing
 
@@ -72,7 +75,7 @@ the uncompressed size also being at a maximum of 128KiB.
 | Value | Name | Description |
 |-------|------|-------------|
 | `0` | `None` | No compression - data is stored as-is |
-| `1` | `LZ4` | Standard LZ4 compression |
+| `1` | `LZ4` | LZ4 compression, using the LZ4 frame format (not a raw LZ4 block) |
 | `2` | `ByteGrouping4LZ4` | Byte grouping with 4-byte groups followed by LZ4 compression. Optimized for floating-point and other structured data where grouping bytes by position improves compression ratios |
 
 #### Byte Grouping LZ4 Compression
@@ -89,7 +92,7 @@ Byte grouping LZ4 compression is an optimization technique that improves compres
 
    If the total number of bytes in the chunk is not a multiple of 4, append the remaining bytes following the pattern (1 byte to each group) to the first 1-3 groups until there are no more bytes left in the chunk.
 
-2. **LZ4 Compression**: The grouped data is then compressed using standard LZ4 compression.
+2. **LZ4 Compression**: The grouped data is then compressed as an LZ4 frame, as for `LZ4`.
 
 #### Chunk Data
 

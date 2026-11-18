@@ -19,7 +19,7 @@ _Full text responses to key questions_
   *  what is the performance on reference datasets (accuracy and speed metrics if possible)
   *  limitations
   *  how to use it in the context of the Transformers library
-  *  source (original article, Github repo,...)
+  *  source (original article, GitHub repo,...)
 *  Easily accessible documentation that any background can read and learn about critical model components and social impact
 
 

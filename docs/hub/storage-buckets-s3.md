@@ -1,7 +1,7 @@
 # S3 Compatibility
 
 Storage Buckets can be accessed through an **S3-compatible API**, letting you use existing S3 tooling — the AWS CLI, `boto3`, `s5cmd`, and most other S3 SDKs — against your buckets without changing your code. 
-Requests go through a gateway service at `https://s3.hf.co`.
+Requests go through a gateway service at `https://s3.hf.co`, which also serves each namespace at its own hostname, `https://<namespace>.s3.hf.co`.
 
 The S3 API is one of several ways to reach bucket data — for Hugging Face-native access (the `hf` CLI, `hf://` paths, and filesystem mounts) without separate S3 credentials, see [Access Patterns](./storage-buckets-access).
 
@@ -24,13 +24,16 @@ The gateway authenticates with AWS-style access keys derived from a Hugging Face
 
 The S3 credentials inherit the permissions of the underlying access token. For fine-grained tokens, scope them to only the namespaces and buckets you intend to use.
 
+> [!TIP]
+> For automated workflows that access an organization's buckets, you can also generate S3 credentials from a [service account](./enterprise-service-accounts#generating-s3-credentials) token instead of a User Access Token.
+
 ## Configuring a Client
 
 Point your S3 client at the gateway endpoint and set a few required options. Use your Hugging Face **namespace** (your username or an organization name) in the endpoint URL — see [Addressing buckets](#addressing-buckets) below.
 
 | Setting                        | Value                          | Why                                                           |
 |--------------------------------|--------------------------------|---------------------------------------------------------------|
-| `endpoint_url`                 | `https://s3.hf.co/<namespace>` | The gateway, scoped to your namespace                         |
+| `endpoint_url`                 | `https://<namespace>.s3.hf.co` | The gateway, scoped to your namespace                         |
 | `region`                       | `us-east-1`                    | Required; the gateway is currently single-region              |
 | `s3.addressing_style`          | `path`                         | Buckets are addressed as path segments, not subdomains        |
 | `request_checksum_calculation` | `when_required`                | Prevents recent clients from sending trailing checksums       |
@@ -39,12 +42,12 @@ Point your S3 client at the gateway endpoint and set a few required options. Use
 The two checksum settings matter for recent clients: AWS CLI ≥ 2.23 and recent `boto3` versions send trailing CRC32 checksums (via `aws-chunked` framing) by default, which the gateway does not parse. 
 These settings tell the client to send checksums only when an operation strictly requires them.
 
-The following are optional but recommended so large uploads use as few multipart parts as possible:
+The following are optional but recommended. With the client default of 8MB, a large file is split into many parts; 256MB means far fewer parts per upload, while each part stays small enough for the gateway to process efficiently:
 
-| Setting                  | Value |
-|--------------------------|-------|
-| `s3.multipart_threshold` | `2GB` |
-| `s3.multipart_chunksize` | `2GB` |
+| Setting                  | Value   |
+|--------------------------|---------|
+| `s3.multipart_threshold` | `256MB` |
+| `s3.multipart_chunksize` | `256MB` |
 
 ### Example: AWS CLI profile
 
@@ -53,11 +56,11 @@ Add a profile to `~/.aws/config`:
 ```ini
 [profile hf]
 region = us-east-1
-endpoint_url = https://s3.hf.co/<namespace>
+endpoint_url = https://<namespace>.s3.hf.co
 s3 =
     addressing_style = path
-    multipart_threshold = 2GB
-    multipart_chunksize = 2GB
+    multipart_threshold = 256MB
+    multipart_chunksize = 256MB
 request_checksum_calculation = when_required
 response_checksum_validation = when_required
 ```
@@ -85,10 +88,17 @@ AWS S3 uses a single flat, globally-unique space of bucket names, and SDKs expec
 
 **1. Put the namespace in the endpoint URL** (recommended for most cases). This scopes every operation to that namespace, so the bucket name passed to the client is just the HF bucket name. It works well for your own buckets or buckets in a single org, but breaks down across namespaces — e.g. a server-side copy from a personal bucket into an org bucket.
 
+Each namespace has its own endpoint hostname, `https://<namespace>.s3.hf.co`:
+
 ```bash
-aws --endpoint-url https://s3.hf.co/my-org s3api get-object \
+aws --endpoint-url https://my-org.s3.hf.co s3api get-object \
   --bucket my-bucket --key some/object.txt ./object.txt
 ```
+
+The namespace can also go in the endpoint's path instead, as `https://s3.hf.co/<namespace>`. Both forms behave the same, but we recommend the hostname: some clients reject an endpoint URL that contains a path. These include tools built on the [MinIO Go client](https://github.com/minio/minio-go), such as [restic](#back-up-with-restic-or-kopia), Milvus, and Weaviate. Namespace hostnames are not case-sensitive, so `https://my-org.s3.hf.co` also reaches an organization named `My-Org`.
+
+> [!NOTE]
+> Even with a namespace hostname, clients must use path-style addressing (see [Configuring a Client](#configuring-a-client)). Buckets are not served as their own subdomain (`my-bucket.my-org.s3.hf.co`).
 
 **2. Treat the namespace as the bucket** and prepend the HF bucket name to the object key. This works for object-level operations (uploads, downloads) but has issues with bucket-level operations such as creating or deleting buckets.
 
@@ -146,7 +156,7 @@ from botocore.config import Config
 
 s3 = boto3.client(
     "s3",
-    endpoint_url="https://s3.hf.co/<namespace>",
+    endpoint_url="https://<namespace>.s3.hf.co",
     aws_access_key_id="HFAK...",
     aws_secret_access_key="...",
     config=Config(
@@ -163,7 +173,9 @@ s3.download_file("my-bucket", "models/model.safetensors", "model.safetensors")
 
 ### Query a bucket with DuckDB
 
-With the `httpfs` extension, [DuckDB](https://duckdb.org/) can read Parquet (and other formats) straight from a bucket:
+On DuckDB 2.0 or later, the `httpfs` extension reads `hf://buckets/` paths directly, and with the `hf` extension it can also write to Buckets. See [Query with DuckDB](./storage-buckets-access#query-with-duckdb).
+
+For earlier versions of DuckDB, or to write query results back to a bucket with `COPY ... TO` without the extension, go through the S3 gateway instead:
 
 ```sql
 INSTALL httpfs;
@@ -182,11 +194,14 @@ SELECT * FROM read_parquet('s3://my-bucket/data.parquet');
 ```
 
 > [!NOTE]
-> `URL_STYLE 'path'` is required. Without it, DuckDB uses virtual-hosted-style addressing (`my-bucket.s3.hf.co`), which the gateway does not serve — you will see a "Could not resolve hostname" error.
+> `URL_STYLE 'path'` is required. Without it, DuckDB uses virtual-hosted-style addressing (`my-bucket.s3.hf.co`), which the gateway reads as a namespace named `my-bucket`, so requests fail.
 
 ### Import data using `rclone`
 
 [`rclone`](https://rclone.org/) is a convenient way to copy data between two S3-compatible stores, so it's a good fit for moving an existing AWS S3 bucket (or any S3-compatible source) into a Storage Bucket.
+
+> [!TIP]
+> Moving a large dataset? Mounting the source and running `hf sync` deduplicates on the client, so it usually uploads fewer bytes than rclone. See the [Migration Guide](./storage-buckets-migration).
 
 The idea is to declare two remotes — your source bucket and the Hugging Face gateway — and let `rclone` stream the objects between them. Add both remotes to `~/.config/rclone/rclone.conf`. The first points at your existing S3 bucket; adjust it to match your source (here, plain AWS S3):
 
@@ -199,20 +214,20 @@ secret_access_key = ...
 region = us-east-1
 ```
 
-The second points at the Hugging Face gateway. As with any other client, scope the endpoint to your [namespace](#addressing-buckets), use `path` addressing, force ListObjectsV2 (the only listing version the gateway supports), and set large multipart sizes so uploads use as few parts as possible:
+The second points at the Hugging Face gateway. As with any other client, scope the endpoint to your [namespace](#addressing-buckets), use `path` addressing, force ListObjectsV2 (the only listing version the gateway supports), and set a 256M part size. That's much larger than rclone's 5M default, so large files go up in fewer parts, and small enough for the gateway to process efficiently and to keep rclone's memory in check (it holds 4 parts per transfer in memory):
 
 ```ini
 [hf]
 type = s3
 provider = Other
-endpoint = https://s3.hf.co/<namespace>
+endpoint = https://<namespace>.s3.hf.co
 access_key_id = HFAK...
 secret_access_key = ...
 region = us-east-1
 force_path_style = true
 list_version = 2
-upload_cutoff = 2G
-chunk_size = 2G
+upload_cutoff = 256M
+chunk_size = 256M
 ```
 
 Note: replace the `<namespace>` above with the username or organization your buckets are stored in, and use the [S3 credentials](#generating-s3-credentials) generated from your access token. The destination bucket must already exist under that namespace.
@@ -238,7 +253,7 @@ rclone sync aws:my-source-bucket hf:my-bucket --progress
 
 ```bash
 dvc remote add -d hf-bucket s3://my-bucket/dvc-store
-dvc remote modify hf-bucket endpointurl https://s3.hf.co/<namespace>
+dvc remote modify hf-bucket endpointurl https://<namespace>.s3.hf.co
 dvc remote modify hf-bucket region us-east-1
 ```
 
@@ -259,3 +274,14 @@ dvc push
 
 > [!NOTE]
 > Use your [namespace](#addressing-buckets) in `endpointurl` and the bare bucket name in the `s3://` URL.
+
+### Back up with restic or kopia
+
+Backup tools built on the [MinIO Go client](https://github.com/minio/minio-go) need the [namespace hostname](#addressing-buckets) as the endpoint. For example, with [restic](https://restic.net/) and the [S3 credentials](#generating-s3-credentials) in `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`:
+
+```bash
+restic -r s3:https://<namespace>.s3.hf.co/my-bucket/restic init
+restic -r s3:https://<namespace>.s3.hf.co/my-bucket/restic backup ~/data
+```
+
+[kopia](https://kopia.io/) (`--endpoint <namespace>.s3.hf.co`) and [Weaviate's `backup-s3` module](https://docs.weaviate.io/deploy/configuration/backups) (`BACKUP_S3_ENDPOINT=<namespace>.s3.hf.co`) work the same way.

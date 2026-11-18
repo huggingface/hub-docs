@@ -4,7 +4,7 @@ The PRO subscription unlocks essential features for serious users, including:
 
 - Higher [storage capacity](./storage-limits) for public and private repositories
 - Higher bandwidth and API [rate limits](./rate-limits)
-- Included credits for [Inference Providers](/docs/inference-providers/)
+- Included monthly compute credits, usable across all Hugging Face compute services: [Inference Providers](/docs/inference-providers/), [Inference Endpoints](https://huggingface.co/docs/inference-endpoints), [Spaces](./spaces-overview) upgraded hardware, and [Jobs](./jobs-overview)
 - Higher tier for [ZeroGPU Spaces](./spaces-zerogpu) usage, and pay-as-you-go quota extension
 - Ability to create Gradio and Docker Spaces running on compute, host up to 10 [ZeroGPU Spaces](./spaces-zerogpu), and use [Dev Mode](./spaces-dev-mode)
 - Ability to publish Social Posts and Community Blogs

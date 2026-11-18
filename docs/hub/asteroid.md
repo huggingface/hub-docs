@@ -1,6 +1,6 @@
 # Using Asteroid at Hugging Face
 
-`asteroid` is a Pytorch toolkit for audio source separation. It enables fast experimentation on common datasets with support for a large range of datasets and recipes to reproduce papers.
+`asteroid` is a PyTorch toolkit for audio source separation. It enables fast experimentation on common datasets with support for a large range of datasets and recipes to reproduce papers.
 
 ## Exploring Asteroid in the Hub
 
@@ -21,7 +21,7 @@ All models on the Hub come up with the following features:
 
 For a full guide on loading pre-trained models, we recommend checking out the [official guide](https://github.com/asteroid-team/asteroid/blob/master/docs/source/readmes/pretrained_models.md). 
 
-All model classes (`BaseModel`, `ConvTasNet`, etc) have a `from_pretrained` method that allows to load models from the Hub.
+All model classes (`BaseModel`, `ConvTasNet`, etc) have a `from_pretrained` method that allows you to load models from the Hub.
 
 ```py
 from asteroid.models import ConvTasNet

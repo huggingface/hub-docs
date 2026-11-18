@@ -17,29 +17,6 @@ For more details, check out:
 Generate a response given a list of messages in a conversational context, supporting both conversational Language Models (LLMs) and conversational Vision-Language Models (VLMs).
 This is a subtask of [`text-generation`](https://huggingface.co/docs/inference-providers/tasks/text-generation) and [`image-text-to-text`](https://huggingface.co/docs/inference-providers/tasks/image-text-to-text).
 
-### Recommended models
-
-#### Conversational Large Language Models (LLMs)
-
-- [google/gemma-2-2b-it](https://huggingface.co/google/gemma-2-2b-it): A text-generation model trained to follow instructions.
-- [Qwen/Qwen3-Coder-480B-A35B-Instruct](https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct): Powerful text generation model for coding.
-- [openai/gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b): Great text generation model with top-notch tool calling capabilities.
-- [zai-org/GLM-4.5](https://huggingface.co/zai-org/GLM-4.5): Powerful text generation model.
-- [Qwen/Qwen3-4B-Thinking-2507](https://huggingface.co/Qwen/Qwen3-4B-Thinking-2507): A powerful small model with reasoning capabilities.
-- [Qwen/Qwen2.5-7B-Instruct-1M](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-1M): Strong conversational model that supports very long instructions.
-- [Qwen/Qwen2.5-Coder-32B-Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct): Text generation model used to write code.
-- [deepseek-ai/DeepSeek-R1](https://huggingface.co/deepseek-ai/DeepSeek-R1): Powerful reasoning based open large language model.
-
-#### Conversational Vision-Language Models (VLMs)
-
-- [zai-org/GLM-4.5V](https://huggingface.co/zai-org/GLM-4.5V): Cutting-edge reasoning vision language model.
-
-Explore all available models and find the one that suits you best [here](https://huggingface.co/models?inference=warm&pipeline_tag=image-text-to-text&sort=trending), or from the terminal with the [`hf` CLI](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-models-list):
-
-```bash
-hf models ls --warm --pipeline-tag image-text-to-text --sort trending_score
-```
-
 ### API Playground
 
 For Chat Completion models, we provide an interactive UI Playground for easier testing:
@@ -68,7 +45,7 @@ The API supports:
 
 <InferenceSnippet
     pipeline=text-generation
-    providersMapping={ {"cerebras":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"},"cohere":{"modelId":"CohereLabs/tiny-aya-global","providerModelId":"tiny-aya-global"},"deepinfra":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"},"featherless-ai":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"},"fireworks-ai":{"modelId":"zai-org/GLM-5.2","providerModelId":"accounts/fireworks/models/glm-5p2"},"groq":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"},"novita":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/glm-5.2"},"nscale":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Llama-3.1-8B-Instruct"},"ovhcloud":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"},"publicai":{"modelId":"swiss-ai/Apertus-8B-Instruct-2509","providerModelId":"swiss-ai/apertus-8b-instruct"},"scaleway":{"modelId":"zai-org/GLM-5.2","providerModelId":"glm-5.2"},"together":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"},"zai-org":{"modelId":"zai-org/GLM-5.2","providerModelId":"glm-5.2"}} }
+    providersMapping={ {"baseten":{"modelId":"reflection/Beam-1.0-501B-A23B","providerModelId":"reflection/Beam-1.0"},"cerebras":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"},"cohere":{"modelId":"CohereLabs/tiny-aya-global","providerModelId":"tiny-aya-global"},"deepinfra":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/Meta-Llama-3.1-8B-Instruct"},"featherless-ai":{"modelId":"meta-llama/Meta-Llama-3-8B-Instruct","providerModelId":"meta-llama/Meta-Llama-3-8B-Instruct"},"fireworks-ai":{"modelId":"zai-org/GLM-5.3","providerModelId":"accounts/fireworks/models/glm-5p3"},"groq":{"modelId":"openai/gpt-oss-120b","providerModelId":"openai/gpt-oss-120b"},"novita":{"modelId":"meta-llama/Llama-3.1-8B-Instruct","providerModelId":"meta-llama/llama-3.1-8b-instruct"},"nscale":{"modelId":"zai-org/GLM-5.3","providerModelId":"zai-org/GLM-5.3"},"ovhcloud":{"modelId":"openai/gpt-oss-120b","providerModelId":"gpt-oss-120b"},"publicai":{"modelId":"speakleash/Bielik-11B-v3.0-Instruct","providerModelId":"speakleash/Bielik-11B-v3.0-Instruct"},"scaleway":{"modelId":"zai-org/GLM-5.3","providerModelId":"glm-5.3"},"together":{"modelId":"zai-org/GLM-5.3","providerModelId":"zai-org/GLM-5.3"},"zai-org":{"modelId":"zai-org/GLM-5.3","providerModelId":"glm-5.3"}} }
 conversational />
 
 
@@ -78,7 +55,7 @@ conversational />
 
 <InferenceSnippet
     pipeline=image-text-to-text
-    providersMapping={ {"cerebras":{"modelId":"google/gemma-4-31B-it","providerModelId":"gemma-4-31b"},"cohere":{"modelId":"CohereLabs/aya-vision-32b","providerModelId":"c4ai-aya-vision-32b"},"deepinfra":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"MiniMaxAI/MiniMax-M3"},"featherless-ai":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"MiniMaxAI/MiniMax-M3"},"fireworks-ai":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"accounts/fireworks/models/minimax-m3"},"groq":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/llama-4-scout-17b-16e-instruct"},"novita":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"minimax/minimax-m3"},"nscale":{"modelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct","providerModelId":"meta-llama/Llama-4-Scout-17B-16E-Instruct"},"ovhcloud":{"modelId":"Qwen/Qwen3.6-27B","providerModelId":"Qwen3.6-27B"},"scaleway":{"modelId":"Qwen/Qwen3.6-35B-A3B","providerModelId":"qwen3.6-35b-a3b"},"together":{"modelId":"MiniMaxAI/MiniMax-M3","providerModelId":"MiniMaxAI/MiniMax-M3"},"zai-org":{"modelId":"zai-org/GLM-4.6V","providerModelId":"glm-4.6v"}} }
+    providersMapping={ {"baseten":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017"},"cerebras":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"qwen-3.8-27b"},"cohere":{"modelId":"CohereLabs/command-a-plus-05-2026-bf16","providerModelId":"command-a-plus-05-2026"},"deepinfra":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017"},"featherless-ai":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen/Qwen3.8-27B"},"fireworks-ai":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash","providerModelId":"accounts/fireworks/models/deepseek-v4p1-flash"},"novita":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek/deepseek-v4.1-flash-1017"},"nscale":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen/Qwen3.8-27B"},"ovhcloud":{"modelId":"Qwen/Qwen3.8-27B","providerModelId":"Qwen3.8-27B"},"publicai":{"modelId":"swiss-ai/Apertus-v1.5-70B","providerModelId":"swiss-ai/apertus-v1.5-70b"},"scaleway":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek-v4.1-flash-1017"},"together":{"modelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017","providerModelId":"deepseek-ai/DeepSeek-V4.1-Flash-1017"},"zai-org":{"modelId":"zai-org/GLM-5.3-Flash","providerModelId":"glm-5.3-flash"}} }
 conversational />
 
 

@@ -34,7 +34,7 @@ Distilabel pipelines can be built with any number of interconnected steps or tas
 
 A Pipeline in distilabel returns a special type of Hugging Face `datasets.DatasetDict` which is called `Distiset`.
 
-The Pipeline can output multiple subsets in the Distiset, which is a dictionary-like object with one entry per subset. A Distiset can then be pushed seamlessly to the Hugging face Hub, with all the subsets in the same repository.
+The Pipeline can output multiple subsets in the Distiset, which is a dictionary-like object with one entry per subset. A Distiset can then be pushed seamlessly to the Hugging Face Hub, with all the subsets in the same repository.
 
 ## Load data from the Hub to a Distiset
 

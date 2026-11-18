@@ -74,7 +74,7 @@
 ## [2022-03-04] - SDK version lock
 
 - The `sdk_version` field is now automatically pre-filled at Space creation time.
-    - It ensures that your Space stays on the same SDK version after an updatE.
+    - It ensures that your Space stays on the same SDK version after an update.
 
 ## [2022-03-02] - Gradio version pinning
 

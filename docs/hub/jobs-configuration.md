@@ -6,6 +6,17 @@ You need to be authenticated with `hf auth login` to run Jobs, and use a token w
 
 Alternatively, pass a Hugging Face token manually with `--token` in the CLI, or the `token` argument in Python.
 
+## Passing arguments
+
+Use `--` to separate Jobs options from your command or script and its arguments. Options after
+`--`, such as `--help` or `--timeout`, are passed through rather than interpreted by Jobs.
+This applies to both UV and Docker Jobs.
+
+```text
+hf jobs uv run --flavor t4-small -- script.py --early-stopping-patience 3
+               └─ Jobs option ┘    └─ script + arguments ─────────────┘
+```
+
 ## UV Jobs
 
 Specify the UV script or python command to run as you would with UV:
@@ -26,7 +37,7 @@ The `hf jobs uv run` command accepts an UV argument like `--with` and `--python`
 >>> hf jobs uv run --python 3.12 train.py
 ```
 
-Arguments following the command (or script) are not interpreted as arguments to uv. All options to uv must be provided before the command, e.g., uv run --verbose foo. A `--` can be used to separate the command from jobs/uv options for clarity, e.g.
+For example, pass arguments to a command using `--`:
 
 ```bash
 >>> hf jobs uv run --with trl-jobs -- trl-jobs sft --model_name Qwen/Qwen3-0.6B --dataset_name trl-lib/Capybara
@@ -36,6 +47,34 @@ Find the list of all arguments in the [CLI documentation](https://huggingface.co
 
 By default, UV Jobs run with the `ghcr.io/astral-sh/uv:python3.12-bookworm` Docker image, but you can use another image as long as it has UV installed, using `--image <docker-image>`.
 
+See [Using Docker images](./jobs-images#use-an-image-with-uv) for choosing an image and understanding how its environment interacts with UV dependencies.
+
+### Define the launch config in the script
+
+A script that only runs correctly on a specific runtime (a given image, GPU flavor or system interpreter) can carry that configuration with it, in an optional `[tool.hf-jobs]` table of its PEP 723 header:
+
+```python
+# /// script
+# requires-python = ">=3.11"
+# dependencies = ["vllm", "datasets"]
+#
+# [tool.hf-jobs]
+# image   = "vllm/vllm-openai:unlimited-ocr"
+# flavor  = "l4x1"
+# python  = "/usr/bin/python3"
+# secrets = ["HF_TOKEN"]
+# ///
+```
+
+`hf jobs uv run ocr.py` then launches on that image and hardware. A plain `uv run` ignores the table, as `[tool.*]` tables are part of PEP 723 and tools skip the ones they don't own.
+
+Supported keys, all optional: `image`, `flavor`, `python`, `timeout`, `name`, `namespace`, `env`, `secrets`, `labels`, `volumes`, `network_group` and `network_aliases`. They map to the flags of the same name. Values from the script are defaults: an explicit flag always wins, and `env`, `secrets`, `labels` and `volumes` are merged entry by entry, so `-e` and `-v` add to what the script declares. An unknown key is an error, and `secrets` only lists names: values come from the environment of whoever runs the script, and a secret that is not set locally is an error too.
+
+Use `--dry-run` to print the resolved configuration without submitting; values that come from the script are marked `(from script)`. See the [`hf` CLI guide](https://huggingface.co/docs/huggingface_hub/guides/cli#ship-the-launch-config-with-the-script) for the full merge rules.
+
+> [!WARNING]
+> The table is read by the `hf` CLI only. `run_uv_job()` and `create_scheduled_uv_job()` ignore it, so pass `image=`, `flavor=`, ... explicitly from Python.
+
 ## Docker Jobs
 
 Specify the Docker image and the command to run as you would with docker:
@@ -44,13 +83,15 @@ Specify the Docker image and the command to run as you would with docker:
 >>> hf jobs run ubuntu echo "Hello from the cloud!"
 ```
 
-All options to Jobs must be provided before the command. A `--` can be used to separate the command from jobs/uv options for clarity, e.g.
+Here, `--help` reaches Python rather than showing Jobs help:
 
 ```bash
->>> hf jobs run --token hf_xxx ubuntu -- echo "Hello from the cloud!"
+>>> hf jobs run --flavor cpu-basic python:3.12 -- python --help
 ```
 
 Find the list of all arguments in the [CLI documentation](https://huggingface.co/docs/huggingface_hub/package_reference/cli#hf-jobs-run).
+
+See [Using Docker images](./jobs-images) for examples using existing images and images built by Docker Spaces.
 
 ## Environment variables and Secrets
 
@@ -64,6 +105,8 @@ Similarly to the [built-in environment variables in Spaces](./spaces-overview#bu
 | `ACCELERATOR` | The type of accelerator available (e.g., `t4-medium`, `a10g-small`, `a100x4`), or `none` for CPU-only jobs. |
 | `CPU_CORES` | The number of CPU cores allocated to the job. |
 | `MEMORY` | The amount of memory allocated to the job (e.g., `8Gi`). |
+| `HF_NETWORK_GROUP_HOSTNAME` | Hostname resolving to every job in the job's [network group](#network-groups). Only set when the job declares one. |
+| `HF_NETWORK_GROUP_PREFIX` | Prefix to prepend to an alias to get the hostname of the group members claiming it (e.g., `${HF_NETWORK_GROUP_PREFIX}master`). Only set when the job declares a network group. |
 
 You can use these variables to track outputs, adapt your code to available resources, or reference the current job programmatically:
 
@@ -237,6 +280,8 @@ curl -H "Authorization: Bearer $HF_TOKEN" https://<job_id>--<port>.hf.jobs/
 
 This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants. Repeat the flag to expose multiple ports (`--expose 8000 --expose 8001`), or pass several ports in the list (`expose=[8000, 8001]`).
 
+To make a port reachable without an HF token, use `--expose-public <port>` (CLI) or `expose_public=[<port>]` (Python API) instead. Anyone who has the URL can then reach the port, so use it only for a service that is safe to share. You can combine both options: some ports then require an HF token and others are public.
+
 > [!NOTE]
 > Exposed ports are billed at a small flat hourly rate on top of the job's hardware price, only while the job is running. See the [pricing page](./jobs-pricing) for details.
 
@@ -261,6 +306,23 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 >>> job.status.expose_urls
 ['https://6a2ab384c4f53f9fc5aa4d4f--8000.hf.jobs']
 ```
+
+### Change the ports of a running Job
+
+Use `hf jobs expose` to change which ports are exposed, without restarting the Job:
+
+```bash
+# Expose port 8000 (requires an HF token)
+>>> hf jobs expose <job_id> 8000
+
+# Expose port 8000 (requires an HF token) and port 9000 publicly
+>>> hf jobs expose <job_id> 8000 --public 9000
+
+# Close all exposed ports
+>>> hf jobs expose <job_id> --clear
+```
+
+The command replaces the full list of exposed ports, so a port that you leave out is closed. In Python, use `update_job_expose`.
 
 ## SSH
 
@@ -324,6 +386,41 @@ Use `-R` (remote forwarding) to let the Job access a service running on your mac
 >>> ssh -R 8080:localhost:8080 6a2bd1f1871c005b5352ad31@ssh.hf.jobs
 ```
 
+## Network groups
+
+Jobs can join a network group using `--network-group <name>` (CLI) or `network_group="<name>"` (Python API). Jobs in the same namespace and resource group sharing a group can reach each other on every port: `HF_NETWORK_GROUP_HOSTNAME` resolves to every member, and `${HF_NETWORK_GROUP_PREFIX}<alias>` to the members that claimed an alias with `--network-alias <alias>` (CLI) or `network_aliases=[<alias>]` (Python API).
+
+This works on `hf jobs run` and `hf jobs uv run`. Members are resolvable before they are ready, so connect with retries. Group names and aliases are lowercase alphanumerics and dashes, 46 and 34 characters max; a job's aliases must be unique.
+
+### CLI
+
+```bash
+# Start a server, reachable by the other members of the group as "master"
+>>> hf jobs run --detach --network-group train --network-alias master python:3.12 python -m http.server 8000
+
+# Start a client in the same group
+>>> hf jobs run --detach --network-group train python:3.12 sh -c 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'
+```
+
+### Python
+
+```python
+>>> from huggingface_hub import run_job
+>>> server = run_job(
+...     image="python:3.12",
+...     command=["python", "-m", "http.server", "8000"],
+...     network_group="train",
+...     network_aliases=["master"],
+... )
+>>> client = run_job(
+...     image="python:3.12",
+...     command=["sh", "-c", 'curl --retry 10 --retry-connrefused "http://${HF_NETWORK_GROUP_PREFIX}master:8000/"'],
+...     network_group="train",
+... )
+```
+
+Multi-node training frameworks can use an alias as the rendezvous host, e.g. `torchrun --master_addr "${HF_NETWORK_GROUP_PREFIX}master"`.
+
 ## Timeout
 
 Jobs have a default timeout (30 minutes), after which they will automatically stop. This is important to know when running long-running tasks like model training.
@@ -364,6 +461,18 @@ Supported time units:
 > [!WARNING]
 > If you don't specify a timeout, a default timeout will be applied to your job. For long-running tasks like model training that may take hours, make sure to set an appropriate timeout to avoid unexpected job terminations.
 
+## Retries
+
+By default, a Job runs once. Use `--attempts <n>` (CLI) or `attempts=<n>` (Python API) to retry a Job that fails. The number includes the first run, so `--attempts 3` allows up to two retries:
+
+```bash
+>>> hf jobs uv run --attempts 3 --flavor a10g-large train.py
+```
+
+This works on `hf jobs run`, `hf jobs uv run`, and their scheduled variants.
+
+A retry runs the command again from the start, under the same Job ID. To let a retry resume where the previous attempt stopped, write checkpoints to a mounted bucket and have your script resume from them. See [After it ends](./jobs-training#after-it-ends) in Train Models on Jobs.
+
 ## Namespace
 
 Run Jobs under your organization account using the `--namespace` argument. Make sure you are logged in with a token that has the permission to start and manage Jobs under your orgzanization account.
@@ -383,22 +492,24 @@ Note that you can pass a token with the right permission manually:
 Add one or more labels to a Job to add some metadata with `-l` or `--label`.
 You can use such metadata later to filter Jobs on the website or in the CLI.
 
-Add labels with `--label my-label` or key-value labels with `--label key=value`.
+Add labels with `--label my-label` or key-value labels with `--label key=value`. Keys and values can contain letters, digits, `-` and `_`.
 For example:
 
 ```bash
-hf jobs uv run --label fine-tuning --label model=Qwen3-0.6B --label dataset=Capybara ...
+hf jobs uv run --label fine-tuning --label model=Qwen3-06B --label dataset=Capybara ...
 ```
 
 Note that using the same `key` multiple times causes the last `key=value` to overwrite and discard any previous label with `key`.
 
 ### Name a Job
 
-Give a Job a name to make it easier to find and identify in the UI. The name is stored as the `name` label. Names are optional and do not have to be unique. In the UI Jobs will be grouped by name.
+Give a Job a name to make it easier to find and identify in the UI. The name is stored as the `name` label and does not have to be unique. In the UI Jobs will be grouped by name.
 
 ```bash
 hf jobs run --name daily-report python:3.12 python report.py
 ```
+
+If you don't pass `--name`, the Job is named after its Docker image or script plus a short hash of the command, so reruns of the same command share a name while different commands get different names (e.g. `python-3-12-6b9d662c` for a Job running on `python:3.12`).
 
 ### Update labels
 

@@ -75,6 +75,15 @@ For help evaluating a model, see the [Evaluating models with Inspect](https://hu
 > [!TIP]
 > Community scores are visible while the PR is open. If a score is disputed, the model author can close the PR to remove it. The goal is to surface existing evaluation data transparently while building toward a fully reproducible standard via verified scores.
 
+### Hiding Models from a Leaderboard
+
+Benchmark maintainers can hide a model from their leaderboard, for instance if they dispute its reported results:
+
+- On the benchmark dataset page, maintainers can use the toggle on each leaderboard row to hide or unhide a model. Hidden models are listed in a menu so they can be restored later.
+- Hiding applies to the model across all tasks of the benchmark.
+- Hidden models are removed from the public leaderboard, and the remaining models are re-ranked.
+- On the model page, results for that benchmark are no longer shown publicly. 
+
 ## Registering a Benchmark
 
 To register your dataset as a benchmark:
@@ -92,7 +101,6 @@ The `eval.yaml` should contain the following fields:
 
 - `name` — Human-readable display name for the benchmark (e.g. `"Humanity's Last Exam"`).
 - `description` — Short description of what the benchmark measures.
-- `evaluation_framework` — Canonical evaluation framework identifier for this benchmark. This is an enumerable which the Hugging Face team maintains. Add your own to the list [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/eval.ts). Exactly one framework is supported per benchmark.
 - `tasks[]` — List of tasks (sub-leaderboards) defined by this benchmark (see below).
 
 Required fields in each `tasks[]` item:
@@ -110,6 +118,12 @@ When setting `evaluation_framework: inspect-ai`, one also requires to set the fo
 - `solvers` — Solvers used to go from input to output using the AI model. This can range from a simple system prompt to self-critique loops. See the [docs](https://inspect.aisi.org.uk/solvers.html) for more details.
 - `scores` — Scorers used. Scorers determine whether solvers were successful in finding the right output for the target defined in the dataset, and in what measure. See the [docs](https://inspect.aisi.org.uk/scorers.html) for more details.
 
+Optional fields:
+
+- `evaluation_framework` — Canonical evaluation framework identifier for this benchmark. This is an enumerable which the Hugging Face team maintains. Add your own to the list [here](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/eval.ts). Exactly one framework is supported per benchmark.
+- `leaderboard.base_models_only` — Whether the benchmark leaderboard shows only base models by default. Defaults to `true`. Set it to `false` to include non-base models by default, which is useful when most relevant submissions are not classified as base models (for example, robotics policies shipped as ONNX).
+
+
 Minimal example (required fields only):
 
 ```yaml
@@ -126,6 +140,9 @@ Extended example:
 name: MathArena AIME 2026
 description: The American Invitational Mathematics Exam (AIME).
 evaluation_framework: "math-arena"
+
+leaderboard:
+  base_models_only: false
 
 tasks:
   - id: MathArena/aime_2026

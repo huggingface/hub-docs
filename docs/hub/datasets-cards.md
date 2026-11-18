@@ -47,17 +47,17 @@ Reading through existing dataset cards, such as the [ELI5 dataset card](https://
 
 ### Linking a Paper
 
-If the dataset card includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hub will extract the arXiv ID and include it in the dataset tags with the format `arxiv:<PAPER ID>`. Clicking on the tag will let you:
+If the dataset card includes a link to a Paper page (either on HF or an Arxiv abstract/PDF), the Hub will extract the arXiv ID and include it in the dataset tags with the format `arxiv:<PAPER ID>`. The Hub also lists the paper in the right sidebar of the dataset page. Clicking on the tag will let you:
 
-* Visit the Paper page
-* Filter for other models on the Hub that cite the same paper.
+* Visit the Paper page.
+* Filter for other datasets on the Hub that cite the same paper.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv.png"/>
 <img class="hidden dark:block" width="300" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-arxiv-dark.png"/>
 </div>
 
-Read more about paper pages [here](./paper-pages).
+Read more about linking to paper pages [here](./paper-pages#linking-a-paper-to-a-model-dataset-or-space).
 
 ### Force set a dataset modality
 
@@ -72,7 +72,7 @@ tags:
 
 ### Associate a library to the dataset
 
-The dataset page automatically shows libraries and tools that are able to natively load the dataset, but if you want to show another specific library, you can add a tag to the dataset card metadata: `argilla`, `dask`, `datasets`, `distilabel`, `fiftyone`, `mlcroissant`, `pandas`, `webdataset`. See the [list of supported libraries](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/dataset-libraries.ts) for more information, or to propose to add a new library.
+The dataset page automatically shows libraries and tools that are able to natively load the dataset, but if you want to show another specific library, you can add a tag to the dataset card metadata. Supported tags include `agentenv`, `argilla`, `dask`, `datasets`, `distilabel`, `fiftyone`, `harbor`, `mlcroissant`, `nemo-gym`, `openenv`, `pandas`, `verifiers`, and `webdataset`. See the [list of supported libraries](https://github.com/huggingface/huggingface.js/blob/main/packages/tasks/src/dataset-libraries.ts) for the complete list, or to propose a new library.
 
 For example, to associate the `argilla` library to the dataset card, add the following to the dataset card metadata:
 
@@ -80,3 +80,31 @@ For example, to associate the `argilla` library to the dataset card, add the fol
 tags:
 - argilla
 ```
+
+### Declare an RL environment dataset
+
+An RL environment is an ordinary dataset repository whose files can be consumed by one or more environment frameworks. Add the `rl-environment` tag to make the dataset discoverable with the **RL Environments** filter, then add a tag for each supported framework. The framework tags also add their generated commands to **Use this dataset**.
+
+For example, a dataset containing Harbor task directories that can also be loaded by Verifiers uses this Dataset Card YAML:
+
+```yaml
+---
+pretty_name: Terminal-Bench 2.0
+tags:
+- rl-environment
+- harbor
+- verifiers
+---
+```
+
+The supported environment framework tags are:
+
+| Tag | Framework |
+| --- | --- |
+| `harbor` | [Harbor](https://github.com/harbor-framework/harbor) |
+| `verifiers` | [Verifiers](https://github.com/PrimeIntellect-ai/verifiers) |
+| `openenv` | [OpenEnv](https://github.com/huggingface/OpenEnv) |
+| `nemo-gym` | [NeMo Gym](https://github.com/NVIDIA-NeMo/Gym) |
+| `agentenv` | [AgentEnv](https://github.com/scaleapi/agentenv-framework) |
+
+These tags describe compatibility and generate loading commands. They do not create a new repository type or cause the Hub to execute the environment.

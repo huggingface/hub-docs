@@ -63,17 +63,17 @@ Once a SCIM group is linked to a Resource Group:
   - When a user is **added** to the group in your IdP, they are added to all linked Resource Groups.
   - When a user is **removed** from the group in your IdP, they are removed from all linked Resource Groups, except those the user is linked to through other SCIM groups. For those, the user's role will be updated to the “highest” role granted by the other SCIM groups.
   - When a SCIM group is **deleted** in your IdP, all its members are removed from the linked Resource Groups, except for users who belong to those Resource Groups through other SCIM groups. For each of those Resource Groups, users’ roles are updated to the “highest” role granted by the other SCIM groups.
-- **Role changes**: If you update the role on a link, all current group members' roles in that Resource Group are updated immediately.
+- **Role changes**: If you update the role on a link, all current group members' roles in that Resource Group are updated immediately, except for members whose role was [changed manually](#scim-managed-resource-groups).
 
 ### SCIM-managed Resource Groups
 
-A Resource Group linked to a SCIM group is considered **SCIM-managed**. The IdP is the sole source of truth for its regular users. As a result:
+A Resource Group linked to a SCIM group is considered **SCIM-managed**. The IdP is the source of truth for its membership. As a result:
 
-- Manual membership changes via the Hub UI or API are **blocked** for regular users — any attempt to add, remove, or change the role of a regular user on a SCIM-managed Resource Group will return a `403` error.
-- [Service accounts](./enterprise-service-accounts) are the exception: since they are never provisioned through SCIM, you can still add, remove, or change the role of a service account manually on a SCIM-managed Resource Group.
+- Adding or removing members manually via the Hub UI or API is **blocked**: any attempt returns a `403` error.
+- Roles can still be changed per member. A manually changed role is kept when the role on the SCIM link is updated, and can be restored with **Reset to SCIM role** in the member's actions (or `resetToScimRole` in the API).
 - Auto-join **cannot be enabled** on a SCIM-managed Resource Group. To re-enable auto-join, first remove the SCIM link.
 
-In the Resource Group settings, a SCIM-managed Resource Group displays a **SCIM synced** badge, and the membership form notes that only service accounts can be added or removed manually.
+In the Resource Group settings, a SCIM-managed Resource Group displays a **SCIM synced** badge, the **Add users** action is disabled, and members whose role was changed manually show an info icon.
 
 Group provisioning works the same way for both Basic SSO and Managed SSO.
 

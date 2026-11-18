@@ -42,10 +42,7 @@ hf models ls --warm --pipeline-tag text-generation --sort trending_score
 ### Using the API
 
 
-<InferenceSnippet
-    pipeline=text-generation
-    providersMapping={ {"featherless-ai":{"modelId":"zai-org/GLM-5.2","providerModelId":"zai-org/GLM-5.2"}} }
-/>
+There are currently no snippet examples for the **text-generation** task, as no providers support it yet.
 
 
 

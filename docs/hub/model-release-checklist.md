@@ -116,7 +116,7 @@ To maximize reach and usability:
    ```markdown
    ## References
    
-   * [Model Paper](https://arxiv.org/abs/xxxx.xxxxx)
+   * [Model Paper](https://huggingface.co/papers/xxxx.xxxxx)
    ```
 
 4. **Collections**:
