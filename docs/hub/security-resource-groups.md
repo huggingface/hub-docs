@@ -102,7 +102,7 @@ To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disab
 
 ## External invitations
 
-You can share Resource Groups with users outside your organization. Org admins can invite them directly. To let resource group admins invite them too, org admins turn on the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It's off by default. Organizations with [managed users](./enterprise-advanced-sso) can't invite external users.
+You can share Resource Groups with users outside your organization. Org admins can invite them directly. To let resource group admins invite them too, org admins turn on the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It's off by default. In organizations with [managed users](./enterprise-advanced-sso), external users can't be invited into Resource Groups.
 
 Invited users join as [external collaborators](./security-sso-user-management#external-collaborators):
 
