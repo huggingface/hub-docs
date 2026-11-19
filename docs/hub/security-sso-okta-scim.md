@@ -37,6 +37,9 @@ This guide explains how to set up SCIM user and group provisioning between Okta 
 
 ## Step 3: Check your SAML settings
 
+> [!NOTE]
+> This step only applies if your Hugging Face app in Okta uses SAML. If it uses OIDC, skip to Step 4: the OIDC `sub` claim is already the Okta user ID, which is what SCIM uses as the user's external ID.
+
 In the **General** tab, under **SAML Settings**, check that:
 
 - Name ID format is `Unspecified`
