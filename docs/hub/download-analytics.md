@@ -21,7 +21,7 @@ Organization admins can find Download Analytics on the organization's Downloads 
 
 ## Egress overview
 
-The page shows a daily egress (download bandwidth) graph, along with your total over the last 30 days compared against your plan's included egress allowance. Only traffic that passes through the Hugging Face CDN is counted, and figures may increase over time as data settles.
+The page shows a daily egress (download bandwidth) graph, along with your total over the last 30 days compared against your plan's included egress allowance. Only traffic that passes through the Hugging Face CDN is counted.
 
 ## Per-member breakdown
 
