@@ -61,7 +61,7 @@ Gaussian splats can be stored as `.splat` or `.ply` files:
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-usd-viewer-dark.png"/>
 </div>
 
-A USD asset is often split across several files: a root file that references sublayers, payloads, materials and textures. The viewer loads these referenced files from the same repository, so keep the folder structure you authored the asset with, and use absolute paths for references. References to relative paths, or to files outside the repository, can't be loaded.
+A USD asset is often split across several files: a root file that references sublayers, payloads, materials and textures. The viewer loads these referenced files from the same repository, so keep the folder structure you authored the asset with, and use paths relative to the file that references them, like `./payloads/base.usda`. Paths that start with `/`, or point to files outside the repository, can't be loaded.
 
 ## 3D files in the Dataset Viewer
 
