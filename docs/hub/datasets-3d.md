@@ -137,7 +137,7 @@ from datasets import Features, Mesh, Value
 table = pq.read_table("train.parquet")
 
 cells = [
-    {"bytes": None, "path": f"meshes/{row_id}.glb"}  # absolute path from root of the dataset
+    {"bytes": None, "path": f"hf://datasets/username/my-dataset@main/meshes/{row_id}.glb"}  # replace with your dataset
     for row_id in table["id"].to_pylist()
 ]
 table = table.append_column("mesh", pa.array(cells, type=Mesh().pa_type))
