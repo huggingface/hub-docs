@@ -150,7 +150,7 @@ table = table.replace_schema_metadata(
 pq.write_table(table, "train.parquet")
 ```
 
-- Paths must be absolute to the root of your dataset directory.
+- Paths must be `hf://datasets/<namespace>/<dataset>@main/<path in repo>` URLs pointing to files in the same dataset.
 - Use `None` for rows without a 3D file.
 - A folder can contain up to 10,000 files, so group larger sets of files into subfolders.
 
