@@ -102,7 +102,7 @@ To switch a Resource Group from auto-join to SCIM-managed (or vice versa), disab
 
 ## External invitations
 
-You can share Resource Groups with users outside your organization. Org admins turn this on with the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It's off by default, and isn't available for organizations with [managed users](./enterprise-advanced-sso).
+You can share Resource Groups with users outside your organization. Org admins can invite them directly. To let resource group admins invite them too, org admins turn on the **External invitations** setting, in the **Access settings** tab of the Resource Groups settings page. It's off by default. Organizations with [managed users](./enterprise-advanced-sso) can't invite external users.
 
 Invited users join as [external collaborators](./security-sso-user-management#external-collaborators):
 
@@ -114,7 +114,7 @@ To invite someone, open the Resource Group's **Users** tab and add them by usern
 
 ### Share a repository with external collaborators
 
-Resource group admins can also share a private repository from its **Settings** page, under **Share with external collaborators**. That section lists who's already in the repository's Resource Group, and lets you invite external collaborators into it. Anyone you add there gets access to every resource in the Resource Group, not just that repository.
+Org admins, and resource group admins when external invitations are on, can also share a private repository from its **Settings** page, under **Share with external collaborators**. That section lists who's already in the repository's Resource Group, and lets you invite external collaborators into it. Anyone you add there gets access to every resource in the Resource Group, not just that repository.
 
 <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/repo-settings-external-collaborators-light-min.png" alt="The Share with external collaborators section"/>

@@ -524,7 +524,7 @@ The response is the updated resource group, including its `spendLimits`.
 
 ## Invite external collaborators via API
 
-[External invitations](./security-resource-groups#external-invitations) let resource group admins invite users from outside the organization into a Resource Group. Invitees join as external collaborators with the `no_access` organization role. They do count toward the number of paid seats in your organization.
+Org admins can invite users from outside the organization into a Resource Group. To let resource group admins invite them too, turn on [external invitations](./security-resource-groups#external-invitations). Invitees join as external collaborators with the `no_access` organization role. They do count toward the number of paid seats in your organization.
 
 **Enable external invitations**
 
@@ -578,7 +578,7 @@ You can also [check out the full OpenAPI specification](https://huggingface.co/s
 
 **Typical errors:**
 
-- `403` — External invitations are not enabled for the organization.
+- `403` — External invitations are not enabled for the organization, and the caller isn't an organization admin.
 - `409` — The user is already a member of the organization, or already has a pending invitation to it.
 
 ## Change member account type via API
