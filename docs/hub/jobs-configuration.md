@@ -115,7 +115,7 @@ You can use these variables to track outputs, adapt your code to available resou
 >>> hf jobs run python:3.12 python -c "import os; print(f'Job: {os.environ.get(\"JOB_ID\")}, CPU: {os.environ.get(\"CPU_CORES\")}, Mem: {os.environ.get(\"MEMORY\")}')"
 ```
 
-Jobs also size thread pools to the CPU cores allocated to the job, not to the cores of the machine it runs on. These variables are defaults: a value you set in the job's environment variables or secrets replaces them.
+Jobs also set the following variables so that thread pools match the CPU cores allocated to the job, not the cores of the machine it runs on (GPU flavors leave `OMP_NUM_THREADS` unset, see below). These variables are defaults: a value you set in the job's environment variables or secrets replaces them.
 
 | Variable | Description |
 |----------|-------------|
