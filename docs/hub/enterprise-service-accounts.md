@@ -23,18 +23,21 @@ When creating a service account, you provide:
 
 Service accounts do not have a password and cannot sign in interactively — they are accessed exclusively through the access tokens you issue for them. Unlike regular users, they also don't have an HF profile page, aren't part of the organization's member list, and are managed only through the **Service Accounts** settings.
 
-Service accounts cannot be added to [Resource Groups](./security-resource-groups), including through auto-join. To limit which repositories a service account can reach, scope its access tokens instead (see below).
+Service accounts cannot be added to [Resource Groups](./security-resource-groups) as members, including through auto-join. To limit which repositories a service account can reach, scope its access tokens instead — to specific repositories or to entire Resource Groups (see below).
 
 ## Managing Access Tokens
 
 A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
 
-Permissions can be granted at two levels:
+Permissions can be granted at three levels:
 
 - **Organization-wide** — apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
+- **Per-resource group** — grant read or write access to all repositories in one or more of your organization's [Resource Groups](./security-resource-groups), including repositories added to those groups later. Search for and select the resource groups under **Resource groups permissions**, then choose the permissions to grant. This section only appears if your organization has at least one resource group.
 - **Per-repository** — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. You can select repositories owned by the organization, and gated repositories outside the organization that the service account has been granted access to.
 
-This lets you issue narrowly scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
+When more than one level applies to the same repository, the most specific one wins: resource group permissions override organization-wide repository permissions, and per-repository permissions override both.
+
+This lets you issue narrowly scoped tokens — for example, a token that can only read a single model repository, or only the repositories of one team's resource group — rather than granting access to the entire organization.
 
 Tokens can also be allowed to work with [gated repositories](./models-gated) outside of your organization, under the **Gated repositories** section of the token form:
 
