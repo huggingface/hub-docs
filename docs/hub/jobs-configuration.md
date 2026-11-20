@@ -115,6 +115,13 @@ You can use these variables to track outputs, adapt your code to available resou
 >>> hf jobs run python:3.12 python -c "import os; print(f'Job: {os.environ.get(\"JOB_ID\")}, CPU: {os.environ.get(\"CPU_CORES\")}, Mem: {os.environ.get(\"MEMORY\")}')"
 ```
 
+Jobs also size thread pools to the CPU cores allocated to the job, not to the cores of the machine it runs on. These variables are defaults: a value you pass with `--env` or `--secrets` replaces them.
+
+| Variable | Description |
+|----------|-------------|
+| `OMP_NUM_THREADS` | Set to `CPU_CORES`. Thread count for OpenMP and the libraries that follow it, such as PyTorch, OpenBLAS (NumPy, SciPy), MKL and NumExpr. |
+| `PYTHON_CPU_COUNT` | Set to `CPU_CORES`. Value of `os.cpu_count()` and `os.process_cpu_count()`, so `multiprocessing` and `num_proc=os.cpu_count()` stay within the job's cores. Python 3.13+ only: on older versions, read `CPU_CORES` instead. |
+
 ### User-defined environment variables
 
 You can pass environment variables to your job using 
