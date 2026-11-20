@@ -119,7 +119,7 @@ Jobs also size thread pools to the CPU cores allocated to the job, not to the co
 
 | Variable | Description |
 |----------|-------------|
-| `OMP_NUM_THREADS` | Set to `CPU_CORES`. Thread count for OpenMP and the libraries that follow it, such as PyTorch, OpenBLAS (NumPy, SciPy), MKL and NumExpr. Left unset on flavors with more than one GPU, so that launchers such as `torchrun` and `accelerate launch` choose the thread count of each process. |
+| `OMP_NUM_THREADS` | Set to `CPU_CORES`. Thread count for OpenMP and the libraries that follow it, such as PyTorch, OpenBLAS (NumPy, SciPy), MKL and NumExpr. Left unset on GPU flavors, where launchers such as `torchrun`, `accelerate launch` and vLLM choose the thread count. |
 | `PYTHON_CPU_COUNT` | Set to `CPU_CORES`. Value of `os.cpu_count()` and `os.process_cpu_count()`, so `multiprocessing` and `num_proc=os.cpu_count()` stay within the job's cores. Python 3.13+ only: on older versions, read `CPU_CORES` instead. |
 
 ### User-defined environment variables
