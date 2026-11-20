@@ -117,10 +117,10 @@ You can use these variables to track outputs, adapt your code to available resou
 
 Jobs also set the following variables so that thread pools match the CPU cores allocated to the job, not the cores of the machine it runs on (GPU flavors leave `OMP_NUM_THREADS` unset, see below). These variables are defaults: a value you set in the job's environment variables or secrets replaces them.
 
-| Variable | Description |
-|----------|-------------|
-| `OMP_NUM_THREADS` | Set to `CPU_CORES`. Thread count for OpenMP and the libraries that follow it, such as PyTorch, OpenBLAS (NumPy, SciPy), MKL and NumExpr. Left unset on GPU flavors, where launchers such as `torchrun`, `accelerate launch` and vLLM choose the thread count. |
-| `PYTHON_CPU_COUNT` | Set to `CPU_CORES`. Value of `os.cpu_count()` and `os.process_cpu_count()`, so `multiprocessing` and `num_proc=os.cpu_count()` stay within the job's cores. Python 3.13+ only: on older versions, read `CPU_CORES` instead. |
+| Variable           | Description                                                                                                                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OMP_NUM_THREADS`  | Set to `CPU_CORES`. Thread count for OpenMP and the libraries that follow it, such as PyTorch, OpenBLAS (NumPy, SciPy), MKL and NumExpr. Left unset on GPU flavors, where launchers such as `torchrun`, `accelerate launch` and vLLM choose the thread count. |
+| `PYTHON_CPU_COUNT` | Set to `CPU_CORES`. Value of `os.cpu_count()` and `os.process_cpu_count()`, so `multiprocessing` and `num_proc=os.cpu_count()` stay within the job's cores. Python 3.13+ only: on older versions, read `CPU_CORES` instead.                                   |
 
 ### User-defined environment variables
 
