@@ -59,7 +59,7 @@ Records are ordered chronologically and provide a daily granular view of downloa
 
 ## Blog Analytics
 
-If your organization publishes blog posts on the Hub, you can download the daily traffic of every published post from the **Blog Analytics** tab of your organization's Publisher Analytics settings (next to the **Repo Analytics** and **Advanced Gating** tabs). Click **Download CSV** to get the data for all posts since their publication date.
+If your organization publishes blog posts on the Hub, you can download the daily traffic of every published post from the **Blog Analytics** tab of your organization's Publisher Analytics settings (next to the **Repo Analytics** and **Advanced Gating** tabs). Click **Download CSV** to get the data for all posts over the last 90 days.
 
 You can also access this data programmatically via the following endpoint:
 
@@ -71,12 +71,12 @@ curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
 
 ### Response Structure
 
-Each row of the CSV holds the traffic of one blog post on one day. Days without any traffic are omitted, so a post with no views at all does not appear in the export:
+Each row of the CSV holds the traffic of one blog post on one day. Every post gets one row per day over the last 90 days (including the current day), starting from its publication date if it was published more recently. Days without any traffic are included with `0` values:
 
 ```csv
 blogTitle,blogUrl,publishedAt,date,humanViews,humanVisitors,agentViews
-"My first blog post",https://huggingface.co/blog/YOUR_ORG_NAME/my-first-blog-post,2026-05-12,2026-05-12,1520,1104,
-"My first blog post",https://huggingface.co/blog/YOUR_ORG_NAME/my-first-blog-post,2026-05-12,2026-06-01,87,71,23
+"My first blog post",https://huggingface.co/blog/YOUR_ORG_NAME/my-first-blog-post,2026-05-12,2026-08-22,87,71,23
+"My first blog post",https://huggingface.co/blog/YOUR_ORG_NAME/my-first-blog-post,2026-05-12,2026-08-23,0,0,0
 ```
 
 - `blogTitle`: Title of the blog post
@@ -85,10 +85,10 @@ blogTitle,blogUrl,publishedAt,date,humanViews,humanVisitors,agentViews
 - `date`: Day the traffic was recorded (`YYYY-MM-DD`)
 - `humanViews`: Number of page views from people on that day
 - `humanVisitors`: Number of unique visitors on that day
-- `agentViews`: Number of page views from AI agents on that day. `0` means no agent viewed the post that day, while an empty value means no agent data is available: agent views are only counted since June 6, 2026.
+- `agentViews`: Number of page views from AI agents on that day
 
 > [!NOTE]
-> Unique visitors are counted per day, so they should not be summed across days to get a total number of unique visitors.
+> Data is updated once a day, so the latest day may be incomplete. Unique visitors are counted per day, so they should not be summed across days to get a total number of unique visitors.
 
 Each export is recorded in your organization's [audit logs](./audit-logs) as an `org.blog_analytics.export` event.
 
