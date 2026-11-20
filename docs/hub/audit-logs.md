@@ -75,6 +75,8 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
   - **Events:** `org.sso_login`, `org.sso_join`, `org.sso_credential.authorize`, `org.sso_credential.deauthorize`
 - **Join settings** — Domain-based access and automatic join configuration.
   - **Event:** `org.update_join_settings`
+- **Analytics exports** — Downloading the [Publisher Analytics](./publisher-analytics) CSV exports for repositories and blog posts.
+  - **Events:** `org.repo_analytics.export`, `org.blog_analytics.export`
 
 ### Membership and Access Control
 
