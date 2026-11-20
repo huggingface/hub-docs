@@ -23,9 +23,16 @@ Codex lets you define custom model providers in its configuration file. By addin
 export HF_TOKEN=hf_...
 ```
 
-3. Add Hugging Face as a model provider in `~/.codex/config.toml`:
+3. Create a profile in its own file at `~/.codex/huggingface.config.toml` that defines Hugging Face as a model provider and selects a model:
 
 ```toml
+model_provider = "huggingface"
+model = "deepseek-ai/DeepSeek-V4.1-Flash"
+web_search = "disabled"
+
+[agents]
+enabled = false
+
 [model_providers.huggingface]
 name = "Hugging Face"
 base_url = "https://router.huggingface.co/v1"
@@ -33,17 +40,15 @@ env_key = "HF_TOKEN"
 wire_api = "responses"
 ```
 
-4. Create a profile in its own file at `~/.codex/huggingface.config.toml` that selects this provider and a model:
+Your default `~/.codex/config.toml` stays as it is.
 
-```toml
-model_provider = "huggingface"
-model = "deepseek-ai/DeepSeek-V4.1-Flash"
-```
+> [!WARNING]
+> Keep `web_search = "disabled"` and `[agents] enabled = false` in the profile. Codex declares its web search and sub-agent tools with tool types that the router does not accept, and every request fails with a `400` error when they are on (tested with Codex 0.169.0).
 
 > [!NOTE]
 > For Codex versions before 0.134.0, you have to define profiles in a `[profiles.<name>]` table inside `config.toml`.
 
-5. Launch Codex with the Hugging Face profile:
+4. Launch Codex with the Hugging Face profile:
 
 ```bash
 codex --profile huggingface
@@ -68,7 +73,7 @@ codex exec --profile huggingface -m "zai-org/GLM-5.3" "Return OK."
 
 ### Billing to an Organization
 
-To bill inference usage to a Hugging Face organization instead of your personal account, add the `X-HF-Bill-To` header to the provider definition in `~/.codex/config.toml`:
+To bill inference usage to a Hugging Face organization instead of your personal account, add the `X-HF-Bill-To` header to the provider definition in your profile (`~/.codex/huggingface.config.toml`):
 
 ```toml
 [model_providers.huggingface]

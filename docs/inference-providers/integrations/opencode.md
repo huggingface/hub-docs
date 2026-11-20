@@ -25,7 +25,29 @@ OpenCode natively supports Hugging Face Inference Providers, giving you access t
 
 1. Create a Hugging Face token with Inference Providers permissions at [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens/new?ownUserPermissions=inference.serverless.write&tokenType=fineGrained)
 
-2. Run `opencode auth login` and select **Hugging Face**:
+2. Set your token as an environment variable:
+
+```bash
+export HF_TOKEN=hf_...
+```
+
+3. Start OpenCode on a model:
+
+```bash
+opencode -m huggingface/deepseek-ai/DeepSeek-V4.1-Flash
+```
+
+You can also run a one-off command non-interactively:
+
+```bash
+opencode run -m huggingface/deepseek-ai/DeepSeek-V4.1-Flash "Explain what this repository does."
+```
+
+Replace `deepseek-ai/DeepSeek-V4.1-Flash` with any model listed by `opencode models huggingface`. You can switch models anytime using the `/models` command in the OpenCode TUI (Terminal User Interface).
+
+### Storing Your Token in OpenCode
+
+If you would rather not export `HF_TOKEN`, run `opencode auth login` and select **Hugging Face**:
 
 ```bash
 $ opencode auth login
@@ -38,7 +60,7 @@ $ opencode auth login
 └
 ```
 
-3. Enter your Hugging Face token when prompted:
+Then enter your Hugging Face token when prompted:
 
 ```bash
 ┌  Add credential
@@ -51,9 +73,28 @@ $ opencode auth login
 └
 ```
 
-4. Run the `/models` command in OpenCode to select a model.
+### Using Other Models and Routing Suffixes
 
-Once configured, OpenCode will use your selected model for all operations. You can switch models anytime using the `/models` command in the OpenCode TUI (Terminal User Interface).
+OpenCode only accepts the model ids of its own catalog. To use another model available on [Inference Providers](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending), or to append a provider suffix (e.g. `:novita`) or a `:cheapest` or `:fastest` suffix to a model id, declare the id in your OpenCode config (`~/.config/opencode/opencode.json`):
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "huggingface": {
+      "models": {
+        "deepseek-ai/DeepSeek-V4.1-Flash:novita": {}
+      }
+    }
+  }
+}
+```
+
+Then start OpenCode on it:
+
+```bash
+opencode -m huggingface/deepseek-ai/DeepSeek-V4.1-Flash:novita
+```
 
 ### Billing to an Organization
 
