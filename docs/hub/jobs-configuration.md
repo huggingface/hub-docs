@@ -102,9 +102,9 @@ Similarly to the [built-in environment variables in Spaces](./spaces-overview#bu
 | Variable | Description |
 |----------|-------------|
 | `JOB_ID` | The unique identifier of the current job (e.g., `699d874f1aad19adb8aaeadc`). This is the same ID shown in the UI and the job URL. |
-| `ACCELERATOR` | The type of accelerator available (e.g., `t4-medium`, `a10g-small`, `a100x4`), or `none` for CPU-only jobs. |
+| `ACCELERATOR` | The type of device: `cpu` for CPU flavors, `gpu` for GPU flavors. |
 | `CPU_CORES` | The number of CPU cores allocated to the job. |
-| `MEMORY` | The amount of memory allocated to the job (e.g., `8Gi`). |
+| `MEMORY` | The amount of memory allocated to the job (e.g., `16.0G`). |
 | `HF_NETWORK_GROUP_HOSTNAME` | Hostname resolving to every job in the job's [network group](#network-groups). Only set when the job declares one. |
 | `HF_NETWORK_GROUP_PREFIX` | Prefix to prepend to an alias to get the hostname of the group members claiming it (e.g., `${HF_NETWORK_GROUP_PREFIX}master`). Only set when the job declares a network group. |
 
