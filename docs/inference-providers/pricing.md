@@ -178,7 +178,7 @@ import { InferenceClient } from "@huggingface/inference";
 
 const client = new InferenceClient(process.env.HF_TOKEN, { billTo: "my-org-name" });
 
-const completion = await client.chat.completions.create({
+const completion = await client.chatCompletion({
   model: "deepseek-ai/DeepSeek-V3-0324",
   messages: [
     {
