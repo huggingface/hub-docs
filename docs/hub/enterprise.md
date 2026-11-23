@@ -128,7 +128,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 | Feature            | Free |    Team     |    Enterprise    | Enterprise Plus |
 | ------------------ | :--: | :---------: | :--------------: | :-------------: |
-| Pricing            |  -   | 20$/user/Mo | from 50$/user/Mo |     custom      |
+| Pricing            |  -   | 20$/user/Mo |      custom      |     custom      |
 | Pilot availability |  ❌  |     ❌      |        ❌        |       ✅        |
 
 ## Dive more
