@@ -39,6 +39,8 @@ Trace files can include prompts, tool inputs, command output, local paths, scree
 
 For Pi Agent sessions, [`pi-share-hf`](https://github.com/badlogic/pi-share-hf) can help collect project sessions, redact known secrets, run TruffleHog and LLM review, and upload only sessions that pass checks.
 
+For Claude Code, Codex and Pi sessions, [`privacy-scan`](https://github.com/oye-collective/actvt-privacy-scan) checks a folder or exported file (or, with no path, the agents' own session folders) for secrets and personal data, offline, and lists each finding by session so you can leave that session out or redact it before uploading.
+
 <Tip>
 
 The easiest way to upload is to ask your agent itself: point it at the directory or exported JSONL file above and tell it to upload the `.jsonl` files to a Hub dataset or bucket.
