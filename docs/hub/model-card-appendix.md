@@ -92,7 +92,7 @@ Tools for programmatically or interactively generating model cards include:
 * [GSA / US Census Bureau Collaboration on Model Card Generator](https://bias.xd.gov/resources/model-card-generator/)
 * [Parl.AI Auto Generation Tool](https://parl.ai/docs/tutorial_model_cards.html)
 * [VerifyML Model Card Generation Web Tool](https://www.verifyml.com)
-* [RMarkdown Template for Model Card as part of vetiver package](https://cran.r-project.org/web/packages/vetiver/vignettes/model-card.html)
+* [RMarkdown Template for Model Card as part of vetiver package](https://vetiver.posit.co/learn-more/model-card.html)
 * [Databaseline ML Cards toolkit](https://databaseline.tech/ml-cards/)
 
 ### MODEL CARD EDUCATIONAL TOOLS
