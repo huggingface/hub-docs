@@ -105,7 +105,7 @@ You can pass several token values in the `credentials` array in a single call, w
 
 Every submitted token that matches an existing one is invalidated immediately and stops working everywhere — unlike [organization-level revocation](./enterprise-tokens-management#revoking-via-api), which only cuts off the token's access to a single organization. The owner of the token is notified by email and needs to create a new token to restore access.
 
-The endpoint also accepts OAuth tokens issued through [Sign-In with HF](./oauth): both access tokens (`hf_oauth_...`) and refresh tokens. Each submitted OAuth token is revoked and stops working, and the user it was issued to is notified by email; they may need to sign in to the app again. Revoking a refresh token does not invalidate access tokens already issued from it, so submit any leaked access tokens as well.
+The endpoint also accepts OAuth tokens issued through [Sign-In with HF](./oauth): both access tokens (`hf_oauth_...`) and refresh tokens. Each submitted OAuth token is revoked and stops working, and the user it was issued to is notified by email; they may need to sign in to the app again.
 
 The endpoint always responds with `202 Accepted`, whether or not any of the tokens you submitted existed, so its response cannot be used to probe whether a token is valid. Submitting the same token again is harmless: repeat calls do nothing and the owner is only notified once.
 
