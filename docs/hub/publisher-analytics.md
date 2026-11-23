@@ -78,7 +78,7 @@ Your team is responsible for ingesting these logs and running computations on th
 | `country`      | Country ISO code                                        |
 | `region`       | Region or city name                                     |
 | `userAgent`    | HTTP User-Agent header                                  |
-| `path`         | File path within the repository or bucket, derived from the request URL (may be empty for requests that don't match a file route) |
+| `path`         | File path within the repository or bucket, derived from the request URL |
 
 
 As it requires setting up a custom data export pipeline on our side (custom Elastic index, etc), this is only available as an add-on to Enterprise Plus.
