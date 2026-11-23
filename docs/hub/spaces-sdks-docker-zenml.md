@@ -102,7 +102,7 @@ By default the ZenML application will be configured to use a SQLite
 non-persistent database. If you want to use a persistent database, you can
 configure this by amending the `Dockerfile` in your Space's root directory. For
 full details on the various parameters you can change, see [our reference
-documentation](https://docs.zenml.io/getting-started/deploying-zenml/docker#zenml-server-configuration-options) on configuring
+documentation](https://docs.zenml.io/deploying-zenml/deploying-zenml/deploy-with-docker#zenml-server-configuration-options) on configuring
 ZenML when deployed with Docker.
 
 > [!TIP]
@@ -111,7 +111,7 @@ ZenML when deployed with Docker.
 
 You can also use an external secrets backend together with your Hugging Face
 Spaces as described in [our
-documentation](https://docs.zenml.io/getting-started/deploying-zenml/docker#zenml-server-configuration-options). You should be
+documentation](https://docs.zenml.io/deploying-zenml/deploying-zenml/deploy-with-docker#zenml-server-configuration-options). You should be
 sure to use Hugging Face's inbuilt 'Repository secrets' functionality to
 configure any secrets you need to use in your`Dockerfile` configuration. [See the
 documentation](https://huggingface.co/docs/hub/spaces-sdks-docker#secret-management)
@@ -149,7 +149,7 @@ version by updating the `Dockerfile`'s `FROM` import statement at the very top.
 ## Next Steps
 
 As a next step, check out our [Starter Guide to MLOps with
-ZenML](https://docs.zenml.io/starter-guide/pipelines) which is a series of short
+ZenML](https://docs.zenml.io/user-guides/starter-guide) which is a series of short
 practical pages on how to get going quickly. Alternatively, check out [our
 `quickstart`
 example](https://github.com/zenml-io/zenml/tree/main/examples/quickstart) which
