@@ -124,6 +124,8 @@ A. Once your balance reaches $0, paid compute services such as Jobs, paid Spaces
 
 If automatic recharge is not enabled, you'll receive an email warning (sent to organization admins for organizations) when your credits are about to run out at your current usage, a few days before your balance reaches $0. The email shows your remaining balance and how long it is expected to last.
 
+This doesn't apply to organizations billed through a [cloud marketplace](#cloud-providers-partnerships): their usage is metered to the cloud provider rather than drawn from credits, so they don't get low-credit warnings and their services don't stop at a $0 credit balance.
+
 **Q. Do my credits expire?**
 
 A. Yes. Purchased and granted credits have an expiry date, and any unused amount is removed from your balance when they expire. The credits included monthly with your PRO, Team, or Enterprise subscription are credited again each month instead.
