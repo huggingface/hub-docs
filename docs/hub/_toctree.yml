@@ -35,6 +35,8 @@
     title: Rate Limits
   - local: enterprise-blog-articles
     title: Blog Articles
+  - local: enterprise-nightwatch
+    title: Nightwatch
 
 - local: pro
   title: PRO Plan
