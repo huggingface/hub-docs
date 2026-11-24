@@ -111,7 +111,7 @@ Instead of storing a long-lived service account token as a CI secret, you can le
 
 On the service account's page, open the **Trusted publishers** section and click **Add trusted publisher** to configure the issuer and the claims that must match. Workloads then exchange their ID token using the service account's username as the `resource`. Exchanged tokens expire after 60 minutes.
 
-Because service accounts are organization admins, these tokens can read your organization's gated repos without an access request. See [Service account trusted publishers](./trusted-publishers#service-account-trusted-publishers) before enabling, and for details on configuration, available options, and the exchange.
+Like any organization member, these tokens can read your organization's gated repos without an access request. Since service accounts are organization admins, this also includes repos gated for organization members. See [Service account trusted publishers](./trusted-publishers#service-account-trusted-publishers) before enabling, and for details on configuration, available options, and the exchange.
 
 ## Billing
 

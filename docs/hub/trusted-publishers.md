@@ -186,7 +186,7 @@ Inference usage is **billed to your account**, exactly as if you had made the re
 
 Organization admins can configure trusted publishers on a [service account](./enterprise-service-accounts). Any workload whose platform issues OIDC tokens (GitHub Actions, GitLab CI, Kubernetes, cloud providers, …) can then exchange its ID token for a short-lived token acting as the service account — no long-lived service account token to store or rotate.
 
-An exchanged token acts as the service account, within its scopes. Service accounts are admins of their organization, so these tokens can read the organization's gated repos without an access request, including repos gated for organization members. Only add trusted publishers for workloads you trust with that access, and pin the claims tightly. For least privilege, use a [repo trusted publisher](#three-flavors-repo-publishers-cicd-identities-and-service-account-publishers) instead.
+An exchanged token acts as the service account, within its scopes. Like any organization member, these tokens can read the organization's gated repos without an access request. Since service accounts are organization admins, this also includes repos gated for organization members. Only add trusted publishers for workloads you trust with that access, and pin the claims tightly. For least privilege, use a [repo trusted publisher](#three-flavors-repo-publishers-cicd-identities-and-service-account-publishers) instead.
 
 1. In your organization settings, open **Service Accounts**, select the service account, and scroll to the **Trusted publishers** section.
 2. Click **Add trusted publisher**, pick the provider (or enter a custom issuer URL), and set the claims that must match. Optionally enable [extra capabilities](#optional-capabilities-for-account-tokens).
@@ -282,7 +282,7 @@ When the `hf` CLI performs the exchange, a failure surfaces the `error` code alo
 - **Tokens are short-lived.** 60 minutes from the moment of exchange — the clock only starts when you call the endpoint, not when the workflow starts. There's no refresh token; long jobs should re-exchange.
 - **Repo tokens are repo-scoped.** A token for `acme/awesome-model` cannot touch `acme/anything-else`. Pushes are attributed to a synthetic `[OIDC]` system user, with a reference to the originating issuer and subject. Tokens from a read-only publisher can only read that repo.
 - **User tokens are read-only.** `gated-repos` scope by default — no writes, no private repos, no account management. The optional `inference-api` scope adds Inference Providers calls (billed to your account), and the optional `request-gated-repos` scope lets the token submit gated-repo access requests (each one still approved by the repo owner), but still no write or private-repo access.
-- **Service account tokens follow the same model**, except that the service account is an organization admin, so they read the organization's gated repos without an access request. They remain subject to the organization's IP restrictions.
+- **Service account tokens follow the same model**, except that, like any organization member, they read the organization's gated repos without an access request (including repos gated for organization members, since the service account is an admin). They remain subject to the organization's IP restrictions.
 - **Claims are matched exactly, or by prefix where a provider preset needs it** (GitHub's `workflow_ref`). No regex.
 - **Audit logs.** Adding or removing a publisher is logged, and successful exchanges update last used time.
 
