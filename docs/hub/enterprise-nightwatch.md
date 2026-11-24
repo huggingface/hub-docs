@@ -4,7 +4,7 @@ We're seeing more attacks that use AI agents to target inference infrastructure 
 
 We built Nightwatch, our **Proactive Agent Security** service, using what we learned from the July 2026 OpenAI/HF incident. Its security agent scans Hub activity logs in real time for signs of these attacks.
 
-![Nightwatch scans live Hub activity logs and flags unusual activity for review.](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/nightwatch/live-scan.png)
+![Hub access logs, metrics, and external OSINT feed into the Nightwatch agent, which flags unusual activity for review.](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/enterprise/nightwatch/live-scan-sources-53c80514.png)
 
 Nightwatch is a paid add-on available only to Enterprise customers. The price reflects the large volumes of tokens (both open and closed models) used for continuous scanning. [Contact our team](https://huggingface.co/contact/sales?from=enterprise) to explore Nightwatch for your organization.
 
