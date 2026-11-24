@@ -51,7 +51,7 @@ huggingface datasource enabled for pyspark 3.x.x (backport from pyspark 4)
 The "huggingface" Data Source allows to read datasets from Hugging Face, using `pyarrow` under the hood to stream Arrow data.
 This is compatible with all the dataset in [supported format](https://huggingface.co/docs/hub/datasets-adding#file-formats) on Hugging Face, like Parquet datasets.
 
-For example here is how to load the [stanfordnlp/imdb](https://huggingface.co/stanfordnlp/imdb) dataset:
+For example here is how to load the [stanfordnlp/imdb](https://huggingface.co/datasets/stanfordnlp/imdb) dataset:
 
 ```python
 >>> import pyspark_huggingface
