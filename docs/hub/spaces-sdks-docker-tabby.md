@@ -29,7 +29,7 @@ You’ll see the *Building status*. Once it becomes *Running*, your Space is rea
 
 ### Your Tabby Space URL
 
-Once Tabby is up and running, for a space link such as https://huggingface.com/spaces/TabbyML/tabby, the direct URL will be https://tabbyml-tabby.hf.space.
+Once Tabby is up and running, for a space link such as https://huggingface.co/spaces/TabbyML/tabby-template-space, the direct URL will be https://tabbyml-tabby-template-space.hf.space.
 This URL provides access to a stable Tabby instance in full-screen mode and serves as the API endpoint for IDE/Editor Extensions to talk with.
 
 ### Connect VSCode Extension to Space backend
