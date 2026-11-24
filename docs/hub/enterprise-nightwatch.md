@@ -14,6 +14,12 @@ Nightwatch is a paid add-on available only to Enterprise customers. The price re
 
 When Nightwatch detects unusual activity, a Slack agent sends your team an alert. You can also route these alerts to your organization's security incident ingestion system.
 
+### External data sources
+
+- GHAS (GitHub Advanced Security)
+- GitGuardian
+- Others
+
 ### Example Slack alerts
 
 #### Unusual access token activity
