@@ -48,7 +48,7 @@ You can check out the [configuration reference docs](./spaces-config-reference) 
 This will add the following [environment variables](https://huggingface.co/docs/hub/spaces-overview#built-in-environment-variables) to your space:
 
 - `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
-- `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
+- `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app (optional: if not set, the Space authenticates with PKCE only)
 - `OAUTH_SCOPES`: scopes accessible by your OAuth app.
 - `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
@@ -105,9 +105,9 @@ Gradio and huggingface.js also provide **built-in support**, making implementing
 
 Basically, you need to:
 
-- Redirect the user to `https://huggingface.co/oauth/authorize?redirect_uri={REDIRECT_URI}&scope=openid%20profile&client_id={CLIENT_ID}&state={STATE}`, where `STATE` is a random string that you will need to verify later.
+- Redirect the user to `https://huggingface.co/oauth/authorize?redirect_uri={REDIRECT_URI}&scope=openid%20profile&client_id={CLIENT_ID}&state={STATE}&code_challenge={CODE_CHALLENGE}&code_challenge_method=S256`, where `STATE` is a random string that you will need to verify later and `CODE_CHALLENGE` is the base64url-encoded SHA-256 hash of a random `code_verifier` (PKCE).
 - Handle the callback on `/auth/callback` or `/login/callback` (or your own custom callback URL) and verify the `state` parameter.
-- Use the `code` query parameter to get an access token and id token from `https://huggingface.co/oauth/token` (POST request with `client_id`, `code`, `grant_type=authorization_code` and `redirect_uri` as form data, and with `Authorization: Basic {base64(client_id:client_secret)}` as a header).
+- Use the `code` query parameter to get an access token and id token from `https://huggingface.co/oauth/token` (POST request with `client_id`, `code`, `grant_type=authorization_code` and `redirect_uri` and `code_verifier` as form data). If your app has a client secret, also send `Authorization: Basic {base64(client_id:client_secret)}` as a header.
 
 > [!WARNING]
 > You should use `target=_blank` on the button to open the sign-in page in a new tab, unless you run the space outside its `iframe`. Otherwise, you might encounter issues with cookies on some browsers.
