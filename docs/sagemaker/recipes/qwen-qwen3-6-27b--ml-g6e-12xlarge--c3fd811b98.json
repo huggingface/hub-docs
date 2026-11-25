@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "id": "qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65",
+  "id": "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98",
   "model_id": "Qwen/Qwen3.6-27B",
   "model_revision": null,
   "updated_at": "2026-07-12",
@@ -50,7 +50,7 @@
   "metrics": [],
   "measured": null,
   "model_package": {
-    "ModelPackageName": "qwen-qwen3-6-27b-ml-g6e-12xlarge-9b35e88a65",
+    "ModelPackageName": "qwen-qwen3-6-27b-ml-g6e-12xlarge-c3fd811b98",
     "ModelPackageDescription": "Qwen/Qwen3.6-27B model package",
     "InferenceSpecification": {
       "Containers": [

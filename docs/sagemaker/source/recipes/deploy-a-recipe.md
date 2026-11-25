@@ -16,7 +16,7 @@ pip install "sagemaker>=3" boto3 openai
 
 - For gated models, a Hugging Face [access token](https://huggingface.co/settings/tokens) exported as `HF_TOKEN` in your environment. The examples pass it to the container only when it is set.
 
-Pick a recipe ID from the [recipes table](./index#available-recipes). The examples use `qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65`, which serves [Qwen/Qwen3.6-27B](https://huggingface.co/Qwen/Qwen3.6-27B) on an `ml.g6e.12xlarge` instance, in the `us-east-1` region.
+Pick a recipe ID from the [recipes table](./index#available-recipes). The examples use `qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98`, which serves [Qwen/Qwen3.6-27B](https://huggingface.co/Qwen/Qwen3.6-27B) on an `ml.g6e.12xlarge` instance, in the `us-east-1` region.
 
 ## Create the endpoint
 
@@ -39,7 +39,7 @@ from sagemaker.core.shapes import ContainerDefinition, ProductionVariant
 
 # AWS region where the endpoint runs
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65"
+recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
 # model, endpoint configuration, and endpoint share this name
 name = recipe_id[:63]
 
@@ -114,7 +114,7 @@ from sagemaker.core.helper.session_helper import Session, get_execution_role
 
 # AWS region where the endpoint runs
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65"
+recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
 # model, endpoint configuration, and endpoint share this name
 name = recipe_id[:63]
 
@@ -176,7 +176,7 @@ Each recipe record also contains a SageMaker model package definition under `mod
 ```bash
 # AWS region where the endpoint runs
 REGION=us-east-1
-RECIPE_ID=qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65
+RECIPE_ID=qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98
 # model, endpoint configuration, and endpoint share this name
 NAME=${RECIPE_ID:0:63}
 # IAM role with permissions to create an endpoint
@@ -239,7 +239,7 @@ import boto3
 
 # AWS region where the endpoint runs
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65"
+recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
 endpoint_name = recipe_id[:63]
 model_id = "Qwen/Qwen3.6-27B"
 
@@ -266,7 +266,7 @@ from sagemaker.core.token_generator import generate_token
 
 # AWS region where the endpoint runs
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65"
+recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
 endpoint_name = recipe_id[:63]
 model_id = "Qwen/Qwen3.6-27B"
 
@@ -299,7 +299,7 @@ from sagemaker.core.resources import Endpoint, EndpointConfig, Model
 
 # AWS region where the endpoint runs
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65"
+recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
 name = recipe_id[:63]
 
 Endpoint.get(endpoint_name=name, region=region).delete()
@@ -315,7 +315,7 @@ import boto3
 
 # AWS region where the endpoint runs
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65"
+recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
 name = recipe_id[:63]
 
 sm = boto3.client("sagemaker", region_name=region)
@@ -330,7 +330,7 @@ sm.delete_model(ModelName=name)
 ```bash
 # AWS region where the endpoint runs
 REGION=us-east-1
-RECIPE_ID=qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65
+RECIPE_ID=qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98
 NAME=${RECIPE_ID:0:63}
 PACKAGE_NAME=$(curl -sSfL "https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/sagemaker/recipes/$RECIPE_ID.json" | jq -r .model_package.ModelPackageName)
 

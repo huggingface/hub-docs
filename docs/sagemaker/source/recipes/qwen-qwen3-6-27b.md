@@ -14,7 +14,7 @@ Recipes for [Qwen/Qwen3.6-27B](https://huggingface.co/Qwen/Qwen3.6-27B) with the
 - **Context length**: 262,144 tokens
 - **Capabilities**: Not recorded: chat, streaming, tool calling, reasoning, vision
 - **Validation**: Passed
-- **Recipe ID**: `qwen-qwen3-6-27b--ml-g6e-12xlarge--9b35e88a65`
+- **Recipe ID**: `qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98`
 
 ### Metrics
 

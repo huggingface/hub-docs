@@ -14,7 +14,7 @@ Recipes for [zai-org/GLM-5.3-Flash](https://huggingface.co/zai-org/GLM-5.3-Flash
 - **Context length**: 16,384 tokens
 - **Capabilities**: Validated: chat, streaming, tool calling, reasoning, vision
 - **Validation**: Passed. Failed checks: `vision-video`
-- **Recipe ID**: `zai-org-glm-5-3-flash--ml-g7e-24xlarge--eb2abfab92`
+- **Recipe ID**: `zai-org-glm-5-3-flash--ml-g7e-24xlarge--62b807e59c`
 
 ### Metrics
 
