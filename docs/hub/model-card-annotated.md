@@ -223,7 +223,7 @@ _What do the results say? This can function as a kind of tl;dr for general audie
 
 ### Reproducing the evaluation [optional]
 
-_Link to the versioned test cases, evaluation code or instructions, and scoring rules. Record the exact model version, settings, and any comparison setup. For pass rates, give the number of cases that passed and the number tested. If some artifacts cannot be shared, explain what is unavailable._
+_Link to the exact revisions of the test cases, evaluation code or instructions, and scoring rules. Record the exact model version, settings, and any comparison setup. For pass rates, give the number of cases that passed and the number tested. If some artifacts cannot be shared, explain what is unavailable._
 
 ## Societal Impact Assessment [optional]
 
