@@ -12,6 +12,8 @@ docs: clean
 	@echo "Generating YAML tree structure and appending to _toctree.yml..."
 	@python scripts/auto-update-toctree.py
 	@echo "YAML tree structure appended to docs/source/_toctree.yml"
+	@echo "Generating recipe pages from recipes/*.json..."
+	@python scripts/generate-recipes.py
 	@echo "Documentation setup complete."
 
 clean:

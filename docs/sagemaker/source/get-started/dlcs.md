@@ -95,7 +95,7 @@ For inference, the general-purpose PyTorch inference DLC serves models trained w
 
 ### vLLM
 
-For serving text generation models with [vLLM](https://docs.vllm.ai/), there are specific DLCs available for GPU and AWS AI chips.
+For serving text generation models with [vLLM](https://docs.vllm.ai/), there are specific DLCs available for GPU and AWS AI chips. For tested deployments of popular models with the GPU image, see the [Recipes](../recipes/index).
 
 <div class="overflow-x-auto my-4 not-prose">
 <table class="w-full text-sm">

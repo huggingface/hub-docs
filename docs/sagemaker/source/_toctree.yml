@@ -13,6 +13,19 @@
   title: Get started
   isExpanded: true
 - sections:
+    - local: recipes/index
+      title: Overview
+    - local: recipes/deploy-a-recipe
+      title: Deploy a recipe
+# GENERATED RECIPES DO NOT EDIT!
+    - local: recipes/qwen-qwen3-6-27b
+      title: "Qwen/Qwen3.6-27B"
+    - local: recipes/zai-org-glm-5-3-flash
+      title: "zai-org/GLM-5.3-Flash"
+# END GENERATED RECIPES
+  title: Recipes
+  isExpanded: true
+- sections:
     - local: agents/agent-harnesses
       title: Connect agent harnesses
     - local: agents/sagemaker-skills

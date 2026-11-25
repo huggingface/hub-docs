@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "id": "zai-org-glm-5-3-flash--ml-g7e-24xlarge--eb2abfab92",
+  "model_id": "zai-org/GLM-5.3-Flash",
+  "model_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+  "updated_at": "2026-09-28",
+  "engine": {
+    "name": "vllm",
+    "version": "0.25"
+  },
+  "image": {
+    "registry_account": "763104351884",
+    "repository": "huggingface-vllm",
+    "tag": "0.25-transformers5.10-gpu-py312-cu130-ubuntu22.04",
+    "digest": null
+  },
+  "instance": {
+    "type": "ml.g7e.24xlarge",
+    "accelerator": "NVIDIA RTX PRO 6000",
+    "gpus": 4,
+    "gpu_memory_gb": 96,
+    "price_per_hour_usd": 20.7152,
+    "price_region": "us-east-1"
+  },
+  "deployment": {
+    "inference_ami_version": "al2023-ami-sagemaker-inference-gpu-4-1",
+    "startup_health_check_timeout_s": 3600,
+    "environment": {
+      "SM_VLLM_ENABLE_AUTO_TOOL_CHOICE": "true",
+      "SM_VLLM_ENFORCE_EAGER": "true",
+      "SM_VLLM_KV_CACHE_DTYPE": "fp8",
+      "SM_VLLM_MAX_MODEL_LEN": "16384",
+      "SM_VLLM_MAX_NUM_BATCHED_TOKENS": "8192",
+      "SM_VLLM_MAX_NUM_SEQS": "16",
+      "SM_VLLM_MODEL": "zai-org/GLM-5.3-Flash",
+      "SM_VLLM_REASONING_PARSER": "glm47",
+      "SM_VLLM_REVISION": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+      "SM_VLLM_SERVED_MODEL_NAME": "zai-org/GLM-5.3-Flash",
+      "SM_VLLM_TENSOR_PARALLEL_SIZE": "4",
+      "SM_VLLM_TOOL_CALL_PARSER": "glm47",
+      "VLLM_ENGINE_READY_TIMEOUT_S": "3600"
+    }
+  },
+  "context_length": 16384,
+  "capabilities": {
+    "chat": true,
+    "streaming": true,
+    "tool_calling": true,
+    "reasoning": true,
+    "vision": true
+  },
+  "validation": {
+    "status": "passed",
+    "failed_checks": [
+      "vision-video"
+    ]
+  },
+  "metrics": [],
+  "measured": null,
+  "model_package": {
+    "ModelPackageName": "zai-org-glm-5-3-flash",
+    "ModelPackageDescription": "zai-org/GLM-5.3-Flash model package",
+    "InferenceSpecification": {
+      "Containers": [
+        {
+          "Image": "763104351884.dkr.ecr.us-west-2.amazonaws.com/huggingface-vllm:0.25-transformers5.10-gpu-py312-cu130-ubuntu22.04",
+          "Environment": {
+            "SM_VLLM_ENABLE_AUTO_TOOL_CHOICE": "true",
+            "SM_VLLM_ENFORCE_EAGER": "true",
+            "SM_VLLM_KV_CACHE_DTYPE": "fp8",
+            "SM_VLLM_MAX_MODEL_LEN": "16384",
+            "SM_VLLM_MAX_NUM_BATCHED_TOKENS": "8192",
+            "SM_VLLM_MAX_NUM_SEQS": "16",
+            "SM_VLLM_MODEL": "zai-org/GLM-5.3-Flash",
+            "SM_VLLM_REASONING_PARSER": "glm47",
+            "SM_VLLM_REVISION": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
+            "SM_VLLM_SERVED_MODEL_NAME": "zai-org/GLM-5.3-Flash",
+            "SM_VLLM_TENSOR_PARALLEL_SIZE": "4",
+            "SM_VLLM_TOOL_CALL_PARSER": "glm47",
+            "VLLM_ENGINE_READY_TIMEOUT_S": "3600"
+          }
+        }
+      ],
+      "SupportedContentTypes": [
+        "application/json"
+      ],
+      "SupportedResponseMIMETypes": [
+        "application/json"
+      ],
+      "SupportedRealtimeInferenceInstanceTypes": [
+        "ml.g7e.24xlarge"
+      ]
+    }
+  }
+}

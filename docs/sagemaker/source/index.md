@@ -12,7 +12,7 @@ Whether you are building a first prototype or operating production workloads, yo
 
 Choose from the following options to quickly get started:
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 my-6 not-prose">
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 my-6 not-prose">
   <a class="group flex flex-col rounded-xl border border-orange-100 bg-linear-to-br from-orange-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-orange-500/10" href="./tutorials/jumpstart/jumpstart-quickstart">
     <div class="mb-2 text-lg font-semibold text-orange-600 dark:text-orange-300">Quickstart</div>
     <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Deploy and test a Hugging Face model with SageMaker JumpStart.</p>
@@ -27,6 +27,11 @@ Choose from the following options to quickly get started:
     <div class="mb-2 text-lg font-semibold text-purple-600 dark:text-purple-300">SageMaker SDK</div>
     <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Deploy any Hub model to a managed endpoint from Python.</p>
     <span class="text-sm font-semibold text-gray-800 group-hover:text-purple-500 dark:text-gray-200 dark:group-hover:text-purple-300">Start from Python →</span>
+  </a>
+  <a class="group flex flex-col rounded-xl border border-green-100 bg-linear-to-br from-green-50 px-6 py-5 no-underline! dark:border-gray-850 dark:from-green-500/10" href="./recipes/index">
+    <div class="mb-2 text-lg font-semibold text-green-600 dark:text-green-300">Deploy a tested recipe</div>
+    <p class="mb-4 grow text-sm text-gray-600 dark:text-gray-400">Serve a Hub model with settings and results measured on SageMaker AI.</p>
+    <span class="text-sm font-semibold text-gray-800 group-hover:text-green-600 dark:text-gray-200 dark:group-hover:text-green-300">Browse recipes →</span>
   </a>
 </div>
 
