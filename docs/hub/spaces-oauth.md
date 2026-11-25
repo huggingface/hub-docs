@@ -52,6 +52,8 @@ This will add the following [environment variables](https://huggingface.co/docs/
 - `OAUTH_SCOPES`: scopes accessible by your OAuth app.
 - `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
+Every Space also gets a [`SPACE_SIGNING_SECRET`](./spaces-overview#built-in-environment-variables), a stable per-Space secret. If you use PKCE without a client secret, use it to sign your own session cookies so that logins survive restarts and are shared across replicas.
+
 As for any other environment variable, you can use them in your code by using `os.getenv("OAUTH_CLIENT_ID")`, for example.
 
 ## Redirect URLs
