@@ -145,6 +145,47 @@ def generate(prompt, steps):
    return pipe(prompt, num_inference_steps=steps).images
 ```
 
+## Session management
+
+Calling a `@spaces.GPU` function implicitly acquires and releases a GPU.
+The acquisition adds a delay (coldstart + possible queueing) whenever a GPU worker can't be re-used.
+While this managed approach is convenient, it involves unpredictable delays between calls.
+To get control over GPU acquisition and release, you can use `@spaces.GPU` with a Python generator:
+
+```python
+type Session = Generator[Image | None, str, None]
+sessions: dict[str, Session] = {}
+
+@spaces.GPU
+def session_generate() -> Session:
+    prompt = yield
+    while True:
+        prompt = yield pipe(prompt).images[0]
+
+@app.api('/create-session')
+def create_session():
+    session = session_generate()  # GPU is acquired at generator creation (this might still re-use an idle worker)
+    next(session)  # GPU worker initialization (e.g. ZeroGPU coldstart) happens here (unless worker re-use)
+    session_id = token_urlsafe()
+    sessions[session_id] = session
+    return session_id
+
+@app.api('/generate')
+def generate(session_id: str, prompt: str):
+    session = sessions[session_id]
+    return session.send(prompt)
+
+@app.api('/close-session')
+def close_session(session_id: str):
+    sessions.pop(session_id).close()  # Closing the generator (or having it garbage collected) releases the GPU
+```
+
+> [!NOTE]
+> This example assumes calls on a given session are sequential. Otherwise you need to properly manage locking.
+
+> [!NOTE]
+> The upcoming Gradio 7 release will support bi-directional generators for its `Blocks.stream` and `Server.api` handlers, making it super easy to create interactive apps with ZeroGPU (one-way generators can still be used for output streaming).
+
 
 ## Compilation
 
