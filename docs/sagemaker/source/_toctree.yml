@@ -28,6 +28,8 @@
       title: "Qwen/Qwen3-4B-Instruct-2507"
     - local: recipes/qwen-qwen3-8b
       title: "Qwen/Qwen3-8B"
+    - local: recipes/qwen-qwen3-vl-8b-instruct
+      title: "Qwen/Qwen3-VL-8B-Instruct"
     - local: recipes/qwen-qwen3-5-4b
       title: "Qwen/Qwen3.5-4B"
     - local: recipes/qwen-qwen3-5-9b

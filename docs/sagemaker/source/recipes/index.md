@@ -65,6 +65,7 @@ Prices are SageMaker on-demand prices in the region shown on each recipe; check 
 | [Qwen/Qwen3-14B](./qwen-qwen3-14b) | `ml.g7e.4xlarge` | 1 x NVIDIA RTX PRO 6000 | 0.34.0 | 40,960 | failed | 47.6 | 115.2 | 1,243.0 | 5.00 | 1.12 |
 | [Qwen/Qwen3-4B-Instruct-2507](./qwen-qwen3-4b-instruct-2507) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 131,072 | failed | 79.5 | 77.0 | 1,530.8 | 2.61 | 0.47 |
 | [Qwen/Qwen3-8B](./qwen-qwen3-8b) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 40,960 | failed | 45.2 | 123.1 | 1,062.2 | 2.61 | 0.68 |
+| [Qwen/Qwen3-VL-8B-Instruct](./qwen-qwen3-vl-8b-instruct) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 131,072 | failed | 45.2 | 120.5 | 1,042.3 | 2.61 | 0.69 |
 | [Qwen/Qwen3.5-4B](./qwen-qwen3-5-4b) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 262,144 | failed | 79.4 | 112.4 | 1,618.5 | 2.61 | 0.45 |
 | [Qwen/Qwen3.5-9B](./qwen-qwen3-5-9b) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 262,144 | failed | 44.0 | 136.8 | 1,121.5 | 2.61 | 0.65 |
 | [Qwen/Qwen3.6-35B-A3B](./qwen-qwen3-6-35b-a3b) | `ml.g6e.12xlarge` | 4 x NVIDIA L40S | 0.34.0 | 262,144 | failed | 186.7 | 210.5 | 871.4 | 13.12 | 4.18 |
