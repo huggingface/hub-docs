@@ -97,7 +97,7 @@ Access logs have the `repo_request` type. Their `data` field contains:
 | `repo`       | The repository: its `id`, `name`, `type` (`model`, `dataset`, `space`, `kernel`, or `bucket`), and whether it is `private`. Omitted when the request was denied on a repository outside your organization. |
 | `authType`   | How the user authenticated, e.g. `cookie` (browser), `access_token`, `oauth`, `s3`, or `ssh_signature`.              |
 | `authKind`   | Kind of identity that authenticated, e.g. `user`.                                                                    |
-| `sessionId`  | ID of the browser or OAuth session, for `cookie` and `oauth` authentication.                                         |
+| `sessionId`  | ID of the browser or OAuth session, when available.                                                                  |
 | `authTokenSha` | SHA-256 hash of the token presented, when it was invalid or revoked.                                               |
 
 Requests over HTTP also contain the `method`, and the `path` and `rev` of the file accessed (or the `url` when the request is not a file access):
