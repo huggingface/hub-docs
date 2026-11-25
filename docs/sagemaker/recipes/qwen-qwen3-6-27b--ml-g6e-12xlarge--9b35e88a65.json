@@ -50,7 +50,7 @@
   "metrics": [],
   "measured": null,
   "model_package": {
-    "ModelPackageName": "qwen-qwen3-6-27b",
+    "ModelPackageName": "qwen-qwen3-6-27b-ml-g6e-12xlarge-9b35e88a65",
     "ModelPackageDescription": "Qwen/Qwen3.6-27B model package",
     "InferenceSpecification": {
       "Containers": [
@@ -74,38 +74,8 @@
         "application/json"
       ],
       "SupportedRealtimeInferenceInstanceTypes": [
-        "ml.g6e.12xlarge",
-        "ml.g6e.24xlarge"
+        "ml.g6e.12xlarge"
       ]
-    },
-    "AdditionalInferenceSpecifications": [
-      {
-        "Name": "g6e-12xlarge-vllm-tp4-58f15116ae",
-        "Containers": [
-          {
-            "Image": "763104351884.dkr.ecr.us-east-1.amazonaws.com/vllm:server-sagemaker-cuda-v1",
-            "Environment": {
-              "SM_VLLM_ENABLE_AUTO_TOOL_CHOICE": "true",
-              "SM_VLLM_MAX_MODEL_LEN": "262144",
-              "SM_VLLM_MM_ENCODER_TP_MODE": "data",
-              "SM_VLLM_MODEL": "Qwen/Qwen3.6-27B",
-              "SM_VLLM_REASONING_PARSER": "qwen3",
-              "SM_VLLM_TENSOR_PARALLEL_SIZE": "4",
-              "SM_VLLM_TOOL_CALL_PARSER": "qwen3_coder"
-            }
-          }
-        ],
-        "SupportedContentTypes": [
-          "application/json"
-        ],
-        "SupportedResponseMIMETypes": [
-          "application/json"
-        ],
-        "SupportedRealtimeInferenceInstanceTypes": [
-          "ml.g6e.12xlarge",
-          "ml.g6e.24xlarge"
-        ]
-      }
-    ]
+    }
   }
 }

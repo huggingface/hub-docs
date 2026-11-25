@@ -3,7 +3,7 @@
   "id": "zai-org-glm-5-3-flash--ml-g7e-24xlarge--eb2abfab92",
   "model_id": "zai-org/GLM-5.3-Flash",
   "model_revision": "eb9eb208eb0d988989d07a6a12d0fdeb5f52574a",
-  "updated_at": "2026-09-28",
+  "updated_at": "2026-10-07",
   "engine": {
     "name": "vllm",
     "version": "0.25"
@@ -58,7 +58,7 @@
   "metrics": [],
   "measured": null,
   "model_package": {
-    "ModelPackageName": "zai-org-glm-5-3-flash",
+    "ModelPackageName": "zai-org-glm-5-3-flash-ml-g7e-24xlarge-eb2abfab92",
     "ModelPackageDescription": "zai-org/GLM-5.3-Flash model package",
     "InferenceSpecification": {
       "Containers": [
