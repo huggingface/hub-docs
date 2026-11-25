@@ -20,28 +20,40 @@
     - local: recipes/methodology
       title: How recipes are measured
 # GENERATED RECIPES DO NOT EDIT!
-    - local: recipes/google-gemma-4-26b-a4b-it
-      title: "google/gemma-4-26B-A4B-it"
-    - local: recipes/google-gemma-4-31b-it
-      title: "google/gemma-4-31B-it"
-    - local: recipes/meta-llama-llama-3-1-8b-instruct
-      title: "meta-llama/Llama-3.1-8B-Instruct"
-    - local: recipes/openai-gpt-oss-20b
-      title: "openai/gpt-oss-20b"
-    - local: recipes/qwen-qwen3-14b
-      title: "Qwen/Qwen3-14B"
-    - local: recipes/qwen-qwen3-4b-instruct-2507
-      title: "Qwen/Qwen3-4B-Instruct-2507"
-    - local: recipes/qwen-qwen3-8b
-      title: "Qwen/Qwen3-8B"
-    - local: recipes/qwen-qwen3-vl-8b-instruct
-      title: "Qwen/Qwen3-VL-8B-Instruct"
-    - local: recipes/qwen-qwen3-5-4b
-      title: "Qwen/Qwen3.5-4B"
-    - local: recipes/qwen-qwen3-5-9b
-      title: "Qwen/Qwen3.5-9B"
-    - local: recipes/qwen-qwen3-6-35b-a3b
-      title: "Qwen/Qwen3.6-35B-A3B"
+    - title: "Google"
+      isExpanded: false
+      sections:
+        - local: recipes/google-gemma-4-26b-a4b-it
+          title: "gemma-4-26B-A4B-it"
+        - local: recipes/google-gemma-4-31b-it
+          title: "gemma-4-31B-it"
+    - title: "Meta Llama"
+      isExpanded: false
+      sections:
+        - local: recipes/meta-llama-llama-3-1-8b-instruct
+          title: "Llama-3.1-8B-Instruct"
+    - title: "OpenAI"
+      isExpanded: false
+      sections:
+        - local: recipes/openai-gpt-oss-20b
+          title: "gpt-oss-20b"
+    - title: "Qwen"
+      isExpanded: false
+      sections:
+        - local: recipes/qwen-qwen3-14b
+          title: "Qwen3-14B"
+        - local: recipes/qwen-qwen3-4b-instruct-2507
+          title: "Qwen3-4B-Instruct-2507"
+        - local: recipes/qwen-qwen3-8b
+          title: "Qwen3-8B"
+        - local: recipes/qwen-qwen3-vl-8b-instruct
+          title: "Qwen3-VL-8B-Instruct"
+        - local: recipes/qwen-qwen3-5-4b
+          title: "Qwen3.5-4B"
+        - local: recipes/qwen-qwen3-5-9b
+          title: "Qwen3.5-9B"
+        - local: recipes/qwen-qwen3-6-35b-a3b
+          title: "Qwen3.6-35B-A3B"
 # END GENERATED RECIPES
   title: Recipes
   isExpanded: true

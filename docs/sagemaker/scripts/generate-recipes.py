@@ -13,6 +13,7 @@ and AWS credentials for the bucket owner).
 from __future__ import annotations
 
 import argparse
+import functools
 import hashlib
 import html
 import json
@@ -230,6 +231,12 @@ def sort_key(recipe: dict) -> tuple:
     return (recipe["model_id"].lower(), price is None, price or 0, recipe["instance"]["type"], recipe["id"])
 
 
+@functools.cache
+def org_name(org: str) -> str:
+    with urllib.request.urlopen(f"https://huggingface.co/api/organizations/{org}/overview", timeout=30) as response:
+        return json.load(response).get("fullname") or org
+
+
 def hub_info(model_id: str) -> dict:
     query = "&".join(f"expand[]={field}" for field in ["gated", "pipeline_tag", "safetensors", "cardData"])
     url = f"{HUB_API}{model_id}?{urllib.parse.quote(query, safe='=&')}"
@@ -237,6 +244,7 @@ def hub_info(model_id: str) -> dict:
         info = json.load(response)
     card = info.get("cardData") or {}
     return {
+        "org_name": org_name(model_id.split("/")[0]),
         "gated": bool(info.get("gated")),
         "task": info.get("pipeline_tag"),
         "parameters": (info.get("safetensors") or {}).get("total"),
@@ -828,7 +836,7 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
     price = featured["instance"]["price_per_hour_usd"]
     data = {
         "name": model_id.lower(),
-        "search": f"{model_id.lower()} {name.lower()}",
+        "search": f"{model_id.lower()} {info['org_name'].lower()}",
         "org": org,
         "size": size_bucket(info["parameters"]),
         "caps": " ".join(caps),
@@ -846,7 +854,7 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
         f"<div {attributes}>"
         f'<a href="./{slug(model_id)}" class="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-4 no-underline! '
         'hover:border-gray-300 hover:shadow-sm dark:border-gray-800 dark:bg-gray-950 dark:hover:border-gray-700">'
-        f'<span class="text-xs text-gray-500 dark:text-gray-400">{esc(org)}</span>'
+        f'<span class="text-xs text-gray-500 dark:text-gray-400">{esc(info["org_name"])}</span>'
         f'<span class="truncate text-lg font-semibold text-gray-900 dark:text-gray-100" title="{esc(model_id)}">{esc(name)}</span>'
         f'<span class="text-xs text-gray-500 dark:text-gray-400">{esc(" · ".join(facts))}</span>'
         f'<span class="mt-3 flex flex-wrap gap-1.5 text-xs">{"".join(chips)}</span>'
@@ -880,7 +888,7 @@ def checkbox(name: str, label: str) -> str:
 
 def catalog(models: dict[str, list[dict]], infos: dict[str, dict]) -> list[str]:
     recipes = [recipe for model_recipes in models.values() for recipe in model_recipes]
-    orgs = sorted({model_id.split("/")[0] for model_id in models}, key=str.lower)
+    orgs = sorted({(model_id.split("/")[0], infos[model_id]["org_name"]) for model_id in models}, key=lambda org: org[1].lower())
     gpus = sorted({r["instance"]["accelerator"] for r in recipes})
     sizes = {size_bucket(info["parameters"]) for info in infos.values()}
     prices = [r["instance"]["price_per_hour_usd"] for r in recipes if r["instance"]["price_per_hour_usd"] is not None]
@@ -890,7 +898,7 @@ def catalog(models: dict[str, list[dict]], infos: dict[str, dict]) -> list[str]:
         '<div><input data-filter type="search" name="q" placeholder="Search models" aria-label="Search models" '
         'class="h-9 w-full rounded-lg border border-gray-200 bg-white px-3 text-sm dark:border-gray-700 dark:bg-gray-950">'
         '<div class="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">'
-        + select("org", [("", "All organizations"), *[(org, org) for org in orgs]])
+        + select("org", [("", "All organizations"), *orgs])
         + select("gpu", [("", "All GPUs"), *[(slug(gpu), gpu) for gpu in gpus]])
         + select("size", [("", "All sizes"), *[(key, label) for key, label, _ in SIZES if key in sizes]])
         + select("price", [("", "Any price"), *[(str(step), f"Up to ${step} per hour") for step in steps]])
@@ -988,9 +996,17 @@ def main() -> None:
     for path, content in pages.items():
         write_if_changed(path, content)
 
-    toc_entries = []
+    labs: dict[str, list[str]] = defaultdict(list)
     for model_id in models:
-        toc_entries += [f"    - local: recipes/{slug(model_id)}", f"      title: {json.dumps(model_id)}"]
+        labs[infos[model_id]["org_name"]].append(model_id)
+    toc_entries = []
+    for lab in sorted(labs, key=str.lower):
+        toc_entries += [f"    - title: {json.dumps(lab)}", "      isExpanded: false", "      sections:"]
+        for model_id in labs[lab]:
+            toc_entries += [
+                f"        - local: recipes/{slug(model_id)}",
+                f"          title: {json.dumps(model_id.split('/', 1)[1])}",
+            ]
     toctree = TOCTREE.read_text()
     write_if_changed(TOCTREE, replace_between(toctree, TOC_START, TOC_END, toc_entries, TOCTREE))
 
