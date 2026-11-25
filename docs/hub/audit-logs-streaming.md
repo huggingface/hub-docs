@@ -62,7 +62,7 @@ Every record has the following fields:
 | `location`      | Country and city of the actor, when known. Access logs may only have the `country`, as an ISO code (e.g. `US`). |
 | `userAgent`     | User agent of the client.                                                                             |
 | `author`        | User who performed the action. For managed users, `externalId` is their ID in your Identity Provider. Absent for anonymous requests. |
-| `token`         | [Access token](./security-tokens) used, if any: its `id`, `role`, and last 4 characters. Audit events also include its `type` and whether it has since been `deleted`. |
+| `token`         | [Access token](./security-tokens) used, if any: its `id`, and its `role` and last 4 characters when known. Audit events also include its `type` and whether it has since been `deleted`. |
 | `oauth`         | [OAuth app](./oauth) used, if any, identified by its `clientId`.                                      |
 | `data`          | Details of the action (see below).                                                                    |
 
