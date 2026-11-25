@@ -184,8 +184,8 @@ def close_session(session_id: str):
 > [!NOTE]
 > This example assumes calls on a given session are sequential. Otherwise you need to properly manage locking.
 
-> [!NOTE]
-> The upcoming Gradio 7 release will support bi-directional generators for its `Blocks.stream` and `Server.api` handlers, making it super easy to create interactive apps with ZeroGPU (one-way generators can still be used for output streaming).
+> [!TIP]
+> 🚀 The upcoming Gradio 7 release will support bi-directional generators for its `Blocks.stream` and `Server.api` handlers, making it super easy to create interactive apps with ZeroGPU (one-way generators can still be used for output streaming).
 
 
 ## Compilation
