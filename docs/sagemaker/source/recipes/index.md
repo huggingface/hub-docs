@@ -27,6 +27,9 @@ Validation sends one request per capability and checks the response:
 
 A recipe page lists the capabilities that passed, the ones that failed, and the ones that were not checked.
 
+> [!WARNING]
+> These initial measurements have partially passing validation. A benchmark result does not mean every capability works: review the failed checks on each model page before deploying. The results include SageMaker routing limitations and failures fetching validation images.
+
 ### Benchmarks
 
 Benchmarks use [`vllm bench serve`](https://docs.vllm.ai/en/latest/cli/bench/serve.html) against the endpoint. Each suite models a different workload:
@@ -57,7 +60,11 @@ Prices are SageMaker on-demand prices in the region shown on each recipe; check 
 
 | Model | Instance | GPUs | vLLM DLC | Context length | Validation | Single-user tok/s | Median TTFT (ms) | Output tok/s at c64 | USD per hour | USD per 1M output tokens at c64 |
 |---|---|---|---|---:|---|---:|---:|---:|---:|---:|
-| [Qwen/Qwen3.6-27B](./qwen-qwen3-6-27b) | `ml.g6e.12xlarge` | 4 x NVIDIA L40S | 0.21.0 | 262,144 | passed | n/a | n/a | n/a | 13.12 | n/a |
-| [zai-org/GLM-5.3-Flash](./zai-org-glm-5-3-flash) | `ml.g7e.24xlarge` | 4 x NVIDIA RTX PRO 6000 | 0.25 | 16,384 | passed | n/a | n/a | n/a | 20.72 | n/a |
+| [google/gemma-4-31B-it](./google-gemma-4-31b-it) | `ml.g7e.2xlarge` | 1 x NVIDIA RTX PRO 6000 | 0.34.0 | 131,072 | failed | 22.3 | 260.9 | 331.0 | 4.20 | 3.53 |
+| [openai/gpt-oss-20b](./openai-gpt-oss-20b) | `ml.g6e.2xlarge` | 1 x NVIDIA L40S | 0.34.0 | 131,072 | failed | 155.2 | 84.3 | 2,173.6 | 2.80 | 0.36 |
+| [Qwen/Qwen3-14B](./qwen-qwen3-14b) | `ml.g7e.4xlarge` | 1 x NVIDIA RTX PRO 6000 | 0.34.0 | 40,960 | failed | 47.6 | 115.2 | 1,243.0 | 5.00 | 1.12 |
+| [Qwen/Qwen3-8B](./qwen-qwen3-8b) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 40,960 | failed | 45.2 | 123.1 | 1,062.2 | 2.61 | 0.68 |
+| [Qwen/Qwen3.5-4B](./qwen-qwen3-5-4b) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 262,144 | failed | 79.4 | 112.4 | 1,618.5 | 2.61 | 0.45 |
+| [Qwen/Qwen3.5-9B](./qwen-qwen3-5-9b) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 262,144 | failed | 44.0 | 136.8 | 1,121.5 | 2.61 | 0.65 |
 
 <!-- END GENERATED RECIPES TABLE -->

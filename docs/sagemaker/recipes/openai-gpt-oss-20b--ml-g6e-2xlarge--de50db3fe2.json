@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "id": "openai-gpt-oss-20b--ml-g6e-2xlarge--de50db3fe2",
+  "model_id": "openai/gpt-oss-20b",
+  "model_revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+  "updated_at": "2026-11-25",
+  "engine": {
+    "name": "vllm",
+    "version": "0.34.0"
+  },
+  "image": {
+    "registry_account": "763104351884",
+    "repository": "huggingface-vllm",
+    "tag": "0.34.0-transformers5.19.0-gpu-py312-cu130-ubuntu24.04",
+    "digest": "sha256:ab85af8f64c47ddb9ba40ddb94727f4e9563743fd763d2934c110191568cfe39"
+  },
+  "instance": {
+    "type": "ml.g6e.2xlarge",
+    "accelerator": "NVIDIA L40S",
+    "gpus": 1,
+    "gpu_memory_gb": 48,
+    "price_per_hour_usd": 2.8026,
+    "price_region": "us-east-1"
+  },
+  "deployment": {
+    "inference_ami_version": "al2023-ami-sagemaker-inference-gpu-4-1",
+    "startup_health_check_timeout_s": 3600,
+    "environment": {
+      "SM_VLLM_ENABLE_AUTO_TOOL_CHOICE": "true",
+      "SM_VLLM_ENABLE_PROMPT_TOKENS_DETAILS": "true",
+      "SM_VLLM_GPU_MEMORY_UTILIZATION": "0.95",
+      "SM_VLLM_MAX_CUDAGRAPH_CAPTURE_SIZE": "2048",
+      "SM_VLLM_MAX_MODEL_LEN": "131072",
+      "SM_VLLM_MODEL": "openai/gpt-oss-20b",
+      "SM_VLLM_REASONING_PARSER": "openai_gptoss",
+      "SM_VLLM_REVISION": "6cee5e81ee83917806bbde320786a8fb61efebee",
+      "SM_VLLM_SERVED_MODEL_NAME": "openai/gpt-oss-20b",
+      "SM_VLLM_TENSOR_PARALLEL_SIZE": "1",
+      "SM_VLLM_TOOL_CALL_PARSER": "openai"
+    }
+  },
+  "context_length": 131072,
+  "capabilities": {
+    "chat": true,
+    "streaming": true,
+    "tool_calling": true,
+    "reasoning": true,
+    "vision": null
+  },
+  "validation": {
+    "status": "failed",
+    "failed_checks": [
+      "reasoning-disabled",
+      "responses"
+    ]
+  },
+  "metrics": [
+    {
+      "suite": "concurrency",
+      "concurrency": 64,
+      "input_tokens": 1100,
+      "output_tokens": 257,
+      "output_throughput": 2173.589963699981,
+      "request_throughput": 8.460248904641789,
+      "median_ttft_ms": 167.01668000314385,
+      "median_tpot_ms": 27.64088348011449,
+      "cost_per_million_output_tokens_usd": 0.3581632290364475
+    },
+    {
+      "suite": "long-prefill",
+      "concurrency": 4,
+      "input_tokens": 16451,
+      "output_tokens": 128,
+      "output_throughput": 86.8733709826474,
+      "request_throughput": 0.6786982108019328,
+      "median_ttft_ms": 2421.13412450999,
+      "median_tpot_ms": 27.16135894102833,
+      "cost_per_million_output_tokens_usd": 8.961319115330545
+    },
+    {
+      "suite": "prefix",
+      "concurrency": 32,
+      "input_tokens": 4419,
+      "output_tokens": 125,
+      "output_throughput": 1324.384543046217,
+      "request_throughput": 10.618303884116239,
+      "median_ttft_ms": 169.84069901809562,
+      "median_tpot_ms": 19.102966921187672,
+      "cost_per_million_output_tokens_usd": 0.5878202098382785
+    },
+    {
+      "suite": "sharegpt",
+      "concurrency": 256,
+      "input_tokens": 282,
+      "output_tokens": 197,
+      "output_throughput": 5199.308210188695,
+      "request_throughput": 26.41012358630501,
+      "median_ttft_ms": 313.42144501104485,
+      "median_tpot_ms": 34.481454286443295,
+      "cost_per_million_output_tokens_usd": 0.14973145821100425
+    },
+    {
+      "suite": "single-request",
+      "concurrency": 1,
+      "input_tokens": 1091,
+      "output_tokens": 2048,
+      "output_throughput": 154.2226362355499,
+      "request_throughput": 0.0753040215993896,
+      "median_ttft_ms": 84.2751244927058,
+      "median_tpot_ms": 6.4422869059595245,
+      "cost_per_million_output_tokens_usd": 5.047897111620944
+    }
+  ],
+  "measured": {
+    "provider": "aws-sagemaker",
+    "region": "us-east-2",
+    "date": "2026-11-25",
+    "tool": "vllm bench serve",
+    "max_concurrency": 256
+  },
+  "model_package": {
+    "ModelPackageName": "openai-gpt-oss-20b-ml-g6e-2xlarge-de50db3fe2",
+    "ModelPackageDescription": "openai/gpt-oss-20b model package",
+    "InferenceSpecification": {
+      "Containers": [
+        {
+          "Image": "763104351884.dkr.ecr.us-east-2.amazonaws.com/huggingface-vllm@sha256:ab85af8f64c47ddb9ba40ddb94727f4e9563743fd763d2934c110191568cfe39",
+          "Environment": {
+            "SM_VLLM_ENABLE_AUTO_TOOL_CHOICE": "true",
+            "SM_VLLM_ENABLE_PROMPT_TOKENS_DETAILS": "true",
+            "SM_VLLM_GPU_MEMORY_UTILIZATION": "0.95",
+            "SM_VLLM_MAX_CUDAGRAPH_CAPTURE_SIZE": "2048",
+            "SM_VLLM_MAX_MODEL_LEN": "131072",
+            "SM_VLLM_MODEL": "openai/gpt-oss-20b",
+            "SM_VLLM_REASONING_PARSER": "openai_gptoss",
+            "SM_VLLM_REVISION": "6cee5e81ee83917806bbde320786a8fb61efebee",
+            "SM_VLLM_SERVED_MODEL_NAME": "openai/gpt-oss-20b",
+            "SM_VLLM_TENSOR_PARALLEL_SIZE": "1",
+            "SM_VLLM_TOOL_CALL_PARSER": "openai"
+          }
+        }
+      ],
+      "SupportedContentTypes": [
+        "application/json"
+      ],
+      "SupportedResponseMIMETypes": [
+        "application/json"
+      ],
+      "SupportedRealtimeInferenceInstanceTypes": [
+        "ml.g6e.2xlarge"
+      ]
+    }
+  }
+}

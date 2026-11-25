@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "id": "qwen-qwen3-5-4b--ml-g6e-xlarge--28c93e2fa5",
+  "model_id": "Qwen/Qwen3.5-4B",
+  "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "updated_at": "2026-11-25",
+  "engine": {
+    "name": "vllm",
+    "version": "0.34.0"
+  },
+  "image": {
+    "registry_account": "763104351884",
+    "repository": "huggingface-vllm",
+    "tag": "0.34.0-transformers5.19.0-gpu-py312-cu130-ubuntu24.04",
+    "digest": "sha256:ab85af8f64c47ddb9ba40ddb94727f4e9563743fd763d2934c110191568cfe39"
+  },
+  "instance": {
+    "type": "ml.g6e.xlarge",
+    "accelerator": "NVIDIA L40S",
+    "gpus": 1,
+    "gpu_memory_gb": 48,
+    "price_per_hour_usd": 2.6054,
+    "price_region": "us-east-1"
+  },
+  "deployment": {
+    "inference_ami_version": "al2023-ami-sagemaker-inference-gpu-4-1",
+    "startup_health_check_timeout_s": 3600,
+    "environment": {
+      "SM_VLLM_ENABLE_AUTO_TOOL_CHOICE": "true",
+      "SM_VLLM_ENABLE_PROMPT_TOKENS_DETAILS": "true",
+      "SM_VLLM_MAX_MODEL_LEN": "262144",
+      "SM_VLLM_MODEL": "Qwen/Qwen3.5-4B",
+      "SM_VLLM_REASONING_PARSER": "qwen3",
+      "SM_VLLM_REVISION": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "SM_VLLM_SERVED_MODEL_NAME": "Qwen/Qwen3.5-4B",
+      "SM_VLLM_TENSOR_PARALLEL_SIZE": "1",
+      "SM_VLLM_TOOL_CALL_PARSER": "qwen3_coder"
+    }
+  },
+  "context_length": 262144,
+  "capabilities": {
+    "chat": true,
+    "streaming": true,
+    "tool_calling": true,
+    "reasoning": true,
+    "vision": true
+  },
+  "validation": {
+    "status": "failed",
+    "failed_checks": [
+      "responses"
+    ]
+  },
+  "metrics": [
+    {
+      "suite": "concurrency",
+      "concurrency": 64,
+      "input_tokens": 1004,
+      "output_tokens": 257,
+      "output_throughput": 1618.4630185947121,
+      "request_throughput": 6.299532206599357,
+      "median_ttft_ms": 233.49173145834357,
+      "median_tpot_ms": 37.35036074442487,
+      "cost_per_million_output_tokens_usd": 0.44716636333811305
+    },
+    {
+      "suite": "long-decode",
+      "concurrency": 4,
+      "input_tokens": 982,
+      "output_tokens": 4096,
+      "output_throughput": 284.3004927028207,
+      "request_throughput": 0.06940929997627458,
+      "median_ttft_ms": 222.51339198555797,
+      "median_tpot_ms": 14.017310295247169,
+      "cost_per_million_output_tokens_usd": 2.5456242278789474
+    },
+    {
+      "suite": "long-prefill",
+      "concurrency": 4,
+      "input_tokens": 15714,
+      "output_tokens": 128,
+      "output_throughput": 96.47865740538869,
+      "request_throughput": 0.7537395109795991,
+      "median_ttft_ms": 1817.0427405275404,
+      "median_tpot_ms": 27.30165772767019,
+      "cost_per_million_output_tokens_usd": 7.501371201521298
+    },
+    {
+      "suite": "prefix",
+      "concurrency": 32,
+      "input_tokens": 4164,
+      "output_tokens": 128,
+      "output_throughput": 945.8162548137367,
+      "request_throughput": 7.389189490732318,
+      "median_ttft_ms": 353.8946290500462,
+      "median_tpot_ms": 28.45280863689332,
+      "cost_per_million_output_tokens_usd": 0.7651826858957375
+    },
+    {
+      "suite": "sharegpt",
+      "concurrency": 256,
+      "input_tokens": 235,
+      "output_tokens": 208,
+      "output_throughput": 2871.7817860052605,
+      "request_throughput": 13.830671424325464,
+      "median_ttft_ms": 285.7640099246055,
+      "median_tpot_ms": 76.59999617802289,
+      "cost_per_million_output_tokens_usd": 0.2520115649974028
+    },
+    {
+      "suite": "single-request",
+      "concurrency": 1,
+      "input_tokens": 984,
+      "output_tokens": 2048,
+      "output_throughput": 79.10592400514051,
+      "request_throughput": 0.038625939455635014,
+      "median_ttft_ms": 112.41976555902511,
+      "median_tpot_ms": 12.597931428954851,
+      "cost_per_million_output_tokens_usd": 9.148774018178372
+    }
+  ],
+  "measured": {
+    "provider": "aws-sagemaker",
+    "region": "us-east-2",
+    "date": "2026-11-25",
+    "tool": "vllm bench serve",
+    "max_concurrency": 256
+  },
+  "model_package": {
+    "ModelPackageName": "qwen-qwen3-5-4b-ml-g6e-xlarge-28c93e2fa5",
+    "ModelPackageDescription": "Qwen/Qwen3.5-4B model package",
+    "InferenceSpecification": {
+      "Containers": [
+        {
+          "Image": "763104351884.dkr.ecr.us-east-2.amazonaws.com/huggingface-vllm@sha256:ab85af8f64c47ddb9ba40ddb94727f4e9563743fd763d2934c110191568cfe39",
+          "Environment": {
+            "SM_VLLM_ENABLE_AUTO_TOOL_CHOICE": "true",
+            "SM_VLLM_ENABLE_PROMPT_TOKENS_DETAILS": "true",
+            "SM_VLLM_MAX_MODEL_LEN": "262144",
+            "SM_VLLM_MODEL": "Qwen/Qwen3.5-4B",
+            "SM_VLLM_REASONING_PARSER": "qwen3",
+            "SM_VLLM_REVISION": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+            "SM_VLLM_SERVED_MODEL_NAME": "Qwen/Qwen3.5-4B",
+            "SM_VLLM_TENSOR_PARALLEL_SIZE": "1",
+            "SM_VLLM_TOOL_CALL_PARSER": "qwen3_coder"
+          }
+        }
+      ],
+      "SupportedContentTypes": [
+        "application/json"
+      ],
+      "SupportedResponseMIMETypes": [
+        "application/json"
+      ],
+      "SupportedRealtimeInferenceInstanceTypes": [
+        "ml.g6e.xlarge"
+      ]
+    }
+  }
+}
