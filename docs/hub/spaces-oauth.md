@@ -48,7 +48,7 @@ You can check out the [configuration reference docs](./spaces-config-reference) 
 This will add the following [environment variables](https://huggingface.co/docs/hub/spaces-overview#built-in-environment-variables) to your space:
 
 - `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
-- `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app (optional: if not set, the Space authenticates with PKCE only)
+- `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app (optional: PKCE is supported, so the secret isn't required for the token exchange; it's still provided for now and may be removed for new Spaces)
 - `OAUTH_SCOPES`: scopes accessible by your OAuth app.
 - `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 
