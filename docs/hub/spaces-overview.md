@@ -139,9 +139,18 @@ Paused time is not billed.
 
 In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime (see also [built-in environment variables in Jobs](./jobs-configuration#built-in-environment-variables)). Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
 
-* `ACCELERATOR`: The type of accelerator available (e.g., `t4-medium`, `a10g-small`), or `none` for CPU-only Spaces.
+* `HF_SPACE_ID`: `osanseviero/i-like-flan`
+* `HF_SPACE_OWNER`: osanseviero (the user or organization that owns the Space)
+* `HF_SPACE_REPO_NAME`: i-like-flan
+* `HF_SPACE_TITLE`: I Like Flan (specified in the README file)
+* `HF_SPACE_HOST`: `osanseviero-i-like-flan.hf.space` (a comma-separated list that also holds the Space's custom domains, if any)
+* `HF_SPACE_SUBDOMAIN`: `osanseviero-i-like-flan`
+* `HF_SPACE_FLAVOR`: The hardware flavor of the Space (e.g., `cpu-basic`, `t4-small`). Unset when the hardware has no flavor name.
+* `HF_SPACE_GPU_COUNT`: The number of GPUs allocated to the Space: `0` on CPU, ZeroGPU and Neuron hardware.
+* `HF_SPACE_DISK_GB`: The disk space allocated to the Space, in GB (e.g., `50`). Unset when the hardware has no disk limit.
+* `ACCELERATOR`: The type of device: `cpu`, `gpu`, `zero` (ZeroGPU) or `neuron`.
 * `CPU_CORES`: 4
-* `MEMORY`: 15Gi
+* `MEMORY`: `15.0G`
 * `SPACE_AUTHOR_NAME`: osanseviero
 * `SPACE_REPO_NAME`: i-like-flan
 * `SPACE_TITLE`: I Like Flan (specified in the README file)
@@ -149,6 +158,8 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_HOST`: `osanseviero-i-like-flan.hf.space`
 * `SPACE_CREATOR_USER_ID`: `6032802e1f993496bc14d9e3` - This is the ID of the user that originally created the Space. It's useful if the Space is under an organization. You can get the user information with an API call to `https://huggingface.co/api/users/{SPACE_CREATOR_USER_ID}/overview`.
 * `SPACE_SIGNING_SECRET`: a random secret unique to your Space, exposed as a secret. It stays the same across restarts, rebuilds, and replicas, so you can use it to sign things like cookies, OAuth state, or CSRF tokens. To use your own value instead, add a secret named `SPACE_SIGNING_SECRET` in your Space settings.
+
+Prefer the `HF_SPACE_*` names in new code: they mirror the `HF_JOB_*` names of Jobs. `SPACE_AUTHOR_NAME`, `SPACE_REPO_NAME`, `SPACE_TITLE`, `SPACE_ID` and `SPACE_HOST` keep working. The `HF_SPACE_*` variables are set when the Space runs, not passed as Docker build arguments, and a Space variable or secret of the same name replaces them.
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 

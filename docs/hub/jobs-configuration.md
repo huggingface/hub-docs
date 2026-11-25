@@ -101,26 +101,38 @@ Similarly to the [built-in environment variables in Spaces](./spaces-overview#bu
 
 | Variable | Description |
 |----------|-------------|
-| `JOB_ID` | The unique identifier of the current job (e.g., `699d874f1aad19adb8aaeadc`). This is the same ID shown in the UI and the job URL. |
-| `ACCELERATOR` | The type of device: `cpu` for CPU flavors, `gpu` for GPU flavors. |
+| `HF_JOB_ID` | The unique identifier of the current job (e.g., `699d874f1aad19adb8aaeadc`). This is the same ID shown in the UI and the job URL. |
+| `HF_JOB_OWNER` | The user or organization the job runs under. |
+| `HF_JOB_FLAVOR` | The hardware flavor of the job (e.g., `a10g-small`), as listed by `hf jobs hardware`. Unset when the hardware has no flavor name. |
+| `HF_JOB_GPU_COUNT` | The number of GPUs allocated to the job: `0` on CPU and Neuron flavors. |
+| `HF_JOB_DISK_GB` | The disk space allocated to the job, in GB (e.g., `110`). Unset when the flavor has no disk limit. |
+| `HF_JOB_TIMEOUT` | The job's timeout in seconds, set with `--timeout`. It applies to each attempt and counts from the start of the attempt, image pull and volume mounts included. For information only: changing the variable doesn't change the timeout. |
+| `HF_JOB_IMAGE` | The Docker image of the job, as submitted (e.g., `python:3.12`). Only set for jobs that run a Docker image. |
+| `HF_JOB_SPACE_ID` | The Space whose image the job runs, as submitted (e.g., `YOUR_USERNAME/video-tools`). Only set for jobs that run a Space's image. |
+| `JOB_ID` | Same as `HF_JOB_ID`. |
+| `ACCELERATOR` | The type of device: `cpu` for CPU flavors, `gpu` for GPU flavors, `neuron` for Neuron flavors. |
 | `CPU_CORES` | The number of CPU cores allocated to the job. |
 | `MEMORY` | The amount of memory allocated to the job (e.g., `16.0G`). |
 | `HF_NETWORK_GROUP_HOSTNAME` | Hostname resolving to every job in the job's [network group](#network-groups). Only set when the job declares one. |
 | `HF_NETWORK_GROUP_PREFIX` | Prefix to prepend to an alias to get the hostname of the group members claiming it (e.g., `${HF_NETWORK_GROUP_PREFIX}master`). Only set when the job declares a network group. |
 
+Prefer the `HF_JOB_*` names in new code: they are specific to Hugging Face Jobs, while names such as `JOB_ID` are also set by other platforms. `JOB_ID` keeps working.
+
 You can use these variables to track outputs, adapt your code to available resources, or reference the current job programmatically:
 
 ```bash
 # Access job environment information
->>> hf jobs run python:3.12 python -c "import os; print(f'Job: {os.environ.get(\"JOB_ID\")}, CPU: {os.environ.get(\"CPU_CORES\")}, Mem: {os.environ.get(\"MEMORY\")}')"
+>>> hf jobs run python:3.12 python -c "import os; print(f'Job: {os.environ.get(\"HF_JOB_ID\")}, Flavor: {os.environ.get(\"HF_JOB_FLAVOR\")}, CPU: {os.environ.get(\"CPU_CORES\")}, Mem: {os.environ.get(\"MEMORY\")}')"
 ```
 
-Jobs also set the following variables so that thread pools match the CPU cores allocated to the job, not the cores of the machine it runs on (GPU flavors leave `OMP_NUM_THREADS` unset, see below). These variables are defaults: a value you set in the job's environment variables or secrets replaces them.
+Jobs also set the following variables so that thread pools match the CPU cores allocated to the job, not the cores of the machine it runs on (GPU and Neuron flavors leave `OMP_NUM_THREADS` unset, see below).
 
 | Variable           | Description                                                                                                                                                                                                                                                   |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OMP_NUM_THREADS`  | Set to `CPU_CORES`. Thread count for OpenMP and the libraries that follow it, such as PyTorch, OpenBLAS (NumPy, SciPy), MKL and NumExpr. Left unset on GPU flavors, where launchers such as `torchrun`, `accelerate launch` and vLLM choose the thread count. |
+| `OMP_NUM_THREADS`  | Set to `CPU_CORES`. Thread count for OpenMP and the libraries that follow it, such as PyTorch, OpenBLAS (NumPy, SciPy), MKL and NumExpr. Left unset on GPU and Neuron flavors, where launchers such as `torchrun`, `accelerate launch` and vLLM choose the thread count. |
 | `PYTHON_CPU_COUNT` | Set to `CPU_CORES`. Value of `os.cpu_count()` and `os.process_cpu_count()`, so `multiprocessing` and `num_proc=os.cpu_count()` stay within the job's cores. Python 3.13+ only: on older versions, read `CPU_CORES` instead.                                   |
+
+Every variable in this section except `HF_NETWORK_GROUP_HOSTNAME` and `HF_NETWORK_GROUP_PREFIX` is a default: a value you set in the job's environment variables (`-e`) or secrets (`-s`) replaces it.
 
 ### User-defined environment variables
 
