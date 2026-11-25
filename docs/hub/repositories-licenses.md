@@ -12,6 +12,8 @@ A full list of the available licenses is available here:
 | -------------------------------------------------------------- | ---------------------------------------- |
 | Apache license 2.0                                             | `apache-2.0`                             |
 | MIT                                                            | `mit`                                    |
+| Modified MIT                                                   | `modified-mit`                           | <!-- info: used by moonshotai/Kimi-K2.7-Code -->
+| NVIDIA Open Model Agreement                                    | `nvidia-open-model-agreement`            | <!-- license: https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-agreement/ -->
 | OpenRAIL license family                                        | `openrail`                               | <!-- info: https://huggingface.co/blog/open_rail -->
 | BigScience OpenRAIL-M                                          | `bigscience-openrail-m`                  | <!-- info: https://bigscience.huggingface.co/blog/bigscience-openrail-m -->
 | CreativeML OpenRAIL-M                                          | `creativeml-openrail-m`                  | <!-- info: https://huggingface.co/spaces/CompVis/stable-diffusion-license -->
