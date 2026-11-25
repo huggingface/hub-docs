@@ -145,7 +145,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `HF_SPACE_TITLE`: I Like Flan (specified in the README file)
 * `HF_SPACE_HOST`: `osanseviero-i-like-flan.hf.space` (a comma-separated list that also holds the Space's custom domains, if any)
 * `HF_SPACE_SUBDOMAIN`: `osanseviero-i-like-flan`
-* `HF_SPACE_FLAVOR`: The hardware flavor of the Space (e.g., `cpu-basic`, `t4-small`). Unset when the hardware has no flavor name.
+* `HF_SPACE_FLAVOR`: The hardware flavor of the Space (e.g., `cpu-basic`, `t4-small`).
 * `HF_SPACE_GPU_COUNT`: The number of GPUs allocated to the Space: `0` on CPU, ZeroGPU and Neuron hardware.
 * `HF_SPACE_DISK_GB`: The disk space allocated to the Space, in GB (e.g., `50`). Unset when the hardware has no disk limit.
 * `ACCELERATOR`: The type of device: `cpu`, `gpu`, `zero` (ZeroGPU) or `neuron`.

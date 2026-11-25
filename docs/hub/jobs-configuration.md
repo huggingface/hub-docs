@@ -103,7 +103,7 @@ Similarly to the [built-in environment variables in Spaces](./spaces-overview#bu
 |----------|-------------|
 | `HF_JOB_ID` | The unique identifier of the current job (e.g., `699d874f1aad19adb8aaeadc`). This is the same ID shown in the UI and the job URL. |
 | `HF_JOB_OWNER` | The user or organization the job runs under. |
-| `HF_JOB_FLAVOR` | The hardware flavor of the job (e.g., `a10g-small`), as listed by `hf jobs hardware`. Unset when the hardware has no flavor name. |
+| `HF_JOB_FLAVOR` | The hardware flavor of the job (e.g., `a10g-small`), as listed by `hf jobs hardware`. |
 | `HF_JOB_GPU_COUNT` | The number of GPUs allocated to the job: `0` on CPU and Neuron flavors. |
 | `HF_JOB_DISK_GB` | The disk space allocated to the job, in GB (e.g., `110`). Unset when the flavor has no disk limit. |
 | `HF_JOB_TIMEOUT` | The job's timeout in seconds, set with `--timeout`. It applies to each attempt and counts from the start of the attempt, image pull and volume mounts included. For information only: changing the variable doesn't change the timeout. |
