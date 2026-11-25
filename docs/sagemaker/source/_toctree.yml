@@ -20,6 +20,8 @@
 # GENERATED RECIPES DO NOT EDIT!
     - local: recipes/google-gemma-4-31b-it
       title: "google/gemma-4-31B-it"
+    - local: recipes/meta-llama-llama-3-1-8b-instruct
+      title: "meta-llama/Llama-3.1-8B-Instruct"
     - local: recipes/openai-gpt-oss-20b
       title: "openai/gpt-oss-20b"
     - local: recipes/qwen-qwen3-14b

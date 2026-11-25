@@ -61,6 +61,7 @@ Prices are SageMaker on-demand prices in the region shown on each recipe; check 
 | Model | Instance | GPUs | vLLM DLC | Context length | Validation | Single-user tok/s | Median TTFT (ms) | Output tok/s at c64 | USD per hour | USD per 1M output tokens at c64 |
 |---|---|---|---|---:|---|---:|---:|---:|---:|---:|
 | [google/gemma-4-31B-it](./google-gemma-4-31b-it) | `ml.g7e.2xlarge` | 1 x NVIDIA RTX PRO 6000 | 0.34.0 | 131,072 | failed | 22.3 | 260.9 | 331.0 | 4.20 | 3.53 |
+| [meta-llama/Llama-3.1-8B-Instruct](./meta-llama-llama-3-1-8b-instruct) | `ml.g6e.2xlarge` | 1 x NVIDIA L40S | 0.34.0 | 32,768 | failed | 46.3 | 116.4 | 1,080.2 | 2.80 | 0.72 |
 | [openai/gpt-oss-20b](./openai-gpt-oss-20b) | `ml.g6e.2xlarge` | 1 x NVIDIA L40S | 0.34.0 | 131,072 | failed | 155.2 | 84.3 | 2,173.6 | 2.80 | 0.36 |
 | [Qwen/Qwen3-14B](./qwen-qwen3-14b) | `ml.g7e.4xlarge` | 1 x NVIDIA RTX PRO 6000 | 0.34.0 | 40,960 | failed | 47.6 | 115.2 | 1,243.0 | 5.00 | 1.12 |
 | [Qwen/Qwen3-4B-Instruct-2507](./qwen-qwen3-4b-instruct-2507) | `ml.g6e.xlarge` | 1 x NVIDIA L40S | 0.34.0 | 131,072 | failed | 79.5 | 77.0 | 1,530.8 | 2.61 | 0.47 |
