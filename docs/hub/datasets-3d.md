@@ -21,7 +21,7 @@ Click a 3D file in the **Files and versions** tab of a dataset or [Storage Bucke
 | glTF           | `.glb`, `.gltf`                   | [DamagedHelmet.glb](https://huggingface.co/datasets/cfahlgren1/3d-model-samples/blob/main/DamagedHelmet.glb) |
 | Mesh           | `.obj`, `.stl`, `.ply`            | [cone.stl](https://huggingface.co/datasets/cfahlgren1/mesh-doc-test-formats/blob/main/meshes/cone.stl)   |
 | Point cloud    | `.ply`                            | [birmingham_block_13.ply](https://huggingface.co/datasets/WhiteFlamesCN/sensaturban-citynav-ply/blob/main/birmingham_block_13.ply) |
-| Gaussian splat | `.ply`, `.splat`                  | [a_monarch_butterfly.ply](https://huggingface.co/datasets/cfahlgren1/3d-splat-samples/blob/main/a_monarch_butterfly.ply) |
+| Gaussian splat | `.ply`, `.splat`, `.sog`          | [a_monarch_butterfly.ply](https://huggingface.co/datasets/cfahlgren1/3d-splat-samples/blob/main/a_monarch_butterfly.ply) |
 | OpenUSD        | `.usd`, `.usda`, `.usdc`, `.usdz` | [sm_box_corrugated_brown_b08_01.usd](https://huggingface.co/datasets/nvidia/simready-assets/blob/main/box_corrugated_brown_b08/simready_usd/sm_box_corrugated_brown_b08_01.usd) |
 
 > [!TIP]
@@ -47,7 +47,7 @@ A `.ply` file with only vertices, such as a LiDAR or photogrammetry scan, is sho
 
 ### Gaussian splats
 
-Gaussian splats can be stored as `.splat` or `.ply` files:
+Gaussian splats can be stored as `.ply`, `.splat` or `.sog` files. [SOG](https://developer.playcanvas.com/user-manual/gaussian-splatting/formats/sog/) is PlayCanvas's compressed splat format, exported by tools like SuperSplat and `splat-transform`. It's much smaller than the equivalent `.ply` while keeping view-dependent color, which makes it a good choice for sharing large scenes. PlayCanvas compressed `.ply` files are supported too.
 
 <div class="flex justify-center">
 <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-splat-viewer.png"/>

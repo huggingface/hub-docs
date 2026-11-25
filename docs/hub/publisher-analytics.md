@@ -55,7 +55,42 @@ Each record in the CSV contains:
 Records are ordered chronologically and provide a daily granular view of download activity for each repository.
 
 > [!NOTE]
-> Download figures are **not** deduplicated by user. If you need unique download counts, refer to the next section.
+> Download figures are **not** deduplicated by user. If you need unique download counts, refer to the [Unique downloaders and more granular logs](#unique-downloaders-and-more-granular-logs) section.
+
+## Blog Analytics
+
+If your organization publishes blog posts on the Hub, you can download the daily traffic of every published post from the **Blog Analytics** tab of your organization's Publisher Analytics settings (next to the **Repo Analytics** and **Advanced Gating** tabs). Click **Download CSV** to get the data for all posts over the last 90 days.
+
+You can also access this data programmatically via the following endpoint:
+
+```bash
+curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  "https://huggingface.co/organizations/YOUR_ORG_NAME/settings/publisher/blog-analytics/export" \
+  --output blog-analytics.csv
+```
+
+### Response Structure
+
+Each row of the CSV holds the traffic of one blog post on one day. Every post gets one row per day over the last 90 days (including the current day), starting from its publication date if it was published more recently. Days without any traffic are included with `0` values:
+
+```csv
+blogTitle,blogUrl,publishedAt,date,humanViews,humanVisitors,agentViews
+"My first blog post",https://huggingface.co/blog/YOUR_ORG_NAME/my-first-blog-post,2026-05-12,2026-08-22,87,71,23
+"My first blog post",https://huggingface.co/blog/YOUR_ORG_NAME/my-first-blog-post,2026-05-12,2026-08-23,0,0,0
+```
+
+- `blogTitle`: Title of the blog post
+- `blogUrl`: URL of the blog post
+- `publishedAt`: Publication date of the blog post (`YYYY-MM-DD`)
+- `date`: Day the traffic was recorded (`YYYY-MM-DD`)
+- `humanViews`: Number of page views from people on that day
+- `humanVisitors`: Number of unique visitors on that day
+- `agentViews`: Number of page views from AI agents on that day
+
+> [!NOTE]
+> Data is updated once a day, so the latest day may be incomplete. Unique visitors are counted per day, so they should not be summed across days to get a total number of unique visitors.
+
+Each export is recorded in your organization's [audit logs](./audit-logs) as an `org.blog_analytics.export` event.
 
 ## Advanced Publisher Analytics: unique downloaders and more granular logs
 
@@ -78,7 +113,7 @@ Your team is responsible for ingesting these logs and running computations on th
 | `country`      | Country ISO code                                        |
 | `region`       | Region or city name                                     |
 | `userAgent`    | HTTP User-Agent header                                  |
-| `path`         | File path within the repository or bucket, derived from the request URL (may be empty for requests that don't match a file route) |
+| `path`         | File path within the repository or bucket, derived from the request URL |
 
 
 As it requires setting up a custom data export pipeline on our side (custom Elastic index, etc), this is only available as an add-on to Enterprise Plus.

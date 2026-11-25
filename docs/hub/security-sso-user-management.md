@@ -92,7 +92,7 @@ You can add them by:
 
 - **Inviting them to the organization**: on the **Members** page of your organization's settings, check **External Collaborator** when you send the invite.
 - **Converting an existing member**: on the **Members** page, open the member's menu and select **Convert to external collaborator**. Use **Convert to member** to switch them back. If your organization uses SSO, they'll need to sign in through it afterward to keep access. You can also do this [via the API](./programmatic-user-access-control#change-member-account-type-via-api).
-- **Sharing a resource group or repository**: if [external invitations](./security-resource-groups#external-invitations) are enabled, resource group admins can invite outsiders straight into a Resource Group, including from **Share with external collaborators** on a repository's settings page. Those users join with the `no_access` organization role and only get that Resource Group.
+- **Sharing a resource group or repository**: org admins, and resource group admins when [external invitations](./security-resource-groups#external-invitations) are on, can invite outsiders straight into a Resource Group, including from **Share with external collaborators** on a repository's settings page. Those users join with the `no_access` organization role and only get that Resource Group.
 
 External collaborators still go through your organization's access controls ([Resource Groups](./enterprise-resource-groups)).
 

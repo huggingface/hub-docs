@@ -22,8 +22,8 @@ For example:
 
 Example spaces: 
 
-- [Svelte App](https://huggingface.co/spaces/julien-c/vite-svelte)
-- [React App](https://huggingface.co/spaces/coyotte508/static-vite)
+- [Svelte App](https://huggingface.co/spaces/static-templates/svelte)
+- [React App](https://huggingface.co/spaces/static-templates/react)
 
 
 Under the hood, it will [launch a build](https://huggingface.co/spaces/huggingface/space-build), storing the generated files in a special `refs/convert/build` ref.
