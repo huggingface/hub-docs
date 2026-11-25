@@ -221,6 +221,10 @@ _Results should be based on the Factors and Metrics defined above._
 
 _What do the results say? This can function as a kind of tl;dr for general audiences._
 
+### Reproducing the evaluation [optional]
+
+_Link to the versioned test cases, evaluation code or instructions, and scoring rules. Record the exact model version, settings, and any comparison setup. For pass rates, give the number of cases that passed and the number tested. If some artifacts cannot be shared, explain what is unavailable._
+
 ## Societal Impact Assessment [optional]
 
 _Use this free text section to explain how this model has been evaluated for risk of societal harm, such as for child safety, NCII, privacy, and violence. This might take the form of answers to the following questions:_
