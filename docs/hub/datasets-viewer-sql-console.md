@@ -64,7 +64,7 @@ from histogram(train, Rating)
 
 One of the most powerful features of DuckDB is the deep support for regular expressions. You can use the `regexp` function to match patterns in your data.
 
- Using the [regexp_matches](https://duckdb.org/docs/sql/functions/char.html#regexp_matchesstring-pattern) function, we can filter the [GeneralReasoning/GeneralThought-195k](https://huggingface.co/datasets/GeneralReasoning/GeneralThought-195K) dataset for instructions that contain markdown code blocks.
+ Using the [regexp_matches](https://duckdb.org/docs/sql/functions/char.html#regexp_matchesstring-pattern) function, we can filter the [nvidia/HelpSteer2](https://huggingface.co/datasets/nvidia/HelpSteer2) dataset for responses that contain markdown code blocks.
 
  <div class="flex justify-center">
     <img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datastudio-regex.png"/>
@@ -78,7 +78,7 @@ One of the most powerful features of DuckDB is the deep support for regular expr
 ```sql
 SELECT *
 FROM train
-WHERE regexp_matches(model_answer, '```')
+WHERE regexp_matches(response, '```')
 LIMIT 10;
 ```
 
