@@ -55,7 +55,7 @@ From the service account's page, administrators can:
 - **Rotate** a token to replace it with a new value. The previous token stops working immediately, which is useful if a credential may have been exposed.
 - **Delete** a token to permanently revoke its access.
 
-Service account tokens don't need approval under the ["Require administrator approval"](./enterprise-tokens-management#token-policy) token policy. They can access your organization's resources as soon as they're created.
+Service account tokens are exempt from the ["Require administrator approval"](./enterprise-tokens-management#token-policy) and ["Require repository-scoped tokens"](./enterprise-tokens-management#require-repository-scoped-tokens) token policies. They can access your organization's resources as soon as they're created.
 
 Like personal access tokens, service account tokens [expire after a year without use](./security-tokens#expiration-of-unused-tokens). Organization admins get an email 30 days before, and the token shows an **Expires** badge on the service account's page. To keep the token, use it before that date. Expired tokens show an **Invalidated** badge and stop working. Rotate them to get a new value, which you'll then need to update wherever the token is used.
 

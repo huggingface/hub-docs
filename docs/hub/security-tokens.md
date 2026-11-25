@@ -140,3 +140,7 @@ Revocation only affects the organization that revoked it. The token continues to
 ### When your organization only allows fine-grained tokens (Team & Enterprise organizations)
 
 If your organization has set a policy requiring fine-grained tokens, read/write tokens will be rejected with a `403` error when used against that organization's resources.
+
+### When your organization requires repository-scoped tokens (Enterprise organizations)
+
+If your organization requires repository-scoped tokens, your fine-grained tokens can't have repository permissions on the whole organization. Select specific repositories under **Repositories permissions** instead. Existing tokens with organization-wide repository permissions are rejected with a `403` error on that organization's resources. See [Require Repository-Scoped Tokens](./enterprise-tokens-management#require-repository-scoped-tokens).

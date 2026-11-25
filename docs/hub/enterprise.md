@@ -93,6 +93,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [Feature access per resource group](./security-resource-groups#granular-feature-access)|  ❌  |     ❌      |     ✅      |       ✅        |
 | [Tokens admin / management](./enterprise-tokens-management)                            |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Token revocation](./enterprise-tokens-management#revoking-via-api)                    |  ❌  |     ❌      |     ✅      |       ✅        |
+| [Repo-scoped tokens](./enterprise-tokens-management#require-repository-scoped-tokens)  |  ❌  |     ❌      |     ✅      |       ✅        |
 | [Download analytics](./download-analytics)                                             |  ✅  |     ✅      |     ✅      |       ✅        |
 | [Content access / policy controls](./enterprise-network-security)                      |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Network access controls](./enterprise-network-security)                               |  ❌  |     ❌      |     ❌      |       ✅        |
