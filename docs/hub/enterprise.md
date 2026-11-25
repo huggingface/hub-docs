@@ -89,6 +89,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 |----------------------------------------------------------------------------------------| :--: | :---------: | :---------: | :-------------: |
 | RBAC                                                                                   |  ✅  | ✅ Advanced | ✅ Advanced |   ✅ Advanced   |
 | [Audit logs](./audit-logs)                                                             |  ❌  |     ✅      |     ✅      |       ✅        |
+| [Audit logs streaming](./audit-logs-streaming)                                         |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Resource groups](./enterprise-advanced-security)                                      |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Feature access per resource group](./security-resource-groups#granular-feature-access)|  ❌  |     ❌      |     ✅      |       ✅        |
 | [Tokens admin / management](./enterprise-tokens-management)                            |  ❌  |     ✅      |     ✅      |       ✅        |
@@ -137,6 +138,7 @@ In the following sections we will document the following Team & Enterprise featu
 
 - [Single Sign-On (SSO)](./enterprise-sso)
 - [Audit Logs](./audit-logs)
+- [Audit Logs Streaming](./audit-logs-streaming)
 - [Storage Regions](./storage-regions)
 - [Data Studio for Private datasets](./enterprise-datasets)
 - [Resource Groups](./security-resource-groups)

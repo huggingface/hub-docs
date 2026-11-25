@@ -9,6 +9,8 @@
     title: Single Sign-On (SSO)
   - local: audit-logs
     title: Audit Logs
+  - local: audit-logs-streaming
+    title: Audit Logs Streaming
   - local: storage-regions
     title: Storage Regions
   - local: enterprise-datasets

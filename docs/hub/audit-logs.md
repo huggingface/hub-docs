@@ -42,6 +42,10 @@ Authenticate with a user access token or service-account token that has the **Ex
 
 The endpoint is also documented in the <a href="https://huggingface.co/spaces/huggingface/openapi#tag/orgs/GET/api/organizations/%7Bname%7D/audit-log/export">OpenAPI reference</a>.
 
+### Streaming to a bucket
+
+On the Enterprise Plus plan, audit events and repository access logs can be streamed to a private bucket in your organization, and from there to your SIEM. See [Audit Logs Streaming](./audit-logs-streaming).
+
 ## What Events Are Tracked?
 
 Each action has an **event name** in `scope.action` format (e.g. `repo.create`, `collection.delete`). This is the `type` field in each log entry and in the exported JSON—use it when searching or filtering logs.
