@@ -14,10 +14,14 @@
   isExpanded: true
 - sections:
     - local: recipes/index
-      title: Overview
+      title: Catalog
     - local: recipes/deploy-a-recipe
       title: Deploy a recipe
+    - local: recipes/methodology
+      title: How recipes are measured
 # GENERATED RECIPES DO NOT EDIT!
+    - local: recipes/google-gemma-4-26b-a4b-it
+      title: "google/gemma-4-26B-A4B-it"
     - local: recipes/google-gemma-4-31b-it
       title: "google/gemma-4-31B-it"
     - local: recipes/meta-llama-llama-3-1-8b-instruct

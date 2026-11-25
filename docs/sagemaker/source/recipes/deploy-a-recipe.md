@@ -1,108 +1,57 @@
 # Deploy a recipe
 
-This tutorial deploys a [recipe](./index) as an Amazon SageMaker AI real-time endpoint, sends it chat requests, and deletes it. The same steps work for every recipe: you only change the recipe ID.
+This tutorial deploys a recipe from the [catalog](./index) as an Amazon SageMaker AI real-time endpoint, sends it chat requests, and deletes it. Every model page has the same three ways to deploy, with the values of each recipe filled in:
 
-A recipe record is a JSON file with the container image, instance type, environment variables, and endpoint settings that Hugging Face measured. The examples read these fields from the record instead of copying them by hand, so the endpoint matches the measured setup.
+- **AWS console**: one link opens AWS CloudFormation with the recipe template and settings filled in, and you only choose **Create stack**.
+- **AWS CLI**: one command creates the same CloudFormation stack.
+- **Python**: boto3 calls the SageMaker APIs directly, without CloudFormation.
+
+The examples use the recipe `qwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9`, which serves [Qwen/Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B) on an `ml.g6e.xlarge` instance, in the `us-east-1` region. To deploy another recipe, start from its [model page](./index) instead.
 
 ## Prerequisites
 
-- An AWS account with a SageMaker execution role. Inside SageMaker Studio or a notebook instance, `get_execution_role()` finds it. Anywhere else, look up the role ARN as shown in [Set up the SDK](../tutorials/sagemaker-sdk/setup-sagemaker-sdk#execution-role).
-- A SageMaker endpoint quota for the instance type of the recipe, for example `ml.g6e.12xlarge for endpoint usage`. Check it in the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas).
-- Python packages for the Python examples:
-
-```bash
-pip install "sagemaker>=3" boto3 openai
-```
-
-- For gated models, a Hugging Face [access token](https://huggingface.co/settings/tokens) exported as `HF_TOKEN` in your environment. The examples pass it to the container only when it is set.
-
-Pick a recipe ID from the [recipes table](./index#available-recipes). The examples use `qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98`, which serves [Qwen/Qwen3.6-27B](https://huggingface.co/Qwen/Qwen3.6-27B) on an `ml.g6e.12xlarge` instance, in the `us-east-1` region.
+- An AWS account with a SageMaker endpoint quota for the instance type of the recipe, for example `ml.g6e.xlarge for endpoint usage`. Check it in the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/sagemaker/quotas).
+- For the AWS console and the AWS CLI, permissions to create CloudFormation stacks and SageMaker endpoints. By default the stack also creates an IAM role for the endpoint, which needs permissions to create IAM roles; to skip it, pass the ARN of an existing SageMaker execution role as `ExecutionRoleArn`.
+- For Python, a SageMaker execution role. Inside SageMaker Studio or a notebook instance, `get_execution_role()` finds it. Anywhere else, look up the role ARN as shown in [Set up the SDK](../tutorials/sagemaker-sdk/setup-sagemaker-sdk#execution-role).
+- For gated models, such as the Llama models, a Hugging Face [access token](https://huggingface.co/settings/tokens) from an account that accepted the model license.
 
 ## Create the endpoint
 
-The Hugging Face DLC images live in the AWS account `763104351884`, in an Amazon ECR registry in each region: `763104351884.dkr.ecr.<region>.amazonaws.com`. Use the registry in the region where you create the endpoint.
-
 <hfoptions id="deploy">
-<hfoption id="SageMaker Python SDK">
+<hfoption id="AWS console">
 
-The SageMaker Python SDK v3 exposes each SageMaker API resource as a class in `sagemaker.core.resources`. Create the model, the endpoint configuration, and the endpoint, then wait for the endpoint to be `InService`:
+1. Open [Deploy Qwen/Qwen3-8B in the AWS console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https%3A%2F%2Fhf-sagemaker-recipes.s3.us-east-1.amazonaws.com%2Ftemplates%2Fqwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9.json&stackName=qwen3-8b-g6e-xlarge&param_EndpointName=qwen3-8b-g6e-xlarge). On a model page, pick the region before you open the link. Sign in to your AWS account if asked.
+2. The CloudFormation **Quick create stack** page shows the template and three parameters:
+   - **EndpointName**: the name of the SageMaker endpoint, `qwen3-8b-g6e-xlarge` by default.
+   - **ExecutionRoleArn**: leave it empty to create a role that can only pull the container image and write logs, or set the ARN of an existing SageMaker execution role.
+   - **HuggingFaceToken**: your Hugging Face access token for gated models. Leave it empty for other models.
+3. Select **I acknowledge that AWS CloudFormation might create IAM resources** and choose **Create stack**.
 
-```python
-import json
-import os
-import urllib.request
+The stack reaches `CREATE_COMPLETE` when the endpoint is `InService`, usually after 10 to 30 minutes. The **Outputs** tab of the stack shows the endpoint name and its OpenAI-compatible URL.
 
-import boto3
-from sagemaker.core.helper.session_helper import Session, get_execution_role
-from sagemaker.core.resources import Endpoint, EndpointConfig, Model
-from sagemaker.core.shapes import ContainerDefinition, ProductionVariant
+</hfoption>
+<hfoption id="AWS CLI">
 
+The commands need the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html). For gated models, add `ParameterKey=HuggingFaceToken,ParameterValue="$HF_TOKEN"` to `--parameters`.
+
+```bash
 # AWS region where the endpoint runs
-region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
-# model, endpoint configuration, and endpoint share this name
-name = recipe_id[:63]
+REGION=us-east-1
+NAME=qwen3-8b-g6e-xlarge
 
-# set up the SageMaker session and execution role
-sess = Session(boto_session=boto3.Session(region_name=region))
-role = get_execution_role()
+aws cloudformation create-stack --region "$REGION" --stack-name "$NAME" \
+  --template-url https://hf-sagemaker-recipes.s3.us-east-1.amazonaws.com/templates/qwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9.json \
+  --capabilities CAPABILITY_IAM \
+  --parameters ParameterKey=EndpointName,ParameterValue="$NAME"
 
-# download the recipe record
-url = f"https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/sagemaker/recipes/{recipe_id}.json"
-with urllib.request.urlopen(url) as response:
-    recipe = json.load(response)
-
-# pin the image by digest when the recipe has one, otherwise by tag
-image = recipe["image"]
-reference = f"@{image['digest']}" if image["digest"] else f":{image['tag']}"
-image_uri = f"{image['registry_account']}.dkr.ecr.{region}.amazonaws.com/{image['repository']}{reference}"
-
-environment = dict(recipe["deployment"]["environment"])
-# gated models need a Hugging Face token: read it from your environment
-if "HF_TOKEN" in os.environ:
-    environment["HF_TOKEN"] = os.environ["HF_TOKEN"]
-
-Model.create(
-    model_name=name,
-    primary_container=ContainerDefinition(image=image_uri, environment=environment),
-    # IAM role with permissions to create an endpoint
-    execution_role_arn=role,
-    session=sess.boto_session,
-    region=region,
-)
-
-EndpointConfig.create(
-    endpoint_config_name=name,
-    production_variants=[
-        ProductionVariant(
-            variant_name="AllTraffic",
-            model_name=name,
-            instance_type=recipe["instance"]["type"],
-            initial_instance_count=1,
-            inference_ami_version=recipe["deployment"]["inference_ami_version"],
-            container_startup_health_check_timeout_in_seconds=recipe["deployment"]["startup_health_check_timeout_s"],
-        )
-    ],
-    session=sess.boto_session,
-    region=region,
-)
-
-endpoint = Endpoint.create(
-    endpoint_name=name,
-    endpoint_config_name=name,
-    session=sess.boto_session,
-    region=region,
-)
-
-# large models can take more than 30 minutes to download and load
-endpoint.wait_for_status("InService", poll=60)
-print(f"{name} is InService")
+# returns when the endpoint is InService; run it again if it times out after one hour
+aws cloudformation wait stack-create-complete --region "$REGION" --stack-name "$NAME"
 ```
 
 </hfoption>
-<hfoption id="boto3">
+<hfoption id="Python">
 
-With boto3, call the SageMaker `create_model`, `create_endpoint_config`, and `create_endpoint` APIs with the same fields:
+Each recipe is a JSON record with the container image, instance type, environment variables, and endpoint settings that Hugging Face measured. This example reads these fields from the record, so it works for any recipe ID:
 
 ```python
 import json
@@ -114,11 +63,10 @@ from sagemaker.core.helper.session_helper import Session, get_execution_role
 
 # AWS region where the endpoint runs
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
+recipe_id = "qwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9"
 # model, endpoint configuration, and endpoint share this name
-name = recipe_id[:63]
+name = "qwen3-8b-g6e-xlarge"
 
-# set up the SageMaker session and execution role
 sess = Session(boto_session=boto3.Session(region_name=region))
 role = get_execution_role()
 sm = sess.boto_session.client("sagemaker")
@@ -169,64 +117,11 @@ print(f"{name} is InService")
 ```
 
 </hfoption>
-<hfoption id="AWS CLI">
-
-Each recipe record also contains a SageMaker model package definition under `model_package`, in the input format of [`CreateModelPackage`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelPackage.html). Register it as a model package, then create the model from the package. This example needs the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [jq](https://jqlang.org/):
-
-```bash
-# AWS region where the endpoint runs
-REGION=us-east-1
-RECIPE_ID=qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98
-# model, endpoint configuration, and endpoint share this name
-NAME=${RECIPE_ID:0:63}
-# IAM role with permissions to create an endpoint
-ROLE_ARN=$(aws iam get-role --role-name role-name-of-your-iam-role-with-right-permissions --query Role.Arn --output text)
-
-# download the recipe record
-curl -sSfL -o recipe.json "https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/sagemaker/recipes/$RECIPE_ID.json"
-
-# extract the model package and point its images at the ECR registry of your region
-jq --arg region "$REGION" '.model_package | walk(if type == "object" and has("Image") then .Image |= sub("\\.dkr\\.ecr\\.[a-z0-9-]+\\."; ".dkr.ecr.\($region).") else . end)' recipe.json > model-package.json
-
-PACKAGE_ARN=$(aws sagemaker create-model-package --region "$REGION" \
-  --cli-input-json file://model-package.json \
-  --query ModelPackageArn --output text)
-
-# gated models need a Hugging Face token: read it from your environment
-jq -n --arg arn "$PACKAGE_ARN" \
-  '{ModelPackageName: $arn} + (if env.HF_TOKEN then {Environment: {HF_TOKEN: env.HF_TOKEN}} else {} end)' \
-  > primary-container.json
-
-aws sagemaker create-model --region "$REGION" \
-  --model-name "$NAME" \
-  --execution-role-arn "$ROLE_ARN" \
-  --primary-container file://primary-container.json
-
-jq --arg name "$NAME" '[{
-  VariantName: "AllTraffic",
-  ModelName: $name,
-  InstanceType: .instance.type,
-  InitialInstanceCount: 1,
-  InferenceAmiVersion: .deployment.inference_ami_version,
-  ContainerStartupHealthCheckTimeoutInSeconds: .deployment.startup_health_check_timeout_s
-}]' recipe.json > production-variants.json
-
-aws sagemaker create-endpoint-config --region "$REGION" \
-  --endpoint-config-name "$NAME" \
-  --production-variants file://production-variants.json
-
-aws sagemaker create-endpoint --region "$REGION" \
-  --endpoint-name "$NAME" \
-  --endpoint-config-name "$NAME"
-
-# the waiter gives up after 60 minutes; run it again if the endpoint is still Creating
-aws sagemaker wait endpoint-in-service --region "$REGION" --endpoint-name "$NAME"
-```
-
-</hfoption>
 </hfoptions>
 
-If the endpoint ends in the `Failed` state, `describe-endpoint` shows the reason, and the container logs are in the Amazon CloudWatch log group `/aws/sagemaker/Endpoints/<endpoint-name>`.
+The Hugging Face DLC images live in the AWS account `763104351884`, in an Amazon ECR registry in each region, and every recipe pins the image by digest, so the endpoint runs the exact container that was measured.
+
+If the endpoint ends in the `Failed` state, `describe-endpoint` shows the reason, and the container logs are in the Amazon CloudWatch log group `/aws/sagemaker/Endpoints/<endpoint-name>`. With CloudFormation, the **Events** tab of the stack shows the same reason.
 
 ## Invoke the endpoint
 
@@ -237,11 +132,9 @@ import json
 
 import boto3
 
-# AWS region where the endpoint runs
+# AWS region and name of the endpoint
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
-endpoint_name = recipe_id[:63]
-model_id = "Qwen/Qwen3.6-27B"
+endpoint_name = "qwen3-8b-g6e-xlarge"
 
 runtime = boto3.client("sagemaker-runtime", region_name=region)
 
@@ -249,7 +142,7 @@ response = runtime.invoke_endpoint(
     EndpointName=endpoint_name,
     ContentType="application/json",
     Body=json.dumps({
-        "model": model_id,
+        "model": "Qwen/Qwen3-8B",
         "messages": [{"role": "user", "content": "What is the capital of France?"}],
         "max_tokens": 512,
     }),
@@ -264,11 +157,9 @@ SageMaker also exposes an OpenAI-compatible route for each endpoint at `https://
 from openai import OpenAI
 from sagemaker.core.token_generator import generate_token
 
-# AWS region where the endpoint runs
+# AWS region and name of the endpoint
 region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
-endpoint_name = recipe_id[:63]
-model_id = "Qwen/Qwen3.6-27B"
+endpoint_name = "qwen3-8b-g6e-xlarge"
 
 client = OpenAI(
     base_url=f"https://runtime.sagemaker.{region}.amazonaws.com/endpoints/{endpoint_name}/openai/v1",
@@ -277,7 +168,7 @@ client = OpenAI(
 )
 
 stream = client.chat.completions.create(
-    model=model_id,
+    model="Qwen/Qwen3-8B",
     messages=[{"role": "user", "content": "What is the capital of France?"}],
     max_tokens=512,
     stream=True,
@@ -289,55 +180,34 @@ for chunk in stream:
 
 ## Clean up
 
-An endpoint is billed for every hour it runs, even without traffic. Delete the endpoint, the endpoint configuration, and the model when you are done:
+An endpoint is billed for every hour it runs, even without traffic. Delete it when you are done:
 
 <hfoptions id="deploy">
-<hfoption id="SageMaker Python SDK">
+<hfoption id="AWS console">
 
-```python
-from sagemaker.core.resources import Endpoint, EndpointConfig, Model
-
-# AWS region where the endpoint runs
-region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
-name = recipe_id[:63]
-
-Endpoint.get(endpoint_name=name, region=region).delete()
-EndpointConfig.get(endpoint_config_name=name, region=region).delete()
-Model.get(model_name=name, region=region).delete()
-```
-
-</hfoption>
-<hfoption id="boto3">
-
-```python
-import boto3
-
-# AWS region where the endpoint runs
-region = "us-east-1"
-recipe_id = "qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98"
-name = recipe_id[:63]
-
-sm = boto3.client("sagemaker", region_name=region)
-sm.delete_endpoint(EndpointName=name)
-sm.delete_endpoint_config(EndpointConfigName=name)
-sm.delete_model(ModelName=name)
-```
+In the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home), select the stack and choose **Delete**. Deleting the stack deletes the endpoint, the endpoint configuration, the model, and the role it created.
 
 </hfoption>
 <hfoption id="AWS CLI">
 
 ```bash
-# AWS region where the endpoint runs
-REGION=us-east-1
-RECIPE_ID=qwen-qwen3-6-27b--ml-g6e-12xlarge--c3fd811b98
-NAME=${RECIPE_ID:0:63}
-PACKAGE_NAME=$(curl -sSfL "https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/sagemaker/recipes/$RECIPE_ID.json" | jq -r .model_package.ModelPackageName)
+aws cloudformation delete-stack --region us-east-1 --stack-name qwen3-8b-g6e-xlarge
+```
 
-aws sagemaker delete-endpoint --region "$REGION" --endpoint-name "$NAME"
-aws sagemaker delete-endpoint-config --region "$REGION" --endpoint-config-name "$NAME"
-aws sagemaker delete-model --region "$REGION" --model-name "$NAME"
-aws sagemaker delete-model-package --region "$REGION" --model-package-name "$PACKAGE_NAME"
+</hfoption>
+<hfoption id="Python">
+
+```python
+import boto3
+
+# AWS region and name of the endpoint
+region = "us-east-1"
+name = "qwen3-8b-g6e-xlarge"
+
+sm = boto3.client("sagemaker", region_name=region)
+sm.delete_endpoint(EndpointName=name)
+sm.delete_endpoint_config(EndpointConfigName=name)
+sm.delete_model(ModelName=name)
 ```
 
 </hfoption>
