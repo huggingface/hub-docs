@@ -147,9 +147,10 @@ def generate(prompt, steps):
 
 ## Session management
 
-Calling a `@spaces.GPU` function implicitly acquires and releases a GPU.
-The acquisition adds a delay (coldstart + possible queueing) whenever a GPU worker can't be re-used.
+Calling a `@spaces.GPU` function implicitly acquires and releases a GPU.  
+The acquisition adds a delay (coldstart + possible queueing) whenever a GPU worker can't be re-used.  
 While this managed approach is convenient, it involves unpredictable delays between calls.
+
 To get control over GPU acquisition and release, you can use `@spaces.GPU` with a Python generator:
 
 ```python
