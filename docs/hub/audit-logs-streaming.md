@@ -59,10 +59,10 @@ Every record has the following fields:
 | `time`          | Date and time of the action, in ISO 8601 format (UTC).                                                |
 | `type`          | `repo_request` for access logs, or the [event name](./audit-logs#what-events-are-tracked) for audit events. |
 | `ip`            | IP address of the actor, anonymized unless full IP addresses are enabled. Requests from Hugging Face's own services are labeled instead, e.g. `Internal Dataset Viewer IP address`. |
-| `location`      | Country and city of the actor, when known.                                                            |
+| `location`      | Country and city of the actor, when known. Access logs may only have the `country`, as an ISO code (e.g. `US`). |
 | `userAgent`     | User agent of the client.                                                                             |
 | `author`        | User who performed the action. For managed users, `externalId` is their ID in your Identity Provider. Absent for anonymous requests. |
-| `token`         | [Access token](./security-tokens) used, if any: its `id`, `role`, and last 4 characters.              |
+| `token`         | [Access token](./security-tokens) used, if any: its `id`, `role`, and last 4 characters. Audit events also include its `type` and whether it has since been `deleted`. |
 | `oauth`         | [OAuth app](./oauth) used, if any, identified by its `clientId`.                                      |
 | `data`          | Details of the action (see below).                                                                    |
 
@@ -96,6 +96,8 @@ Access logs have the `repo_request` type. Their `data` field contains:
 | `statusCode` | HTTP status code of the response.                                                                                    |
 | `repo`       | The repository: its `id`, `name`, `type` (`model`, `dataset`, `space`, `kernel`, or `bucket`), and whether it is `private`. Omitted when the request was denied on a repository outside your organization. |
 | `authType`   | How the user authenticated, e.g. `cookie` (browser), `access_token`, `oauth`, `s3`, or `ssh_signature`.              |
+| `authKind`   | Kind of identity that authenticated, e.g. `user`.                                                                    |
+| `sessionId`  | ID of the browser or OAuth session, for `cookie` and `oauth` authentication.                                         |
 | `authTokenSha` | SHA-256 hash of the token presented, when it was invalid or revoked.                                               |
 
 Requests over HTTP also contain the `method`, and the `path` and `rev` of the file accessed (or the `url` when the request is not a file access):
@@ -110,7 +112,6 @@ Requests over HTTP also contain the `method`, and the `path` and `rev` of the fi
   "location": { "formatted": "France, Paris", "country": "France", "city": "Paris" },
   "userAgent": "huggingface_hub/1.2.0; python/3.12",
   "data": {
-    "protocol": "api",
     "outcome": "allowed",
     "statusCode": 200,
     "repo": { "id": "6744a0e1b2c3d4e5f6a7b8c9", "name": "my-org/my-model", "type": "model", "private": true },
@@ -124,7 +125,7 @@ Requests over HTTP also contain the `method`, and the `path` and `rev` of the fi
 }
 ```
 
-Git operations instead contain the `protocol` (`http` or `ssh`), the `gitService` (e.g. `git-upload-pack` for a clone or fetch, `git-receive-pack` for a push), and, over SSH, the `sshKeyFingerprint` of the [SSH key](./security-git-ssh) used.
+Git operations instead contain the `protocol` (`http` or `ssh`, only present on Git operations), the `method` over HTTP, the `gitService` (e.g. `git-upload-pack` for a clone or fetch, `git-receive-pack` for a push), and, over SSH, the `sshKeyFingerprint` of the [SSH key](./security-git-ssh) used.
 
 <details>
 <summary><strong>JSON Schema of repository access log records</strong></summary>
@@ -165,9 +166,6 @@ Git operations instead contain the `protocol` (`http` or `ssh`), the `gitService
           "type": "string"
         }
       },
-      "required": [
-        "formatted"
-      ],
       "additionalProperties": false
     },
     "userAgent": {
@@ -227,10 +225,6 @@ Git operations instead contain the `protocol` (`http` or `ssh`), the `gitService
             "authTokenSha": {
               "type": "string"
             },
-            "protocol": {
-              "type": "string",
-              "const": "api"
-            },
             "method": {
               "type": "string"
             },
@@ -246,7 +240,6 @@ Git operations instead contain the `protocol` (`http` or `ssh`), the `gitService
           },
           "required": [
             "outcome",
-            "protocol",
             "method"
           ],
           "additionalProperties": false
@@ -306,6 +299,9 @@ Git operations instead contain the `protocol` (`http` or `ssh`), the `gitService
             "protocol": {
               "type": "string",
               "const": "http"
+            },
+            "method": {
+              "type": "string"
             },
             "gitService": {
               "type": "string"
