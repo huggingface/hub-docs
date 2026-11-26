@@ -117,7 +117,7 @@ def generate(prompt):
 > - `xlarge` usually means higher queuing probability and longer wait times
 > - Only use `xlarge` when your workload truly benefits from the additional compute or memory
 
-## Duration Management
+## Duration management
 
 For functions expected to exceed the default 60-second of GPU runtime, you can specify a custom duration:
 
