@@ -861,7 +861,7 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
     if not featured["measured"]:
         chips = f'<span class="rounded-md px-1.5 py-0.5 {UNMEASURED_CHIP}">Not measured on SageMaker yet</span>'
     logo = (
-        f'<img src="{esc(info["org_avatar"])}" alt="" loading="lazy" class="size-8 shrink-0 rounded-md border border-gray-200 bg-white object-contain p-0.5 dark:border-gray-700">'
+        f'<img src="{esc(info["org_avatar"])}" alt="" loading="lazy" style="background-color: #fff" class="size-8 shrink-0 rounded-md border border-gray-200 object-contain p-0.5 dark:border-gray-700">'
         if info["org_avatar"]
         else ""
     )
