@@ -8,7 +8,7 @@ Some of Livebook's most exciting features are:
 - **Smart cells**: perform complex tasks, such as data manipulation and running machine learning models, with a few clicks using Livebook's extensible notebook cells
 - **Elixir powered**: use the power of the Elixir programming language to write concurrent and distributed notebooks that scale beyond your machine
 
-To learn more about it, watch this [15-minute video](https://www.youtube.com/watch?v=EhSNXWkji6o). Or visit [Livebook's website](https://livebook.dev/). Or follow its [Twitter](https://twitter.com/livebookdev) and [blog](https://news.livebook.dev/) to keep up with new features and updates.
+To learn more about it, watch this [15-minute video](https://www.youtube.com/watch?v=EhSNXWkji6o). Or visit [Livebook's website](https://livebook.dev/). Or follow its [Twitter](https://twitter.com/livebookdev) and [blog](https://livebook.dev/blog/) to keep up with new features and updates.
 
 ## Your first Livebook Space
 
