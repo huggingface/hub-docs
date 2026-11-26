@@ -816,7 +816,8 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
     failed = [label for key, _, label in CARD_CAPABILITIES if featured["capabilities"].get(key) is False]
     caps = [value for key, value, _ in CARD_CAPABILITIES if featured["capabilities"].get(key) is True]
     price = featured["instance"]["price_per_hour_usd"]
-    summary = [fact for fact in [parameters_label(info["parameters"]), f"from {usd(price)}/h" if price is not None else None] if fact]
+    size = parameters_label(info["parameters"])
+    summary = [fact for fact in [size and size.replace(" parameters", " params"), f"from {usd(price)}/h" if price is not None else None] if fact]
     if len(recipes) > 1:
         summary.append(f"{len(recipes)} recipes")
     if info["gated"]:
