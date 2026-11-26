@@ -1,12 +1,12 @@
 # Deploy a recipe
 
-This tutorial deploys a recipe from the [catalog](./index) as an Amazon SageMaker AI real-time endpoint, sends it chat requests, and deletes it. Every model page has the same three ways to deploy, with the values of each recipe filled in:
+This tutorial deploys a recipe from the [catalog](./index) as an Amazon SageMaker AI real-time endpoint, sends it chat requests, and deletes it. Every model page has up to three ways to deploy each recipe, with its values filled in:
 
 - **AWS console**: one link opens AWS CloudFormation with the recipe template and settings filled in, and you only choose **Create stack**.
-- **AWS CLI**: one command creates the same CloudFormation stack.
+- **AWS CLI**: commands that create the same CloudFormation stack, or the SageMaker resources directly when a recipe has no template yet.
 - **Python**: boto3 calls the SageMaker APIs directly, without CloudFormation.
 
-The examples use the recipe `qwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9`, which serves [Qwen/Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B) on an `ml.g6e.xlarge` instance, in the `us-east-1` region. To deploy another recipe, start from its [model page](./index) instead.
+The examples below deploy [Qwen/Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B) in the `us-east-1` region. Open the model page of the recipe you want for the exact values: the template URL, the default endpoint name, and the instance type.
 
 ## Prerequisites
 
@@ -20,9 +20,9 @@ The examples use the recipe `qwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9`, which se
 <hfoptions id="deploy">
 <hfoption id="AWS console">
 
-1. Open [Deploy Qwen/Qwen3-8B in the AWS console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https%3A%2F%2Fhf-sagemaker-recipes.s3.us-east-1.amazonaws.com%2Ftemplates%2Fqwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9.json&stackName=qwen3-8b-g6e-xlarge&param_EndpointName=qwen3-8b-g6e-xlarge). On a model page, pick the region before you open the link. Sign in to your AWS account if asked.
+1. On the model page, pick the region and choose **Deploy in the AWS console**. Sign in to your AWS account if asked.
 2. The CloudFormation **Quick create stack** page shows the template and three parameters:
-   - **EndpointName**: the name of the SageMaker endpoint, `qwen3-8b-g6e-xlarge` by default.
+   - **EndpointName**: the name of the SageMaker endpoint, for example `qwen3-8b-g6e-xlarge`.
    - **ExecutionRoleArn**: leave it empty to create a role that can only pull the container image and write logs, or set the ARN of an existing SageMaker execution role.
    - **HuggingFaceToken**: your Hugging Face access token for gated models. Leave it empty for other models.
 3. Select **I acknowledge that AWS CloudFormation might create IAM resources** and choose **Create stack**.
@@ -32,15 +32,17 @@ The stack reaches `CREATE_COMPLETE` when the endpoint is `InService`, usually af
 </hfoption>
 <hfoption id="AWS CLI">
 
-The commands need the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html). For gated models, add `ParameterKey=HuggingFaceToken,ParameterValue="$HF_TOKEN"` to `--parameters`.
+The commands need the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html). Copy the template URL from the model page. For gated models, add `ParameterKey=HuggingFaceToken,ParameterValue="$HF_TOKEN"` to `--parameters`.
 
 ```bash
 # AWS region where the endpoint runs
 REGION=us-east-1
 NAME=qwen3-8b-g6e-xlarge
+# CloudFormation template of the recipe, from its model page
+TEMPLATE_URL=https://hf-sagemaker-recipes.s3.us-east-1.amazonaws.com/templates/...
 
 aws cloudformation create-stack --region "$REGION" --stack-name "$NAME" \
-  --template-url https://hf-sagemaker-recipes.s3.us-east-1.amazonaws.com/templates/qwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9.json \
+  --template-url "$TEMPLATE_URL" \
   --capabilities CAPABILITY_IAM \
   --parameters ParameterKey=EndpointName,ParameterValue="$NAME"
 
@@ -51,7 +53,7 @@ aws cloudformation wait stack-create-complete --region "$REGION" --stack-name "$
 </hfoption>
 <hfoption id="Python">
 
-Each recipe is a JSON record with the container image, instance type, environment variables, and endpoint settings that Hugging Face measured. This example reads these fields from the record, so it works for any recipe ID:
+Every recipe is a row of [`recipes.jsonl`](https://github.com/huggingface/hub-docs/blob/main/docs/sagemaker/recipes/recipes.jsonl) with the container image, instance type, environment variables, and endpoint settings. This example reads these fields from that file, so it works for any model and recipe name from the model page:
 
 ```python
 import json
@@ -63,7 +65,9 @@ from sagemaker.core.helper.session_helper import Session, get_execution_role
 
 # AWS region where the endpoint runs
 region = "us-east-1"
-recipe_id = "qwen-qwen3-8b--ml-g6e-xlarge--1f5f3ff9b9"
+model_id = "Qwen/Qwen3-8B"
+# recipe name from the model page; None picks the first recipe of the model
+recipe_name = None
 # model, endpoint configuration, and endpoint share this name
 name = "qwen3-8b-g6e-xlarge"
 
@@ -71,17 +75,15 @@ sess = Session(boto_session=boto3.Session(region_name=region))
 role = get_execution_role()
 sm = sess.boto_session.client("sagemaker")
 
-# download the recipe record
-url = f"https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/sagemaker/recipes/{recipe_id}.json"
+# download the recipe index and pick the recipe
+url = "https://raw.githubusercontent.com/huggingface/hub-docs/main/docs/sagemaker/recipes/recipes.jsonl"
 with urllib.request.urlopen(url) as response:
-    recipe = json.load(response)
+    rows = [json.loads(line) for line in response.read().decode().splitlines() if line.strip()]
+recipe = next(row for row in rows if row["model_id"] == model_id and recipe_name in (None, row["recipe"]))
 
-# pin the image by digest when the recipe has one, otherwise by tag
-image = recipe["image"]
-reference = f"@{image['digest']}" if image["digest"] else f":{image['tag']}"
-image_uri = f"{image['registry_account']}.dkr.ecr.{region}.amazonaws.com/{image['repository']}{reference}"
-
-environment = dict(recipe["deployment"]["environment"])
+# use the registry of your region; images are pinned by digest when available
+image_uri = recipe["image"].replace(recipe["image"].split(".")[3], region, 1)
+environment = json.loads(recipe["environment"])
 # gated models need a Hugging Face token: read it from your environment
 if "HF_TOKEN" in os.environ:
     environment["HF_TOKEN"] = os.environ["HF_TOKEN"]

@@ -1,0 +1,45 @@
+name: Generate SageMaker Recipes Documentation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 4 * * *" # Every day at 4am
+
+concurrency:
+  group: sagemaker_generate_recipes
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  pull_request:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Generate SageMaker recipes from the Kitchen dataset
+        working-directory: docs/sagemaker
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN_SAGEMAKER_RECIPES }}
+        run: python3 scripts/generate-recipes.py --fetch
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676  # v7
+        with:
+          token: ${{ secrets.TOKEN_INFERENCE_SYNC_BOT }}
+          commit-message: Update SageMaker recipes (automated)
+          branch: update-sagemaker-recipes-automated-pr
+          delete-branch: true
+          title: "[Bot] Update SageMaker recipes"
+          body: |
+            This PR regenerates the SageMaker recipes catalog from the [`hf-rev/sagemaker-recipes`](https://huggingface.co/datasets/hf-rev/sagemaker-recipes) dataset that Kitchen syncs, by running:
+            ```sh
+            cd docs/sagemaker
+            python3 scripts/generate-recipes.py --fetch
+            ```
+
+            This PR was automatically created by the [Generate SageMaker Recipes Documentation workflow](https://github.com/huggingface/hub-docs/blob/main/.github/workflows/sagemaker_generate_recipes.yml).
+          reviewers: |
+            dwarez
