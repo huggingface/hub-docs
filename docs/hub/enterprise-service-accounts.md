@@ -29,10 +29,11 @@ Service accounts cannot be added to [Resource Groups](./security-resource-groups
 
 A service account's access to your organization is defined entirely by the fine-grained access tokens you issue to it. For each token, you choose a name and a set of fine-grained permissions, so you can grant only the access a given workflow needs.
 
-Permissions can be granted at two levels:
+Permissions can be granted at three levels:
 
-- **Organization-wide** — apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
-- **Per-repository** — scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. You can select repositories owned by the organization, and gated repositories outside the organization that the service account has been granted access to.
+- **Organization-wide**: apply a permission (for example, read or write access to repository contents) across all repositories in the organization.
+- **Per-resource group**: grant read or write access to every repository in the selected [Resource Groups](./security-resource-groups), including repositories added to them later. For those repositories, these permissions replace the organization-wide ones. This option only appears when your organization has Resource Groups.
+- **Per-repository**: scope read or write access to specific repositories only. Search for and select the repositories the token should apply to, then choose the permissions to grant. You can select repositories owned by the organization, and gated repositories outside the organization that the service account has been granted access to. For the selected repositories, these permissions replace the organization-wide and resource group ones.
 
 This lets you issue narrowly scoped tokens — for example, a token that can only read a single model repository — rather than granting access to the entire organization.
 
