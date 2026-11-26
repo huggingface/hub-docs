@@ -69,6 +69,11 @@ CAPABILITIES = [
     ("vision", "Vision"),
 ]
 CARD_CAPABILITIES = [("tool_calling", "tools", "Tools"), ("reasoning", "reasoning", "Reasoning"), ("vision", "vision", "Vision")]
+CHIP_COLORS = {
+    "tools": "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300",
+    "reasoning": "bg-purple-50 text-purple-700 dark:bg-purple-500/10 dark:text-purple-300",
+    "vision": "bg-orange-50 text-orange-700 dark:bg-orange-500/10 dark:text-orange-300",
+}
 FAILED_CHECKS = {
     "responses": "Responses API: SageMaker routes only chat completions to the OpenAI-compatible endpoint",
     "reasoning": "reasoning content is not separated from the answer",
@@ -232,9 +237,10 @@ def sort_key(recipe: dict) -> tuple:
 
 
 @functools.cache
-def org_name(org: str) -> str:
+def org_profile(org: str) -> dict:
     with urllib.request.urlopen(f"https://huggingface.co/api/organizations/{org}/overview", timeout=30) as response:
-        return json.load(response).get("fullname") or org
+        profile = json.load(response)
+    return {"name": profile.get("fullname") or org, "avatar": profile.get("avatarUrl")}
 
 
 def hub_info(model_id: str) -> dict:
@@ -244,7 +250,8 @@ def hub_info(model_id: str) -> dict:
         info = json.load(response)
     card = info.get("cardData") or {}
     return {
-        "org_name": org_name(model_id.split("/")[0]),
+        "org_name": org_profile(model_id.split("/")[0])["name"],
+        "org_avatar": org_profile(model_id.split("/")[0])["avatar"],
         "gated": bool(info.get("gated")),
         "task": info.get("pipeline_tag"),
         "parameters": (info.get("safetensors") or {}).get("total"),
@@ -806,7 +813,7 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
     featured = recipes[0]
     single = find_metric(featured, "single-request")
     concurrency = find_metric(featured, "concurrency")
-    states = {state: [label for key, _, label in CARD_CAPABILITIES if featured["capabilities"].get(key) is state] for state in (True, False)}
+    failed = [label for key, _, label in CARD_CAPABILITIES if featured["capabilities"].get(key) is False]
     caps = [value for key, value, _ in CARD_CAPABILITIES if featured["capabilities"].get(key) is True]
     price = featured["instance"]["price_per_hour_usd"]
     summary = [fact for fact in [parameters_label(info["parameters"]), f"from {usd(price)}/h" if price is not None else None] if fact]
@@ -817,10 +824,9 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
     details = [
         ("Task", task_label(info["task"]) or NA),
         ("Instance", f"{featured['instance']['type']}, {gpu_label(featured)}"),
-        ("Validated", ", ".join(states[True]) or "chat only"),
     ]
-    if states[False]:
-        details.append(("Failed", ", ".join(states[False])))
+    if failed:
+        details.append(("Failed", ", ".join(failed)))
     details += [
         ("One user", f"{fmt(per_user(single), 0)} tok/s"),
         ("64 users", f"{fmt(concurrency.get('output_throughput'), 0)} tok/s"),
@@ -842,22 +848,35 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
         "throughput": concurrency.get("output_throughput") or "",
     }
     attributes = " ".join(f'data-{key}="{esc(value)}"' for key, value in data.items())
+    name = model_id.split("/", 1)[1]
+    chips = "".join(
+        f'<span class="rounded-md px-1.5 py-0.5 {CHIP_COLORS[value]}">{esc(label)}</span>' for key, value, label in CARD_CAPABILITIES if value in caps
+    )
+    logo = (
+        f'<img src="{esc(info["org_avatar"])}" alt="" loading="lazy" class="size-8 shrink-0 rounded-md object-cover">'
+        if info["org_avatar"]
+        else ""
+    )
     return (
         f"<div {attributes}>"
-        '<details class="group details-reset rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">'
-        '<summary class="flex cursor-pointer select-none items-center gap-3 px-4 py-3">'
-        '<span class="min-w-0 flex-1">'
-        f'<span class="block truncate font-semibold text-gray-900 dark:text-gray-100">{esc(model_id)}</span>'
-        f'<span class="block truncate text-sm text-gray-500 dark:text-gray-400">{esc(" · ".join(summary))}</span>'
-        "</span>"
+        '<details class="group details-reset rounded-xl border border-gray-200 bg-linear-to-br from-gray-50 to-white '
+        'hover:border-gray-300 dark:border-gray-800 dark:from-gray-900 dark:to-gray-950 dark:hover:border-gray-700">'
+        '<summary class="flex min-h-32 cursor-pointer select-none flex-col gap-2 p-4">'
+        '<span class="flex items-center gap-2">'
+        f"{logo}"
+        f'<span class="min-w-0 flex-1 truncate text-sm text-gray-500 dark:text-gray-400">{esc(info["org_name"])}</span>'
         '<span class="shrink-0 text-gray-400 transition-transform group-open:rotate-180" aria-hidden="true">▾</span>'
+        "</span>"
+        f'<span class="truncate text-lg font-semibold text-gray-900 dark:text-gray-100" title="{esc(model_id)}">{esc(name)}</span>'
+        f'<span class="flex flex-wrap gap-1.5 text-xs">{chips}</span>'
+        f'<span class="mt-auto truncate text-sm text-gray-500 dark:text-gray-400">{esc(" · ".join(summary))}</span>'
         "</summary>"
         '<div class="border-t border-gray-200 px-4 py-3 text-sm dark:border-gray-800">'
         f'<dl class="grid grid-cols-3 gap-x-4 gap-y-1">{"".join(detail_row(label, value) for label, value in details)}</dl>'
         '<div class="mt-3 flex flex-wrap items-center gap-4">'
         f'<a class="btn h-8 no-underline!" target="_blank" rel="noopener" href="{esc(console_url(featured, DEFAULT_REGION))}">'
         f"Deploy in {DEFAULT_REGION} ↗</a>"
-        f'<a class="text-gray-700 underline dark:text-gray-300" href="./{slug(model_id)}">All details and regions →</a>'
+        f'<a class="text-gray-700 underline dark:text-gray-300" href="./{slug(model_id)}">All details →</a>'
         "</div></div></details></div>"
     )
 
@@ -915,7 +934,7 @@ def catalog(models: dict[str, list[dict]], infos: dict[str, dict]) -> list[str]:
         "",
         toggles,
         "",
-        f'<div data-grid class="mt-4 grid grid-cols-1 items-start gap-2 sm:grid-cols-2">{cards}</div>',
+        f'<div data-grid class="mt-4 grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3">{cards}</div>',
         "",
         '<p data-empty hidden class="mt-4 text-sm text-gray-500">No model matches these filters.</p>',
         "",
