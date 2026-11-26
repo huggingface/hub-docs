@@ -165,8 +165,8 @@ def session_generate() -> Session:
 
 @app.api('/create-session')
 def create_session():
-    session = session_generate()  # GPU is acquired at generator creation (this might still re-use an idle worker)
-    next(session)  # GPU worker initialization (e.g. ZeroGPU coldstart) happens here (unless worker re-use)
+    session = session_generate()  # GPU is acquired at generator creation
+    next(session)                 # GPU worker initialization (unless worker re-use)
     session_id = token_urlsafe()
     sessions[session_id] = session
     return session_id
