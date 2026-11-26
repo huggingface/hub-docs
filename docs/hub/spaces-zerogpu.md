@@ -188,6 +188,43 @@ def close_session(session_id: str):
 > 🚀 The upcoming Gradio 7 release will support bi-directional generators for its `Blocks.stream` and `Server.api` handlers, making it super easy to create interactive apps with ZeroGPU (one-way generators can still be used for output streaming).
 
 
+## ASGI Middleware
+
+ZeroGPU can be used with any ASGI framework like Starlette or FastAPI by simply registering the `ZeroGPUMiddleware` middleware in your app  
+(that's basically what Gradio is doing under the hood to support ZeroGPU).
+
+The middleware is responsible for:
+- Running ZeroGPU’s initialization routine, which packs (fake) `cuda` tensors to disk on startup
+- Forwarding the `X-IP-Token` header so ZeroGPU can apply the caller’s quota
+- Identifying the server port so forked GPU workers can close their inherited copy of the server socket.
+
+> [!NOTE]
+> The Middleware is not responsible for enabling the `ZeroGPUMode` in PyTorch for `cuda` interception.
+> As you can see in the following example, importing `spaces` in a ZeroGPU environment is enough.
+
+```python
+import spaces
+from spaces.zero import ZeroGPUMiddleware
+
+pipe = DiffusionPipeline.from_pretrained(...).to('cuda')
+
+app = FastAPI()
+app.add_middleware(ZeroGPUMiddleware)
+
+@app.get('/generate')
+@spaces.GPU
+def generate(prompt: str):
+    result = pipe(prompt).images[0]
+    buffer = BytesIO()
+    result.save(buffer, format='PNG')
+    return Response(buffer.getvalue(), media_type='image/png')
+
+uvicorn.run(app, host='0.0.0.0', port=7860)
+```
+
+> [!TIP]
+> In most scenarios, `gr.Server` is more convenient than a general-purpose ASGI framework (pre/post processing, concurrency management, etc.)
+
 ## Compilation
 
 ZeroGPU does not support `torch.compile`, but you can use PyTorch **ahead-of-time** compilation (requires torch `2.8+`)
