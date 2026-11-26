@@ -794,46 +794,38 @@ def model_page(model_id: str, recipes: list[dict], info: dict) -> str:
     return "\n".join(lines).rstrip("\n") + "\n"
 
 
-def chip(label: str, state: bool | None) -> str:
-    if state is True:
-        return (
-            '<span class="rounded-md border border-green-200 bg-green-50 px-1.5 py-0.5 text-green-700 '
-            f'dark:border-green-800 dark:bg-green-900 dark:text-green-300" title="Validated">{esc(label)}</span>'
-        )
+def detail_row(label: str, value: str) -> str:
     return (
-        '<span class="rounded-md border border-gray-200 px-1.5 py-0.5 text-gray-500 line-through opacity-60 '
-        f'dark:border-gray-700 dark:text-gray-400" title="Failed validation">{esc(label)}</span>'
-    )
-
-
-def metric_cell(value: str, label: str) -> str:
-    return (
-        f'<span class="flex flex-col"><span class="font-semibold tabular-nums text-gray-900 dark:text-gray-100">{esc(value)}</span>'
-        f'<span class="text-gray-500 dark:text-gray-400">{esc(label)}</span></span>'
+        f'<dt class="text-gray-500 dark:text-gray-400">{esc(label)}</dt>'
+        f'<dd class="col-span-2 text-gray-900 dark:text-gray-100">{esc(value)}</dd>'
     )
 
 
 def card(model_id: str, recipes: list[dict], info: dict) -> str:
-    org, name = model_id.split("/", 1)
+    org = model_id.split("/", 1)[0]
     featured = recipes[0]
     single = find_metric(featured, "single-request")
     concurrency = find_metric(featured, "concurrency")
-    caps = []
-    chips = []
-    for key, value, label in CARD_CAPABILITIES:
-        state = featured["capabilities"].get(key)
-        if state is True:
-            caps.append(value)
-        if state is not None:
-            chips.append(chip(label, state))
-    if info["gated"]:
-        chips.append(
-            '<span class="rounded-md border border-gray-200 px-1.5 py-0.5 text-gray-500 dark:border-gray-700 '
-            'dark:text-gray-400" title="Needs a Hugging Face token">Gated</span>'
-        )
-    facts = [fact for fact in [task_label(info["task"]), parameters_label(info["parameters"])] if fact]
-    facts.append(f"{len(recipes)} recipe" + ("s" if len(recipes) > 1 else ""))
+    states = {state: [label for key, _, label in CARD_CAPABILITIES if featured["capabilities"].get(key) is state] for state in (True, False)}
+    caps = [value for key, value, _ in CARD_CAPABILITIES if featured["capabilities"].get(key) is True]
     price = featured["instance"]["price_per_hour_usd"]
+    summary = [fact for fact in [parameters_label(info["parameters"]), f"from {usd(price)}/h" if price is not None else None] if fact]
+    if len(recipes) > 1:
+        summary.append(f"{len(recipes)} recipes")
+    if info["gated"]:
+        summary.append("gated")
+    details = [
+        ("Task", task_label(info["task"]) or NA),
+        ("Instance", f"{featured['instance']['type']}, {gpu_label(featured)}"),
+        ("Validated", ", ".join(states[True]) or "chat only"),
+    ]
+    if states[False]:
+        details.append(("Failed", ", ".join(states[False])))
+    details += [
+        ("One user", f"{fmt(per_user(single), 0)} tok/s"),
+        ("64 users", f"{fmt(concurrency.get('output_throughput'), 0)} tok/s"),
+        ("Cost", f"{usd(concurrency.get('cost_per_million_output_tokens_usd'))} per 1M tokens"),
+    ]
     data = {
         "name": model_id.lower(),
         "search": f"{model_id.lower()} {info['org_name'].lower()}",
@@ -852,20 +844,21 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
     attributes = " ".join(f'data-{key}="{esc(value)}"' for key, value in data.items())
     return (
         f"<div {attributes}>"
-        f'<a href="./{slug(model_id)}" class="flex h-full flex-col rounded-xl border border-gray-200 bg-white p-4 no-underline! '
-        'hover:border-gray-300 hover:shadow-sm dark:border-gray-800 dark:bg-gray-950 dark:hover:border-gray-700">'
-        f'<span class="text-xs text-gray-500 dark:text-gray-400">{esc(info["org_name"])}</span>'
-        f'<span class="truncate text-lg font-semibold text-gray-900 dark:text-gray-100" title="{esc(model_id)}">{esc(name)}</span>'
-        f'<span class="text-xs text-gray-500 dark:text-gray-400">{esc(" · ".join(facts))}</span>'
-        f'<span class="mt-3 flex flex-wrap gap-1.5 text-xs">{"".join(chips)}</span>'
-        '<span class="mt-auto grid grid-cols-3 gap-2 pt-4 text-xs">'
-        + metric_cell(fmt(per_user(single), 0), "tok/s, 1 user")
-        + metric_cell(fmt(concurrency.get("output_throughput"), 0), "tok/s, 64 users")
-        + metric_cell(usd(concurrency.get("cost_per_million_output_tokens_usd")), "per 1M tokens")
-        + "</span>"
-        f'<span class="mt-3 border-t border-gray-200 pt-2 text-xs text-gray-500 dark:border-gray-800 dark:text-gray-400">'
-        f"{esc(featured['instance']['type'])} · {esc(gpu_label(featured))} · {esc(usd(price))}/hour</span>"
-        "</a></div>"
+        '<details class="group details-reset rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">'
+        '<summary class="flex cursor-pointer select-none items-center gap-3 px-4 py-3">'
+        '<span class="min-w-0 flex-1">'
+        f'<span class="block truncate font-semibold text-gray-900 dark:text-gray-100">{esc(model_id)}</span>'
+        f'<span class="block truncate text-sm text-gray-500 dark:text-gray-400">{esc(" · ".join(summary))}</span>'
+        "</span>"
+        '<span class="shrink-0 text-gray-400 transition-transform group-open:rotate-180" aria-hidden="true">▾</span>'
+        "</summary>"
+        '<div class="border-t border-gray-200 px-4 py-3 text-sm dark:border-gray-800">'
+        f'<dl class="grid grid-cols-3 gap-x-4 gap-y-1">{"".join(detail_row(label, value) for label, value in details)}</dl>'
+        '<div class="mt-3 flex flex-wrap items-center gap-4">'
+        f'<a class="btn h-8 no-underline!" target="_blank" rel="noopener" href="{esc(console_url(featured, DEFAULT_REGION))}">'
+        f"Deploy in {DEFAULT_REGION} ↗</a>"
+        f'<a class="text-gray-700 underline dark:text-gray-300" href="./{slug(model_id)}">All details and regions →</a>'
+        "</div></div></details></div>"
     )
 
 
@@ -922,7 +915,7 @@ def catalog(models: dict[str, list[dict]], infos: dict[str, dict]) -> list[str]:
         "",
         toggles,
         "",
-        f'<div data-grid class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">{cards}</div>',
+        f'<div data-grid class="mt-4 grid grid-cols-1 items-start gap-2 sm:grid-cols-2">{cards}</div>',
         "",
         '<p data-empty hidden class="mt-4 text-sm text-gray-500">No model matches these filters.</p>',
         "",
@@ -949,9 +942,9 @@ def index_page(models: dict[str, list[dict]], infos: dict[str, dict]) -> str:
         "",
         *catalog(models, infos),
         "",
-        "The numbers on each card come from the cheapest recipe of the model: output tokens per second for one user, "
-        "total output tokens per second with 64 concurrent users, and the cost per million output tokens at that load "
-        "with on-demand pricing.",
+        "Open a model to see its cheapest recipe: output tokens per second for one user and with 64 concurrent users, "
+        "and the cost per million output tokens at that load with on-demand pricing. The model page has every recipe, "
+        "the full benchmarks, and the deploy options for each region.",
         "",
     ]
     return "\n".join(lines)
