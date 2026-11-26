@@ -169,8 +169,10 @@ CONSOLE_SCRIPT = " ".join(
 (root) => {
 const select = root.querySelector("select");
 const link = root.querySelector("a[data-template]");
+const copy = root.querySelector("button[data-copy]");
 const update = () => { link.href = console_url(select.value, link.dataset.template, link.dataset.stack); };
 select.addEventListener("change", update);
+copy.addEventListener("click", () => { navigator.clipboard.writeText(link.dataset.template).then(() => { copy.textContent = "Copied"; setTimeout(() => { copy.textContent = "Copy template URL"; }, 2000); }); });
 update();
 }
 """.split()
@@ -455,6 +457,7 @@ def console_tab(recipe: dict, gated: bool) -> list[str]:
         f'<select aria-label="AWS region" class="h-9 rounded-lg border border-gray-200 bg-white px-3 text-sm dark:border-gray-700 dark:bg-gray-950">{options}</select>'
         f'<a class="btn h-9 no-underline!" target="_blank" rel="noopener" data-template="{esc(recipe["template_url"])}" data-stack="{esc(name)}" '
         f'href="{esc(console_url(recipe, DEFAULT_REGION))}">Deploy on SageMaker ↗</a>'
+        '<button type="button" data-copy class="btn h-9">Copy template URL</button>'
         "</div>",
         "",
         "</div>",
@@ -462,6 +465,9 @@ def console_tab(recipe: dict, gated: bool) -> list[str]:
         "1. Pick the region and open the link. It opens the CloudFormation **Quick create stack** page with the recipe "
         "template and settings filled in. Sign in to the AWS console first, for example from your AWS access portal: "
         "`aws sso login` only signs in the AWS CLI, not the browser.",
+        "   If your browser uses AWS multi-session sign-in, console links without your session in the address open the "
+        "sign-in page. In that case, open CloudFormation in your console session, choose **Create stack** > **With new "
+        "resources (standard)**, select **Amazon S3 URL**, and paste the template URL from **Copy template URL**.",
         token_step,
         "3. Leave **ExecutionRoleArn** empty to create a role that can only pull the container image and write logs, "
         "or set the ARN of an existing SageMaker execution role.",
