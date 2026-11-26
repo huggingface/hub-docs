@@ -98,7 +98,9 @@ Even though a real GPU is only available inside `@spaces.GPU` functions, models 
 Lazy-loading or moving models to CUDA inside `@spaces.GPU` is discouraged, as it is significantly less efficient (CUDA transfers are optimized for placements done during startup).
 
 > [!NOTE]
-> Loading models on `cuda` at module level works because a PyTorch CUDA emulation mode is enabled outside `@spaces.GPU` functions, allowing CUDA operations without a real GPU. Inside `@spaces.GPU`, real CUDA is used.
+> In a ZeroGPU environment, importing `spaces` enables a PyTorch CUDA emulation mode outside `@spaces.GPU` functions.
+> That’s why you can place models on `cuda` at module level even though no physical GPU is available there.
+> Inside `@spaces.GPU` functions, PyTorch uses real CUDA.
 
 ## GPU size selection
 
@@ -190,17 +192,13 @@ def close_session(session_id: str):
 
 ## ASGI Middleware
 
-ZeroGPU can be used with any ASGI framework like Starlette or FastAPI by simply registering the `ZeroGPUMiddleware` middleware in your app  
-(that's basically what Gradio is doing under the hood to support ZeroGPU).
+ZeroGPU can be used with any ASGI framework (like Starlette or FastAPI) by registering the `ZeroGPUMiddleware`.
+This is (roughly) how Gradio integrates with ZeroGPU under the hood.
 
-The middleware is responsible for:
-- Running ZeroGPU’s initialization routine, which packs (fake) `cuda` tensors to disk on startup
+The middleware handles three things:
+- Hooking into the app’s lifecycle to pack emulated `cuda` tensors to disk at startup
 - Forwarding the `X-IP-Token` header so ZeroGPU can apply the caller’s quota
 - Identifying the server port so forked GPU workers can close their inherited copy of the server socket.
-
-> [!NOTE]
-> The Middleware is not responsible for enabling the `ZeroGPUMode` in PyTorch for `cuda` interception.
-> As you can see in the following example, importing `spaces` in a ZeroGPU environment is enough.
 
 ```python
 import spaces
@@ -223,7 +221,7 @@ uvicorn.run(app, host='0.0.0.0', port=7860)
 ```
 
 > [!TIP]
-> In most scenarios, `gr.Server` is more convenient than a general-purpose ASGI framework (pre/post processing, concurrency management, etc.)
+> In most scenarios, `gr.Server` is more convenient than a general-purpose ASGI framework (media processing, concurrency management, etc.)
 
 ## Compilation
 
