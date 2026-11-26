@@ -176,7 +176,7 @@ update();
 """.split()
 )
 CONSOLE_URL_JS = (
-    '(region, template, stack) => "https://" + region + ".console.aws.amazon.com/cloudformation/home?region=" + region'
+    '(region, template, stack) => "https://console.aws.amazon.com/cloudformation/home?region=" + region'
     ' + "#/stacks/quickcreate?templateURL=" + encodeURIComponent(template) + "&stackName=" + stack'
     ' + "&param_EndpointName=" + stack'
 )
@@ -235,7 +235,7 @@ def console_url(recipe: dict, region: str) -> str:
     query = urllib.parse.urlencode(
         {"templateURL": recipe["template_url"], "stackName": endpoint_name(recipe), "param_EndpointName": endpoint_name(recipe)}
     )
-    return f"https://{region}.console.aws.amazon.com/cloudformation/home?region={region}#/stacks/quickcreate?{query}"
+    return f"https://console.aws.amazon.com/cloudformation/home?region={region}#/stacks/quickcreate?{query}"
 
 
 def hub_token() -> str | None:
@@ -460,7 +460,8 @@ def console_tab(recipe: dict, gated: bool) -> list[str]:
         "</div>",
         "",
         "1. Pick the region and open the link. It opens the CloudFormation **Quick create stack** page with the recipe "
-        "template and settings filled in. Sign in to your AWS account if asked.",
+        "template and settings filled in. Sign in to the AWS console first, for example from your AWS access portal: "
+        "`aws sso login` only signs in the AWS CLI, not the browser.",
         token_step,
         "3. Leave **ExecutionRoleArn** empty to create a role that can only pull the container image and write logs, "
         "or set the ARN of an existing SageMaker execution role.",
@@ -854,13 +855,13 @@ def card(model_id: str, recipes: list[dict], info: dict) -> str:
     if not featured["measured"]:
         chips = f'<span class="rounded-md px-1.5 py-0.5 {UNMEASURED_CHIP}">Not measured on SageMaker yet</span>'
     logo = (
-        f'<img src="{esc(info["org_avatar"])}" alt="" loading="lazy" class="size-8 shrink-0 rounded-md object-cover">'
+        f'<img src="{esc(info["org_avatar"])}" alt="" loading="lazy" class="size-8 shrink-0 rounded-md border border-gray-200 bg-white object-contain p-0.5 dark:border-gray-700">'
         if info["org_avatar"]
         else ""
     )
     deploy = (
         f'<a class="btn h-8 no-underline!" target="_blank" rel="noopener" href="{esc(console_url(featured, DEFAULT_REGION))}">'
-        f"Deploy in {DEFAULT_REGION} ↗</a>"
+        "Deploy on SageMaker ↗</a>"
         if featured["template_url"]
         else ""
     )
