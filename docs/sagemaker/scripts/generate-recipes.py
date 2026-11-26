@@ -454,7 +454,7 @@ def console_tab(recipe: dict, gated: bool) -> list[str]:
         '<div class="flex flex-wrap items-center gap-2">'
         f'<select aria-label="AWS region" class="h-9 rounded-lg border border-gray-200 bg-white px-3 text-sm dark:border-gray-700 dark:bg-gray-950">{options}</select>'
         f'<a class="btn h-9 no-underline!" target="_blank" rel="noopener" data-template="{esc(recipe["template_url"])}" data-stack="{esc(name)}" '
-        f'href="{esc(console_url(recipe, DEFAULT_REGION))}">Deploy in the AWS console ↗</a>'
+        f'href="{esc(console_url(recipe, DEFAULT_REGION))}">Deploy on SageMaker ↗</a>'
         "</div>",
         "",
         "</div>",

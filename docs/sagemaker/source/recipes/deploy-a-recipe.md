@@ -20,7 +20,7 @@ The examples below deploy [Qwen/Qwen3-8B](https://huggingface.co/Qwen/Qwen3-8B) 
 <hfoptions id="deploy">
 <hfoption id="AWS console">
 
-1. Sign in to the AWS console, for example from your AWS access portal: `aws sso login` only signs in the AWS CLI, not the browser. Then, on the model page, pick the region and choose **Deploy in the AWS console**.
+1. Sign in to the AWS console, for example from your AWS access portal: `aws sso login` only signs in the AWS CLI, not the browser. Then, on the model page, pick the region and choose **Deploy on SageMaker**.
 2. The CloudFormation **Quick create stack** page shows the template and three parameters:
    - **EndpointName**: the name of the SageMaker endpoint, for example `qwen3-8b-g6e-xlarge`.
    - **ExecutionRoleArn**: leave it empty to create a role that can only pull the container image and write logs, or set the ARN of an existing SageMaker execution role.
