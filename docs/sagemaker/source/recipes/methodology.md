@@ -26,9 +26,6 @@ Validation sends one request per capability and checks the response:
 
 A model page lists the capabilities that passed, the ones that failed, and the ones that were not tested. The `responses` check fails on every recipe: the SageMaker OpenAI-compatible route only serves chat completions, so the Responses API is not reachable through SageMaker even though vLLM supports it.
 
-> [!WARNING]
-> A benchmark result does not mean every capability works. Review the failed checks on the model page before deploying. Results can include SageMaker routing limitations and failures fetching validation images.
-
 ## Benchmarks
 
 Benchmarks use [`vllm bench serve`](https://docs.vllm.ai/en/latest/cli/bench/serve.html) against the endpoint. Each workload models a different use:
