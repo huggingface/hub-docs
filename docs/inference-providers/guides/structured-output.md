@@ -195,7 +195,7 @@ Abstract: The dominant sequence transduction models are based on complex recurre
 or convolutional neural networks that include an encoder and a decoder...
 """
 
-# Generate structured output using Qwen/Qwen3-32B model
+# Generate structured output using thinkingmachines/Inkling-2-Mini model
 # With the OpenAI client, you can use the `response_format` as a pydantic model
 completion = client.beta.chat.completions.parse(
     model="thinkingmachines/Inkling-2-Mini",
