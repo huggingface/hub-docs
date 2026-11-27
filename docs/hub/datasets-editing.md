@@ -66,15 +66,15 @@ You can also apply edit locally on your disk and commit the changes:
 ```python
 from huggingface_hub import hf_hub_download, upload_file
 
-local_path = hf_hub_download(repo_id=repo_id, path_in_repo= "data.csv", repo_type="dataset")
+local_path = hf_hub_download(repo_id=repo_id, filename="data.csv", repo_type="dataset")
 
-with open(path, "r") as f:
+with open(local_path, "r") as f:
     content = f.read()
 edited_content = content.replace("foo", "bar")
-with open(path, "w") as f:
+with open("data.csv", "w") as f:
     f.write(edited_content)
 
-upload_file(repo_id=repo_id, path_in_repo=local_path, repo_type="dataset")
+upload_file(path_or_fileobj="data.csv", path_in_repo="data.csv", repo_id=repo_id, repo_type="dataset")
 ```
 
 > [!TIP]

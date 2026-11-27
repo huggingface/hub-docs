@@ -63,7 +63,8 @@ You can list all the available FiftyOne datasets on the Hub using:
 ```python
 from huggingface_hub import HfApi
 api = HfApi()
-api.list_datasets(tags="fiftyone")
+for dataset in api.list_datasets(filter="fiftyone"):
+    print(dataset.id)
 ```
 
 ### Loading Parquet Datasets from the Hub with FiftyOne

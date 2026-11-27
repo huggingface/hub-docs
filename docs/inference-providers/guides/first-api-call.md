@@ -166,27 +166,25 @@ Alternatively, you can explicitly choose a provider if you have specific require
 import os
 from huggingface_hub import InferenceClient
 
-client = InferenceClient(api_key=os.environ["HF_TOKEN"])
-
 # Using automatic provider selection (default)
-image_auto = client.text_to_image(
+client_auto = InferenceClient(provider="auto", api_key=os.environ["HF_TOKEN"])  # "auto" is the default
+image_auto = client_auto.text_to_image(
     "Astronaut riding a horse",
     model="black-forest-labs/FLUX.1-schnell",
-    provider="auto"  # This is the default
 )
 
 # Using a specific provider
-image_fal = client.text_to_image(
-    "Astronaut riding a horse", 
+client_fal = InferenceClient(provider="fal-ai", api_key=os.environ["HF_TOKEN"])  # Explicitly use Fal AI
+image_fal = client_fal.text_to_image(
+    "Astronaut riding a horse",
     model="black-forest-labs/FLUX.1-schnell",
-    provider="fal-ai"  # Explicitly use Fal AI
 )
 
 # Using another specific provider
-image_replicate = client.text_to_image(
+client_replicate = InferenceClient(provider="replicate", api_key=os.environ["HF_TOKEN"])  # Explicitly use Replicate
+image_replicate = client_replicate.text_to_image(
     "Astronaut riding a horse",
-    model="black-forest-labs/FLUX.1-schnell", 
-    provider="replicate"  # Explicitly use Replicate
+    model="black-forest-labs/FLUX.1-schnell",
 )
 ```
 
