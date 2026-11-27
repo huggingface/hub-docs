@@ -330,6 +330,27 @@ You need read access to the source repository or bucket and write access to the 
 
 Note that transferring data the other way from a bucket to a repository (model, dataset, Space) without reuploading is not yet available, but is on the roadmap.
 
+### File metadata
+
+Besides its content, a bucket file can store a modification time (`mtime`, in milliseconds, plus optional `mtimeNanos` from 0 to 999999), a `contentType`, and a POSIX `mode` (`st_mode`, as a decimal integer). The mode lets filesystem tools such as [hf-mount](./storage-buckets-access#mount-as-a-local-filesystem) persist `chmod` and symlinks:
+
+- Permission bits, e.g. `0o755` = `493`.
+- Optionally the file-type bits of a regular file (`S_IFREG`, `0o100000`) or a symlink (`S_IFLNK`, `0o120000`). A symlink is a file whose content is the link target. Other file types (e.g. directories) are rejected with a `400`; directories have no stored mode.
+
+Files are written with `POST /api/buckets/<owner>/<bucket-name>/batch`, an NDJSON body with one operation per line. `addFile`, `copyFile` and `updateMetadata` lines must come before `deleteFile` lines:
+
+```json
+{"type": "addFile", "path": "bin/run.sh", "xetHash": "...", "mtime": 1758014505000, "mode": 33261}
+{"type": "updateMetadata", "path": "data/train.txt", "mode": 420}
+{"type": "deleteFile", "path": "data/old.txt"}
+```
+
+`addFile` and `copyFile` set the file's whole state: `mtime` and `mode` are cleared when omitted, so a client that doesn't know about modes and overwrites a symlink turns it into a regular file. `updateMetadata` changes only the fields you pass (`mtime`, `mtimeNanos`, `contentType`, `mode`) on an existing file, without touching its content or `uploadedAt`; a missing file is reported in the response's `failed` list.
+
+When reading, `mode` is returned on tree and paths-info entries, `/buckets/<owner>/<bucket-name>/resolve/<path>` sends it in an `X-File-Mode` header (decimal), and the Xet file info (`Accept: application/vnd.xet-fileinfo+json`) includes `mtime`, `mtimeNanos` and `mode`.
+
+In JavaScript, [`@huggingface/hub`](https://huggingface.co/docs/huggingface.js/hub/README) 2.18.0 and later accepts a `mode` per file on bucket uploads: `uploadFiles({ files: [{ path, content, mode: 0o755 }] })`.
+
 ## Tracking Changes
 
 Buckets are mutable, so tools that keep a view of a bucket — mounts, filesystem layers, sync daemons, dashboards — need to know when files change. Two mechanisms are available:
@@ -368,7 +389,7 @@ The stream emits four event types:
 | `reset`     | `{"reason": "cursor_too_old"}`                        | The resume point cannot be replayed; the stream ends and you should re-list the bucket.       |
 | `reconnect` | `{"cursor": "..."}`                                   | The server is closing the stream on purpose; reconnect with that cursor.                      |
 
-Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically. Fields that did not change are omitted; `mtime`/`mtimeNanos` may also be `null` when an upload cleared them, so treat absent and `null` alike.
+Each entry in `changes` has a `path` and an `op` (`add`, `update`, or `delete`). An `add` or `update` also carries the fields that changed — `size`, `xetHash`, `uploadedAt`, `mtime`, `mtimeNanos`, `mode` — so an `update` may be as small as a new `uploadedAt` when a file was re-uploaded identically, or only the fields an [`updateMetadata`](#file-metadata) changed. `contentType` is only sent on an `update` that changed it. Fields that did not change are omitted; `mtime`/`mtimeNanos`/`mode` may also be `null` when an upload cleared them, so treat absent and `null` alike.
 
 ```
 event: ready

@@ -109,7 +109,7 @@ input_bucket = os.environ.get("WEBHOOK_REPO_ID")
 
 for changed_file in event.get("updatedFiles", []):
     if changed_file["action"] != "add":
-        continue  # skip deleted files
+        continue  # skip deletions and metadata-only changes
     path, size = changed_file["path"], changed_file["size"]
     ...  # convert the file (see the full script)
 ```
