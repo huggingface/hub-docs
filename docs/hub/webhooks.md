@@ -196,6 +196,12 @@ File changes use `"repo.content"`, but the payload has an `updatedFiles` propert
 }
 ```
 
+When only a file's [metadata](./storage-buckets#file-metadata) changes, without new content, the entry has `"action": "metadata"` and carries only the fields that changed: `mtime` (ISO 8601), `mode`, `contentType`. An `"add"` always means new content.
+
+```json
+{ "path": "bin/run.sh", "action": "metadata", "mode": 33261 }
+```
+
 Above 10,000 entries the list is cut short and `updatedFilesTruncated` is set to `true`. In that case, list the bucket to get the full picture.
 
 Buckets have no discussions or Pull Requests, so you will never receive `"discussion"` and `"discussion.comment"` events for them.
