@@ -19,7 +19,7 @@ Buckets use the Hub's standard access control mechanisms:
 
 ## Audit Logs
 
-All bucket operations — uploads, downloads, deletions, and permission changes — are recorded in your organization's [Audit Logs](./audit-logs), giving you a full trail of who accessed what and when.
+All bucket operations — uploads, downloads, deletions, and permission changes — are recorded in your organization's [Audit Logs](./audit-logs), giving you a full trail of who accessed what and when. On the Enterprise Plus plan, [Audit Logs Streaming](./audit-logs-streaming) also records file accesses to your organization's private buckets and repositories.
 
 ## Data Residency
 
