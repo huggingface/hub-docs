@@ -116,8 +116,10 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 - **Repository security** — Secrets and variables (individual and bulk add/update/remove).
   - **Events (secrets):** `repo.add_secret`, `repo.update_secret`, `repo.remove_secret`, `repo.add_secrets`, `repo.remove_secrets`
   - **Events (variables):** `repo.add_variable`, `repo.update_variable`, `repo.remove_variable`, `repo.add_variables`, `repo.remove_variables`
-- **Spaces configuration** — Storage tier changes, hardware (flavor) updates, and sleep time adjustments.
-  - **Events:** `spaces.add_storage`, `spaces.remove_storage`, `spaces.update_hardware`, `spaces.update_sleep_time`
+- **Spaces configuration** — Storage tier changes, volume changes, hardware (flavor) updates, sleep time adjustments, and enabling or disabling [Dev Mode](./spaces-dev-mode).
+  - **Events:** `spaces.add_storage`, `spaces.remove_storage`, `spaces.set_volumes`, `spaces.remove_volumes`, `spaces.update_hardware`, `spaces.update_sleep_time`, `spaces.update_dev_mode`
+- **Spaces SSH access** — Successful and denied SSH connections to a Space. Each entry records whether access was allowed and the fingerprint of the SSH key used.
+  - **Event:** `spaces.ssh_access`
 
 ### Resource Groups
 
@@ -130,8 +132,10 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
 
 ### Jobs and Scheduled Jobs
 
-- **Jobs** — Job creation (e.g. on a Space) and cancellation.
-  - **Events:** `jobs.create`, `jobs.cancel`
+- **Jobs** — Job creation (e.g. on a Space), cancellation, label updates, and exposed port changes.
+  - **Events:** `jobs.create`, `jobs.cancel`, `jobs.update_labels`, `jobs.update_expose`
+- **Jobs SSH access** — Successful and denied SSH connections to a job. Each entry records whether access was allowed, the authentication method (SSH key or access token), and the key fingerprint when an SSH key is used.
+  - **Event:** `jobs.ssh_access`
 - **Scheduled jobs** — Creating, deleting, resuming, suspending, and triggering runs.
   - **Events:** `scheduled_job.create`, `scheduled_job.delete`, `scheduled_job.resume`, `scheduled_job.suspend`, `scheduled_job.run`
 
