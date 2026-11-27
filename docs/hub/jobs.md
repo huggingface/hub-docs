@@ -14,6 +14,7 @@ Use Jobs to [train or fine-tune models](./jobs-training), run inference over dat
 - [Manage Jobs](./jobs-manage)
 - [Jobs Configuration](./jobs-configuration)
 - [Using Docker images](./jobs-images)
+- [Jobs for Agents](./jobs-agents)
 - [Schedule Jobs](./jobs-schedule)
 - [Webhooks Automation](./jobs-webhooks)
 - [Reference](./jobs-reference)
