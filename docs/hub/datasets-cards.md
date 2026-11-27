@@ -41,7 +41,7 @@ To see metadata fields, see the detailed [Dataset Card specifications](https://g
 
 ### Dataset card creation guide
 
-For a step-by-step guide on creating a dataset card, check out the [Create a dataset card](https://huggingface.co/docs/datasets/dataset_card) guide.
+For a step-by-step guide on creating a dataset card, check out the [Create a dataset card](https://huggingface.co/docs/datasets/dataset_card) guide. For section-by-section guidance on what to write in each part of the card, see the [Annotated Dataset Card Template](./datasets-cards-annotated).
 
 Reading through existing dataset cards, such as the [ELI5 dataset card](https://huggingface.co/datasets/eli5/blob/main/README.md), is a great way to familiarize yourself with the common conventions.
 
