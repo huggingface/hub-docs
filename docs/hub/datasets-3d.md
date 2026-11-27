@@ -61,7 +61,7 @@ Gaussian splats can be stored as `.ply`, `.splat` or `.sog` files. [SOG](https:/
 <img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/datasets-3d-usd-viewer-dark.png"/>
 </div>
 
-A USD asset is often split across several files: a root file that references sublayers, payloads, materials and textures. The viewer loads these referenced files from the same repository, so keep the folder structure you authored the asset with, and use relative paths for references. References to absolute paths, or to files outside the repository, can't be loaded.
+A USD asset is often split across several files: a root file that references sublayers, payloads, materials and textures. The viewer loads these referenced files from the same repository, so keep the folder structure you authored the asset with, and use paths relative to the file that references them, like `./payloads/base.usda`. Paths that start with `/`, or point to files outside the repository, can't be loaded.
 
 ## 3D files in the Dataset Viewer
 
@@ -137,7 +137,7 @@ from datasets import Features, Mesh, Value
 table = pq.read_table("train.parquet")
 
 cells = [
-    {"bytes": None, "path": f"meshes/{row_id}.glb"}  # relative path from parquet directory to meshes
+    {"bytes": None, "path": f"hf://datasets/username/my-dataset@main/meshes/{row_id}.glb"}  # replace with your dataset
     for row_id in table["id"].to_pylist()
 ]
 table = table.append_column("mesh", pa.array(cells, type=Mesh().pa_type))
@@ -150,7 +150,7 @@ table = table.replace_schema_metadata(
 pq.write_table(table, "train.parquet")
 ```
 
-- Paths must be relative to the directory containing the Parquet file.
+- Paths must be `hf://datasets/<namespace>/<dataset>@main/<path in repo>` URLs pointing to files in the same dataset.
 - Use `None` for rows without a 3D file.
 - A folder can contain up to 10,000 files, so group larger sets of files into subfolders.
 
