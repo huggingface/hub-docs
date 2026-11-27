@@ -106,7 +106,7 @@ You can pass several token values in the `credentials` array in a single call, w
 You can also revoke tokens with the `hf` CLI or the `huggingface_hub` Python library. Neither sends your own token with the request:
 
 ```bash
-hf auth revoke "$LEAKED_HF_TOKEN"
+hf auth revoke hf_xxxx hf_yyyy
 ```
 
 ```python
