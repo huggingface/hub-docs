@@ -349,8 +349,6 @@ Files are written with `POST /api/buckets/<owner>/<bucket-name>/batch`, an NDJSO
 
 When reading, `mode` is returned on tree and paths-info entries, `/buckets/<owner>/<bucket-name>/resolve/<path>` sends it in an `X-File-Mode` header (decimal), and the Xet file info (`Accept: application/vnd.xet-fileinfo+json`) includes `mtime`, `mtimeNanos` and `mode`.
 
-In JavaScript, [`@huggingface/hub`](https://huggingface.co/docs/huggingface.js/hub/README) 2.18.0 and later accepts a `mode` per file on bucket uploads: `uploadFiles({ files: [{ path, content, mode: 0o755 }] })`.
-
 ## Tracking Changes
 
 Buckets are mutable, so tools that keep a view of a bucket — mounts, filesystem layers, sync daemons, dashboards — need to know when files change. Two mechanisms are available:
