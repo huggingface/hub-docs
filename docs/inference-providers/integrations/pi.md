@@ -34,16 +34,26 @@ Alternatively, store it in `~/.pi/agent/auth.json`:
 }
 ```
 
-3. Set Hugging Face as your default provider in `~/.pi/agent/settings.json`:
+3. Start Pi on a model:
+
+```bash
+pi --provider huggingface --model deepseek-ai/DeepSeek-V4.1-Flash
+```
+
+Replace `deepseek-ai/DeepSeek-V4.1-Flash` with any model available on [Inference Providers](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all&sort=trending). You can append a provider suffix to pin a specific provider (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:novita`), or a `:cheapest` or `:fastest` suffix to prefer cheaper or faster providers. Pi warns that it does not know such an id and sends it to the router as is.
+
+4. Or alternatively, in Pi, run the `/model` command (or press **Ctrl+L**) to open the interactive model selector. You can also press **Ctrl+P** to cycle to the next model.
+
+### Making Hugging Face the Default
+
+To start on a Hugging Face model with a plain `pi`, set it as your default provider in `~/.pi/agent/settings.json`:
 
 ```json
 {
   "defaultProvider": "huggingface",
-  "defaultModel": "moonshotai/Kimi-K2.5"
+  "defaultModel": "deepseek-ai/DeepSeek-V4.1-Flash"
 }
 ```
-
-4. Start pi and run the `/model` command (or press **Ctrl+L**) to open the interactive model selector. You can also press **Ctrl+P** to cycle to the next model.
 
 ### Billing to an Organization
 

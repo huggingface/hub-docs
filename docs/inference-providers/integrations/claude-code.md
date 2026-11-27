@@ -43,33 +43,49 @@ You can also forward any extra arguments to Claude Code:
 hf claude --help
 ```
 
-### Option 2: Manual Environment Variables
+### Option 2: A Dedicated Settings File
 
-Set the following environment variables before launching Claude Code:
+Claude Code can load an extra settings file for a single launch with `--settings`. Keeping the Hugging Face configuration in a file of its own means that a plain `claude` still uses your usual login and settings.
 
-```bash
-export ANTHROPIC_BASE_URL="https://router.huggingface.co"
-export ANTHROPIC_AUTH_TOKEN="${HF_TOKEN}"
-export ANTHROPIC_API_KEY="${HF_TOKEN}"
-export ANTHROPIC_DEFAULT_FABLE_MODEL="zai-org/GLM-5.3"
-export ANTHROPIC_DEFAULT_OPUS_MODEL="zai-org/GLM-5.3"
-export ANTHROPIC_DEFAULT_SONNET_MODEL="zai-org/GLM-5.3"
-export ANTHROPIC_DEFAULT_HAIKU_MODEL="zai-org/GLM-5.3"
-export CLAUDE_CODE_SUBAGENT_MODEL="zai-org/GLM-5.3"
-```
-
-Then start Claude Code:
+1. Make sure you have `HF_TOKEN` set:
 
 ```bash
-claude
+export HF_TOKEN="hf_..."
 ```
 
-Replace `zai-org/GLM-5.3` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `zai-org/GLM-5.3:novita`). Setting an explicit provider gives you deterministic routing, while omitting it (e.g. `zai-org/GLM-5.3`) uses the [default routing](../routing#default-routing), which balances price, speed and reliability, and automatically fails over if a provider becomes unavailable.
+2. Create `~/.claude/huggingface.json`:
 
-Available policies are `:cheapest` or `:fastest`; use one of these suffixes to prefer cheaper or faster providers (e.g. `zai-org/GLM-5.3:cheapest`).
+```json
+{
+  "apiKeyHelper": "printenv HF_TOKEN",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://router.huggingface.co",
+    "ANTHROPIC_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash"
+  }
+}
+```
+
+3. Launch Claude Code with it:
+
+```bash
+claude --settings ~/.claude/huggingface.json
+```
+
+`apiKeyHelper` reads your token from the environment, so the token is not written to the file. `ANTHROPIC_MODEL` is the model Claude Code works with, sub-agents included, and `ANTHROPIC_DEFAULT_HAIKU_MODEL` is the one it uses for its small background requests.
+
+Replace `deepseek-ai/DeepSeek-V4.1-Flash` with any model available on [Inference Providers](https://huggingface.co/inference/models). You can also append a provider suffix to pin a specific provider (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:novita`). Setting an explicit provider gives you deterministic routing, while omitting it (e.g. `deepseek-ai/DeepSeek-V4.1-Flash`) uses the [default routing](../routing#default-routing), which balances price, speed and reliability, and automatically fails over if a provider becomes unavailable.
+
+The `:cheapest` or `:fastest` provider policies are also available; use one of these suffixes to prefer cheaper or faster providers (e.g. `deepseek-ai/DeepSeek-V4.1-Flash:cheapest`).
 
 > [!TIP]
-> The `ANTHROPIC_DEFAULT_*_MODEL` variables map to Claude Code's internal model slots (Fable, Opus, Sonnet, Haiku), from the most powerful to the quickest. You can assign different models to each slot to balance capability and speed e.g. `zai-org/GLM-5.3` for Opus, `google/gemma-4-31B-it:deepinfra` for Sonnet, and `deepseek-ai/DeepSeek-V4.1-Flash:novita` for Haiku. `CLAUDE_CODE_SUBAGENT_MODEL` controls which model is used for sub-agents.
+> You can assign different models to Claude Code's model slots (Fable, Opus, Sonnet, Haiku) to balance capability and speed: add `ANTHROPIC_DEFAULT_FABLE_MODEL`, `ANTHROPIC_DEFAULT_OPUS_MODEL` and `ANTHROPIC_DEFAULT_SONNET_MODEL` to the `env` block for the `fable`, `opus` and `sonnet` aliases of the `/model` command, and `CLAUDE_CODE_SUBAGENT_MODEL` to give sub-agents a model of their own.
+
+For a one-off run without a settings file, set the variables on the command line instead. The router reads the token from the `Authorization` header, which is what `ANTHROPIC_AUTH_TOKEN` sets. You can also set the other variables that were discussed for the settings file above.
+
+```bash
+ANTHROPIC_BASE_URL="https://router.huggingface.co" ANTHROPIC_AUTH_TOKEN="$HF_TOKEN" claude --model deepseek-ai/DeepSeek-V4.1-Flash
+```
 
 ### Billing to an Organization
 
@@ -89,11 +105,18 @@ export HF_BILL_TO="your-org-name"
 hf claude
 ```
 
-**With manual environment variables**, set `ANTHROPIC_CUSTOM_HEADERS` to include the `X-HF-Bill-To` header:
+**With a settings file**, add `ANTHROPIC_CUSTOM_HEADERS` with the `X-HF-Bill-To` header to its `env` block:
 
-```bash
-export ANTHROPIC_CUSTOM_HEADERS="X-HF-Bill-To: your-org-name"
-claude
+```json
+{
+  "apiKeyHelper": "printenv HF_TOKEN",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://router.huggingface.co",
+    "ANTHROPIC_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-ai/DeepSeek-V4.1-Flash",
+    "ANTHROPIC_CUSTOM_HEADERS": "X-HF-Bill-To: your-org-name"
+  }
+}
 ```
 
 Replace `your-org-name` with the name of the organization you want to bill to. The org must be a Team or Enterprise org that you're a member of.
