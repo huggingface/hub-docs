@@ -150,7 +150,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `HF_SPACE_DISK_GB`: The disk space allocated to the Space, in GB (e.g., `50`). Unset when the hardware has no disk limit.
 * `ACCELERATOR`: The type of device: `cpu`, `gpu`, `zero` (ZeroGPU) or `neuron`.
 * `CPU_CORES`: 4
-* `PYTHON_CPU_COUNT`: 4 (set to `CPU_CORES`). Value of `os.cpu_count()` and `os.process_cpu_count()`, so `multiprocessing` and `num_proc=os.cpu_count()` stay within the Space's cores. Python 3.13+ only: on older versions, read `CPU_CORES` instead.
+* `PYTHON_CPU_COUNT`: 4 (set to `CPU_CORES`). Returned by `os.cpu_count()` and `os.process_cpu_count()` to reflect the cores allocated to the Space. Python 3.13+ only: on older versions, read `CPU_CORES` instead.
 * `MEMORY`: `15.0G`
 * `SPACE_AUTHOR_NAME`: osanseviero
 * `SPACE_REPO_NAME`: i-like-flan
@@ -160,7 +160,7 @@ In some cases, you might be interested in having programmatic access to the Spac
 * `SPACE_CREATOR_USER_ID`: `6032802e1f993496bc14d9e3` - This is the ID of the user that originally created the Space. It's useful if the Space is under an organization. You can get the user information with an API call to `https://huggingface.co/api/users/{SPACE_CREATOR_USER_ID}/overview`.
 * `SPACE_SIGNING_SECRET`: a random secret unique to your Space, exposed as a secret. It stays the same across restarts, rebuilds, and replicas, so you can use it to sign things like cookies, OAuth state, or CSRF tokens. To use your own value instead, add a secret named `SPACE_SIGNING_SECRET` in your Space settings.
 
-Prefer the `HF_SPACE_*` names in new code: they mirror the `HF_JOB_*` names of Jobs. `SPACE_AUTHOR_NAME`, `SPACE_REPO_NAME`, `SPACE_TITLE`, `SPACE_ID` and `SPACE_HOST` keep working. The `HF_SPACE_*` variables are set in the Space's container when it runs (Static Spaces don't get them), not passed as Docker build arguments, and a Space variable or secret of the same name replaces them. Unlike them, these names are reserved: a Space variable or secret named `SPACE_ID`, `SPACE_HOST`, `SPACE_AUTHOR_NAME`, `SPACE_REPO_NAME`, `SPACE_TITLE`, `ACCELERATOR`, `CPU_CORES`, `MEMORY`, or another name the platform sets, such as `OMP_NUM_THREADS`, `PYTHON_CPU_COUNT` or `HF_DATASETS_TRUST_REMOTE_CODE`, stops the Space from starting.
+Prefer the `HF_SPACE_*` names in new code: they mirror the `HF_JOB_*` names of Jobs. `SPACE_AUTHOR_NAME`, `SPACE_REPO_NAME`, `SPACE_TITLE`, `SPACE_ID` and `SPACE_HOST` keep working. The `HF_SPACE_*` variables are set in the Space's container when it runs (Static Spaces don't get them), not passed as Docker build arguments, and a Space variable or secret of the same name replaces them. The older names are reserved: a Space variable or secret named `SPACE_ID`, `SPACE_HOST`, `SPACE_AUTHOR_NAME`, `SPACE_REPO_NAME`, `SPACE_TITLE`, `ACCELERATOR`, `CPU_CORES`, `MEMORY`, or another name the platform sets, such as `OMP_NUM_THREADS`, `PYTHON_CPU_COUNT` or `HF_DATASETS_TRUST_REMOTE_CODE`, stops the Space from starting.
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 

@@ -125,12 +125,12 @@ You can use these variables to track outputs, adapt your code to available resou
 >>> hf jobs run python:3.12 python -c "import os; print(f'Job: {os.environ.get(\"HF_JOB_ID\")}, Flavor: {os.environ.get(\"HF_JOB_FLAVOR\")}, CPU: {os.environ.get(\"CPU_CORES\")}, Mem: {os.environ.get(\"MEMORY\")}')"
 ```
 
-Jobs also set the following variables so that thread pools match the CPU cores allocated to the job, not the cores of the machine it runs on (GPU and Neuron flavors leave `OMP_NUM_THREADS` unset, see below).
+Jobs also set the following variables so that thread pools match the CPU cores allocated to the job. You can override these values using your job's environment variables or secrets.
 
-| Variable           | Description                                                                                                                                                                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OMP_NUM_THREADS`  | Set to `CPU_CORES`. Thread count for OpenMP and the libraries that follow it, such as PyTorch, OpenBLAS (NumPy, SciPy), MKL and NumExpr. Left unset on GPU and Neuron flavors, where launchers such as `torchrun`, `accelerate launch` and vLLM choose the thread count. |
-| `PYTHON_CPU_COUNT` | Set to `CPU_CORES`. Value of `os.cpu_count()` and `os.process_cpu_count()`, so `multiprocessing` and `num_proc=os.cpu_count()` stay within the job's cores. Python 3.13+ only: on older versions, read `CPU_CORES` instead.                                   |
+| Variable           | Description                                                                                                                                                                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OMP_NUM_THREADS`  | Set to `CPU_CORES`. Sets the thread count for OpenMP and dependent libraries such as PyTorch, OpenBLAS (NumPy, SciPy), MKL, or NumExpr. Left unset on GPU and Neuron flavors, where launchers such as `torchrun`, `accelerate launch` and vLLM choose the thread count. |
+| `PYTHON_CPU_COUNT` | Set to `CPU_CORES`. Returned by `os.cpu_count()` and `os.process_cpu_count()` to reflect the cores allocated to the job. Python 3.13+ only: on older versions, read `CPU_CORES` instead.                                                                                |
 
 Every variable in this section except `HF_NETWORK_GROUP_HOSTNAME` and `HF_NETWORK_GROUP_PREFIX` is a default: a value you set in the job's environment variables (`-e`) or secrets (`-s`) replaces it.
 
