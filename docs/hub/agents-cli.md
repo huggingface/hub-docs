@@ -40,4 +40,5 @@ claude
 - [CLI Reference](https://huggingface.co/docs/huggingface_hub/guides/cli) - Complete command documentation
 - [Token Settings](https://huggingface.co/settings/tokens) - Manage your tokens
 - [Jobs Documentation](https://huggingface.co/docs/huggingface_hub/guides/cli#hf-jobs) - Compute jobs guide
+- [Jobs for Agents](./jobs-agents) - Workflow and common pitfalls for agents that run Jobs
 

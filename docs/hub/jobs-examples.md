@@ -28,7 +28,7 @@ Coding agents like Claude Code, Codex and Cursor can submit and monitor Jobs for
 hf skills add
 ```
 
-See [Hugging Face CLI for AI agents](./agents-cli) for setup per agent, and [Agent Skills](./agents-skills) for training and other workflow skills.
+See [Hugging Face CLI for AI agents](./agents-cli) for setup per agent, and [Agent Skills](./agents-skills) for training and other workflow skills. [Jobs for Agents](./jobs-agents) covers a launch and monitoring workflow that works well for agents.
 
 ## Sandboxes
 

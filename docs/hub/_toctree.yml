@@ -486,6 +486,8 @@
     title: Train Models
   - local: jobs-examples
     title: Examples & Tutorials
+  - local: jobs-agents
+    title: Jobs for Agents
   - local: jobs-large-datasets
     title: Process Large Datasets
   - local: jobs-schedule

@@ -131,4 +131,4 @@ Build on this example with a larger workload:
 - [Train or fine-tune a model](./jobs-training) and save it to the Hub.
 - [Read datasets or buckets and save processed results](./jobs-large-datasets).
 - [Run commands in Docker images](./jobs-configuration#docker-jobs).
-- [Use Jobs from a coding agent](./jobs-examples#coding-agent-skills).
+- [Use Jobs from a coding agent](./jobs-agents).

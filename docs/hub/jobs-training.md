@@ -205,4 +205,4 @@ This finishes in about five minutes and pushes the LoRA. Raise `--max_train_step
 - [Process Large Datasets](./jobs-large-datasets) for streaming and mounting data that does not fit the disk.
 - [Schedule Jobs](./jobs-schedule) to run a training command on a timer.
 - [Examples & Tutorials](./jobs-examples) for community write-ups, including vision-language fine-tuning and streaming large datasets into a training run.
-- [Use Jobs from a coding agent](./jobs-examples#coding-agent-skills): the `hf` CLI skill lets Claude Code, Codex and Cursor launch and watch these runs for you.
+- [Use Jobs from a coding agent](./jobs-agents): the `hf` CLI skill lets Claude Code, Codex and Cursor launch and watch these runs for you.
