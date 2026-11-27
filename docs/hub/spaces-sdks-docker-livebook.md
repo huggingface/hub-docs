@@ -8,7 +8,7 @@ Some of Livebook's most exciting features are:
 - **Smart cells**: perform complex tasks, such as data manipulation and running machine learning models, with a few clicks using Livebook's extensible notebook cells
 - **Elixir powered**: use the power of the Elixir programming language to write concurrent and distributed notebooks that scale beyond your machine
 
-To learn more about it, watch this [15-minute video](https://www.youtube.com/watch?v=EhSNXWkji6o). Or visit [Livebook's website](https://livebook.dev/). Or follow its [Twitter](https://twitter.com/livebookdev) and [blog](https://news.livebook.dev/) to keep up with new features and updates.
+To learn more about it, watch this [15-minute video](https://www.youtube.com/watch?v=EhSNXWkji6o). Or visit [Livebook's website](https://livebook.dev/). Or follow its [Twitter](https://twitter.com/livebookdev) and [blog](https://livebook.dev/blog/) to keep up with new features and updates.
 
 ## Your first Livebook Space
 
@@ -32,7 +32,7 @@ This will start building your Space using Livebook's Docker image.
 The visibility of the Space must be set to public for the Smart cells feature in Livebook to function properly. However, your Livebook instance will be protected by Livebook authentication.
 
 > [!TIP]
-> <a href="https://news.livebook.dev/v0.6-automate-and-learn-with-smart-cells-mxJJe" target="_blank">Smart cell</a> is a type of Livebook cell that provides a UI component for accomplishing a specific task. The code for the task is generated automatically based on the user's interactions with the UI, allowing for faster completion of high-level tasks without writing code from scratch.
+> <a href="https://livebook.dev/blog/v0-6-automate-and-learn-with-smart-cells" target="_blank">Smart cell</a> is a type of Livebook cell that provides a UI component for accomplishing a specific task. The code for the task is generated automatically based on the user's interactions with the UI, allowing for faster completion of high-level tasks without writing code from scratch.
 
 Once the app build is finished, go to the "App" tab in your Space and log in to your Livebook using the password you previously set:
 

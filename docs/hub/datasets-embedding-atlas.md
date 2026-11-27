@@ -168,5 +168,5 @@ widget
 
 - [Embedding Atlas GitHub Repository](https://github.com/apple/embedding-atlas)
 - [Official Documentation](https://apple.github.io/embedding-atlas/)
-- [Interactive Demo](https://apple.github.io/embedding-atlas/upload/)
+- [Interactive Demo](https://apple.github.io/embedding-atlas/app/)
 - [Command Line Reference](https://apple.github.io/embedding-atlas/tool.html)

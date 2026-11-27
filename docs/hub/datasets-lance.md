@@ -249,7 +249,7 @@ decoder = VideoDecoder(blob_file)
 tensor = decoder[0]  # uint8 tensor of shape [C, H, W]
 ```
 
-See the [torchcodec docs](https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.VideoDecoder.html) for more functions for efficiently decoding videos.
+See the [torchcodec docs](https://meta-pytorch.org/torchcodec/stable/generated/torchcodec.decoders.VideoDecoder.html) for more functions for efficiently decoding videos.
 
 In addition, you can also check out the [Lance documentation](https://lance.org/examples/python/clip_training/) for more examples on loading image data into `torchvision` for training your own image models.
 

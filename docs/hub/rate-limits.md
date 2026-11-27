@@ -109,3 +109,7 @@ In addition to those main classes of rate limits, we enforce limits on certain s
 
 We don't currently document the rate limits for those specific actions, given they tend to change over time more often. If you get quota errors, we encourage you to upgrade your account to PRO, Team, or Enterprise.
 Feel free to get in touch with us via the support team.
+
+## Rate limits and download bandwidth
+
+Rate limits cap how many requests you can make. Your user or organization plan also includes a separate [egress allowance](./download-analytics#egress-overview), which caps how much data you download through the Hugging Face CDN.

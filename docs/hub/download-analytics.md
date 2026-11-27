@@ -23,6 +23,8 @@ Organization admins can find Download Analytics on the organization's Downloads 
 
 The page shows a daily egress (download bandwidth) graph, along with your total over the last 30 days compared against your plan's included egress allowance. Only traffic that passes through the Hugging Face CDN is counted.
 
+Your egress allowance counts downloaded bytes. Separate [Hub rate limits](./rate-limits) cap how many requests you can make in a five-minute window, including API calls and requests to resolve files.
+
 ## Per-member breakdown
 
 For each member of the organization, the breakdown shows:

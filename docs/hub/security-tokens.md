@@ -92,7 +92,7 @@ Expired tokens show an **Invalidated** badge and stop working. You can refresh t
 
 If one of your own tokens has leaked, delete or refresh it from the [Access Tokens tab](https://huggingface.co/settings/tokens) of your settings.
 
-If you have found somebody else's Hugging Face access token you can invalidate it with the [`POST /api/credentials/revoke`](https://huggingface-openapi.hf.space/#tag/tokens/POST/api/credentials/revoke) endpoint. You don't need any rights over the account or organization that owns the token.
+If you have found somebody else's Hugging Face access token or OAuth token you can invalidate it with the [`POST /api/credentials/revoke`](https://huggingface-openapi.hf.space/#tag/tokens/POST/api/credentials/revoke) endpoint. You don't need any rights over the account or organization that owns the token.
 
 ```bash
 # LEAKED_HF_TOKEN should contain the raw token value to revoke
@@ -103,7 +103,21 @@ curl -X POST "https://huggingface.co/api/credentials/revoke" \
 
 You can pass several token values in the `credentials` array in a single call, which is convenient for secret-scanning pipelines that report findings in batches.
 
+You can also revoke tokens with the `hf` CLI or the `huggingface_hub` Python library. Neither sends your own token with the request:
+
+```bash
+hf auth revoke hf_xxxx hf_yyyy
+```
+
+```python
+from huggingface_hub import revoke_tokens
+
+revoke_tokens(["hf_xxxx", "hf_yyyy"])
+```
+
 Every submitted token that matches an existing one is invalidated immediately and stops working everywhere — unlike [organization-level revocation](./enterprise-tokens-management#revoking-via-api), which only cuts off the token's access to a single organization. The owner of the token is notified by email and needs to create a new token to restore access.
+
+The endpoint also accepts OAuth tokens issued through [Sign-In with HF](./oauth): both access tokens (`hf_oauth_...`) and refresh tokens. Each submitted OAuth token is revoked and stops working, and the user it was issued to is notified by email; they may need to sign in to the app again. Revoking a refresh token also revokes the access tokens issued with it.
 
 The endpoint always responds with `202 Accepted`, whether or not any of the tokens you submitted existed, so its response cannot be used to probe whether a token is valid. Submitting the same token again is harmless: repeat calls do nothing and the owner is only notified once.
 
@@ -140,3 +154,7 @@ Revocation only affects the organization that revoked it. The token continues to
 ### When your organization only allows fine-grained tokens (Team & Enterprise organizations)
 
 If your organization has set a policy requiring fine-grained tokens, read/write tokens will be rejected with a `403` error when used against that organization's resources.
+
+### When your organization requires repository-scoped tokens (Enterprise organizations)
+
+If your organization requires repository-scoped tokens, your fine-grained tokens can't have repository permissions on the whole organization. Select specific repositories under **Repositories permissions** instead. Existing tokens with organization-wide repository permissions are rejected with a `403` error on that organization's resources. See [Require Repository-Scoped Tokens](./enterprise-tokens-management#require-repository-scoped-tokens).

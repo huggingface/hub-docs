@@ -63,7 +63,7 @@ Examples of model cards and closely-related variants include:
 * Google Research: [ML Kit Vision Models](https://developers.google.com/s/results/ml-kit?q=%22Model%20Card%22), [Face Detection](https://sites.google.com/view/perception-cv4arvr/blazeface), [Conversation AI](https://github.com/conversationai/perspectiveapi/tree/main/model-cards)
 * OpenAI: [GPT-3](https://github.com/openai/gpt-3/blob/master/model-card.md), [GPT-2](https://github.com/openai/gpt-2/blob/master/model_card.md), [DALL-E dVAE](https://github.com/openai/DALL-E/blob/master/model_card.md), [CLIP](https://github.com/openai/CLIP-featurevis/blob/master/model-card.md)
 * [NVIDIA Model Cards](https://catalog.ngc.nvidia.com/models?filters=&orderBy=weightPopularASC&query=)
-* [Salesforce Model Cards](https://blog.salesforceairesearch.com/model-cards-for-ai-model-transparency/)
+* [Salesforce Model Cards](https://www.salesforce.com/blog/model-cards-for-ai-model-transparency/)
 * [Allen AI Model Cards](https://github.com/allenai/allennlp-models/tree/main/allennlp_models/modelcards)
 * [Co:here AI Model Cards](https://docs.cohere.ai/responsible-use/)
 * [Duke PULSE Model Card](https://arxiv.org/pdf/2003.03808.pdf)
@@ -89,10 +89,10 @@ Tools for programmatically or interactively generating model cards include:
 * [Salesforce Model Card Creation](https://help.salesforce.com/s/articleView?id=release-notes.rn_bi_edd_model_card.htm&type=5&release=232)
 * [TensorFlow Model Card Toolkit](https://ai.googleblog.com/2020/07/introducing-model-card-toolkit-for.html)
   * [Python library](https://pypi.org/project/model-card-toolkit/)
-* [GSA / US Census Bureau Collaboration on Model Card Generator](https://bias.xd.gov/resources/model-card-generator/)
+* [GSA / US Census Bureau Collaboration on Model Card Generator](https://ai-toolkit.xd.gov/resources/model-card-generator/)
 * [Parl.AI Auto Generation Tool](https://parl.ai/docs/tutorial_model_cards.html)
 * [VerifyML Model Card Generation Web Tool](https://www.verifyml.com)
-* [RMarkdown Template for Model Card as part of vetiver package](https://cran.r-project.org/web/packages/vetiver/vignettes/model-card.html)
+* [RMarkdown Template for Model Card as part of vetiver package](https://vetiver.posit.co/learn-more/model-card.html)
 * [Databaseline ML Cards toolkit](https://databaseline.tech/ml-cards/)
 
 ### MODEL CARD EDUCATIONAL TOOLS

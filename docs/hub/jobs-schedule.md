@@ -26,6 +26,14 @@ Use `hf jobs uv run ` or `hf jobs run` with a schedule of `@annually`, `@yearly`
 
 Use the same parameters as `hf jobs uv run` and `hf jobs run` to pass environment variables, secrets, timeout, labels, etc.
 
+By default, a scheduled job does not start a new run while the previous run is still going. That run is skipped, not queued. Pass `--concurrency` to let runs overlap, for example when a run can take longer than the schedule interval:
+
+```bash
+>>> hf jobs scheduled uv run --concurrency @hourly my_script.py
+```
+
+Pass `--suspend` to create the scheduled job paused, and start it later with `hf jobs scheduled resume`.
+
 Manage scheduled jobs using `hf jobs scheduled ps`, `hf jobs scheduled inspect`, `hf jobs scheduled suspend`, `hf jobs scheduled resume`, `hf jobs scheduled reschedule`, `hf jobs scheduled trigger`, and `hf jobs scheduled delete`:
 
 ```python

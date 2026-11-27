@@ -94,6 +94,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 | [Feature access per resource group](./security-resource-groups#granular-feature-access)|  ❌  |     ❌      |     ✅      |       ✅        |
 | [Tokens admin / management](./enterprise-tokens-management)                            |  ❌  |     ✅      |     ✅      |       ✅        |
 | [Token revocation](./enterprise-tokens-management#revoking-via-api)                    |  ❌  |     ❌      |     ✅      |       ✅        |
+| [Repo-scoped tokens](./enterprise-tokens-management#require-repository-scoped-tokens)  |  ❌  |     ❌      |     ✅      |       ✅        |
 | [Download analytics](./download-analytics)                                             |  ✅  |     ✅      |     ✅      |       ✅        |
 | [Content access / policy controls](./enterprise-network-security)                      |  ❌  |     ❌      |     ❌      |       ✅        |
 | [Network access controls](./enterprise-network-security)                               |  ❌  |     ❌      |     ❌      |       ✅        |
@@ -129,7 +130,7 @@ Team & Enterprise organization plans add advanced capabilities to organizations,
 
 | Feature            | Free |    Team     |    Enterprise    | Enterprise Plus |
 | ------------------ | :--: | :---------: | :--------------: | :-------------: |
-| Pricing            |  -   | 20$/user/Mo | from 50$/user/Mo |     custom      |
+| Pricing            |  -   | $20/user/Mo |      custom      |     custom      |
 | Pilot availability |  ❌  |     ❌      |        ❌        |       ✅        |
 
 ## Dive more
@@ -151,5 +152,6 @@ In the following sections we will document the following Team & Enterprise featu
 - [Network Security](./enterprise-network-security)
 - [Higher Rate limits](./rate-limits)
 - [Blog Articles](./enterprise-blog-articles)
+- [Nightwatch](./enterprise-nightwatch)
 
 Finally, Team & Enterprise plans include vastly more [included public storage](./storage-limits), as well as 1TB of [private storage](./storage-limits) per seat in the subscription, i.e. if your organization has 40 members, then you have 40TB included storage for your private models and datasets.

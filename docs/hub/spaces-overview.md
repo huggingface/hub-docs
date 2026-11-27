@@ -139,21 +139,33 @@ Paused time is not billed.
 
 In some cases, you might be interested in having programmatic access to the Space author or repository name. This feature is particularly useful when you expect users to duplicate your Space. To help with this, Spaces exposes different environment variables at runtime (see also [built-in environment variables in Jobs](./jobs-configuration#built-in-environment-variables)). Given a Space [`osanseviero/i-like-flan`](https://huggingface.co/spaces/osanseviero/i-like-flan):
 
-* `ACCELERATOR`: The type of accelerator available (e.g., `t4-medium`, `a10g-small`), or `none` for CPU-only Spaces.
+* `HF_SPACE_ID`: `osanseviero/i-like-flan`
+* `HF_SPACE_OWNER`: osanseviero (the user or organization that owns the Space)
+* `HF_SPACE_REPO_NAME`: i-like-flan
+* `HF_SPACE_TITLE`: I Like Flan (specified in the README file)
+* `HF_SPACE_HOST`: `osanseviero-i-like-flan.hf.space` (followed by the Space's custom domain, if it has one, comma-separated)
+* `HF_SPACE_SUBDOMAIN`: `osanseviero-i-like-flan`
+* `HF_SPACE_FLAVOR`: The hardware flavor of the Space (e.g., `cpu-basic`, `t4-small`).
+* `HF_SPACE_GPU_COUNT`: The number of GPUs allocated to the Space: `0` on CPU, ZeroGPU and Neuron hardware.
+* `HF_SPACE_DISK_GB`: The disk space allocated to the Space, in GB (e.g., `50`). Unset when the hardware has no disk limit.
+* `ACCELERATOR`: The type of device: `cpu`, `gpu`, `zero` (ZeroGPU) or `neuron`.
 * `CPU_CORES`: 4
-* `MEMORY`: 15Gi
+* `PYTHON_CPU_COUNT`: 4 (set to `CPU_CORES`). Returned by `os.cpu_count()` and `os.process_cpu_count()` to reflect the cores allocated to the Space. Python 3.13+ only: on older versions, read `CPU_CORES` instead.
+* `MEMORY`: `15.0G`
 * `SPACE_AUTHOR_NAME`: osanseviero
 * `SPACE_REPO_NAME`: i-like-flan
 * `SPACE_TITLE`: I Like Flan (specified in the README file)
 * `SPACE_ID`: `osanseviero/i-like-flan`
-* `SPACE_HOST`: `osanseviero-i-like-flan.hf.space`
+* `SPACE_HOST`: `osanseviero-i-like-flan.hf.space` (same value as `HF_SPACE_HOST`)
 * `SPACE_CREATOR_USER_ID`: `6032802e1f993496bc14d9e3` - This is the ID of the user that originally created the Space. It's useful if the Space is under an organization. You can get the user information with an API call to `https://huggingface.co/api/users/{SPACE_CREATOR_USER_ID}/overview`.
 * `SPACE_SIGNING_SECRET`: a random secret unique to your Space, exposed as a secret. It stays the same across restarts, rebuilds, and replicas, so you can use it to sign things like cookies, OAuth state, or CSRF tokens. To use your own value instead, add a secret named `SPACE_SIGNING_SECRET` in your Space settings.
+
+Prefer the `HF_SPACE_*` names in new code: they mirror the `HF_JOB_*` names of Jobs. `SPACE_AUTHOR_NAME`, `SPACE_REPO_NAME`, `SPACE_TITLE`, `SPACE_ID` and `SPACE_HOST` keep working. The `HF_SPACE_*` variables are set in the Space's container when it runs (Static Spaces don't get them), not passed as Docker build arguments, and a Space variable or secret of the same name replaces them. The older names are reserved: a Space variable or secret named `SPACE_ID`, `SPACE_HOST`, `SPACE_AUTHOR_NAME`, `SPACE_REPO_NAME`, `SPACE_TITLE`, `ACCELERATOR`, `CPU_CORES`, `MEMORY`, or another name the platform sets, such as `OMP_NUM_THREADS`, `PYTHON_CPU_COUNT` or `HF_DATASETS_TRUST_REMOTE_CODE`, stops the Space from starting.
 
 In case [OAuth](./spaces-oauth) is enabled for your Space, the following variables will also be available:
 
 * `OAUTH_CLIENT_ID`: the client ID of your OAuth app (public)
-* `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app
+* `OAUTH_CLIENT_SECRET`: the client secret of your OAuth app (deprecated: use PKCE instead which doesn't need the secret for the token exchange)
 * `OAUTH_SCOPES`: scopes accessible by your OAuth app. Currently, this is always `"openid profile"`.
 * `OPENID_PROVIDER_URL`: The URL of the OpenID provider. The OpenID metadata will be available at [`{OPENID_PROVIDER_URL}/.well-known/openid-configuration`](https://huggingface.co/.well-known/openid-configuration).
 

@@ -18,7 +18,7 @@ of the example. Learn more about uploading your data to the Hub [here](https://h
 
 First, let's create a Webhook from your [settings]( https://huggingface.co/settings/webhooks).
 
-- Select your dataset as the target repository. We will target [huggingface-projects/input-dataset](https://huggingface.co/datasets/huggingface-projects/input-dataset) in this example.
+- Select your dataset as the target repository. We will target [huggingface-projects/auto-retrain-input-dataset](https://huggingface.co/datasets/huggingface-projects/auto-retrain-input-dataset) in this example.
 - You can put a dummy Webhook URL for now. Defining your Webhook will let you look at the events that will be sent to it. You can also replay them, which will be useful for debugging!
 - Input a secret to make it more secure.
 - Subscribe to "Repo update" events as we want to react to data changes
