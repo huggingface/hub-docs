@@ -103,6 +103,18 @@ curl -X POST "https://huggingface.co/api/credentials/revoke" \
 
 You can pass several token values in the `credentials` array in a single call, which is convenient for secret-scanning pipelines that report findings in batches.
 
+You can also revoke tokens with the `hf` CLI or the `huggingface_hub` Python library. Neither sends your own token with the request:
+
+```bash
+hf auth revoke hf_xxxx hf_yyyy
+```
+
+```python
+from huggingface_hub import revoke_tokens
+
+revoke_tokens(["hf_xxxx", "hf_yyyy"])
+```
+
 Every submitted token that matches an existing one is invalidated immediately and stops working everywhere — unlike [organization-level revocation](./enterprise-tokens-management#revoking-via-api), which only cuts off the token's access to a single organization. The owner of the token is notified by email and needs to create a new token to restore access.
 
 The endpoint also accepts OAuth tokens issued through [Sign-In with HF](./oauth): both access tokens (`hf_oauth_...`) and refresh tokens. Each submitted OAuth token is revoked and stops working, and the user it was issued to is notified by email; they may need to sign in to the app again. Revoking a refresh token also revokes the access tokens issued with it.
