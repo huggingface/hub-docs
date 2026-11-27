@@ -120,7 +120,11 @@ If you have a PRO, Team, or Enterprise subscription, the credits included with y
 
 **Q. What happens if I run out of credits?**
 
-A. We recommend enabling automatic recharge to avoid service disruptions after credits are exhausted.
+A. Once your balance reaches $0, paid compute services such as Jobs, paid Spaces hardware, and Inference Providers stop until credits are added. We recommend enabling automatic recharge to avoid service disruptions after credits are exhausted.
+
+If automatic recharge is not enabled, you'll receive an email warning (sent to organization admins for organizations) when your credits are about to run out at your current usage, a few days before your balance reaches $0. The email shows your remaining balance and how long it is expected to last.
+
+This doesn't apply to organizations billed through a [cloud marketplace](#cloud-providers-partnerships): their usage is metered to the cloud provider rather than drawn from credits, so they don't get low-credit warnings and their services don't stop at a $0 credit balance.
 
 **Q. Do my credits expire?**
 
