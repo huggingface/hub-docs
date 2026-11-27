@@ -244,6 +244,7 @@ When the `hf` CLI performs the exchange, a failure surfaces the `error` code alo
 - **Repo tokens are repo-scoped.** A token for `acme/awesome-model` cannot touch `acme/anything-else`. Pushes are attributed to a synthetic `[OIDC]` system user, with a reference to the originating issuer and subject. Tokens from a read-only publisher can only read that repo.
 - **User tokens are read-only.** `gated-repos` scope by default — no writes, no private repos, no account management. The optional `inference-api` scope adds Inference Providers calls (billed to your account), but still no write or private-repo access.
 - **Claims are matched exactly, or by prefix where a provider preset needs it** (GitHub's `workflow_ref`). No regex.
+- **Name claims are pinned to immutable IDs on first use.** If a publisher matches on a repo or owner *name* (`repository`, `repository_owner` on GitHub Actions and Gitea/Forgejo; `project_path`, `namespace_path` on GitLab CI), the first successful exchange records the matching ID claim from the token (`repository_id`, `repository_owner_id`, `project_id`, `namespace_id`) on the publisher. Later exchanges must match that ID too, so a repo or organization deleted and re-created under the same name by someone else can't reuse your publisher. If you delete and re-create your own CI repo, delete the publisher and add it again.
 - **Audit logs.** Adding or removing a publisher is logged, and successful exchanges update last used time.
 
 ## See also
