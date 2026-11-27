@@ -110,10 +110,9 @@ hf auth revoke hf_xxxx hf_yyyy
 ```
 
 ```python
-import os
 from huggingface_hub import revoke_tokens
 
-revoke_tokens([os.environ["LEAKED_HF_TOKEN"]])
+revoke_tokens(["hf_xxxx", "hf_yyyy"])
 ```
 
 Every submitted token that matches an existing one is invalidated immediately and stops working everywhere — unlike [organization-level revocation](./enterprise-tokens-management#revoking-via-api), which only cuts off the token's access to a single organization. The owner of the token is notified by email and needs to create a new token to restore access.
