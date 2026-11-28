@@ -12,7 +12,7 @@ With the launch of this Guidebook, we introduce several new resources and connec
 
 2) An [Annotated Model Card Template](./model-card-annotated), which details how to fill the card out.
 
-3) A [Model Card Creator Tool](https://huggingface.co/spaces/huggingface/Model_Cards_Writing_Tool), to ease card creation without needing to program, and to help teams share the work of different sections.
+3) A Model Card Creator Tool, to ease card creation without needing to program, and to help teams share the work of different sections.
 
 4) A [User Study](./model-cards-user-studies) on Model Card usage at Hugging Face
 
