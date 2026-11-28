@@ -27,6 +27,13 @@ _ * Requires passing extra arguments to write optimized Parquet files_
 
 Other libraries have integrations for curating datasets: [Embedding Atlas](./datasets-embedding-atlas) (embeddings visualization), [Fenic](./datasets-fenic) (semantic processing), [FiftyOne](./datasets-fiftyone) (image visualization and curation).
 
+## Workflow orchestration
+
+Orchestrate dataset pipelines and publish their results to the Hub with:
+
+- [Dagster & HF Datasets](https://dagster.io/docs/integrations/libraries/hf-datasets) — An integration for loading datasets as Dagster assets, tracking metadata, lineage and publishing processed datasets to the Hub.
+- [Apache Airflow provider for Hugging Face](https://airflow.apache.org/registry/providers/huggingface/0.1.0/) — An Airflow provider for loading, transforming and publishing datasets; version 0.1.0 supports Airflow 3.0+.
+
 ## Data Processing Libraries
 
 ### Streaming
