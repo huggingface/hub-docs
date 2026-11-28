@@ -5,6 +5,9 @@
 
 The following features are available to organizations with SSO enabled. See [Basic SSO](./security-sso-basic) and [Managed SSO](./enterprise-advanced-sso) for details on each mode.
 
+> [!NOTE]
+> Until your SSO configuration passes its test, only the [email matching](#email-matching) settings can be edited. Session Timeout, Role Mapping and Resource Group Mapping unlock once the test succeeds.
+
 <div class="flex justify-center">
 	<img class="block dark:hidden" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-users.png"/>
 	<img class="hidden dark:block" src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/hub/sso/sso-settings-users-dark.png"/>
@@ -75,14 +78,26 @@ If there is no match, the user will not be assigned to any resource group.
 > [!WARNING]
 > Resource groups targeted by a mapping can still be edited manually from the Hub UI or API, but those edits are overwritten at the user's next SSO login: a role change is reverted to the mapped role, and a user who was manually removed is re-added. To change a mapped user's access permanently, update your IdP data or the mapping configuration.
 
-## Matching email domains
+## Email matching
 
-> [!NOTE]
-> This feature is only relevant for [Basic SSO](./security-sso-basic). With [Managed SSO](./enterprise-advanced-sso), user accounts are fully managed by the organization, so email domain matching does not apply.
+### Matching email domains
 
-When enabled, 'Matching email domains' only allows organization members to complete SSO if the email provided by your identity provider matches one of their emails on Hugging Face.
+When set, "Matching email domains" only allows organization members to complete SSO if the email address provided by your identity provider belongs to one of the listed domains, or to your [organization email domain](./organizations-managing#organization-domain-name). Domains must match exactly: subdomains are not included. Leave it empty to allow all domains.
 
-To add an email domain, fill out the 'Matching email domains' field, click enter on your keyboard, and save.
+To add an email domain, fill out the "Matching email domains" field, click enter on your keyboard, and save.
+
+### Require exact match between user email on Hugging Face and email provided by IdP
+
+When enabled, this setting only allows organization members to complete SSO if the email address provided by your identity provider matches one of the confirmed email addresses on their Hugging Face account.
+
+### Email address from your identity provider
+
+Both settings require your identity provider to send the user's email address:
+
+- **SAML**: an `email`, `mail` or `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` attribute, or a NameID in `emailAddress` format.
+- **OIDC**: the `email` claim.
+
+Otherwise, SSO login, including the SSO test, fails with "Your identity provider did not provide an email address." To fix it, send the email from your identity provider, or turn off both settings, save, and test again.
 
 ## External Collaborators
 
