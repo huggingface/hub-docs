@@ -98,7 +98,9 @@ Even though a real GPU is only available inside `@spaces.GPU` functions, models 
 Lazy-loading or moving models to CUDA inside `@spaces.GPU` is discouraged, as it is significantly less efficient (CUDA transfers are optimized for placements done during startup).
 
 > [!NOTE]
-> Loading models on `cuda` at module level works because a PyTorch CUDA emulation mode is enabled outside `@spaces.GPU` functions, allowing CUDA operations without a real GPU. Inside `@spaces.GPU`, real CUDA is used.
+> In a ZeroGPU environment, importing `spaces` enables a PyTorch CUDA emulation mode outside `@spaces.GPU` functions.
+> That’s why you can place models on `cuda` at module level even though no physical GPU is available there.
+> Inside `@spaces.GPU` functions, PyTorch uses real CUDA.
 
 ## GPU size selection
 
@@ -117,7 +119,7 @@ def generate(prompt):
 > - `xlarge` usually means higher queuing probability and longer wait times
 > - Only use `xlarge` when your workload truly benefits from the additional compute or memory
 
-## Duration Management
+## Duration management
 
 For functions expected to exceed the default 60-second of GPU runtime, you can specify a custom duration:
 
@@ -145,6 +147,81 @@ def generate(prompt, steps):
    return pipe(prompt, num_inference_steps=steps).images
 ```
 
+## Session management
+
+Calling a `@spaces.GPU` function implicitly acquires and releases a GPU.  
+The acquisition adds a delay (coldstart + possible queueing) whenever a GPU worker can't be re-used.  
+While this managed approach is convenient, it involves unpredictable delays between calls.
+
+To get control over GPU acquisition and release, you can use `@spaces.GPU` with a Python generator:
+
+```python
+type Session = Generator[Image | None, str, None]
+sessions: dict[str, Session] = {}
+
+@spaces.GPU
+def session_generate() -> Session:
+    prompt = yield
+    while True:
+        prompt = yield pipe(prompt).images[0]
+
+@app.api('/create-session')
+def create_session():
+    session = session_generate()  # GPU is acquired at generator creation
+    next(session)                 # GPU worker initialization (unless worker re-use)
+    session_id = token_urlsafe()
+    sessions[session_id] = session
+    return session_id
+
+@app.api('/generate')
+def generate(session_id: str, prompt: str):
+    session = sessions[session_id]
+    return session.send(prompt)
+
+@app.api('/close-session')
+def close_session(session_id: str):
+    sessions.pop(session_id).close()  # Closing the generator (or having it garbage collected) releases the GPU
+```
+
+> [!NOTE]
+> This example assumes calls on a given session are sequential. Otherwise you need to properly manage locking.
+
+> [!TIP]
+> 🚀 The upcoming Gradio 7 release will support bi-directional generators for its `Blocks.stream` and `Server.api` handlers, making it super easy to create interactive apps with ZeroGPU (one-way generators can still be used for output streaming).
+
+
+## ASGI Middleware
+
+ZeroGPU can be used with any ASGI framework (like Starlette or FastAPI) by registering the `ZeroGPUMiddleware`.
+This is (roughly) how Gradio integrates with ZeroGPU under the hood.
+
+The middleware handles three things:
+- Hooking into the app’s lifecycle to pack emulated `cuda` tensors to disk at startup
+- Forwarding the `X-IP-Token` header so ZeroGPU can apply the caller’s quota
+- Identifying the server port so forked GPU workers can close their inherited copy of the server socket.
+
+```python
+import spaces
+from spaces.zero import ZeroGPUMiddleware
+
+pipe = DiffusionPipeline.from_pretrained(...).to('cuda')
+
+app = FastAPI()
+app.add_middleware(ZeroGPUMiddleware)
+
+@app.get('/generate')
+@spaces.GPU
+def generate(prompt: str):
+    result = pipe(prompt).images[0]
+    buffer = BytesIO()
+    result.save(buffer, format='PNG')
+    return Response(buffer.getvalue(), media_type='image/png')
+
+uvicorn.run(app, host='0.0.0.0', port=7860)
+```
+
+> [!TIP]
+> In most scenarios, `gr.Server` is more convenient than a general-purpose ASGI framework (media processing, concurrency management, etc.)
 
 ## Compilation
 
