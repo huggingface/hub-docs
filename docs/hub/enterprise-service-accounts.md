@@ -105,6 +105,14 @@ Only organization admins can enable the exemption or rotate a token that is alre
 
 Because an exempt token is no longer protected by your network perimeter, the token itself becomes the only credential guarding the resources it can reach. We recommend scoping it to the smallest possible set of repositories, granting read-only permissions where that is sufficient, and rotating it regularly.
 
+## Trusted Publishers
+
+Instead of storing a long-lived service account token as a CI secret, you can let workloads that issue OIDC tokens (GitHub Actions, GitLab CI, Kubernetes, cloud providers, …) exchange their own ID token for a short-lived token acting as the service account. These tokens are read-only and can't access your organization's private repos.
+
+On the service account's page, open the **Trusted publishers** section and click **Add trusted publisher** to configure the issuer and the claims that must match. Workloads then exchange their ID token using the service account's username as the `resource`. Exchanged tokens expire after 60 minutes.
+
+Like any organization member, these tokens can read your organization's gated repos without an access request. Since service accounts are organization admins, this also includes repos gated for organization members. See [Service account trusted publishers](./trusted-publishers#service-account-trusted-publishers) before enabling, and for details on configuration, available options, and the exchange.
+
 ## Billing
 
 Service accounts are not counted as billable members of your organization, so creating them does not consume a paid seat in your plan.

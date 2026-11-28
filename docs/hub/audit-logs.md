@@ -97,6 +97,8 @@ Each action has an **event name** in `scope.action` format (e.g. `repo.create`, 
   - **Events:** `org.service_account.create`, `org.service_account.delete`
 - **Service account tokens**: Token creation, deletion, rotation, and updates (name, permissions, network security exemption), plus generation and revocation of the S3 credentials paired with a token.
   - **Events:** `org.service_account.token.create`, `org.service_account.token.delete`, `org.service_account.token.rotate`, `org.service_account.token.update`, `org.service_account.token.s3_credential.create`, `org.service_account.token.s3_credential.delete`
+- **Service account trusted publishers**: Addition and removal of [trusted publishers](./trusted-publishers#service-account-trusted-publishers) on a service account.
+  - **Events:** `org.service_account.trusted_publisher.create`, `org.service_account.trusted_publisher.delete`
 
 ### OAuth Apps
 
