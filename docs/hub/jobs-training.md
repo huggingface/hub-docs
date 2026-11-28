@@ -8,7 +8,7 @@ This command fine-tunes an image classifier on 2,000 [Food-101](https://huggingf
 
 ```bash
 hf jobs uv run --flavor a10g-small --timeout 30m -s HF_TOKEN -- \
-  https://raw.githubusercontent.com/huggingface/transformers/main/examples/pytorch/image-classification/run_image_classification.py \
+  https://raw.githubusercontent.com/huggingface/transformers/v5.10.0/examples/pytorch/image-classification/run_image_classification.py \
   --model_name_or_path google/vit-base-patch16-224-in21k \
   --dataset_name ethz/food101 \
   --do_train --do_eval \
@@ -54,7 +54,7 @@ Before you remove the caps, a few checks save a wasted run.
 - **Check the data fits.** Each flavor has a fixed disk, listed in the Ephemeral Storage column on [Pricing and Billing](./jobs-pricing#pricing). Weights, dataset and saved checkpoints share it. A dataset too big for the disk can be streamed or mounted instead of downloaded. See [Process Large Datasets](./jobs-large-datasets).
 - **Estimate the run time.** The smoke test's final `train_*` metrics include `train_steps_per_second`, and the trainer prints the total step count when it starts. Together they give the full run's training time. Set `--timeout` comfortably above it, since the Job also spends time installing dependencies and downloading the model. Rates per flavor are on [Pricing and Billing](./jobs-pricing).
 - **On a multi-GPU flavor, start one process per GPU.** Flavors ending in `x2`, `x4` or `x8` give several GPUs on one machine. Make sure the way you launch uses them. Transformers and TRL need `accelerate launch`, as the TRL section shows. Axolotl does it by itself. A plain `python train.py` uses one GPU, and a `Trainer` falls back to `DataParallel`, which is slower than one process per GPU.
-- **Pin if you will rerun.** Pin a script URL to a commit instead of `main`, and an image to a specific tag instead of `latest`. A rerun then gets the same software. The script URLs below track `main`, so pin the commit before you rerun one.
+- **Pin if you will rerun.** Pin a script URL to a commit instead of `main`, and an image to a specific tag instead of `latest`. A rerun then gets the same software. Most script URLs below track `main`, so pin the commit before you rerun one.
 - **Checkpoint long runs** to a mounted bucket, so a timeout or a crash does not lose the run. See [After it ends](#after-it-ends).
 
 ## While it runs
@@ -85,7 +85,7 @@ Transformers, TRL and Diffusers scripts take `--output_dir`. Axolotl takes `outp
 
 ## Transformers
 
-The [example scripts](https://github.com/huggingface/transformers/tree/main/examples/pytorch) in the Transformers repository declare their dependencies in a script header, so they run on Jobs straight from their GitHub URL. Arguments after the URL go to the script. [A first run](#a-first-run) uses the image-classification script.
+The [example scripts](https://github.com/huggingface/transformers/tree/v5.10.0/examples/pytorch) in the Transformers repository declare their dependencies in a script header, so they run on Jobs straight from their GitHub URL. They were removed from the `main` branch after v5.10.0, so the commands on this page use the `v5.10.0` tag. Arguments after the URL go to the script. [A first run](#a-first-run) uses the image-classification script.
 
 For the full run, drop `--max_train_samples 2000 --max_eval_samples 500 --num_train_epochs 1` from that command: three epochs over the 75,000 Food-101 training images take about an hour on `a10g-small`, around $1 at that flavor's rate, and reach 90% accuracy. Raise `--timeout` to `2h` before you launch it. `--push_to_hub` uploads the model under your namespace using the output directory name. Scripts exist for text classification, summarization, translation, token classification, speech recognition and more.
 
